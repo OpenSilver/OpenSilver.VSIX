@@ -3,8 +3,12 @@
         <Name>OpenSilver Application (Visual Basic)</Name>
         <Description>A blank project for creating a rich internet application using OpenSilver. OpenSilver is an open-source reimplementation of Silverlight that runs on current browsers via WebAssembly.</Description>
         <Icon>Icon.ico</Icon>
-        <ProjectType>VisualBasic</ProjectType>
-        <LanguageTag>Visual Basic</LanguageTag>
+        <ProjectType>visualbasic</ProjectType>
+        <LanguageTag>visualbasic</LanguageTag>
+        <LanguageTag>xaml</LanguageTag>
+        <ProjectTypeTag>web</ProjectTypeTag>
+        <ProjectTypeTag>blazor</ProjectTypeTag>
+        <ProjectTypeTag>OpenSilver</ProjectTypeTag>  
         <SortOrder>50</SortOrder>
         <CreateNewFolder>true</CreateNewFolder>
         <DefaultName>OpenSilverApplication</DefaultName>
