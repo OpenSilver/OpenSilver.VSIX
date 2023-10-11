@@ -3,8 +3,13 @@
         <Name>OpenSilver Class Library</Name>
         <Description>A project for creating an OpenSilver class library.</Description>
         <Icon>Icon.ico</Icon>
-        <ProjectType>CSharp</ProjectType>
-        <LanguageTag>C#</LanguageTag>
+        <ProjectType>csharp</ProjectType>
+        <LanguageTag>csharp</LanguageTag>
+        <LanguageTag>xaml</LanguageTag>
+        <ProjectTypeTag>web</ProjectTypeTag>
+        <ProjectTypeTag>blazor</ProjectTypeTag>
+        <ProjectTypeTag>OpenSilver</ProjectTypeTag>
+        <ProjectTypeTag>library</ProjectTypeTag>
         <SortOrder>20</SortOrder>
         <CreateNewFolder>true</CreateNewFolder>
         <DefaultName>OpenSilverClassLibrary</DefaultName>
