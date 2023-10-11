@@ -158,6 +158,20 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
+    <ProjectReference Include="..\OpenSilverBusinessApplicationTemplate\OpenSilverBusinessApplicationTemplate.csproj">
+      <Project>{2C08DC2A-D56C-4337-900B-B8C2C538C6DB}</Project>
+      <Name>OpenSilverBusinessApplicationTemplate</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenSilverBusinessVBApplicationTemplate\OpenSilverBusinessVBApplicationTemplate.csproj">
+      <Project>{541A83F4-4CE2-4880-8BD3-2A9C98FA6162}</Project>
+      <Name>OpenSilverBusinessVBApplicationTemplate</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
     <ProjectReference Include="..\OpenSilverUwpApplicationTemplate\OpenSilverUwpApplicationTemplate.csproj">
       <Project>{EA54D27B-8FFC-47DC-A7C1-7F6CB316BDBC}</Project>
       <Name>OpenSilverUwpApplicationTemplate</Name>
