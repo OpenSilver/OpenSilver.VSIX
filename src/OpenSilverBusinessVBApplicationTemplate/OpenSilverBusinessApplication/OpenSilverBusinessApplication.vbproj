@@ -21,10 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenSilver" Version="1.2.0-preview-2023-10-09-144917-0da7bd0a" />
-    <PackageReference Include="OpenSilver.OpenRiaServices.Client.4.6" Version="1.2.0-preview-2023-10-07-091717-9aa8961a" />
-    <PackageReference Include="OpenSilver.OpenRiaServices.Client.Core.4.6" Version="1.2.0-preview-2023-10-07-091717-9aa8961a" />
-    <PackageReference Include="OpenSilver.OpenRiaServices.CodeGen.4.6" Version="1.2.0-preview-2023-10-07-091717-9aa8961a">
+    <PackageReference Include="OpenSilver" Version="$ext_opensilverpackageversion$" />
+    <PackageReference Include="OpenSilver.OpenRiaServices.Client.4.6" Version="$ext_openria46packageversion$" />
+    <PackageReference Include="OpenSilver.OpenRiaServices.Client.Core.4.6" Version="$ext_openria46packageversion$" />
+    <PackageReference Include="OpenSilver.OpenRiaServices.CodeGen.4.6" Version="$ext_openria46packageversion$">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
