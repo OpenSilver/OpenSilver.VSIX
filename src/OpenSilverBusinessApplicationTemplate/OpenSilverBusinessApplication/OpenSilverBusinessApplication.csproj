@@ -69,10 +69,10 @@
     <Content Include="Views\Login\RegistrationForm.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Content>
-    <PackageReference Include="OpenSilver" Version="1.2.2" />
-    <PackageReference Include="OpenSilver.OpenRiaServices.Client.4.6" Version="1.2.0" />
-    <PackageReference Include="OpenSilver.OpenRiaServices.Client.Core.4.6" Version="1.2.0" />
-    <PackageReference Include="OpenSilver.OpenRiaServices.CodeGen.4.6" Version="1.2.0">
+    <PackageReference Include="OpenSilver" Version="$ext_opensilverpackageversion$" />
+    <PackageReference Include="OpenSilver.OpenRiaServices.Client.4.6" Version="$ext_openria46packageversion$" />
+    <PackageReference Include="OpenSilver.OpenRiaServices.Client.Core.4.6" Version="$ext_openria46packageversion$" />
+    <PackageReference Include="OpenSilver.OpenRiaServices.CodeGen.4.6" Version="$ext_openria46packageversion$">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
