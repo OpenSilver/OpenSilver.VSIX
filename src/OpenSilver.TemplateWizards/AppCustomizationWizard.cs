@@ -128,15 +128,15 @@ namespace OpenSilver.TemplateWizards
                         break;
                     case BlazorVersion.Net7:
                         replacementsDictionary.Add("$blazortargetframework$", "net7.0");
-                        replacementsDictionary.Add("$blazorpackagesversion$", "7.0.*");
+                        replacementsDictionary.Add("$blazorpackagesversion$", "7.0.0");
                         break;
                 }
 
                 CopyNugetConfig(replacementsDictionary);
             }
 
-            replacementsDictionary.Add("$opensilverpackageversion$", "1.2.0-preview-2023-10-11-215557-9d591c22");
-            replacementsDictionary.Add("$openria46packageversion$", "1.2.0-preview-2023-10-12-061536-9aa8961a");
+            replacementsDictionary.Add("$opensilverpackageversion$", "2.0.0");
+            replacementsDictionary.Add("$openria46packageversion$", "2.0.0");
         }
 
         public bool ShouldAddProjectItem(string filePath)
