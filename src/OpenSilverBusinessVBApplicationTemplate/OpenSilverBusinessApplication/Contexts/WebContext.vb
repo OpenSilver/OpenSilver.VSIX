@@ -1,6 +1,6 @@
 ﻿Imports OpenRiaServices.DomainServices.Client.ApplicationServices
 
-Namespace $ext_safeprojectname$.Web
+Namespace Web
 
     ''' <summary>
     ''' Context for the RIA application.

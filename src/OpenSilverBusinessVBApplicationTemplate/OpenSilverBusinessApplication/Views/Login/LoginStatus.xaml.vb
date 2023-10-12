@@ -5,7 +5,7 @@ Imports System.Windows.Controls
 Imports OpenRiaServices.DomainServices.Client.ApplicationServices
 Imports $ext_safeprojectname$.Web
 
-Namespace $ext_safeprojectname$.LoginUI
+Namespace LoginUI
 
     ''' <summary>
     ''' <see cref="UserControl"/> class that shows the current login status And allows login And logout.

@@ -3,7 +3,7 @@ Imports System.Windows
 Imports System.Windows.Controls
 Imports OpenRiaServices.DomainServices.Client
 
-Namespace $ext_safeprojectname$.LoginUI
+Namespace LoginUI
 
     ''' <summary>
     ''' <see cref="ChildWindow"/> class that controls the registration process.

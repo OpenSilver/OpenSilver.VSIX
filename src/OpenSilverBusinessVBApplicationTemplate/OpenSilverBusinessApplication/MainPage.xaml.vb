@@ -3,39 +3,35 @@ Imports System.Windows.Controls
 Imports System.Windows.Navigation
 Imports $ext_safeprojectname$.Web
 
-Namespace $ext_safeprojectname$
-
     Partial Public Class MainPage
-        Inherits UserControl
+    Inherits UserControl
 
-        Public Sub New()
-            InitializeComponent()
-        End Sub
+    Public Sub New()
+        InitializeComponent()
+    End Sub
 
-        Private Sub ContentFrame_Navigated(sender As Object, e As NavigationEventArgs)
+    Private Sub ContentFrame_Navigated(sender As Object, e As NavigationEventArgs)
 
-            For Each child As UIElement In LinksStackPanel.Children
+        For Each child As UIElement In LinksStackPanel.Children
 
-                Dim hb As HyperlinkButton = TryCast(child, HyperlinkButton)
-                If hb IsNot Nothing AndAlso hb.NavigateUri IsNot Nothing Then
+            Dim hb As HyperlinkButton = TryCast(child, HyperlinkButton)
+            If hb IsNot Nothing AndAlso hb.NavigateUri IsNot Nothing Then
 
-                    If hb.NavigateUri.ToString().Equals(e.Uri.ToString()) Then
-                        VisualStateManager.GoToState(hb, "ActiveLink", True)
-                    Else
-                        VisualStateManager.GoToState(hb, "InactiveLink", True)
-                    End If
-
+                If hb.NavigateUri.ToString().Equals(e.Uri.ToString()) Then
+                    VisualStateManager.GoToState(hb, "ActiveLink", True)
+                Else
+                    VisualStateManager.GoToState(hb, "InactiveLink", True)
                 End If
 
-            Next
+            End If
 
-        End Sub
+        Next
 
-        Private Sub ContentFrame_NavigationFailed(sender As Object, e As NavigationFailedEventArgs)
-            e.Handled = True
-            ErrorWindow.Show(e.Uri)
-        End Sub
+    End Sub
 
-    End Class
+    Private Sub ContentFrame_NavigationFailed(sender As Object, e As NavigationFailedEventArgs)
+        e.Handled = True
+        ErrorWindow.Show(e.Uri)
+    End Sub
 
-End Namespace
+End Class

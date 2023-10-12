@@ -1,4 +1,4 @@
-﻿Namespace $ext_safeprojectname$.Controls
+﻿Namespace Controls
 
     ''' <summary>
     ''' Names and helpers for visual states in the controls.

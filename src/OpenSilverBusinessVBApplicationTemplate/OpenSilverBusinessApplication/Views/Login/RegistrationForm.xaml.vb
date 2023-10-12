@@ -6,7 +6,7 @@ Imports OpenRiaServices.DomainServices.Client
 Imports OpenRiaServices.DomainServices.Client.ApplicationServices
 Imports $ext_safeprojectname$.Web
 
-Namespace $ext_safeprojectname$.LoginUI
+Namespace LoginUI
 
     ''' <summary>
     ''' Form that presents the <see cref="RegistrationData"/> and performs the registration process.
@@ -51,7 +51,7 @@ Namespace $ext_safeprojectname$.LoginUI
                     AddHandler Me.userNameTextBox.LostFocus, AddressOf Me.UserNameLostFocus
                 Case "Password"
                     Dim passwordBox As PasswordBox = New PasswordBox()
-                    e.Field.ReplaceTextBox(passwordBox, PasswordBox.PasswordProperty)
+                    e.Field.ReplaceTextBox(passwordBox, passwordBox.PasswordProperty)
                     Me.registrationData.PasswordAccessor = Function() passwordBox.Password
                 Case "PasswordConfirmation"
                     Dim passwordConfirmationBox As PasswordBox = New PasswordBox()

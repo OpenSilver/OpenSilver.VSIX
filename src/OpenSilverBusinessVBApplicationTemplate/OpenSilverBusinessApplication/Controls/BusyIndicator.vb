@@ -3,7 +3,7 @@ Imports System.Windows.Controls
 Imports System.Windows.Shapes
 Imports System.Windows.Threading
 
-Namespace $ext_safeprojectname$.Controls
+Namespace Controls
 
     ''' <summary>
     ''' A control to provide a visual indicator when an application is busy.

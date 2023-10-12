@@ -2,7 +2,7 @@
 Imports OpenRiaServices.DomainServices.Client
 Imports OpenRiaServices.DomainServices.Client.ApplicationServices
 
-Namespace $ext_safeprojectname$.Web
+Namespace Web
 
     ''' <summary>
     ''' Extensions to provide client side custom validation and data binding to <see cref="RegistrationData"/>.

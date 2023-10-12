@@ -5,7 +5,7 @@ Imports System.Windows.Input
 Imports OpenRiaServices.DomainServices.Client.ApplicationServices
 Imports $ext_safeprojectname$.Web
 
-Namespace $ext_safeprojectname$.LoginUI
+Namespace LoginUI
 
     ''' <summary>
     ''' Form that presents the login fields And handles the login process.

@@ -1,6 +1,6 @@
 ﻿Imports System.ComponentModel
 
-Namespace $ext_safeprojectname$.Web
+Namespace Web
 
     ''' <summary>
     ''' Extensions to the <see cref="User"/> class.

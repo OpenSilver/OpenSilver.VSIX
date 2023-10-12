@@ -1,11 +1,6 @@
-﻿#if OPENSILVER
-
-using OpenRiaServices.DomainServices.Client;
+﻿using OpenRiaServices.DomainServices.Client;
 using OpenRiaServices.DomainServices.Client.ApplicationServices;
 using $ext_safeprojectname$.Web;
-
-#endif
-
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,9 +21,7 @@ namespace $ext_safeprojectname$
             //webContext.Authentication = new WindowsAuthentication();
             this.ApplicationLifetimeObjects.Add(webContext);
 
-#if OPENSILVER
             ((DomainClientFactory)DomainContext.DomainClientFactory).ServerBaseUri = new Uri("http://localhost:54837/");
-#endif
         }
 
         private void Application_Startup(object sender, StartupEventArgs e)

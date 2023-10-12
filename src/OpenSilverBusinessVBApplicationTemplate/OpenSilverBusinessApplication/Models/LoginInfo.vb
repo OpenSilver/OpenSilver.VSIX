@@ -2,7 +2,7 @@
 Imports OpenRiaServices.DomainServices.Client
 Imports OpenRiaServices.DomainServices.Client.ApplicationServices
 
-Namespace $ext_safeprojectname$.LoginUI
+Namespace LoginUI
 
     ''' <summary>
     ''' This internal entity is used to ease the binding between the UI controls (DataForm and the label displaying a validation error) and the log on credentials entered by the user.
