@@ -1,6 +1,6 @@
 <VSTemplate xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Version="3.0.0" Type="ProjectGroup">
     <TemplateData>
-        <Name>OpenSilver Business Application (RIA Services)</Name>
+        <Name>OpenSilver Business Application (RIA Services) (VB)</Name>
         <Description>OpenSilver line-of-business application using Open RIA Services (client/server)</Description>
         <Icon>__TemplateIcon.ico</Icon>
         <DefaultName>OpenSilverBusinessApplication</DefaultName>

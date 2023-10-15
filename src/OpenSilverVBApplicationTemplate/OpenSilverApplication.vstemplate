@@ -1,6 +1,6 @@
 <VSTemplate Version="3.0.0" Type="ProjectGroup" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
     <TemplateData>
-        <Name>OpenSilver Application</Name>
+        <Name>OpenSilver Application (VB)</Name>
         <Description>A blank project for creating a rich internet application using OpenSilver. OpenSilver is an open-source reimplementation of Silverlight that runs on current browsers via WebAssembly.</Description>
         <Icon>Icon.ico</Icon>
         <ProjectType>visualbasic</ProjectType>

@@ -1,6 +1,6 @@
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
     <TemplateData>
-        <Name>OpenSilver Class Library</Name>
+        <Name>OpenSilver Class Library (VB)</Name>
         <Description>A project for creating an OpenSilver class library.</Description>
         <Icon>Icon.ico</Icon>
         <ProjectType>visualbasic</ProjectType>
