@@ -9,7 +9,7 @@
         <ProjectTypeTag>web</ProjectTypeTag>
         <ProjectTypeTag>blazor</ProjectTypeTag>
         <ProjectTypeTag>OpenSilver</ProjectTypeTag>  
-        <SortOrder>50</SortOrder>
+        <SortOrder>14</SortOrder>
         <CreateNewFolder>true</CreateNewFolder>
         <DefaultName>OpenSilverApplication</DefaultName>
         <ProvideDefaultName>true</ProvideDefaultName>

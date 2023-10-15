@@ -10,7 +10,7 @@
         <ProjectTypeTag>blazor</ProjectTypeTag>
         <ProjectTypeTag>OpenSilver</ProjectTypeTag>
         <ProjectTypeTag>library</ProjectTypeTag>  
-        <SortOrder>20</SortOrder>
+        <SortOrder>22</SortOrder>
         <CreateNewFolder>true</CreateNewFolder>
         <DefaultName>OpenSilverClassLibrary</DefaultName>
         <ProvideDefaultName>true</ProvideDefaultName>

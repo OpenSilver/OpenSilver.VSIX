@@ -13,7 +13,8 @@
         <ProjectTypeTag>web</ProjectTypeTag>
         <ProjectTypeTag>blazor</ProjectTypeTag>
         <ProjectTypeTag>OpenSilver</ProjectTypeTag>
-    </TemplateData>
+		<SortOrder>16</SortOrder>
+	</TemplateData>
     <TemplateContent>
         <ProjectCollection>
             <ProjectTemplateLink CopyParameters="true" ProjectName="$safeprojectname$">OpenSilverBusinessApplication\OpenSilverBusinessApplication.vstemplate</ProjectTemplateLink>
