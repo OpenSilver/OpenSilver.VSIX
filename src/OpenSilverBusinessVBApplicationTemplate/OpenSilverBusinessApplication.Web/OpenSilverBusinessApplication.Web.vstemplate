@@ -23,7 +23,8 @@
         <ProjectItem ReplaceParameters="true" TargetFileName="AuthenticationService.vb">AuthenticationService.vb</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="UserRegistrationService.vb">UserRegistrationService.vb</ProjectItem>
       </Folder>
-      <ProjectItem ReplaceParameters="false" TargetFileName="packages.config">packages.config</ProjectItem>      
+      <ProjectItem ReplaceParameters="false" TargetFileName="OpenSilver_Logo.png">OpenSilver_Logo.png</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="packages.config">packages.config</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="Global.asax">Global.asax</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="Global.asax.vb">Global.asax.vb</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="Default.aspx">Default.aspx</ProjectItem>
