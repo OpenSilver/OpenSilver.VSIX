@@ -10,7 +10,7 @@ namespace OpenSilver.XamlDesigner
     [PackageRegistration(UseManagedResourcesOnly = true)]
 
     // This attribute is used to register the information needed to show this package in the Help/About dialog of Visual Studio:
-    [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)]
+    [InstalledProductRegistration("#113", "#112", "1.0")]
 
     // This attribute is needed to let the shell know that this package exposes some menus:
     [ProvideMenuResource("Menus.ctmenu", 1)]
@@ -19,7 +19,7 @@ namespace OpenSilver.XamlDesigner
     [ProvideEditorExtension(typeof(EditorFactoryOpenSilver), BaseEditorFactory.Extension, 2300, NameResourceID = 113)]
 
     // Key binding table:
-    [ProvideKeyBindingTable(GuidList.guidEditorFactoryString, 102)]
+    [ProvideKeyBindingTable(GuidList.guidEditorFactoryString, 113)]
 
     // We register that our editor supports LOGVIEWID_Designer logical view:
     [ProvideEditorLogicalView(typeof(EditorFactoryOpenSilver), LogicalViewID.Designer)]

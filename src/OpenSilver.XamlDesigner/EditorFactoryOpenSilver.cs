@@ -12,8 +12,9 @@ namespace OpenSilver.XamlDesigner
     {
         private const string OpenSilver = "OpenSilver";
         private const string XRSharp = "XRSharp";
+        private const string XamlForBlazor = "XamlForBlazor";
 
-        public EditorFactoryOpenSilver(Package package) : base(package)
+        public EditorFactoryOpenSilver(Package package) : base(package, new ProductConfig())
         {
         }
 
@@ -23,8 +24,9 @@ namespace OpenSilver.XamlDesigner
         {
             var hasOpenSilverReference = project.FindReferencePath(OpenSilver) != null;
             var hasXrSharpReference = project.FindReferencePath(XRSharp) != null;
+            var hasXamlForBlazorReference = project.FindReferencePath(XamlForBlazor) != null;
 
-            return !hasXrSharpReference && hasOpenSilverReference;
+            return !hasXrSharpReference && !hasXamlForBlazorReference && hasOpenSilverReference;
         }
     }
 }
