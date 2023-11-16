@@ -26,6 +26,8 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
                         return BlazorVersion.Net6;
                     case 1:
                         return BlazorVersion.Net7;
+                    case 2:
+                        return BlazorVersion.Net8;
                     default:
                         throw new InvalidOperationException("Error retrieving selected blazor version");
                 }
