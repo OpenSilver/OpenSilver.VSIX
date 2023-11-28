@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Userware",
+  "classifications": [ "common", "library", "VB", "opensilver", "xaml" ],
+  "identity": "OpensilverApplicationVB",
+  "groupIdentity": "OpenSilverApplication",
+  "name": "Opensilver web application",
+  "shortName": "opensilverapp",
+  "tags": {
+    "language": "VB",
+    "type": "solution"
+  },
+  "sourceName": "OpenSilverApplicationVB",
+  "primaryOutputs": [
+    { "path": "./OpenSilverApplicationVB/OpenSilverApplicationVB.csproj" },
+    { "path": "./OpenSilverApplicationVB.Browser/OpenSilverApplicationVB.Browser.csproj" },
+    { "path": "./OpenSilverApplicationVB.Simulator/OpenSilverApplicationVB.Simulator.csproj" }
+  ],
+  "symbols": {
+    "skipRestore": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "If specified, skips the automatic restore of the project on create.",
+      "defaultValue": "false"
+    },
+    "targetFramework": {
+      "type": "parameter",
+      "datatype": "string",
+      "description": "If specified, sets the target .net framework, valid values are net6.0, net7.0 and net8.0",
+      "defaultValue": "net7.0",
+      "replaces": "net7.0"
+    }
+  },
+  "postActions": [
+    {
+      "condition": "(!skipRestore)",
+      "description": "Restore NuGet packages required by this project.",
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet restore'"
+        }
+      ],
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "continueOnError": true,
+      "args": {
+        "files": [
+          "./OpenSilverApplicationVB/OpenSilverApplicationVB.csproj",
+          "./OpenSilverApplicationVB.Simulator/OpenSilverApplicationVB.Simulator.csproj"
+        ]
+      }
+    }
+  ]
+}
