@@ -55,75 +55,51 @@
     <Content Include="Logo_32x32.png">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="ItemTemplates\CSharp\OpenSilver %28Silverlight Compatible%29\ChildWindow.zip">
+    <Content Include="ItemTemplates\CSharp\OpenSilver\ChildWindow.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="ItemTemplates\CSharp\OpenSilver %28Silverlight Compatible%29\Class.zip">
+    <Content Include="ItemTemplates\CSharp\OpenSilver\Class.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="ItemTemplates\CSharp\OpenSilver %28Silverlight Compatible%29\Page.zip">
+    <Content Include="ItemTemplates\CSharp\OpenSilver\Page.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="ItemTemplates\CSharp\OpenSilver %28Silverlight Compatible%29\Resource.zip">
+    <Content Include="ItemTemplates\CSharp\OpenSilver\Resource.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="ItemTemplates\CSharp\OpenSilver %28Silverlight Compatible%29\UserControl.zip">
+    <Content Include="ItemTemplates\CSharp\OpenSilver\UserControl.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="ItemTemplates\CSharp\OpenSilver %28Silverlight Compatible%29\XamlResourceDictionary.zip">
+    <Content Include="ItemTemplates\CSharp\OpenSilver\XamlResourceDictionary.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="ItemTemplates\CSharp\OpenSilver %28UWP Compatible%29\ChildWindow.zip">
+    <Content Include="ItemTemplates\VisualBasic\OpenSilver\ChildWindow.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="ItemTemplates\CSharp\OpenSilver %28UWP Compatible%29\Class.zip">
+    <Content Include="ItemTemplates\VisualBasic\OpenSilver\Class.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="ItemTemplates\CSharp\OpenSilver %28UWP Compatible%29\Page.zip">
+    <Content Include="ItemTemplates\VisualBasic\OpenSilver\Page.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="ItemTemplates\CSharp\OpenSilver %28UWP Compatible%29\Resource.zip">
+    <Content Include="ItemTemplates\VisualBasic\OpenSilver\Resource.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="ItemTemplates\CSharp\OpenSilver %28UWP Compatible%29\UserControl.zip">
+    <Content Include="ItemTemplates\VisualBasic\OpenSilver\UserControl.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="ItemTemplates\CSharp\OpenSilver %28UWP Compatible%29\XamlResourceDictionary.zip">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="ItemTemplates\VisualBasic\OpenSilver %28Silverlight Compatible%29\ChildWindow.zip">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="ItemTemplates\VisualBasic\OpenSilver %28Silverlight Compatible%29\Class.zip">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="ItemTemplates\VisualBasic\OpenSilver %28Silverlight Compatible%29\Page.zip">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="ItemTemplates\VisualBasic\OpenSilver %28Silverlight Compatible%29\Resource.zip">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="ItemTemplates\VisualBasic\OpenSilver %28Silverlight Compatible%29\UserControl.zip">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="ItemTemplates\VisualBasic\OpenSilver %28Silverlight Compatible%29\XamlResourceDictionary.zip">
+    <Content Include="ItemTemplates\VisualBasic\OpenSilver\XamlResourceDictionary.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
