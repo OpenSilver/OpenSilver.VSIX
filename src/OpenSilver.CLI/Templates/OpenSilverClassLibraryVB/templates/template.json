@@ -1,11 +1,11 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "Userware",
-  "classifications": [ "common", "library", "opensilver", "xaml" ],
+  "classifications": [ "common", "opensilver", "xaml", "VB", "C#", "Class Library" ],
   "identity": "OpensilverClassLibraryVB",
   "groupIdentity": "OpenSilverClassLibrary",
   "name": "Opensilver class library",
-  "shortName": "opensilvercl",
+  "shortName": "opensilverlib",
   "tags": {
     "language": "VB",
     "type": "solution"
