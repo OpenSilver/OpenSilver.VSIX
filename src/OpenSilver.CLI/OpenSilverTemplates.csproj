@@ -1,22 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <PackageType>Template</PackageType>
-    <PackageVersion>1.0</PackageVersion>
-    <PackageId>OpenSilver.CLI.Templates</PackageId>
-    <Title>Opensilver CLI templates</Title>
-    <Authors>Userware</Authors>
-    <Description>Project Template that creates new OpenSilver projects from the .net CLI.</Description>
     <TargetFramework>netstandard2.0</TargetFramework>
-
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <ContentTargetFolders>content</ContentTargetFolders>
+    <EnableDefaultItems>false</EnableDefaultItems>
   </PropertyGroup>
-  <PropertyGroup>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageOutputPath>./nupkg</PackageOutputPath>    
 
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <PackageVersion>1.0.0</PackageVersion>
+    <PackageId>OpenSilver.Templates</PackageId>
+    <Title>Opensilver CLI templates</Title>
+    <Authors>Userware</Authors>
+    <Description>Project Template that creates new OpenSilver projects from the .net CLI.</Description>
     <PackageTags>opensilver;xml,html,xaml,c#,vb,uwp</PackageTags>
     <PackageCopyright>Copyright (c) 2023 Userware</PackageCopyright>
     <PackageIcon>icon.png</PackageIcon>
@@ -24,8 +24,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" />
-    <Compile Remove="**\*" />
+    <Content Include="C#\**\*" />
+    <Content Include="VB\**\*" />
   </ItemGroup>
 
   <ItemGroup>
