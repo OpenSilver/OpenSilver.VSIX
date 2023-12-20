@@ -24,6 +24,9 @@ jobs:
         run: |
           $version = "${{ github.event.inputs.vsix-version }}"
           echo "Version: $version"
+      - name: Print Visual Studio versions
+        run: |
+          "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe" -property catalog_productDisplayVersion
       - name: Install Visual Studio Build Tools
         run: |
           Install-Module -Scope CurrentUser -Force -Name VisualStudioInstaller
