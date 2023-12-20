@@ -26,6 +26,7 @@ jobs:
           echo "Version: $version"
       - name: Build solution
         run: |
+          nuget restore ${{ env.solution-vsix }}
           msbuild ${{ env.solution-vsix }} -p:Configuration=Release -clp:ErrorsOnly -restore
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
