@@ -1,6 +1,7 @@
 name: OpenSilver.VSIX Build
 env:
   solution-vsix: 'src/VSExtension.OpenSilver.sln'
+  vsix-manifest: 'src/OpenSilver.VSIX/source.extension.vsixmanifest'
 on:
   # We run the process manually and pass the version
   workflow_dispatch:
@@ -9,6 +10,9 @@ on:
         description: 'VSIX version'
         default: ''
         required: true
+  push:
+    branches:
+      - build-pipeline
 jobs:
   VSIX-Build:
     runs-on: windows-latest
@@ -24,3 +28,32 @@ jobs:
         run: |
           $version = "${{ github.event.inputs.vsix-version }}"
           echo "Version: $version"
+
+          if ($version -eq "") {
+            echo "Skipping updating version"
+          } else {
+            # Load the XML file
+            [xml]$xml = Get-Content '${{ env.vsix-manifest }}'
+
+            # Find the element and update the attribute
+            $element = $xml.SelectSingleNode('//Identity')
+            $element.SetAttribute('Version', $version)
+
+            # Save the changes
+            $xml.Save('${{ env.vsix-manifest }}')
+          }
+      - name: Fill vars
+        id: vars
+        run: |
+          echo "artifacts-name=OpenSilver-VSIX-${{ github.event.inputs.vsix-version }}-$(date +'%Y-%m-%d-%H%M%S')-${{ env.GITHUB_SHA_SHORT }}" >> $env:GITHUB_OUTPUT
+      - name: Restore packages
+        run: |
+          nuget restore ${{ env.solution-vsix }}
+      - name: Build solution
+        run: |
+          msbuild ${{ env.solution-vsix }} -p:Configuration=Release -restore
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ steps.vars.outputs.artifacts-name }}
+          path: "src/OpenSilver.VSIX/bin/OpenSilver/Release/OpenSilver.vsix"
