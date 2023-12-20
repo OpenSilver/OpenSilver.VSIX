@@ -24,6 +24,19 @@ jobs:
         run: |
           $version = "${{ github.event.inputs.vsix-version }}"
           echo "Version: $version"
+      - name: Install Visual Studio Build Tools
+        run: |
+          Install-Module -Scope CurrentUser -Force -Name VisualStudioInstaller
+          Import-Module -Name VisualStudioInstaller
+          Install-VisualStudio `
+            -PackageName 'VisualStudio' `
+            -ApplicationName 'Visual Studio Community 2019' `
+            -Version '17.8' `
+            -Channel 'Release' `
+            -Product 'Community' `
+            -IncludeRecommended `
+            -PassThru `
+            -Confirm:$false
       - name: Restore packages
         run: |
           nuget restore ${{ env.solution-vsix }}
