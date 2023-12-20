@@ -24,9 +24,11 @@ jobs:
         run: |
           $version = "${{ github.event.inputs.vsix-version }}"
           echo "Version: $version"
-      - name: Build solution
+      - name: Restore packages
         run: |
           nuget restore ${{ env.solution-vsix }}
+      - name: Build solution
+        run: |
           msbuild ${{ env.solution-vsix }} -p:Configuration=Release -clp:ErrorsOnly -restore
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
