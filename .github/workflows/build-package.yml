@@ -30,7 +30,7 @@ jobs:
           Import-Module -Name VisualStudioInstaller
           Install-VisualStudio `
             -PackageName 'VisualStudio' `
-            -ApplicationName 'Visual Studio Community 2019' `
+            -ApplicationName 'Visual Studio Community 2022' `
             -Version '17.8' `
             -Channel 'Release' `
             -Product 'Community' `
