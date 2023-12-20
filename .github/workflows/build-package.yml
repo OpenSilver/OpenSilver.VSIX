@@ -1,0 +1,26 @@
+name: OpenSilver.VSIX Build
+env:
+  solution-vsix: 'src/VSExtension.OpenSilver.sln'
+on:
+  # We run the process manually and pass the version
+  workflow_dispatch:
+    inputs:
+      vsix-version:
+        description: 'VSIX version'
+        default: ''
+        required: true
+jobs:
+  VSIX-Build:
+    runs-on: windows-latest
+    steps:
+      - uses: microsoft/setup-msbuild@v1.0.3
+      - name: Inject slug/short variables
+        uses: rlespinasse/github-slug-action@v3.x
+      - name: Clone repo
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+      - name: Update Version
+        run: |
+          $version = "${{ github.event.inputs.vsix-version }}"
+          echo "Version: $version"
