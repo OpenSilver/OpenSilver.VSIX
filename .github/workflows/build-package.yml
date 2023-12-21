@@ -1,6 +1,7 @@
 name: OpenSilver.VSIX Build
 env:
   solution-vsix: 'src/VSExtension.OpenSilver.sln'
+  vsix-manifest: 'src/OpenSilver.VSIX/source.extension.vsixmanifest'
 on:
   # We run the process manually and pass the version
   workflow_dispatch:
@@ -9,18 +10,61 @@ on:
         description: 'VSIX version'
         default: ''
         required: true
+  # Also we run on PR to validate that we can build VSIX
+  pull_request:
+    branches:
+      - master
 jobs:
   VSIX-Build:
+    #We should not run these steps on the forks by default.
+    if: github.repository_owner == 'OpenSilver'
     runs-on: windows-latest
     steps:
-      - uses: microsoft/setup-msbuild@v1.0.3
+      - uses: microsoft/setup-msbuild@v1.1
       - name: Inject slug/short variables
         uses: rlespinasse/github-slug-action@v3.x
       - name: Clone repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
-      - name: Update Version
+      - name: Handle Version
+        id: version
         run: |
           $version = "${{ github.event.inputs.vsix-version }}"
           echo "Version: $version"
+
+          # Load the XML file
+          [xml]$xml = Get-Content '${{ env.vsix-manifest }}'
+
+          $ns = New-Object System.Xml.XmlNamespaceManager($xml.NameTable)
+          $ns.AddNamespace('prefix', 'http://schemas.microsoft.com/developer/vsx-schema/2011')
+
+          # Find the element and update the attribute
+          $element = $xml.SelectSingleNode('//prefix:Identity', $ns)
+
+          if ($version -eq "") {
+            $version = $element.GetAttribute('Version')
+          } else {
+            $element.SetAttribute('Version', $version)
+
+            # Save the changes
+            $xml.Save('${{ env.vsix-manifest }}')
+          }
+
+          echo "version=$version" >> $env:GITHUB_OUTPUT
+      - name: Fill vars
+        id: vars
+        run: |
+          echo "artifacts-name=OpenSilver-VSIX-${{ steps.version.outputs.version }}-$(date +'%Y-%m-%d-%H%M%S')-${{ env.GITHUB_SHA_SHORT }}" >> $env:GITHUB_OUTPUT
+      - name: Restore packages
+        run: |
+          nuget restore ${{ env.solution-vsix }}
+      - name: Build solution
+        run: |
+          msbuild ${{ env.solution-vsix }} -p:Configuration=Release -clp:ErrorsOnly -restore
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.vars.outputs.artifacts-name }}
+          path: "src/OpenSilver.VSIX/bin/OpenSilver/Release/OpenSilver.vsix"
+          retention-days: 7
