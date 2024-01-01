@@ -11,11 +11,6 @@
       <Folder Name="Contexts" TargetFolderName="Contexts">
         <ProjectItem ReplaceParameters="true" TargetFileName="WebContext.cs">WebContext.cs</ProjectItem>
       </Folder>
-      <Folder Name="Controls" TargetFolderName="Controls">
-        <ProjectItem ReplaceParameters="true" TargetFileName="BusyIndicator.cs">BusyIndicator.cs</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="BusyIndicator.xaml">BusyIndicator.xaml</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="VisualStates.cs">VisualStates.cs</ProjectItem>
-      </Folder>
       <Folder Name="Helpers" TargetFolderName="Helpers">
         <ProjectItem ReplaceParameters="true" TargetFileName="DataFieldExtensions.cs">DataFieldExtensions.cs</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="NotOperatorValueConverter.cs">NotOperatorValueConverter.cs</ProjectItem>

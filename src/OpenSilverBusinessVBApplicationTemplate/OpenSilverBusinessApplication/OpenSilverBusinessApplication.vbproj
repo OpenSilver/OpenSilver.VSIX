@@ -22,8 +22,6 @@
     <Compile Include="App.xaml.vb" />
     <Compile Include="MainPage.xaml.vb" />
     <Compile Include="Contexts\WebContext.vb" />
-    <Compile Include="Controls\BusyIndicator.vb" />
-    <Compile Include="Controls\VisualStates.vb" />
     <Compile Include="Helpers\DataFieldExtensions.vb" />
     <Compile Include="Helpers\NotOperatorValueConverter.vb" />
     <Compile Include="Helpers\TargetNullValueConverter.vb" />
@@ -47,9 +45,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Assets\Styles.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\BusyIndicator.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\About.xaml">
