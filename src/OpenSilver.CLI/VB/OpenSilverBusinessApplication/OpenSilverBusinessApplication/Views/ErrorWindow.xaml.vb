@@ -9,8 +9,8 @@ Partial Public Class ErrorWindow
         errorWindow.Show()
     End Sub
 
-    Public Overloads Shared Sub Show(uri As Uri)
-        Dim errorWindow = New ErrorWindow(uri)
+    Public Overloads Shared Sub Show(uri As Uri, Optional ex As Exception = Nothing)
+        Dim errorWindow = New ErrorWindow(uri, ex)
         errorWindow.Show()
     End Sub
 
@@ -19,17 +19,17 @@ Partial Public Class ErrorWindow
         errorWindow.Show()
     End Sub
 
-    Private Sub New(e As Exception)
+    Private Sub New(ex As Exception)
         InitializeComponent()
-        If e IsNot Nothing Then
-            ErrorTextBox.Text = e.Message + vbCrLf + vbCrLf + e.StackTrace
+        If ex IsNot Nothing Then
+            ErrorTextBox.Text = ex.ToString()
         End If
     End Sub
 
-    Private Sub New(uri As Uri)
+    Private Sub New(uri As Uri, Optional ex As Exception = Nothing)
         InitializeComponent()
         If uri IsNot Nothing Then
-            ErrorTextBox.Text = "Page not found: '" + uri.ToString() + "'"
+            ErrorTextBox.Text = $"Problem loading page '{uri}'{vbCrLf}{ex}"
         End If
     End Sub
 

@@ -50,11 +50,8 @@ namespace $ext_safeprojectname$
 
         private void Application_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)
         {
-            //if (!System.Diagnostics.Debugger.IsAttached)
-            //{
             e.Handled = true;
             ErrorWindow.Show(e.ExceptionObject);
-            //}
         }
     }
 }

@@ -31,7 +31,7 @@ Imports $ext_safeprojectname$.Web
 
     Private Sub ContentFrame_NavigationFailed(sender As Object, e As NavigationFailedEventArgs)
         e.Handled = True
-        ErrorWindow.Show(e.Uri)
+        ErrorWindow.Show(e.Uri, e.Exception)
     End Sub
 
 End Class

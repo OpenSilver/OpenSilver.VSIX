@@ -46,10 +46,8 @@ Partial Public Class App
 
     Private Sub Application_UnhandledException(sender As Object, e As ApplicationUnhandledExceptionEventArgs)
 
-        If Not System.Diagnostics.Debugger.IsAttached Then
-            e.Handled = True
-            ErrorWindow.Show(e.ExceptionObject)
-        End If
+        e.Handled = True
+        ErrorWindow.Show(e.ExceptionObject)
 
     End Sub
 

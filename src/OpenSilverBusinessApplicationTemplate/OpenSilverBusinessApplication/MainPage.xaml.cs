@@ -33,7 +33,7 @@ namespace $ext_safeprojectname$
         private void ContentFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
         {
             e.Handled = true;
-            ErrorWindow.Show(e.Uri);
+            ErrorWindow.Show(e.Uri, e.Exception);
         }
     }
 }

@@ -12,9 +12,9 @@ namespace $ext_safeprojectname$
             errorWindow.Show();
         }
 
-        public static void Show(Uri uri)
+        public static void Show(Uri uri, Exception ex = null)
         {
-            var errorWindow = new ErrorWindow(uri);
+            var errorWindow = new ErrorWindow(uri, ex);
             errorWindow.Show();
         }
 
@@ -24,21 +24,21 @@ namespace $ext_safeprojectname$
             errorWindow.Show();
         }
 
-        private ErrorWindow(Exception e)
+        private ErrorWindow(Exception ex)
         {
             InitializeComponent();
-            if (e != null)
+            if (ex != null)
             {
-                ErrorTextBox.Text = e.Message + Environment.NewLine + Environment.NewLine + e.StackTrace;
+                ErrorTextBox.Text = ex.ToString();
             }
         }
 
-        private ErrorWindow(Uri uri)
+        private ErrorWindow(Uri uri, Exception ex = null)
         {
             InitializeComponent();
             if (uri != null)
             {
-                ErrorTextBox.Text = "Page not found: \"" + uri.ToString() + "\"";
+                ErrorTextBox.Text = $"Problem loading page: '{uri}'{Environment.NewLine}{ex}";
             }
         }
 
