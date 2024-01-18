@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverBusinessApplicati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverBusinessVBApplicationTemplate", "OpenSilverBusinessVBApplicationTemplate\OpenSilverBusinessVBApplicationTemplate.csproj", "{541A83F4-4CE2-4880-8BD3-2A9C98FA6162}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverFSClassLibraryTemplate", "OpenSilverFSClassLibraryTemplate\OpenSilverFSClassLibraryTemplate.csproj", "{E32DE7C8-8CDB-4CD6-8ECE-DAEDE6D36787}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverFSApplicationTemplate", "OpenSilverFSApplicationTemplate\OpenSilverFSApplicationTemplate.csproj", "{80832FE2-EB71-4443-B582-61CF0132E241}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -139,6 +143,30 @@ Global
 		{541A83F4-4CE2-4880-8BD3-2A9C98FA6162}.Release|arm64.Build.0 = Release|arm64
 		{541A83F4-4CE2-4880-8BD3-2A9C98FA6162}.Release|x86.ActiveCfg = Release|x86
 		{541A83F4-4CE2-4880-8BD3-2A9C98FA6162}.Release|x86.Build.0 = Release|x86
+		{E32DE7C8-8CDB-4CD6-8ECE-DAEDE6D36787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E32DE7C8-8CDB-4CD6-8ECE-DAEDE6D36787}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E32DE7C8-8CDB-4CD6-8ECE-DAEDE6D36787}.Debug|arm64.ActiveCfg = Debug|arm64
+		{E32DE7C8-8CDB-4CD6-8ECE-DAEDE6D36787}.Debug|arm64.Build.0 = Debug|arm64
+		{E32DE7C8-8CDB-4CD6-8ECE-DAEDE6D36787}.Debug|x86.ActiveCfg = Debug|x86
+		{E32DE7C8-8CDB-4CD6-8ECE-DAEDE6D36787}.Debug|x86.Build.0 = Debug|x86
+		{E32DE7C8-8CDB-4CD6-8ECE-DAEDE6D36787}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E32DE7C8-8CDB-4CD6-8ECE-DAEDE6D36787}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E32DE7C8-8CDB-4CD6-8ECE-DAEDE6D36787}.Release|arm64.ActiveCfg = Release|arm64
+		{E32DE7C8-8CDB-4CD6-8ECE-DAEDE6D36787}.Release|arm64.Build.0 = Release|arm64
+		{E32DE7C8-8CDB-4CD6-8ECE-DAEDE6D36787}.Release|x86.ActiveCfg = Release|x86
+		{E32DE7C8-8CDB-4CD6-8ECE-DAEDE6D36787}.Release|x86.Build.0 = Release|x86
+		{80832FE2-EB71-4443-B582-61CF0132E241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80832FE2-EB71-4443-B582-61CF0132E241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80832FE2-EB71-4443-B582-61CF0132E241}.Debug|arm64.ActiveCfg = Debug|arm64
+		{80832FE2-EB71-4443-B582-61CF0132E241}.Debug|arm64.Build.0 = Debug|arm64
+		{80832FE2-EB71-4443-B582-61CF0132E241}.Debug|x86.ActiveCfg = Debug|x86
+		{80832FE2-EB71-4443-B582-61CF0132E241}.Debug|x86.Build.0 = Debug|x86
+		{80832FE2-EB71-4443-B582-61CF0132E241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80832FE2-EB71-4443-B582-61CF0132E241}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80832FE2-EB71-4443-B582-61CF0132E241}.Release|arm64.ActiveCfg = Release|arm64
+		{80832FE2-EB71-4443-B582-61CF0132E241}.Release|arm64.Build.0 = Release|arm64
+		{80832FE2-EB71-4443-B582-61CF0132E241}.Release|x86.ActiveCfg = Release|x86
+		{80832FE2-EB71-4443-B582-61CF0132E241}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

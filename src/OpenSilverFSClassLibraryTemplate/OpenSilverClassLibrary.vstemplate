@@ -1,0 +1,34 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+    <TemplateData>
+        <Name>OpenSilver Class Library (F#)</Name>
+        <Description>A project for creating an OpenSilver class library.</Description>
+        <Icon>Icon.ico</Icon>
+        <ProjectType>fsharp</ProjectType>
+        <LanguageTag>fsharp</LanguageTag>
+        <LanguageTag>xaml</LanguageTag>
+        <ProjectTypeTag>web</ProjectTypeTag>
+        <ProjectTypeTag>blazor</ProjectTypeTag>
+        <ProjectTypeTag>OpenSilver</ProjectTypeTag>
+        <ProjectTypeTag>library</ProjectTypeTag>  
+        <SortOrder>24</SortOrder>
+        <CreateNewFolder>true</CreateNewFolder>
+        <DefaultName>OpenSilverClassLibrary</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <CreateInPlace>true</CreateInPlace>
+    </TemplateData>
+    <TemplateContent>
+        <Project File="OpenSilverClassLibrary.fsproj" ReplaceParameters="true">
+            <ProjectItem ReplaceParameters="true" TargetFileName="Class1.fs">Class1.fs</ProjectItem>
+        </Project>
+    </TemplateContent>
+	<WizardExtension>
+		<Assembly>OpenSilver.TemplateWizards, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Assembly>
+		<FullClassName>OpenSilver.TemplateWizards.AppCustomizationWizard</FullClassName>
+	</WizardExtension>
+	<WizardData>
+		<OpenSilverInfo>
+			<Api>Silverlight</Api>
+			<Type>Library</Type>
+		</OpenSilverInfo>
+	</WizardData>
+</VSTemplate>

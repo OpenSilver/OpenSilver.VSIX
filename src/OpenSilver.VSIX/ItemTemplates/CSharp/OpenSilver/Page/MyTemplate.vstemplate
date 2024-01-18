@@ -1,0 +1,16 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>Page.xaml</DefaultName>
+    <Name>Page (OpenSilver)</Name>
+    <Description>An empty Page, for use in projects of type "Silverlight Migration Edition" (OpenSilver)</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>851</SortOrder>
+    <Icon>TemplateIcon.ico</Icon>
+    <NumberOfParentCategoriesToRollUp>3</NumberOfParentCategoriesToRollUp>
+  </TemplateData>
+  <TemplateContent>
+    <References />
+    <ProjectItem SubType="Designer" CustomTool="MSBuild:Compile" TargetFileName="$fileinputname$.xaml" ReplaceParameters="true">Page.xaml</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="$fileinputname$.xaml.cs" ReplaceParameters="true">Page.xaml.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>
