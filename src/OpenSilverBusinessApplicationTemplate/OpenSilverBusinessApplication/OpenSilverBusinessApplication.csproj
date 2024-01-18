@@ -9,13 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="OpenSilver" Version="$ext_opensilverpackageversion$" />
-    <PackageReference Include="OpenSilver.OpenRiaServices.Client.4.6" Version="$ext_openria46packageversion$" />
-    <PackageReference Include="OpenSilver.OpenRiaServices.Client.Core.4.6" Version="$ext_openria46packageversion$" />
-    <PackageReference Include="OpenSilver.OpenRiaServices.CodeGen.4.6" Version="$ext_openria46packageversion$">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="OpenSilver.OpenRiaServices.DomainDataSource.4.6" Version="$ext_openria46packageversion$" />
+    <PackageReference Include="OpenSilver.OpenRiaServices.Client" Version="$ext_openria46packageversion$" />
   </ItemGroup>
 
   <ItemGroup>

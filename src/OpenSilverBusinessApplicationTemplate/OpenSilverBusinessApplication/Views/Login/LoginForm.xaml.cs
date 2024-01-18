@@ -87,7 +87,7 @@ namespace $ext_safeprojectname$.LoginUI
             }
             else if (!loginOperation.IsCanceled)
             {
-                this.loginInfo.ValidationErrors.Add(new ValidationResult("Bad User Name Or Password" /*ErrorResources.ErrorBadUserNameOrPassword*/, new string[] { "UserName", "Password" }));
+                this.loginInfo.ValidationErrors.Add(new ValidationResult("Bad User Name Or Password", new string[] { "UserName", "Password" }));
             }
         }
 
