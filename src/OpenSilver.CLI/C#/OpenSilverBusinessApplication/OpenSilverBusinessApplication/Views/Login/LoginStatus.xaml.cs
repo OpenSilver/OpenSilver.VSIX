@@ -47,7 +47,7 @@ namespace OpenSilverBusinessApplication.LoginUI
                     ErrorWindow.Show(logoutOperation.Error);
                     logoutOperation.MarkErrorAsHandled();
                 }
-            }, /* userState */ null);
+            }, userState: null);
         }
 
         private void Authentication_LoggedIn(object sender, AuthenticationEventArgs e)

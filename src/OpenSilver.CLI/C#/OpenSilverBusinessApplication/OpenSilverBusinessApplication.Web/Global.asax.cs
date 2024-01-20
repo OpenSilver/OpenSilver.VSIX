@@ -17,7 +17,8 @@ namespace OpenSilverBusinessApplication.Web
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "https://localhost:54845");
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Credentials", "true");
 
             if (HttpContext.Current.Request.HttpMethod == "OPTIONS")
             {

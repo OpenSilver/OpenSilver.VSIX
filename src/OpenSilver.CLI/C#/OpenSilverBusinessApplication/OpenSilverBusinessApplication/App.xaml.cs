@@ -2,6 +2,7 @@
 using OpenRiaServices.DomainServices.Client.ApplicationServices;
 using OpenSilverBusinessApplication.Web;
 using System;
+using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -11,6 +12,8 @@ namespace OpenSilverBusinessApplication
     {
         public App()
         {
+            Current.Host.Settings.DefaultSoapCredentialsMode = CredentialsMode.Enabled;
+
             this.Startup += this.Application_Startup;
             this.UnhandledException += this.Application_UnhandledException;
 
@@ -21,7 +24,10 @@ namespace OpenSilverBusinessApplication
             //webContext.Authentication = new WindowsAuthentication();
             this.ApplicationLifetimeObjects.Add(webContext);
 
-            ((DomainClientFactory)DomainContext.DomainClientFactory).ServerBaseUri = new Uri("http://localhost:54837/");
+            DomainContext.DomainClientFactory = new OpenRiaServices.DomainServices.Client.Web.WebAssemblySoapDomainClientFactory()
+            {
+                ServerBaseUri = new Uri("https://localhost:44350/"),
+            };
         }
 
         private void Application_Startup(object sender, StartupEventArgs e)
