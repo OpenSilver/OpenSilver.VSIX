@@ -26,6 +26,7 @@
   <ItemGroup>
     <Content Include="C#\**\*" />
     <Content Include="VB\**\*" />
+    <Content Include="F#\**\*" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,41 @@
+<VSTemplate Version="3.0.0" Type="ProjectGroup" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+    <TemplateData>
+        <Name>OpenSilver Application (F#)</Name>
+        <Description>A blank project for creating a rich internet application using OpenSilver. OpenSilver is an open-source reimplementation of Silverlight that runs on current browsers via WebAssembly.</Description>
+        <Icon>Icon.ico</Icon>
+        <ProjectType>fsharp</ProjectType>
+        <LanguageTag>fsharp</LanguageTag>
+        <LanguageTag>xaml</LanguageTag>
+        <ProjectTypeTag>web</ProjectTypeTag>
+        <ProjectTypeTag>blazor</ProjectTypeTag>
+        <ProjectTypeTag>OpenSilver</ProjectTypeTag>  
+        <SortOrder>18</SortOrder>
+        <CreateNewFolder>true</CreateNewFolder>
+        <DefaultName>OpenSilverApplication</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <CreateInPlace>true</CreateInPlace>
+    </TemplateData>
+    <TemplateContent>
+        <ProjectCollection>
+            <ProjectTemplateLink CopyParameters="true" ProjectName="$safeprojectname$.Browser">
+                OpenSilverFSApplication.Browser\OpenSilverApplication.Browser.vstemplate
+            </ProjectTemplateLink>
+            <ProjectTemplateLink CopyParameters="true" ProjectName="$safeprojectname$">
+                OpenSilverFSApplication\OpenSilverApplication.vstemplate
+            </ProjectTemplateLink>
+            <ProjectTemplateLink CopyParameters="true" ProjectName="$safeprojectname$.Simulator">
+                OpenSilverFSApplication.Simulator\OpenSilverApplication.Simulator.vstemplate
+            </ProjectTemplateLink>
+        </ProjectCollection>
+    </TemplateContent>
+    <WizardExtension>
+        <Assembly>OpenSilver.TemplateWizards, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Assembly>
+        <FullClassName>OpenSilver.TemplateWizards.AppCustomizationWizard</FullClassName>
+    </WizardExtension>
+    <WizardData>
+        <OpenSilverInfo>
+            <Api>Silverlight</Api>
+            <Type>Application</Type>
+        </OpenSilverInfo>
+    </WizardData>
+</VSTemplate>
