@@ -1,16 +1,12 @@
 ﻿Imports OpenRiaServices.DomainServices.Client
-Imports OpenRiaServices.DomainServices.Client.Web
 Imports OpenRiaServices.DomainServices.Client.ApplicationServices
 Imports $ext_safeprojectname$.Web
 Imports System.Windows
-Imports System.Net
 
 Partial Public Class App
     Inherits Application
 
     Public Sub New()
-
-        Current.Host.Settings.DefaultSoapCredentialsMode = CredentialsMode.Enabled
 
         AddHandler Me.Startup, AddressOf Me.Application_Startup
         AddHandler Me.UnhandledException, AddressOf Me.Application_UnhandledException
@@ -22,12 +18,7 @@ Partial Public Class App
         'webContext.Authentication = New WindowsAuthentication()
         Me.ApplicationLifetimeObjects.Add(webContext)
 
-
-        DomainContext.DomainClientFactory = New WebAssemblySoapDomainClientFactory() With
-        {
-            .ServerBaseUri = New Uri("https://localhost:$ext_sslserverport$/")
-        }
-
+        CType(DomainContext.DomainClientFactory, DomainClientFactory).ServerBaseUri = New Uri("http://localhost:54837/")
     End Sub
 
     Private Sub Application_Startup(sender As Object, e As StartupEventArgs)

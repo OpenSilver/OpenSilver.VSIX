@@ -141,15 +141,6 @@ namespace OpenSilver.TemplateWizards
 
             replacementsDictionary.Add("$opensilverpackageversion$", "2.0.1");
             replacementsDictionary.Add("$openria46packageversion$", "2.0.0");
-
-            var rng = new Random();
-
-            var sslClientPort = rng.Next(50000, 60000);
-            // iisexpress requires the ssl port be between 44300 and 44399
-            var sslServerPort = rng.Next(44300, 44400);
-
-            replacementsDictionary.Add("$sslclientport$", sslClientPort.ToString());
-            replacementsDictionary.Add("$sslserverport$", sslServerPort.ToString());
         }
 
         public bool ShouldAddProjectItem(string filePath)

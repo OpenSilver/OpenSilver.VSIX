@@ -17,8 +17,7 @@ namespace $ext_safeprojectname$.Web
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "https://localhost:$ext_sslclientport$");
-            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Credentials", "true");
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
 
             if (HttpContext.Current.Request.HttpMethod == "OPTIONS")
             {
