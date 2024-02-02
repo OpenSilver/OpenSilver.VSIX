@@ -1,15 +1,13 @@
-using OpenRiaServices.DomainServices.Server.Authentication;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using OpenRiaServices.DomainServices.Server.ApplicationServices;
 
 namespace OpenSilverBusinessApplication.Web
 {
     /// <summary>
     /// Class containing information about the authenticated user.
     /// </summary>
-    public partial class User : IUser
+    public partial class User : UserBase
     {
-        //// NOTE: Profile properties can be added for use in application.
+        //// NOTE: Profile properties can be added for use in Silverlight application.
         //// To enable profiles, edit the appropriate section of web.config file.
         ////
         //// public string MyProfileProperty { get; set; }
@@ -18,10 +16,5 @@ namespace OpenSilverBusinessApplication.Web
         /// Gets and sets the friendly name of the user.
         /// </summary>
         public string FriendlyName { get; set; }
-
-        [Key]
-        public string Name { get; set; }
-
-        public IEnumerable<string> Roles { get; set; } = new List<string>();
     }
 }

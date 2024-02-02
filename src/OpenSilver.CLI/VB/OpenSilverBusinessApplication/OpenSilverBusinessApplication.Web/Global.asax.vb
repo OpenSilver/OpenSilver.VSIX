@@ -16,8 +16,7 @@ Public Class OpenSilverBusinessApp
 
     Sub Application_BeginRequest(sender As Object, e As EventArgs)
 
-        HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "https://localhost:54845")
-        HttpContext.Current.Response.AddHeader("Access-Control-Allow-Credentials", "true")
+        HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*")
 
         If HttpContext.Current.Request.HttpMethod = "OPTIONS" Then
 
