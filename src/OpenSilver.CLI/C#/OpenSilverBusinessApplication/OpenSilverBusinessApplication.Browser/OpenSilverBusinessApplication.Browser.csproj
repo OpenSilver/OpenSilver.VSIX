@@ -5,6 +5,7 @@
     <NoXamlPreprocessor>True</NoXamlPreprocessor>
     <OpenSilverType>5</OpenSilverType>
     <PublishTrimmed>true</PublishTrimmed>
+    <WasmEnableSIMD>false</WasmEnableSIMD>
     <!-- Uncomment to enable AOT compilation when publishing -->
     <!--<RunAOTCompilation>true</RunAOTCompilation>-->
   </PropertyGroup>
