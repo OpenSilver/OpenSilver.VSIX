@@ -1,7 +1,6 @@
 ﻿using EnvDTE;
 using System;
 using Userware.XamlDesigner.SplitXamlEditor;
-using Userware.XamlDesigner;
 using Microsoft.VisualStudio.Shell;
 using System.Runtime.InteropServices;
 
@@ -12,7 +11,6 @@ namespace OpenSilver.XamlDesigner
     {
         private const string OpenSilver = "OpenSilver";
         private const string XRSharp = "XRSharp";
-        private const string XamlForBlazor = "XamlForBlazor";
 
         public EditorFactoryOpenSilver(Package package) : base(package, new ProductConfig())
         {
@@ -22,11 +20,7 @@ namespace OpenSilver.XamlDesigner
 
         protected override bool IsSupportedFile(Project project)
         {
-            var hasOpenSilverReference = project.FindReferencePath(OpenSilver) != null;
-            var hasXrSharpReference = project.FindReferencePath(XRSharp) != null;
-            var hasXamlForBlazorReference = project.FindReferencePath(XamlForBlazor) != null;
-
-            return !hasXrSharpReference && !hasXamlForBlazorReference && hasOpenSilverReference;
+            return CheckNuGetPackages(project, new[] { OpenSilver }, null, new[] { XRSharp });
         }
     }
 }
