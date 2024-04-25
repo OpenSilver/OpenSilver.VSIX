@@ -50,11 +50,19 @@
     </Compile>
     <Compile Include="AppCustomizationWindow\BlazorVersion.cs" />
     <Compile Include="AppCustomizationWindow\OpenSilverBuildType.cs" />
+    <Compile Include="BusinessApplicationWindow\BusinessApplicationWindow.xaml.cs">
+      <DependentUpon>BusinessApplicationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessAppWizard.cs" />
     <Compile Include="AppCustomizationWizard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="AppCustomizationWindow\AppConfigurationWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BusinessApplicationWindow\BusinessApplicationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

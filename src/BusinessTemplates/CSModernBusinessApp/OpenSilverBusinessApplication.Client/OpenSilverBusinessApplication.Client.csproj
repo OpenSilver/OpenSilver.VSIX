@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>$ext_blazortargetframework$</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+	  <RootNamespace>$ext_safeprojectname$</RootNamespace>
+	  <LinkedOpenRiaServerProject>..\$ext_safeprojectname$.Server\$ext_safeprojectname$.Server.csproj</LinkedOpenRiaServerProject>
+	  <OpenRiaGenerateApplicationContext>true</OpenRiaGenerateApplicationContext>
+
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="OpenRiaServices.Client.CodeGen" Version="5.4.3">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="OpenRiaServices.Client.Core" Version="5.4.3" />
+	</ItemGroup>
+
+</Project>
