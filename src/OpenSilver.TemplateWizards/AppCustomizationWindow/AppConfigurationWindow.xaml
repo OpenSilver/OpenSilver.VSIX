@@ -42,7 +42,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonBack_Click">
+            <Button Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" IsCancel="True">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="3"/>
