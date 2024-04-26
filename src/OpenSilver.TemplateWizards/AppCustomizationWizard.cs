@@ -111,18 +111,18 @@ namespace OpenSilver.TemplateWizards
 
             if (openSilverType == "Application")
             {
-                switch (window.BlazorVersion)
+                switch (window.DotNetVersion)
                 {
-                    case BlazorVersion.Net6:
-                        replacementsDictionary.Add("$blazortargetframework$", "net6.0");
+                    case DotNetVersion.Net6:
+                        replacementsDictionary.Add("$targetframework$", "net6.0");
                         replacementsDictionary.Add("$blazorpackagesversion$", "6.0.0");
                         break;
-                    case BlazorVersion.Net7:
-                        replacementsDictionary.Add("$blazortargetframework$", "net7.0");
+                    case DotNetVersion.Net7:
+                        replacementsDictionary.Add("$targetframework$", "net7.0");
                         replacementsDictionary.Add("$blazorpackagesversion$", "7.0.0");
                         break;
-                    case BlazorVersion.Net8:
-                        replacementsDictionary.Add("$blazortargetframework$", "net8.0");
+                    case DotNetVersion.Net8:
+                        replacementsDictionary.Add("$targetframework$", "net8.0");
                         replacementsDictionary.Add("$blazorpackagesversion$", "8.0.0");
                         break;
                 }

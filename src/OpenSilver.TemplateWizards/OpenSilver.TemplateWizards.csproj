@@ -48,7 +48,7 @@
     <Compile Include="AppCustomizationWindow\AppConfigurationWindow.xaml.cs">
       <DependentUpon>AppConfigurationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AppCustomizationWindow\BlazorVersion.cs" />
+    <Compile Include="AppCustomizationWindow\DotNetVersion.cs" />
     <Compile Include="AppCustomizationWindow\OpenSilverBuildType.cs" />
     <Compile Include="AppCustomizationWizard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

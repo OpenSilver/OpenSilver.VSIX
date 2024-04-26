@@ -1,6 +1,6 @@
 ﻿namespace OpenSilver.TemplateWizards.AppCustomizationWindow
 {
-    public enum BlazorVersion
+    public enum DotNetVersion
     {
         Net6,
         Net7,

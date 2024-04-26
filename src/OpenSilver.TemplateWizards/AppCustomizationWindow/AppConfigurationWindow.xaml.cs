@@ -16,20 +16,20 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
             }
         }
 
-        public BlazorVersion BlazorVersion
+        public DotNetVersion DotNetVersion
         {
             get
             {
-                switch (BlazorVersionComboBox.SelectedIndex)
+                switch (DotNetVersionComboBox.SelectedIndex)
                 {
                     case 0:
-                        return BlazorVersion.Net6;
+                        return DotNetVersion.Net6;
                     case 1:
-                        return BlazorVersion.Net7;
+                        return DotNetVersion.Net7;
                     case 2:
-                        return BlazorVersion.Net8;
+                        return DotNetVersion.Net8;
                     default:
-                        throw new InvalidOperationException("Error retrieving selected blazor version");
+                        throw new InvalidOperationException("Error retrieving selected .NET version");
                 }
             }
         }
@@ -40,7 +40,7 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
 
             if (openSilverType == "Library")
             {
-                BlazorVersionStackPanel.Visibility = Visibility.Collapsed;
+                DotNetVersionStackPanel.Visibility = Visibility.Collapsed;
             }
         }
 
