@@ -104,15 +104,6 @@ namespace OpenSilver.TemplateWizards
                         break;
                 }
             }
-            else if (openSilverAPI == "UWP")
-            {
-                switch (window.OpenSilverBuildType)
-                {
-                    case OpenSilverBuildType.Stable:
-                        replacementsDictionary.Add("$opensilverpackagename$", "OpenSilver.UWPCompatible");
-                        break;
-                }
-            }
             else
             {
                 throw new ArgumentNullException($"Unknown OpenSilver API '{openSilverAPI}'");
