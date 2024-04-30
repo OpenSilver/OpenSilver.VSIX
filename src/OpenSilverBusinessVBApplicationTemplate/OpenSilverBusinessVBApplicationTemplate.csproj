@@ -57,7 +57,25 @@
     <None Include="OpenSilverBusinessApplication/**" />
     <None Include="OpenSilverBusinessApplication.Browser/**" />
     <None Include="OpenSilverBusinessApplication.Simulator/**" />
-    <None Include="OpenSilverBusinessApplication.Web/**" />
+    <None Include="OpenSilverBusinessApplication.Web\database\Business.db" />
+    <None Include="OpenSilverBusinessApplication.Web\database\InstallMembership.sql" />
+    <None Include="OpenSilverBusinessApplication.Web\Default.aspx" />
+    <None Include="OpenSilverBusinessApplication.Web\Global.asax" />
+    <None Include="OpenSilverBusinessApplication.Web\Global.asax.vb" />
+    <None Include="OpenSilverBusinessApplication.Web\Models\RegistrationData.vb" />
+    <None Include="OpenSilverBusinessApplication.Web\Models\Shared\User.shared.vb" />
+    <None Include="OpenSilverBusinessApplication.Web\Models\User.vb" />
+    <None Include="OpenSilverBusinessApplication.Web\OpenSilverBusinessApplication.Web.vbproj" />
+    <None Include="OpenSilverBusinessApplication.Web\OpenSilverBusinessApplication.Web.vbproj.user" />
+    <None Include="OpenSilverBusinessApplication.Web\OpenSilverBusinessApplication.Web.vstemplate" />
+    <None Include="OpenSilverBusinessApplication.Web\OpenSilver_Logo.png" />
+    <None Include="OpenSilverBusinessApplication.Web\packages.config" />
+    <None Include="OpenSilverBusinessApplication.Web\Properties\AssemblyInfo.vb" />
+    <None Include="OpenSilverBusinessApplication.Web\Services\AuthenticationService.vb" />
+    <None Include="OpenSilverBusinessApplication.Web\Services\UserRegistrationService.vb" />
+    <None Include="OpenSilverBusinessApplication.Web\Web.config" />
+    <None Include="OpenSilverBusinessApplication.Web\Web.Debug.config" />
+    <None Include="OpenSilverBusinessApplication.Web\Web.Release.config" />
     <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
