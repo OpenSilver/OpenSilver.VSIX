@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("OpenSilverBusinessApplication")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Fabio Silva")]
+[assembly: AssemblyCompany("Userware")]
 [assembly: AssemblyProduct("OpenSilverBusinessApplication")]
-[assembly: AssemblyCopyright("Copyright © Fabio Silva 2024")]
+[assembly: AssemblyCopyright("Copyright © Userware 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

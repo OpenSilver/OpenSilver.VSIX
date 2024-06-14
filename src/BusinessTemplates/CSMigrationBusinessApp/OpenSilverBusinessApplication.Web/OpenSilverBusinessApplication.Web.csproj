@@ -18,7 +18,7 @@
     <RootNamespace>$ext_safeprojectname$.Web</RootNamespace>
     <AssemblyName>$ext_safeprojectname$.Web</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>False</UseIISExpress>
     <SilverlightApplicationList>
     </SilverlightApplicationList>
     <FileUpgradeFlags>
@@ -27,7 +27,7 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
     <TargetFrameworkProfile />
-    <IISExpressSSLPort>44327</IISExpressSSLPort>
+	<IISExpressSSLPort>$ext_sslserverport$</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -153,11 +153,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>54837</DevelopmentServerPort>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>$ext_sslserverport$</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44327/</IISUrl>
+          <IISUrl>https://localhost:$ext_sslserverport$/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

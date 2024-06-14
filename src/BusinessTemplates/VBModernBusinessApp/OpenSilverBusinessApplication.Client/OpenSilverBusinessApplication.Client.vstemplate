@@ -1,0 +1,14 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Hidden>true</Hidden>
+    <CreateInPlace>true</CreateInPlace>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="$ext_safeprojectname$.Client.vbproj" File="OpenSilverBusinessApplication.Client.vbproj" ReplaceParameters="true">
+		<Folder Name="Models" TargetFolderName="Models">
+			<ProjectItem ReplaceParameters="true" TargetFileName="RegistrationData.partial.vb">RegistrationData.partial.vb</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="User.partial.vb">User.partial.vb</ProjectItem>
+		</Folder>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

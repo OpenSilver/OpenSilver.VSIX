@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>$ext_blazortargetframework$-windows</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="OpenSilver.Simulator" Version="2.2.0" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\$ext_safeprojectname$\$ext_safeprojectname$.vbproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="..\$ext_safeprojectname$.Browser\wwwroot\appsettings.json" Link="appsettings.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+</Project>

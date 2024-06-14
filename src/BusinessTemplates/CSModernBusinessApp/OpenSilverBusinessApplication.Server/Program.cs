@@ -14,7 +14,7 @@ var connectionString = builder.Configuration.GetConnectionString(connectionStrin
     ?? throw new InvalidOperationException($"Connection string '{connectionStringName}' not found.");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString));
+    options.$ext_usedatabase$(connectionString));
 
 builder.Services
     .AddIdentity<User, IdentityRole>()

@@ -25,7 +25,7 @@
 		</ProjectCollection>
     </TemplateContent>
     <WizardData>
-        <OpenSilverInfo>
+		<OpenSilverInfo>
             <Api>Silverlight</Api>
             <Type>Application</Type>
         </OpenSilverInfo>

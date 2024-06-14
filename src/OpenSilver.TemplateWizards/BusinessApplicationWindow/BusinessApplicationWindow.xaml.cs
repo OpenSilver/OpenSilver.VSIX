@@ -91,19 +91,11 @@ namespace OpenSilver.TemplateWizards
         PostgreSQL
     }
 
-    public enum LanguageCode
-    { 
-        CS,
-        VB,
-        FS
-    }
-
     public class NewProjectViewModel : INotifyPropertyChanged
     {
         private FrameworkVersion _frameworkVersion = FrameworkVersion.Net8;
         private Backend _backend = Backend.Modern;
         private Database _database = Database.Sqlite;
-        private LanguageCode _languageCode = LanguageCode.CS;
 
         public Backend Backend
         {
@@ -121,11 +113,6 @@ namespace OpenSilver.TemplateWizards
         {
             get => _frameworkVersion;
             set => SetPropertyValue(ref _frameworkVersion, value);
-        }
-        public LanguageCode LanguageCode
-        {
-            get => _languageCode;
-            set => SetPropertyValue(ref _languageCode, value);
         }
 
         private void SetPropertyValue<T>(ref T field, T value, [CallerMemberName] string propertyName = "")

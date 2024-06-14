@@ -173,6 +173,27 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
+    <ProjectReference Include="..\BusinessTemplates\VBMigrationBusinessApp\VBMigrationBusinessApp.csproj">
+      <Project>{541A83F4-4CE2-4880-8BD3-2A9C98FA6162}</Project>
+      <Name>VBMigrationBusinessApp</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessTemplates\VBModernBusinessApp\VBModernBusinessApp.csproj">
+      <Project>{E347A49C-1E03-4498-A83F-CAC61F1B10D8}</Project>
+      <Name>VBModernBusinessApp</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessTemplates\VBOpenSilverBusinessApplication\VBOpenSilverBusinessApplication.csproj">
+      <Project>{45337892-BF5A-4576-91AC-645AACE5D2E4}</Project>
+      <Name>VBOpenSilverBusinessApplication</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
     <ProjectReference Include="..\OpenSilver.TemplateWizards\OpenSilver.TemplateWizards.csproj">
       <Project>{5BCC3CB3-6BB0-4382-8FBA-62D8D5071C23}</Project>
       <Name>OpenSilver.TemplateWizards</Name>
