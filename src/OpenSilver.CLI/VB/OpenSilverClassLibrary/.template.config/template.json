@@ -1,16 +1,27 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "Userware",
-  "classifications": [ "common", "opensilver", "xaml", "VB", "C#", "Class Library" ],
+  "classifications": [ "Web", "Desktop", "OpenSilver", "Xaml", "VB" ],
   "identity": "OpensilverClassLibraryVB",
   "groupIdentity": "OpenSilverClassLibrary",
   "name": "Opensilver class library",
   "shortName": "opensilverlib",
+  "sourceName": "OpenSilverApplication",
+
   "tags": {
     "language": "VB",
     "type": "solution"
   },
-  "sourceName": "OpenSilverClassLibrary",
+  "constraints": {
+    "sdk-only": {
+      "type": "host",
+      "args": [
+        {
+          "hostname": "dotnetcli"
+        }
+      ]
+    }
+  },
   "symbols": {
     "skipRestore": {
       "type": "parameter",
