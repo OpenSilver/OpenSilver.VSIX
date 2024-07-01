@@ -1,16 +1,27 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "Userware",
-  "classifications": [ "common", "library", "VB", "opensilver", "xaml" ],
+  "classifications": [ "Web", "Desktop", "OpenSilver", "Xaml", "VB" ],
   "identity": "OpensilverApplicationVB",
   "groupIdentity": "OpenSilverApplication",
   "name": "Opensilver web application",
   "shortName": "opensilverapp",
+  "sourceName": "OpenSilverApplication",
+
   "tags": {
     "language": "VB",
     "type": "solution"
   },
-  "sourceName": "OpenSilverApplication",
+  "constraints": {
+    "sdk-only": {
+      "type": "host",
+      "args": [
+        {
+          "hostname": "dotnetcli"
+        }
+      ]
+    }
+  },
   "primaryOutputs": [
     { "path": "./OpenSilverApplication/OpenSilverApplication.vbproj" },
     { "path": "./OpenSilverApplication.Browser/OpenSilverApplication.Browser.csproj" },
@@ -27,8 +38,8 @@
       "type": "parameter",
       "datatype": "string",
       "description": "If specified, sets the target .net framework, valid values are net6.0, net7.0 and net8.0",
-      "defaultValue": "net7.0",
-      "replaces": "net7.0"
+      "defaultValue": "net8.0",
+      "replaces": "net8.0"
     }
   },
   "postActions": [

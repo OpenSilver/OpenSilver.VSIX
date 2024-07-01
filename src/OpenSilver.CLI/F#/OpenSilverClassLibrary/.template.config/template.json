@@ -1,16 +1,26 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "Userware",
-  "classifications": [ "common", "opensilver", "xaml", "F#", "Class Library" ],
+  "classifications": [ "Web", "Desktop", "OpenSilver", "Xaml", "F#" ],
   "identity": "OpensilverClassLibraryFS",
   "groupIdentity": "OpenSilverClassLibrary",
   "name": "Opensilver class library",
   "shortName": "opensilverlib",
+  "sourceName": "OpenSilverClassLibrary",
   "tags": {
     "language": "F#",
     "type": "solution"
   },
-  "sourceName": "OpenSilverClassLibrary",
+  "constraints": {
+    "sdk-only": {
+      "type": "host",
+      "args": [
+        {
+          "hostname": "dotnetcli"
+        }
+      ]
+    }
+  },
   "symbols": {
     "skipRestore": {
       "type": "parameter",

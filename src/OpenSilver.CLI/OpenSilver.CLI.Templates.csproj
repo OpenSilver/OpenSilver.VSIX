@@ -12,7 +12,7 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>2.2.0</PackageVersion>
     <PackageId>OpenSilver.Templates</PackageId>
     <Title>Opensilver CLI templates</Title>
     <Authors>Userware</Authors>
@@ -31,6 +31,21 @@
 
   <ItemGroup>
     <None Include="icon.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="C#\OpenSilverBusinessApplication\.vscode\launch.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Update="F#\OpenSilverApplication\.vscode\launch.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Update="VB\OpenSilverApplication\.vscode\launch.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Update="VB\OpenSilverBusinessApplication\.vscode\launch.json">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
 
 </Project>
