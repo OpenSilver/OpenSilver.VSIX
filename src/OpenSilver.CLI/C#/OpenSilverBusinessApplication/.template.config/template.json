@@ -1,20 +1,31 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "Userware",
-  "classifications": [ "common", "library", "opensilver", "xaml" ],
+  "classifications": [ "Web", "Desktop", "OpenSilver", "Xaml", "C#", "OpenRia" ],
   "identity": "OpensilverBusinessApplicationCS",
   "groupIdentity": "OpenSilverBusinessApplication",
-  "name": "Opensilver business (OpenRia) web application",
+  "name": "Opensilver business (Ria Services) web application",
   "shortName": "opensilverbusinessapp",
+  "sourceName": "OpenSilverBusinessApplication",
   "tags": {
     "language": "C#",
     "type": "solution"
   },
-  "sourceName": "OpenSilverBusinessApplication",
+  "constraints": {
+    "sdk-only": {
+      "type": "host",
+      "args": [
+        {
+          "hostname": "dotnetcli"
+        }
+      ]
+    }
+  },
   "primaryOutputs": [
     { "path": "./OpenSilverBusinessApplication/OpenSilverBusinessApplication.csproj" },
     { "path": "./OpenSilverBusinessApplication.Browser/OpenSilverBusinessApplication.Browser.csproj" },
-    { "path": "./OpenSilverBusinessApplication.Simulator/OpenSilverBusinessApplication.Simulator.csproj" }
+    { "path": "./OpenSilverBusinessApplication.Simulator/OpenSilverBusinessApplication.Simulator.csproj" },
+    { "path": "./OpenSilverBusinessApplication.Web/OpenSilverBusinessApplication.Web.csproj" }
   ],
   "symbols": {
     "skipRestore": {
@@ -27,8 +38,8 @@
       "type": "parameter",
       "datatype": "string",
       "description": "If specified, sets the target .net framework, valid values are net6.0, net7.0 and net8.0",
-      "defaultValue": "net7.0",
-      "replaces": "net7.0"
+      "defaultValue": "net8.0",
+      "replaces": "net8.0"
     }
   },
   "postActions": [

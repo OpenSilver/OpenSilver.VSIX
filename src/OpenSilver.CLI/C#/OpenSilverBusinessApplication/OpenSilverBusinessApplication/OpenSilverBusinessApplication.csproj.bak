@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <EnableDefaultItems>false</EnableDefaultItems>
     <DefineSilverlight>true</DefineSilverlight>
-    <LinkedOpenRiaServerProject>..\OpenSilverBusinessApplication.Web\OpenSilverBusinessApplication.Web.vbproj</LinkedOpenRiaServerProject>
+    <LinkedOpenRiaServerProject>..\OpenSilverBusinessApplication.Web\OpenSilverBusinessApplication.Web.csproj</LinkedOpenRiaServerProject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,26 +15,27 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="OpenSilver.OpenRiaServices.DomainDataSource.4.6" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="App.xaml.vb" />
-    <Compile Include="MainPage.xaml.vb" />
-    <Compile Include="Contexts\WebContext.vb" />
-    <Compile Include="Helpers\DataFieldExtensions.vb" />
-    <Compile Include="Helpers\NotOperatorValueConverter.vb" />
-    <Compile Include="Helpers\TargetNullValueConverter.vb" />
-    <Compile Include="Models\LoginInfo.vb" />
-    <Compile Include="Models\RegistrationData.partial.vb" />
-    <Compile Include="Models\User.partial.vb" />
-    <Compile Include="Views\About.xaml.vb" />
-    <Compile Include="Views\ErrorWindow.xaml.vb" />
-    <Compile Include="Views\Home.xaml.vb" />
-    <Compile Include="Views\Login\LoginForm.xaml.vb" />
-    <Compile Include="Views\Login\LoginRegistrationWindow.xaml.vb" />
-    <Compile Include="Views\Login\LoginStatus.xaml.vb" />
-    <Compile Include="Views\Login\RegistrationForm.xaml.vb" />
+    <Compile Include="App.xaml.cs" />
+    <Compile Include="MainPage.xaml.cs" />
+    <Compile Include="Contexts\WebContext.cs" />
+    <Compile Include="Controls\BusyIndicator.cs" />
+    <Compile Include="Controls\VisualStates.cs" />
+    <Compile Include="Helpers\DataFieldExtensions.cs" />
+    <Compile Include="Helpers\NotOperatorValueConverter.cs" />
+    <Compile Include="Helpers\TargetNullValueConverter.cs" />
+    <Compile Include="Models\LoginInfo.cs" />
+    <Compile Include="Models\RegistrationData.partial.cs" />
+    <Compile Include="Models\User.partial.cs" />
+    <Compile Include="Views\About.xaml.cs" />
+    <Compile Include="Views\ErrorWindow.xaml.cs" />
+    <Compile Include="Views\Home.xaml.cs" />
+    <Compile Include="Views\Login\LoginForm.xaml.cs" />
+    <Compile Include="Views\Login\LoginRegistrationWindow.xaml.cs" />
+    <Compile Include="Views\Login\LoginStatus.xaml.cs" />
+    <Compile Include="Views\Login\RegistrationForm.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,6 +46,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Assets\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\BusyIndicator.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\About.xaml">
