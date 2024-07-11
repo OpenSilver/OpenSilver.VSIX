@@ -6,13 +6,13 @@
   <TemplateContent>
     <Project TargetFileName="$ext_safeprojectname$.Web.vbproj" File="OpenSilverBusinessApplication.Web.vbproj" ReplaceParameters="true">
       <Folder Name="bin" TargetFolderName="bin">
-		<Folder Name="x64" TargetFolderName="x64">
-			<ProjectItem TargetFileName="SQLite.Interop.dll">SQLite.Interop.dll</ProjectItem>
-		</Folder>
-		<Folder Name="x86" TargetFolderName="x86">
-			<ProjectItem TargetFileName="SQLite.Interop.dll">SQLite.Interop.dll</ProjectItem>
-		</Folder>
-	  </Folder>
+        <Folder Name="x64" TargetFolderName="x64">
+          <ProjectItem TargetFileName="SQLite.Interop.dll">SQLite.Interop.dll</ProjectItem>
+        </Folder>
+        <Folder Name="x86" TargetFolderName="x86">
+          <ProjectItem TargetFileName="SQLite.Interop.dll">SQLite.Interop.dll</ProjectItem>
+        </Folder>
+      </Folder>
       <Folder Name="database" TargetFolderName="database">
         <ProjectItem TargetFileName="$ext_safeprojectname$.db">Business.db</ProjectItem>
         <ProjectItem TargetFileName="InstallMembership.sql">InstallMembership.sql</ProjectItem>
