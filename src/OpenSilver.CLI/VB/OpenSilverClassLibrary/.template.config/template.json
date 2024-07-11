@@ -6,7 +6,7 @@
   "groupIdentity": "OpenSilverClassLibrary",
   "name": "Opensilver class library",
   "shortName": "opensilverlib",
-  "sourceName": "OpenSilverApplication",
+  "sourceName": "OpenSilverClassLibrary",
 
   "tags": {
     "language": "VB",
