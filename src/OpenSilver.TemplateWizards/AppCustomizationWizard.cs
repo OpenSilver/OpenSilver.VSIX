@@ -130,7 +130,8 @@ namespace OpenSilver.TemplateWizards
                 CopyNugetConfig(replacementsDictionary);
             }
 
-            replacementsDictionary.Add("$opensilverpackageversion$", "3.0.0");
+            replacementsDictionary.Add("$opensilverpackageversion$", "3.0.1");
+            replacementsDictionary.Add("$opensilversimulatorpackageversion$", "3.0.0");
             replacementsDictionary.Add("$openria46packageversion$", "3.0.0");
         }
 
