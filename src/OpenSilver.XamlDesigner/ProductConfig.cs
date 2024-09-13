@@ -1,4 +1,5 @@
 ﻿using Userware.XamlDesigner;
+using Userware.XamlDesigner.Data.Primitives;
 
 namespace OpenSilver.XamlDesigner
 {
@@ -7,5 +8,7 @@ namespace OpenSilver.XamlDesigner
         public string Name => "OpenSilver";
 
         public string Slug => "opensilver";
+
+        public TargetPlatforms TargetPlatform => TargetPlatforms.OpenSilver;
     }
 }
