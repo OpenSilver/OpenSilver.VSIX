@@ -6,7 +6,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       mc:Ignorable="d">
 
-    <Canvas Background="White">
-        <TextBlock Text="Hello, World!" FontSize="23" Canvas.Left="30" Canvas.Top="30"/>
-    </Canvas>
+    <Grid Background="White">
+        <TextBlock Text="Hello, World!" FontSize="23" Margin="32,32,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+    </Grid>
 </Page>
