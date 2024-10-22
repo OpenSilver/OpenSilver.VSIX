@@ -64,5 +64,11 @@
         <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="File" Path="ItemTemplates" d:TargetPath="ItemTemplates\CSharp\Open Ria Services\DomainServiceClass.zip" />
         <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="ItemTemplates\Assemblies\OpenRiaServices.VisualStudio.DomainServices.Tools.14.0.dll" AssemblyName="OpenRiaServices.VisualStudio.DomainServices.Tools.14.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2e0b7ccb1ae5b4c8" />
         <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="File" Path="ItemTemplates" d:TargetPath="ItemTemplates\VisualBasic\Web\1033\DomainServiceClass.zip" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="OpenSilverApplicationWizard" d:TargetPath="|OpenSilverApplicationWizard;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="CSMigrationBusinessApp" d:TargetPath="|CSMigrationBusinessApp;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="CSModernBusinessApp" d:TargetPath="|CSModernBusinessApp;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="VBMigrationBusinessApp" d:TargetPath="|VBMigrationBusinessApp;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="VBModernBusinessApp" d:TargetPath="|VBModernBusinessApp;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\CSMauiAppTemplate.zip" />
     </Assets>
 </PackageManifest>

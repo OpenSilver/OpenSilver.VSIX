@@ -1,0 +1,6 @@
+{
+  "UseDatabase": "UseNpgsql",
+  "DatabasePackageName": "Npgsql.EntityFrameworkCore.PostgreSQL",
+  "DatabasePackageVersion": "8.0.2",
+  "DatabaseConnectionString": "Host=localhost;Database={0};Username=postgres;Password=postgres"
+}

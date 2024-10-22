@@ -1,0 +1,2 @@
+This is the default Maui application for OpenSilver. It is not included in the main solution because it is a .Net Core project, incompatible with VSIX, so we are keeping it here, and it will be zipped and is deployed via `OpenSilver.VSIX\ProjectTemplates\CSMauiAppTemplate.zip` file.
+Note, this README.md file does not need to be included in final template.

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenSilverMauiApplication6.Maui", "OpenSilverMauiApplication6.Maui.csproj", "{B20CAA5F-63A4-44B0-998C-016A07D65885}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B20CAA5F-63A4-44B0-998C-016A07D65885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B20CAA5F-63A4-44B0-998C-016A07D65885}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B20CAA5F-63A4-44B0-998C-016A07D65885}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B20CAA5F-63A4-44B0-998C-016A07D65885}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8D3C1B3A-CEE9-4874-93CC-5FC0B747FFA6}
+	EndGlobalSection
+EndGlobal

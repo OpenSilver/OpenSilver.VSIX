@@ -1,0 +1,6 @@
+{
+  "UseDatabase": "UseSqlite",
+  "DatabasePackageName": "Microsoft.EntityFrameworkCore.Sqlite",
+  "DatabasePackageVersion": "8.0.2",
+  "DatabaseConnectionString": "DataSource=Database\\\\{0}.db;Cache=Shared"
+}

@@ -70,13 +70,18 @@ namespace OpenSilver.TemplateWizards
 
         public void RunFinished()
         {
+            
         }
 
         public void RunStarted(object automationObject, Dictionary<string, string> replacementsDictionary,
             WizardRunKind runKind, object[] customParams)
         {
-            XElement openSilverInfo = XElement.Parse(replacementsDictionary["$wizarddata$"]);
+            if (OpenSilverAppWizard.IsAppWizardRunning)
+            {
+                return;
+            }
 
+            XElement openSilverInfo = XElement.Parse(replacementsDictionary["$wizarddata$"]);
             XNamespace defaultNamespace = openSilverInfo.GetDefaultNamespace();
 
             string openSilverAPI = openSilverInfo.Element(defaultNamespace + "Api").Value;

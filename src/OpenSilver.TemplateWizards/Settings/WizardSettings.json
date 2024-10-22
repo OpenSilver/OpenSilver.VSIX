@@ -1,0 +1,29 @@
+{
+  "TargetFramework": "net8.0",
+  "BlazorTargetFramework": "net8.0",
+  "BlazorPackagesVersion": "8.0.0",
+  "OpenSilverPackageName": "OpenSilver",
+  "OpenSilverPackageVersion": "3.0.1",
+  "OpenSilverSimulatorPackageVersion": "3.0.0",
+  "OpenRia46PackageVersion": "3.0.0",
+  "OpenRia54PackageVersion": "5.4.3",
+  "MauiWindowsTargetVersion": "10.0.19041.0",
+  "MauiWindowsMinVersion": "10.0.17763.0",
+  "MauiAndroidVersion": "24.0",
+  "PatternsToReplace": [
+    "*.config",
+    "*.??proj",
+    "*.cs",
+    "*.vb",
+    "*.fs",
+    "*.xaml",
+    "*.as?x",
+    "*.razor",
+    "*.json",
+    "*.htm",
+    "*.html",
+    "*.js",
+    "*.ts",
+    "*.css"
+  ]
+}

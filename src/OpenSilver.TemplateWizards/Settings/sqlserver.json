@@ -1,0 +1,6 @@
+{
+  "UseDatabase": "UseSqlServer",
+  "DatabasePackageName": "Microsoft.EntityFrameworkCore.SqlServer",
+  "DatabasePackageVersion": "8.0.2",
+  "DatabaseConnectionString": "Server=(localdb)\\\\mssqllocaldb;Database={0};Trusted_Connection=True;MultipleActiveResultSets=true"
+}

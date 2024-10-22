@@ -1,0 +1,288 @@
+﻿<Window x:Class="OpenSilver.TemplateWizards.OpenSilverAppWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OpenSilver.TemplateWizards"
+        mc:Ignorable="d"
+        Title="New OpenSilver Business Application" Height="450" Width="800"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <local:StringToBooleanConverter x:Key="StringToBooleanConverter" />
+        <local:BoolToVisibilityConverter x:Key="BoolToHiddenConverter" TrueValue="Visible" FalseValue="Collapsed" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="45" />
+        </Grid.RowDefinitions>
+
+        <!-- Title Bar -->
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <Grid>
+                <Button x:Name="btnMaximize" Content="&#x2610;" Click="btnMaximize_Click" Width="42" Height="34" BorderThickness="0" Background="Transparent" />
+                <Button x:Name="btnRestore" Content="&#x29C9;" Visibility="Hidden" Click="btnRestore_Click" Width="42" Height="34" BorderThickness="0" Background="Transparent" />
+            </Grid>
+            <Button Content="&#x2715;" Click="btnCancel_Click" Width="42" Height="34" BorderThickness="0" Background="Transparent" />
+        </StackPanel>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="25 0 0 0">
+            <Image Source="pack://application:,,,/Assets/OpenSilver_icon.png" Width="32" Height="32" />
+            <TextBlock Text="New OpenSilver Application" FontSize="20" VerticalAlignment="Center" Margin="10 0 0 0" />
+        </StackPanel>
+
+        <!-- Body -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Main Content -->
+            <TabControl x:Name="mainTabControl" Grid.Column="0" TabStripPlacement="Left">
+                <TabItem Header="Template">
+                    <WrapPanel>
+                        <UniformGrid>
+                            <RadioButton GroupName="TemplateTypeGroup" IsChecked="{Binding TemplateType, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=Empty}">
+                                <StackPanel>
+                                    <TextBlock Text="Empty" FontWeight="Bold" />
+                                    <TextBlock Text="A blank project for creating a rich internet application using OpenSilver. OpenSilver is an open-source reimplementation of Silverlight that runs on current browsers via WebAssembly." TextWrapping="Wrap" />
+                                </StackPanel>
+                            </RadioButton>
+
+                            <RadioButton x:Name="radBusiness" GroupName="TemplateTypeGroup" IsChecked="{Binding TemplateType, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=Business}">
+                                <StackPanel>
+                                    <TextBlock Text="Business" FontWeight="Bold" />
+                                    <TextBlock Text="OpenSilver line-of-business application using Open RIA Services (client/server)" TextWrapping="Wrap" />
+                                </StackPanel>
+                            </RadioButton>
+                        </UniformGrid>
+
+                        <UniformGrid>
+                            <RadioButton GroupName="BusinessTemplateTypeGroup"
+                                         IsChecked="{Binding BusinessTemplateType, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=Migration}"
+                                         Visibility="{Binding IsChecked, ElementName=radBusiness, Converter={StaticResource BoolToHiddenConverter}}">
+                                <StackPanel>
+                                    <TextBlock Text="Migration" FontWeight="Bold" />
+                                    <TextBlock Text="This version allows an easy migration path from existing Silverlight + WCF Ria Services" TextWrapping="Wrap" />
+                                    <TextBlock Text="• .Net Framework 4.6" />
+                                    <TextBlock Text="• Open Ria Services 4.6" />
+                                    <TextBlock Text="• Entity Framework 6" />
+                                    <TextBlock Text="• Asp.Net Membership" />
+                                </StackPanel>
+                            </RadioButton>
+
+                            <RadioButton GroupName="BusinessTemplateTypeGroup"
+                                         IsChecked="{Binding BusinessTemplateType, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=Modern}"
+                                         Visibility="{Binding IsChecked, ElementName=radBusiness, Converter={StaticResource BoolToHiddenConverter}}">
+                                <StackPanel>
+                                    <TextBlock Text="Modern" FontWeight="Bold" />
+                                    <TextBlock Text="This version uses the latest versions of all technologies" TextWrapping="Wrap" />
+                                    <TextBlock Text="• .Net 'Core'" />
+                                    <TextBlock Text="• Open Ria Services 5.4" />
+                                    <TextBlock Text="• Entity Framework Core" />
+                                    <TextBlock Text="• Asp.Net Identity" />
+                                </StackPanel>
+                            </RadioButton>
+
+                        </UniformGrid>
+                    </WrapPanel>
+                </TabItem>
+                <TabItem Header="Options">
+                    <StackPanel>
+                        <StackPanel Margin="0 0 0 5">
+                            <TextBlock Text="Default Style" FontWeight="Bold" Margin="0 0 0 5" />
+                            <WrapPanel IsEnabled="False">
+                                <RadioButton>
+                                    <StackPanel>
+                                        <TextBlock Text="Modern" />
+                                        <TextBlock Text="Light and Dark" />
+                                    </StackPanel>
+                                </RadioButton>
+                                <RadioButton IsChecked="True">
+                                    <StackPanel>
+                                        <TextBlock Text="Silverlight" />
+                                        <TextBlock Text="Classic Web Style" />
+                                    </StackPanel>
+                                </RadioButton>
+                                <RadioButton>
+                                    <StackPanel>
+                                        <TextBlock Text="WPF" />
+                                        <TextBlock Text="Classic Desktop Style" />
+                                    </StackPanel>
+                                </RadioButton>
+                            </WrapPanel>
+                        </StackPanel>
+                        <StackPanel Margin="0 10 0 5">
+                            <TextBlock Text="Splash Screen" FontWeight="Bold" Margin="0 0 0 5" />
+                            <WrapPanel IsEnabled="False">
+                                <RadioButton>
+                                    <StackPanel>
+                                        <TextBlock Text="OpenSilver Modern" />
+                                        <!--<TextBlock Text="..." />-->
+                                    </StackPanel>
+                                </RadioButton>
+                                <RadioButton IsChecked="True">
+                                    <StackPanel>
+                                        <TextBlock Text="Silverlight Classic" />
+                                        <!--<TextBlock Text="..." />-->
+                                    </StackPanel>
+                                </RadioButton>
+                            </WrapPanel>
+                        </StackPanel>
+                        <StackPanel Margin="0 10 0 5" Visibility="{Binding IsChecked, ElementName=radBusiness, Converter={StaticResource BoolToHiddenConverter}}">
+                            <TextBlock Text="Database" FontWeight="Bold" Margin="0 0 0 5" />
+                            <WrapPanel>
+                                <RadioButton IsChecked="{Binding Database, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=Sqlite}">
+                                    <StackPanel>
+                                        <TextBlock Text="Sqlite" FontWeight="Bold" />
+                                        <TextBlock Text="Easy setup and portability" />
+                                    </StackPanel>
+                                </RadioButton>
+                                <RadioButton IsChecked="{Binding Database, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=SqlServer}">
+                                    <StackPanel>
+                                        <TextBlock Text="Sql Server" FontWeight="Bold" />
+                                        <TextBlock Text="Friendly and robust" />
+                                    </StackPanel>
+                                </RadioButton>
+                                <RadioButton IsChecked="{Binding Database, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=PostgreSQL}">
+                                    <StackPanel>
+                                        <TextBlock Text="PostgreSQL" FontWeight="Bold" />
+                                        <TextBlock Text="Extensible and cost-effective" />
+                                    </StackPanel>
+                                </RadioButton>
+                            </WrapPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Platforms">
+                    <ListBox ItemsSource="{Binding Platforms}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListBoxItem}">
+                                <Setter Property="Focusable" Value="False"/>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected}" IsEnabled="{Binding IsEnabled}">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Text="{Binding PlatformType}" FontWeight="Bold" />
+                                        <TextBlock Text="{Binding Description}" Grid.Row="1" TextWrapping="Wrap" />
+                                    </Grid>
+                                </CheckBox>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ListBox>
+                </TabItem>
+                <TabItem Header="Framework">
+                    <WrapPanel>
+                        <RadioButton IsChecked="{Binding FrameworkVersion, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=Net7}">
+                            <StackPanel>
+                                <TextBlock Text=".NET 7.0" FontWeight="Bold" />
+                                <TextBlock Text="Standard Term Support" />
+                            </StackPanel>
+                        </RadioButton>
+                        <RadioButton IsChecked="{Binding FrameworkVersion, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=Net8}">
+                            <StackPanel>
+                                <TextBlock Text=".NET 8.0" FontWeight="Bold" />
+                                <TextBlock Text="Long Term Support" />
+                            </StackPanel>
+                        </RadioButton>
+                        <RadioButton IsChecked="{Binding FrameworkVersion, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=Net9}">
+                            <StackPanel>
+                                <TextBlock Text=".NET 9.0" FontWeight="Bold" />
+                                <TextBlock Text="Preview" />
+                            </StackPanel>
+                        </RadioButton>
+                    </WrapPanel>
+                </TabItem>
+            </TabControl>
+
+            <!-- Right Panel -->
+            <StackPanel Grid.Column="1" Margin="15 15 15 0">
+                <TextBlock Text="Your project details" FontSize="14" FontWeight="Bold" />
+
+                <TextBlock Text="Template" FontWeight="Bold" Margin="0 15 0 0" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Visibility="{Binding IsChecked, ElementName=radBusiness, Converter={StaticResource BoolToHiddenConverter}}">
+                        <Run Text="{Binding BusinessTemplateType}" />
+                        <Run Text=" " />
+                    </TextBlock>
+                    <TextBlock Text="{Binding TemplateType}" />
+                </StackPanel>
+
+                <TextBlock Text="Frontend" FontWeight="Bold" Margin="0 15 0 0" />
+                <TextBlock Text="{Binding FrameworkVersion}" />
+
+                <TextBlock Text="Database" FontWeight="Bold" Margin="0 15 0 0" />
+                <TextBlock Text="{Binding Database}" />
+
+                <TextBlock Text="Licenses" FontWeight="Bold" Margin="0 15 0 0" />
+                <TextBlock>
+                    <Hyperlink NavigateUri="https://github.com/OpenSilver/OpenSilver/blob/develop/LICENSE.txt" RequestNavigate="Hyperlink_RequestNavigate">
+                        MIT
+                    </Hyperlink>
+                </TextBlock>
+
+                <TextBlock Text="About" FontWeight="Bold" Margin="0 15 0 0" />
+                <TextBlock>
+                    <Hyperlink NavigateUri="https://opensilver.net/" RequestNavigate="Hyperlink_RequestNavigate">
+                        About OpenSilver
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock>
+                    <Hyperlink NavigateUri="https://github.com/OpenRIAServices/OpenRiaServices" RequestNavigate="Hyperlink_RequestNavigate">
+                        About Open Ria Services
+                    </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+
+        <!-- Footer -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Text="By continuing, you agree to terms of the above licenses." VerticalAlignment="Center" Margin="25 0 0 0" />
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 15 0">
+                <Button Content="Back" x:Name="btnBack" Click="btnBack_Click" Height="23" Width="75" Margin="8,0,0,0">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SelectedIndex, ElementName=mainTabControl}" Value="0">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Content="Next" x:Name="btnNext" Click="btnNext_Click" Height="23" Width="75" Margin="8,0,0,0">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SelectedIndex, ElementName=mainTabControl}" Value="3">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="btnCreate" Content="Create" Click="btnCreate_Click" Height="23" Width="75" Margin="8,0,0,0" />
+                <Button x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click" Height="23" Width="75" Margin="8,0,0,0" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

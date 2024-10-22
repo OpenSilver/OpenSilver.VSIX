@@ -1,0 +1,42 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Hidden>true</Hidden>
+    <CreateInPlace>true</CreateInPlace>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="$ext_safeprojectname$.Web.vbproj" File="OpenSilverBusinessApplication.Web.vbproj" ReplaceParameters="true">
+      <Folder Name="bin" TargetFolderName="bin">
+		<Folder Name="x64" TargetFolderName="x64">
+			<ProjectItem TargetFileName="SQLite.Interop.dll">SQLite.Interop.dll</ProjectItem>
+		</Folder>
+		<Folder Name="x86" TargetFolderName="x86">
+			<ProjectItem TargetFileName="SQLite.Interop.dll">SQLite.Interop.dll</ProjectItem>
+		</Folder>
+	  </Folder>		
+      <Folder Name="Database" TargetFolderName="Database">
+        <ProjectItem TargetFileName="$ext_safeprojectname$.db">Business.db</ProjectItem>
+        <ProjectItem TargetFileName="InstallMembership.sql">InstallMembership.sql</ProjectItem>
+      </Folder>
+      <Folder Name="Models" TargetFolderName="Models">
+        <Folder Name="Shared" TargetFolderName="Shared">
+          <ProjectItem ReplaceParameters="true" TargetFileName="User.shared.vb">User.shared.vb</ProjectItem>
+        </Folder>
+        <ProjectItem ReplaceParameters="true" TargetFileName="RegistrationData.vb">RegistrationData.vb</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="User.vb">User.vb</ProjectItem>
+      </Folder>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.vb">AssemblyInfo.vb</ProjectItem>
+      </Folder>
+      <Folder Name="Services" TargetFolderName="Services">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AuthenticationService.vb">AuthenticationService.vb</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="UserRegistrationService.vb">UserRegistrationService.vb</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="false" TargetFileName="OpenSilver_Logo.png">OpenSilver_Logo.png</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="packages.config">packages.config</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Global.asax">Global.asax</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Global.asax.vb">Global.asax.vb</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Default.aspx">Default.aspx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Web.config">Web.config</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>
