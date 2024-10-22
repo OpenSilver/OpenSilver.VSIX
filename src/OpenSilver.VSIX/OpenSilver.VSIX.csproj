@@ -128,7 +128,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Nuget.Config">
+    <Content Include="NuGet.Config">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="ItemTemplates\Assemblies\OpenRiaServices.VisualStudio.DomainServices.Tools.14.0.dll">
