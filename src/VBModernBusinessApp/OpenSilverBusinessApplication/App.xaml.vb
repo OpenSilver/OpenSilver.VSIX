@@ -38,8 +38,6 @@ Partial Public Class App
 
         _services = serviceProvider
         _configuration = configuration
-
-        InitializeOpenRiaServices()
     End Sub
 
     Private Sub InitializeOpenRiaServices()
@@ -62,6 +60,9 @@ Partial Public Class App
     End Sub
 
     Private Sub Application_Startup(sender As Object, e As StartupEventArgs)
+
+        InitializeOpenRiaServices()
+
         ' This will enable you to bind controls in XAML to WebContext.Current properties.
         Me.Resources.Add("WebContext", WebContext.Current)
 
@@ -69,6 +70,7 @@ Partial Public Class App
         WebContext.Current.Authentication.LoadUser(AddressOf Me.Application_UserLoaded, Nothing)
 
         Me.RootVisual = New MainPage()
+
     End Sub
 
     ''' <summary>

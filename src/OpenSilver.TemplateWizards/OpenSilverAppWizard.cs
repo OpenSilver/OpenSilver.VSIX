@@ -119,6 +119,7 @@ namespace OpenSilver.TemplateWizards
                     language = Language.CSharp;
                 }
                 var languageCode = (LanguageCode)(int)language;
+                ReplacementsDictionary["$languagecode$"] = languageCode.ToString().ToLower();
 
                 // 2. load the right template
                 var projectName = ReplacementsDictionary["$safeprojectname$"];

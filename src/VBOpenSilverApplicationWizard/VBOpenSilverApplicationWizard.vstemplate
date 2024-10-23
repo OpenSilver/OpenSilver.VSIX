@@ -1,16 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="ProjectGroup" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>New C# OpenSilver Application</Name>
-    <Description>New C# OpenSilver Application</Description>
-    <Icon>OpenSilverApplicationWizard.ico</Icon>
-    <ProjectType>CSharp</ProjectType>
-    <LanguageTag>csharp</LanguageTag>
-    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
-    <SortOrder>1000</SortOrder>
-    <TemplateID>2a6b787d-a5e1-4e19-af9c-4179d3919ea2</TemplateID>
-    <CreateNewFolder>true</CreateNewFolder>
+    <Name>New Visual Basic OpenSilver Application</Name>
+    <Description>New Visual Basic OpenSilver Application</Description>
     <DefaultName>OpenSilverApplication</DefaultName>
+    <Icon>OpenSilverApplicationWizard.ico</Icon>
+    <ProjectType>visualbasic</ProjectType>
+    <LanguageTag>visualbasic</LanguageTag>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>7d01cac0-29d4-4c31-b4a7-e1876ac39ca9</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
     <ProvideDefaultName>true</ProvideDefaultName>
     <CreateInPlace>true</CreateInPlace>
   </TemplateData>
@@ -27,7 +26,7 @@
 		<OpenSilverInfo>
 			<Api>Silverlight</Api>
 			<Type>Application</Type>
-			<Language>CSharp</Language>
+			<Language>VisualBasic</Language>
 		</OpenSilverInfo>
 	</WizardData>
 </VSTemplate>

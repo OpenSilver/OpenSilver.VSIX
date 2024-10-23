@@ -67,7 +67,7 @@
     </ItemGroup>
 
 	<ItemGroup>
-        <ProjectReference Include="..\$ext_safeprojectname$\$ext_safeprojectname$.csproj" />
+        <ProjectReference Include="..\$ext_safeprojectname$\$ext_safeprojectname$.$languagecode$proj" />
 	</ItemGroup>
 
 </Project>
