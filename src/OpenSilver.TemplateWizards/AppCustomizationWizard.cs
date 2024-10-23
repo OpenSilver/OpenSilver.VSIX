@@ -12,7 +12,7 @@ namespace OpenSilver.TemplateWizards
 {
     class AppCustomizationWizard : IWizard
     {
-        private const string NugetConfig = "Nuget.Config";
+        private const string NugetConfig = "NuGet.Config";
 
         private static string GetVsixFullPath(string filename)
         {
@@ -49,7 +49,7 @@ namespace OpenSilver.TemplateWizards
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Nuget.Config has not been created.\r\nError Message:\r\n" + ex.Message);
+                MessageBox.Show("NuGet.Config has not been created.\r\nError Message:\r\n" + ex.Message);
             }
         }
 
