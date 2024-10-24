@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenSilver.Simulator" Version="3.0.0" />
+    <PackageReference Include="OpenSilver.Simulator" Version="OpenSilverSimulatorPackageVersion" />
   </ItemGroup>
 
   <ItemGroup>
