@@ -4,10 +4,10 @@
   "classifications": [ "Web", "Desktop", "OpenSilver", "Xaml", "VB" ],
   "identity": "OpensilverApplicationVB",
   "groupIdentity": "OpenSilverApplication",
-  "name": "Opensilver web application",
+  "name": "OpenSilver Web Application",
   "shortName": "opensilverapp",
   "sourceName": "OpenSilverApplication",
-
+  "description": "Template for creating a VB OpenSilver Web Application.",
   "tags": {
     "language": "VB",
     "type": "solution"
@@ -17,7 +17,8 @@
       "type": "host",
       "args": [
         {
-          "hostname": "dotnetcli"
+          "hostname": "dotnetcli",
+          "version": "[7.0,)"
         }
       ]
     }
@@ -37,9 +38,54 @@
     "targetFramework": {
       "type": "parameter",
       "datatype": "string",
-      "description": "If specified, sets the target .net framework, valid values are net6.0, net7.0 and net8.0",
+      "description": "Sets the target .NET framework, must be net7.0 or net8.0",
       "defaultValue": "net8.0",
-      "replaces": "net8.0"
+      "replaces": "net8.0",
+      "choices": [
+        {
+          "choice": "net7.0",
+          "description": "Use .NET 7.0"
+        },
+        {
+          "choice": "net8.0",
+          "description": "Use .NET 8.0"
+        }
+      ]
+    },
+    "openSilverPackageVersion": {
+      "type": "generated",
+      "generator": "constant",
+      "replaces": "OpenSilverPackageVersion",
+      "parameters": {
+        "value": "3.0.1"
+      }
+    },
+    "openSilverSimulatorPackageVersion": {
+      "type": "generated",
+      "generator": "constant",
+      "replaces": "OpenSilverSimulatorPackageVersion",
+      "parameters": {
+        "value": "3.0.0"
+      }
+    },
+    "webAssemblyPackageVersion": {
+      "type": "generated",
+      "generator": "switch",
+      "datatype": "string",
+      "replaces": "WebAssemblyPackageVersion",
+      "parameters": {
+        "evaluator": "C++",
+        "cases": [
+          {
+            "condition": "(targetFramework == 'net7.0')",
+            "value": "7.0.0"
+          },
+          {
+            "condition": "(targetFramework == 'net8.0')",
+            "value": "8.0.0"
+          }
+        ]
+      }
     }
   },
   "postActions": [
@@ -52,13 +98,7 @@
         }
       ],
       "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
-      "continueOnError": true,
-      "args": {
-        "files": [
-          "./OpenSilverApplication/OpenSilverApplication.csproj",
-          "./OpenSilverApplication.Simulator/OpenSilverApplication.Simulator.csproj"
-        ]
-      }
+      "continueOnError": true
     }
   ]
 }

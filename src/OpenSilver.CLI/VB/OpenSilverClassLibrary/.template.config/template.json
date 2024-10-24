@@ -7,7 +7,7 @@
   "name": "Opensilver class library",
   "shortName": "opensilverlib",
   "sourceName": "OpenSilverClassLibrary",
-
+  "description": "Template for creating a VB OpenSilver Class Library.",
   "tags": {
     "language": "VB",
     "type": "solution"
@@ -17,7 +17,8 @@
       "type": "host",
       "args": [
         {
-          "hostname": "dotnetcli"
+          "hostname": "dotnetcli",
+          "version": "[7.0,)"
         }
       ]
     }
@@ -28,8 +29,19 @@
       "datatype": "bool",
       "description": "If specified, skips the automatic restore of the project on create.",
       "defaultValue": "false"
+    },
+    "openSilverPackageVersion": {
+      "type": "generated",
+      "generator": "constant",
+      "replaces": "OpenSilverPackageVersion",
+      "parameters": {
+        "value": "3.0.1"
+      }
     }
   },
+  "primaryOutputs": [
+    { "path": "./OpenSilverClassLibrary.vbproj" }
+  ],
   "postActions": [
     {
       "condition": "(!skipRestore)",

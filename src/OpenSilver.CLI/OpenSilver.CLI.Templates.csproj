@@ -18,9 +18,10 @@
     <Authors>Userware</Authors>
     <Description>Project Template that creates new OpenSilver projects from the .net CLI.</Description>
     <PackageTags>opensilver;xml,html,xaml,c#,vb,uwp</PackageTags>
-    <PackageCopyright>Copyright (c) 2023 Userware</PackageCopyright>
+    <PackageCopyright>Copyright (c) 2024 Userware</PackageCopyright>
     <PackageIcon>icon.png</PackageIcon>
     <PackageProjectUrl>https://github.com/OpenSilver</PackageProjectUrl>
+    <NoWarn>NU5128</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
