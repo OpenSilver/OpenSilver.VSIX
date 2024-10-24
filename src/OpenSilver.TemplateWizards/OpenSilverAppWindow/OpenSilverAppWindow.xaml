@@ -51,7 +51,9 @@
                                 </StackPanel>
                             </RadioButton>
 
-                            <RadioButton x:Name="radBusiness" GroupName="TemplateTypeGroup" IsChecked="{Binding TemplateType, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=Business}">
+                            <RadioButton x:Name="radBusiness" GroupName="TemplateTypeGroup" 
+                                         IsChecked="{Binding TemplateType, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=Business}"
+                                         IsEnabled="{Binding FSharpIsNotSelected}">
                                 <StackPanel>
                                     <TextBlock Text="Business" FontWeight="Bold" />
                                     <TextBlock Text="OpenSilver line-of-business application using Open RIA Services (client/server)" TextWrapping="Wrap" />

@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="ProjectGroup" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>New C# OpenSilver Application</Name>
-    <Description>New C# OpenSilver Application</Description>
+    <Name>New F# OpenSilver Application</Name>
+    <Description>New F# OpenSilver Application</Description>
     <DefaultName>OpenSilverApplication</DefaultName>
     <Icon>OpenSilverApplicationWizard.ico</Icon>
-    <ProjectType>CSharp</ProjectType>
-    <LanguageTag>csharp</LanguageTag>
+    <ProjectType>fsharp</ProjectType>
+    <LanguageTag>fsharp</LanguageTag>
     <SortOrder>1000</SortOrder>
-    <TemplateID>2a6b787d-a5e1-4e19-af9c-4179d3919ea2</TemplateID>
+    <TemplateID>998aaec2-6b1c-4e3a-b498-3cee499cda6a</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
     <ProvideDefaultName>true</ProvideDefaultName>
     <CreateInPlace>true</CreateInPlace>
@@ -26,7 +26,7 @@
 		<OpenSilverInfo>
 			<Api>Silverlight</Api>
 			<Type>Application</Type>
-			<Language>CSharp</Language>
+			<Language>FSharp</Language>
 		</OpenSilverInfo>
 	</WizardData>
 </VSTemplate>

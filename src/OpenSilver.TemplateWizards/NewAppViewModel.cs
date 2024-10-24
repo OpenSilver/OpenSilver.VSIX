@@ -4,6 +4,7 @@ namespace OpenSilver.TemplateWizards
 {
     public class NewAppViewModel : ViewModelBase
     {
+        private Language _language = Language.CSharp;
         private TemplateType _templateType = TemplateType.Empty;
         private BusinessTemplateType _businesstemplateType = BusinessTemplateType.Modern;
         private DatabaseType _database = DatabaseType.Sqlite;
@@ -41,6 +42,18 @@ namespace OpenSilver.TemplateWizards
             get => _frameworkVersion;
             set => SetPropertyValue(ref _frameworkVersion, value);
         }
+
+        public Language Language
+        {
+            get => _language;
+            set
+            {
+                SetPropertyValue(ref _language, value);
+                RaisePropertyChanged(nameof(FSharpIsNotSelected));
+            }
+        }
+
+        public bool FSharpIsNotSelected => Language != Language.FSharp;
 
         public ObservableCollection<PlatformItem> Platforms
         {

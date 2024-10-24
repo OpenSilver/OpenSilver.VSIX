@@ -47,7 +47,18 @@ namespace OpenSilver.TemplateWizards
             var destinationDirectory = replacementsDictionary["$destinationdirectory$"];
 
             _isAppWizardRunning = true;
-            var window = new OpenSilverAppWindow();
+
+            // 1. get the language from wizarddata from the caller template
+            var openSilverInfo = XElement.Parse(ReplacementsDictionary["$wizarddata$"]);
+            var defaultNamespace = openSilverInfo.GetDefaultNamespace();
+
+            if (!Enum.TryParse(openSilverInfo.Element(defaultNamespace + "Language").Value, true, out Language language))
+            {
+                language = Language.CSharp;
+            }
+            ReplacementsDictionary["$languagecode$"] = ((LanguageCode)(int)language).ToString().ToLower();
+
+            var window = new OpenSilverAppWindow(language);
 
             bool? result = window.ShowDialog();
             if (!result.HasValue || !result.Value)
@@ -110,25 +121,14 @@ namespace OpenSilver.TemplateWizards
 
             try
             {
-                // 1. get the language from wizarddata from the caller template
-                var openSilverInfo = XElement.Parse(ReplacementsDictionary["$wizarddata$"]);
-                var defaultNamespace = openSilverInfo.GetDefaultNamespace();
-
-                if (!Enum.TryParse(openSilverInfo.Element(defaultNamespace + "Language").Value, true, out Language language))
-                {
-                    language = Language.CSharp;
-                }
-                var languageCode = (LanguageCode)(int)language;
-                ReplacementsDictionary["$languagecode$"] = languageCode.ToString().ToLower();
-
                 // 2. load the right template
                 var projectName = ReplacementsDictionary["$safeprojectname$"];
                 var slnPath = Path.Combine(destinationDirectory, $"{projectName}.sln");
                 var templateName = (OpenSilverSettings.TemplateType == TemplateType.Business)
-                    ? $"{languageCode}{OpenSilverSettings.BusinessTemplateType}BusinessApp"
+                    ? $"{(LanguageCode)(int)OpenSilverSettings.Language}{OpenSilverSettings.BusinessTemplateType}BusinessApp"
                     : "OpenSilverApplication";
 
-                var prjTemplate = solution.GetProjectTemplate(templateName, $"{language}");
+                var prjTemplate = solution.GetProjectTemplate(templateName, $"{OpenSilverSettings.Language}");
                 solution.AddFromTemplate(prjTemplate, destinationDirectory, projectName);
 
                 // 2.1 remove Browser and/or Simulator if wanted

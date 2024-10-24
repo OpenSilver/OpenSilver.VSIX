@@ -25,6 +25,11 @@ namespace OpenSilver.TemplateWizards
             DataContext = ViewModel;
         }
 
+        public OpenSilverAppWindow(Language language) : this()
+        {
+            ViewModel.Language = language;
+        }
+
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             mainTabControl.SelectedIndex--;

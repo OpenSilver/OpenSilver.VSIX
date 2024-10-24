@@ -170,6 +170,13 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
+    <ProjectReference Include="..\FSOpenSilverApplicationWizard\FSOpenSilverApplicationWizard.csproj">
+      <Project>{123DEBC7-D5CB-4BDB-B9E7-C183E1D3C5C5}</Project>
+      <Name>FSOpenSilverApplicationWizard</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
     <ProjectReference Include="..\OpenSilver.TemplateWizards\OpenSilver.TemplateWizards.csproj">
       <Project>{5BCC3CB3-6BB0-4382-8FBA-62D8D5071C23}</Project>
       <Name>OpenSilver.TemplateWizards</Name>
