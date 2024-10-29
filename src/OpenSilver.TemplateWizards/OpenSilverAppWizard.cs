@@ -8,17 +8,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Windows;
 using System.Xml.Linq;
 
 namespace OpenSilver.TemplateWizards
 {
-    public static class Logger
-    {
-        public static void Log(string message) => System.Diagnostics.Debugger.Log(0, "", Environment.NewLine + "> " + message + Environment.NewLine);
-    }
-
     internal class OpenSilverAppWizard : IWizard
     {
         private readonly PlatformType[] MauiPlatforms = new[]
@@ -48,7 +41,7 @@ namespace OpenSilver.TemplateWizards
 
             _isAppWizardRunning = true;
 
-            // 1. get the language from wizarddata from the caller template
+            // get the language from wizarddata from the caller template
             var openSilverInfo = XElement.Parse(ReplacementsDictionary["$wizarddata$"]);
             var defaultNamespace = openSilverInfo.GetDefaultNamespace();
 
@@ -121,7 +114,7 @@ namespace OpenSilver.TemplateWizards
 
             try
             {
-                // 2. load the right template
+                // 1. load the right template
                 var projectName = ReplacementsDictionary["$safeprojectname$"];
                 var slnPath = Path.Combine(destinationDirectory, $"{projectName}.sln");
                 var templateName = (OpenSilverSettings.TemplateType == TemplateType.Business)
@@ -131,7 +124,7 @@ namespace OpenSilver.TemplateWizards
                 var prjTemplate = solution.GetProjectTemplate(templateName, $"{OpenSilverSettings.Language}");
                 solution.AddFromTemplate(prjTemplate, destinationDirectory, projectName);
 
-                // 2.1 remove Browser and/or Simulator if wanted
+                // 2. remove Browser and/or Simulator if wanted
                 var mustRemoveSimulator = !OpenSilverSettings.Platforms.FirstOrDefault(x => x.PlatformType == PlatformType.Simulator)?.IsSelected ?? false;
                 var mustRemoveBrowser = !OpenSilverSettings.Platforms.FirstOrDefault(x => x.PlatformType == PlatformType.Web)?.IsSelected ?? false;
                 if (mustRemoveSimulator || mustRemoveBrowser)
@@ -147,7 +140,7 @@ namespace OpenSilver.TemplateWizards
                     }
                 }
 
-                // 2.2 include maui template
+                // 3. include maui template
                 var selectedMauiPlatforms = OpenSilverSettings.Platforms
                     .Where(x => x.IsSelected)
                     .Where(x => MauiPlatforms.Contains(x.PlatformType));
@@ -195,10 +188,10 @@ namespace OpenSilver.TemplateWizards
                     }
                 }
 
-                // 2.3 finish loading the template
+                // 4. finish loading the template
                 solution.SaveAs(slnPath);
 
-                // 3. fixing missing replacements in files
+                // 5. fixing missing replacements in files
                 var allFiles = Helpers.EnumerateFiles(destinationDirectory, WizardSettings.PatternsToReplace);
 
                 foreach (var file in allFiles)
@@ -216,7 +209,7 @@ namespace OpenSilver.TemplateWizards
                     catch { }
                 }
 
-                // 4. refresh the solution
+                // 6. refresh the solution
                 solution.Close();
                 solution.Open(slnPath);
             }
