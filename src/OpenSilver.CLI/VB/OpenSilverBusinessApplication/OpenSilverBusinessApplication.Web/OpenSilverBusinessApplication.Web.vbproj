@@ -109,6 +109,7 @@
     <Content Include="database\InstallMembership.sql" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="OpenSilver_Logo.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

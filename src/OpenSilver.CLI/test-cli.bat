@@ -33,9 +33,18 @@ if %errorlevel% neq 0 (
     exit /b %errorlevel%
 )
 
-:: Step 4: Install the new OpenSilver.Templates (exit if it fails)
-echo Installing the new OpenSilver.Templates...
-dotnet new install .\nupkg\OpenSilver.Templates.3.0.0.nupkg
+:: Step 4: Find the latest OpenSilver.Templates nupkg file
+echo Finding the latest OpenSilver.Templates nupkg file...
+for %%f in (.\nupkg\OpenSilver.Templates.*.nupkg) do set "nupkgFile=%%f"
+
+if not defined nupkgFile (
+    echo No OpenSilver.Templates nupkg file found, exiting...
+    exit /b 1
+)
+
+:: Step 5: Install the found OpenSilver.Templates file
+echo Installing the new OpenSilver.Templates from %nupkgFile%...
+dotnet new install %nupkgFile%
 if %errorlevel% neq 0 (
     echo Installation failed, exiting...
     exit /b %errorlevel%

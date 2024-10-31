@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using Microsoft.JSInterop;
 using OpenSilverBusinessApplication.Browser.Interop;
-using System.Threading.Tasks;
 using System;
+using System.Threading.Tasks;
 
 namespace OpenSilverBusinessApplication.Browser.Pages
 {

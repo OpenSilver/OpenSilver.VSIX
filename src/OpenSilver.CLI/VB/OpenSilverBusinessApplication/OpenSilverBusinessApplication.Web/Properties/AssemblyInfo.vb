@@ -5,11 +5,11 @@ Imports System.Runtime.InteropServices
 ' General Information about an assembly is controlled through the following 
 ' set of attributes. Change these attribute values to modify the information
 ' associated with an assembly.
-<Assembly: AssemblyTitle("OpenSilverBusinessApplication.Web")>
+<assembly: AssemblyTitle("OpenSilverBusinessApplication.Web")>
 <assembly: AssemblyDescription("")>
 <assembly: AssemblyConfiguration("")>
 <assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("OpenSilverBusinessApplication.Web")>
+<assembly: AssemblyProduct("OpenSilverBusinessApplication.Web")>
 <assembly: AssemblyCopyright("Copyright © 2023")>
 <assembly: AssemblyTrademark("")>
 <assembly: AssemblyCulture("")>

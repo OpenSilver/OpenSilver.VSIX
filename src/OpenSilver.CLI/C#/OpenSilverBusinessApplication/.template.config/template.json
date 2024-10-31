@@ -108,6 +108,23 @@
       ],
       "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
       "continueOnError": true
+    },
+    {
+      "actionId": "3A7C4B45-1F5D-4A30-959A-51B88E82B5D2",
+      "condition": "(OS == \"Windows_NT\" && !skipRestore)",
+      "args": {
+        "executable": "msbuild-restore.bat",
+        "args": "",
+        "redirectStandardOutput": false,
+        "redirectStandardError": false
+      },
+      "manualInstructions": [
+        {
+          "text": "Run 'msbuild-restore.bat'"
+        }
+      ],
+      "continueOnError": true,
+      "description ": "setups the project by calling msbuild-restore.bat"
     }
   ]
 }
