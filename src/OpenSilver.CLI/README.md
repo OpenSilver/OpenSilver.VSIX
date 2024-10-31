@@ -6,13 +6,13 @@ Welcome to the OpenSilver CLI Templates! This NuGet package provides a set of te
 ## Templates Included
 
 1. **OpenSilver Application**
-   - A standard OpenSilver application template to create web applications using the power of OpenSilver and .NET. Supports C#, VB, and F#. C# is the default if no language is specified.
+   - A standard OpenSilver application template to create web applications using the power of OpenSilver and .NET. Supports C#, VB, and F#.
   
 2. **OpenSilver Business Application**
-   - A business-focused template that leverages OpenRia (ported to OpenSilver), ideal for enterprise-level applications needing robust data management and communication. Supports C# and VB. C# is the default if no language is specified.
+   - A business-focused template that leverages OpenRia (ported to OpenSilver), ideal for enterprise-level applications needing robust data management and communication. Supports C# and VB.
 
 3. **OpenSilver Class Library**
-   - Class libraries in C#, VB, and F# to support modularity and reusability in OpenSilver applications. C# is the default if no language is specified.
+   - Class libraries in C#, VB, and F# to support modularity and reusability in OpenSilver applications.
 
 Each template is designed to help developers focus on building applications by providing a clear, pre-configured structure that works out of the box with OpenSilver.
 
@@ -33,13 +33,13 @@ Once installed, you can use `dotnet new` commands to create new projects from th
 To create an OpenSilver Application, specify the language or let C# be the default:
 
 ```shell
-dotnet new opensilverapp -lang C# -n MyOpenSilverApp
+dotnet new opensilverapp -n MyOpenSilverApp
 ```
 
-For a Business Application (using OpenRia), specify the language or use the default C#:
+For a Business Application (using OpenRia):
 
 ```shell
-dotnet new opensilverbusinessapp -lang C# -n MyOpenSilverBusinessApp
+dotnet new opensilverbusinessapp -n MyOpenSilverBusinessApp
 ```
 
 To create a Class Library, choose the language-specific template or default to C#:
