@@ -23,10 +23,25 @@
       ]
     }
   },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "condition": "(operatingSystem != 'Windows_NT')",
+          "exclude": [
+            "OpenSilverApplication.Simulator/**"
+          ]
+        }
+      ]
+    }
+  ],
   "primaryOutputs": [
     { "path": "./OpenSilverApplication/OpenSilverApplication.csproj" },
     { "path": "./OpenSilverApplication.Browser/OpenSilverApplication.Browser.csproj" },
-    { "path": "./OpenSilverApplication.Simulator/OpenSilverApplication.Simulator.csproj" }
+    {
+      "path": "./OpenSilverApplication.Simulator/OpenSilverApplication.Simulator.csproj",
+      "condition": "(operatingSystem == 'Windows_NT')"
+    }
   ],
   "symbols": {
     "skipRestore": {
@@ -86,8 +101,18 @@
           }
         ]
       }
+    },
+    "operatingSystem": {
+      "type": "bind",
+      "binding": "env:OS"
     }
   },
+  "guids": [
+    "79254849-EE14-42B2-82CB-07A7D4FA3205",
+    "052AA0E1-BF65-4EE4-B6D3-112AE3350154",
+    "E5006009-F128-4902-AD10-D55E7942946A",
+    "D59E1426-E892-4863-9C68-E437124A32F5"
+  ],
   "postActions": [
     {
       "condition": "(!skipRestore)",
