@@ -39,9 +39,9 @@
     "targetFramework": {
       "type": "parameter",
       "datatype": "string",
-      "description": "Sets the target .NET framework, must be net7.0 or net8.0",
-      "defaultValue": "net8.0",
-      "replaces": "net8.0",
+      "description": "Sets the target .NET framework, must be net7.0, net8.0 or net9.0",
+      "defaultValue": "net9.0",
+      "replaces": "net9.0",
       "choices": [
         {
           "choice": "net7.0",
@@ -50,6 +50,10 @@
         {
           "choice": "net8.0",
           "description": "Use .NET 8.0"
+        },
+        {
+          "choice": "net9.0",
+          "description": "Use .NET 9.0"
         }
       ]
     },
@@ -58,7 +62,7 @@
       "generator": "constant",
       "replaces": "OpenSilverPackageVersion",
       "parameters": {
-        "value": "3.0.1"
+        "value": "3.1.0"
       }
     },
     "openSilverSimulatorPackageVersion": {
@@ -66,7 +70,15 @@
       "generator": "constant",
       "replaces": "OpenSilverSimulatorPackageVersion",
       "parameters": {
-        "value": "3.0.0"
+        "value": "3.1.0"
+      }
+    },
+    "openSilverWebAssemblyPackageVersion": {
+      "type": "generated",
+      "generator": "constant",
+      "replaces": "OpenSilverWebAssemblyPackageVersion",
+      "parameters": {
+        "value": "3.1.0"
       }
     },
     "openSilverOpenRiaPackageVersion": {
@@ -74,7 +86,7 @@
       "generator": "constant",
       "replaces": "OpenSilverOpenRiaPackageVersion",
       "parameters": {
-        "value": "3.0.0"
+        "value": "3.1.0"
       }
     },
     "webAssemblyPackageVersion": {
@@ -92,6 +104,10 @@
           {
             "condition": "(targetFramework == 'net8.0')",
             "value": "8.0.0"
+          },
+          {
+            "condition": "(targetFramework == 'net9.0')",
+            "value": "9.0.0"
           }
         ]
       }

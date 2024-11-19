@@ -79,7 +79,6 @@ namespace OpenSilver.TemplateWizards
 
             XNamespace defaultNamespace = openSilverInfo.GetDefaultNamespace();
 
-            string openSilverAPI = openSilverInfo.Element(defaultNamespace + "Api").Value;
             string openSilverType = openSilverInfo.Element(defaultNamespace + "Type").Value;
 
 
@@ -95,28 +94,10 @@ namespace OpenSilver.TemplateWizards
                 }
             }
 
-            if (openSilverAPI == "Silverlight")
-            {
-                switch (window.OpenSilverBuildType)
-                {
-                    case OpenSilverBuildType.Stable:
-                        replacementsDictionary.Add("$opensilverpackagename$", "OpenSilver");
-                        break;
-                }
-            }
-            else
-            {
-                throw new ArgumentNullException($"Unknown OpenSilver API '{openSilverAPI}'");
-            }
-
             if (openSilverType == "Application")
             {
                 switch (window.DotNetVersion)
                 {
-                    case DotNetVersion.Net6:
-                        replacementsDictionary.Add("$targetframework$", "net6.0");
-                        replacementsDictionary.Add("$blazorpackagesversion$", "6.0.0");
-                        break;
                     case DotNetVersion.Net7:
                         replacementsDictionary.Add("$targetframework$", "net7.0");
                         replacementsDictionary.Add("$blazorpackagesversion$", "7.0.0");
@@ -125,14 +106,19 @@ namespace OpenSilver.TemplateWizards
                         replacementsDictionary.Add("$targetframework$", "net8.0");
                         replacementsDictionary.Add("$blazorpackagesversion$", "8.0.0");
                         break;
+                    case DotNetVersion.Net9:
+                        replacementsDictionary.Add("$targetframework$", "net9.0");
+                        replacementsDictionary.Add("$blazorpackagesversion$", "9.0.0");
+                        break;
                 }
 
                 CopyNugetConfig(replacementsDictionary);
             }
 
-            replacementsDictionary.Add("$opensilverpackageversion$", "3.0.1");
-            replacementsDictionary.Add("$opensilversimulatorpackageversion$", "3.0.0");
-            replacementsDictionary.Add("$openria46packageversion$", "3.0.0");
+            replacementsDictionary.Add("$opensilverpackageversion$", "3.1.0");
+            replacementsDictionary.Add("$opensilversimulatorpackageversion$", "3.1.0");
+            replacementsDictionary.Add("$opensilverwebassemblypackageversion$", "3.1.0");
+            replacementsDictionary.Add("$openria46packageversion$", "3.1.0");
         }
 
         public bool ShouldAddProjectItem(string filePath)

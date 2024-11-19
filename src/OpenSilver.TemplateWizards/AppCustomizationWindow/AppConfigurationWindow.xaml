@@ -19,9 +19,9 @@
             <StackPanel Margin="10" x:Name="DotNetVersionStackPanel">
                 <TextBlock Margin="5" Text=".NET Version:"/>
                 <ComboBox x:Name="DotNetVersionComboBox">
-                    <ComboBoxItem>.NET 6</ComboBoxItem>
                     <ComboBoxItem>.NET 7</ComboBoxItem>
-                    <ComboBoxItem IsSelected="True">.NET 8</ComboBoxItem>
+                    <ComboBoxItem>.NET 8</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">.NET 9</ComboBoxItem>
                 </ComboBox>
             </StackPanel>
         </StackPanel>
@@ -29,9 +29,9 @@
         <StackPanel Grid.Row="1" Margin="10,0">
             <TextBlock Text="Notes:"
                        TextWrapping="Wrap" Foreground="Gray"/>
-            <TextBlock Text="* If you want to build your project with Visual Studio 2019, you will only be able to do so with the option &quot;.NET 6&quot;, with .NET 6.0.4 or lower installed."
+            <TextBlock Text="* .NET 8 requires Visual Studio 2022 v17.8 or newer"
                        TextWrapping="Wrap" Foreground="Gray"/>
-            <TextBlock Text="* For &quot;.NET 8&quot;, it is recommended Visual Studio 2022 17.8 or newer"
+            <TextBlock Text="* .NET 9 requires Visual Studio 2022 v17.12 or newer"
                        TextWrapping="Wrap" Foreground="Gray"/>
         </StackPanel>
         

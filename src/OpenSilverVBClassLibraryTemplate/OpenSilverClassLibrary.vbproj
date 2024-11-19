@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="$opensilverpackagename$" Version="$opensilverpackageversion$" />
+    <PackageReference Include="OpenSilver" Version="$opensilverpackageversion$" />
   </ItemGroup>
 
   <ItemGroup>
