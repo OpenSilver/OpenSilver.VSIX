@@ -1,9 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <NoXamlPreprocessor>True</NoXamlPreprocessor>
-    <OpenSilverType>6</OpenSilverType>
+    <TargetFramework>net9.0</TargetFramework>
+    <OpenSilverType>7</OpenSilverType>
     <PublishTrimmed>true</PublishTrimmed>
     <WasmEnableSIMD>false</WasmEnableSIMD>
     <!-- Uncomment to enable AOT compilation when publishing -->
@@ -13,7 +12,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="WebAssemblyPackageVersion" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="WebAssemblyPackageVersion" PrivateAssets="all" />
-    <PackageReference Include="OpenSilver" Version="OpenSilverPackageVersion" />
+    <PackageReference Include="OpenSilver.WebAssembly" Version="OpenSilverWebAssemblyPackageVersion" />
   </ItemGroup>
 
   <PropertyGroup>
