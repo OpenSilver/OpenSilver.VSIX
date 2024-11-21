@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
-using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
@@ -44,6 +40,7 @@ namespace OpenSilver.TemplateWizards
         {
             Close();
         }
+
         private void btnMaximize_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Maximized;
@@ -100,12 +97,12 @@ namespace OpenSilver.TemplateWizards
             get => _isSelected;
             set => SetPropertyValue(ref _isSelected, value);
         }
+
         public bool IsEnabled
         {
             get => _isEnabled;
             set => SetPropertyValue(ref _isEnabled, value);
         }
-
     }
 
     public class StringToBooleanConverter : IValueConverter
@@ -151,7 +148,4 @@ namespace OpenSilver.TemplateWizards
             return null;
         }
     }
-
-
-
 }

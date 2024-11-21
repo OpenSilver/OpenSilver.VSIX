@@ -1,0 +1,88 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>$ext_blazortargetframework$</TargetFramework>
+        <RazorLangVersion>3.0</RazorLangVersion>
+        <EnableDefaultItems>false</EnableDefaultItems>
+        <DefineSilverlight>true</DefineSilverlight>        
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="$ext_opensilverpackagename$" Version="$ext_opensilverpackageversion$" />
+        <PackageReference Include="Microsoft.Extensions.Http" Version="$ext_blazorpackagesversion$" />
+    </ItemGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DefineConstants>DEBUG;OPENSILVER;OPENRIA;SILVERLIGHT</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DefineConstants>OPENSILVER</DefineConstants>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Page Include="Assets\Styles.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        </Page>
+        <Compile Include="Helpers\DataFieldExtensions.fs" />
+        <Compile Include="Helpers\NotOperatorValueConverter.fs" />
+        <Compile Include="Helpers\TargetNullValueConverter.fs" />
+        <Compile Include="Models\LoginInfo.fs" />
+        <Page Include="Views\ErrorWindow.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </Page>
+        <Compile Include="Views\ErrorWindow.xaml.fs" />
+        <Compile Include="Views\Login\ParentRegistrationWindow.fs" />
+        <Page Include="Views\Login\LoginForm.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        </Page>
+        <Compile Include="Views\Login\LoginForm.xaml.fs">
+            <DependentUpon>Views\Login\LoginForm.xaml</DependentUpon>
+        </Compile>
+        <Page Include="Views\Login\RegistrationForm.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        </Page>
+        <Compile Include="Views\Login\RegistrationForm.xaml.fs" />
+        <Page Include="Views\Login\LoginRegistrationWindow.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        </Page>
+        <Compile Include="Views\Login\LoginRegistrationWindow.xaml.fs">
+            <DependentUpon>Views\Login\LoginRegistrationWindow.xaml</DependentUpon>
+        </Compile>
+        <Page Include="Views\Login\LoginStatus.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </Page>
+        <Compile Include="Views\Login\LoginStatus.xaml.fs" />
+        <Page Include="Views\About.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        </Page>
+        <Compile Include="Views\About.xaml.fs">
+            <DependentUpon>Views\About.xaml</DependentUpon>
+        </Compile>
+        <Page Include="Views\Home.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        </Page>
+        <Compile Include="Views\Home.xaml.fs">
+            <DependentUpon>Views\Home.xaml</DependentUpon>
+        </Compile>
+        
+        <Page Include="MainPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        </Page>
+        <Compile Include="MainPage.xaml.fs">
+        <DependentUpon>MainPage.xaml</DependentUpon>
+        </Compile>
+        
+        <ApplicationDefinition Include="App.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        </ApplicationDefinition>
+        <Compile Include="App.xaml.fs">
+        <DependentUpon>App.xaml</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\$ext_safeprojectname$.Client\$ext_safeprojectname$.Client.csproj" />
+    </ItemGroup>
+
+</Project>

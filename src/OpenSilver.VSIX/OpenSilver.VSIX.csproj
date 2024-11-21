@@ -170,6 +170,13 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
+    <ProjectReference Include="..\FSModernBusinessApp\FSModernBusinessApp.csproj">
+      <Project>{9862A47C-D611-477F-928D-2A719CAA8D1C}</Project>
+      <Name>FSModernBusinessApp</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
     <ProjectReference Include="..\FSOpenSilverApplicationWizard\FSOpenSilverApplicationWizard.csproj">
       <Project>{123DEBC7-D5CB-4BDB-B9E7-C183E1D3C5C5}</Project>
       <Name>FSOpenSilverApplicationWizard</Name>

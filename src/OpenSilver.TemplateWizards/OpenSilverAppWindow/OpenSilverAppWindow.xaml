@@ -53,7 +53,7 @@
 
                             <RadioButton x:Name="radBusiness" GroupName="TemplateTypeGroup" 
                                          IsChecked="{Binding TemplateType, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=Business}"
-                                         IsEnabled="{Binding FSharpIsNotSelected}">
+                                         >
                                 <StackPanel>
                                     <TextBlock Text="Business" FontWeight="Bold" />
                                     <TextBlock Text="OpenSilver line-of-business application using Open RIA Services (client/server)" TextWrapping="Wrap" />
@@ -64,7 +64,8 @@
                         <UniformGrid>
                             <RadioButton GroupName="BusinessTemplateTypeGroup"
                                          IsChecked="{Binding BusinessTemplateType, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=Migration}"
-                                         Visibility="{Binding IsChecked, ElementName=radBusiness, Converter={StaticResource BoolToHiddenConverter}}">
+                                         Visibility="{Binding IsChecked, ElementName=radBusiness, Converter={StaticResource BoolToHiddenConverter}}"
+                                         IsEnabled="{Binding FSharpIsNotSelected}">
                                 <StackPanel>
                                     <TextBlock Text="Migration" FontWeight="Bold" />
                                     <TextBlock Text="This version allows an easy migration path from existing Silverlight + WCF Ria Services" TextWrapping="Wrap" />

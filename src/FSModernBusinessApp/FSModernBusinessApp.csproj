@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>17.0</MinimumVisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{9862A47C-D611-477F-928D-2A719CAA8D1C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>$safeprojectname$</RootNamespace>
+    <AssemblyName>CSModernBusinessApp</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <GeneratePkgDefFile>false</GeneratePkgDefFile>
+    <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
+    <IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
+    <IncludeDebugSymbolsInLocalVSIXDeployment>false</IncludeDebugSymbolsInLocalVSIXDeployment>
+    <CreateVsixContainer>false</CreateVsixContainer>
+    <DeployExtension>false</DeployExtension>
+    <DeployVSTemplates>false</DeployVSTemplates>
+    <CopyVsixManifestToOutput>false</CopyVsixManifestToOutput>
+    <CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
+    <CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="OpenSilverBusinessApplication\Views\About.xaml.fs" />
+    <None Include="OpenSilverBusinessApplication\Views\ErrorWindow.xaml.fs" />
+    <None Include="OpenSilverBusinessApplication\Views\Home.xaml.fs" />
+    <None Include="OpenSilverBusinessApplication\Views\Login\RegistrationForm.xaml.fs" />
+    <VSTemplate Include="FSModernBusinessApp.vstemplate" />
+    <None Include="OpenSilverBusinessApplication.Server\Database\Business.db" />
+    <None Include="OpenSilverBusinessApplication\App.xaml" />
+    <None Include="OpenSilverBusinessApplication\App.xaml.fs" />
+    <None Include="OpenSilverBusinessApplication.Browser\wwwroot\appsettings.json" />
+    <None Include="OpenSilverBusinessApplication\Assets\Styles.xaml" />
+    <None Include="OpenSilverBusinessApplication\Helpers\DataFieldExtensions.fs" />
+    <None Include="OpenSilverBusinessApplication\Helpers\NotOperatorValueConverter.fs" />
+    <None Include="OpenSilverBusinessApplication\Helpers\TargetNullValueConverter.fs" />
+    <None Include="OpenSilverBusinessApplication\MainPage.xaml" />
+    <None Include="OpenSilverBusinessApplication\MainPage.xaml.fs" />
+    <None Include="OpenSilverBusinessApplication\Models\LoginInfo.fs" />
+    <None Include="OpenSilverBusinessApplication\OpenSilverBusinessApplication.fsproj" />
+    <None Include="OpenSilverBusinessApplication\OpenSilverBusinessApplication.vstemplate" />
+    <None Include="OpenSilverBusinessApplication\README.md" />
+    <None Include="OpenSilverBusinessApplication\Views\About.xaml" />
+    <None Include="OpenSilverBusinessApplication\Views\ErrorWindow.xaml" />
+    <None Include="OpenSilverBusinessApplication\Views\Home.xaml" />
+    <None Include="OpenSilverBusinessApplication\Views\Login\LoginForm.xaml" />
+    <None Include="OpenSilverBusinessApplication\Views\Login\LoginForm.xaml.fs" />
+    <None Include="OpenSilverBusinessApplication\Views\Login\LoginRegistrationWindow.xaml" />
+    <None Include="OpenSilverBusinessApplication\Views\Login\LoginRegistrationWindow.xaml.fs" />
+    <None Include="OpenSilverBusinessApplication\Views\Login\LoginStatus.xaml" />
+    <None Include="OpenSilverBusinessApplication\Views\Login\LoginStatus.xaml.fs" />
+    <None Include="OpenSilverBusinessApplication\Views\Login\ParentRegistrationWindow.fs" />
+    <None Include="OpenSilverBusinessApplication\Views\Login\RegistrationForm.xaml" />
+    <None Include="OpenSilverBusinessApplication\Views\Login\RegistrationForm.xaml.cs" />
+    <None Include="OpenSilverBusinessApplication.Browser\App.cs" />
+    <None Include="OpenSilverBusinessApplication.Browser\Interop\UnmarshalledJavaScriptExecutionHandler.cs" />
+    <None Include="OpenSilverBusinessApplication.Browser\OpenSilverBusinessApplication.Browser.csproj" />
+    <None Include="OpenSilverBusinessApplication.Browser\OpenSilverBusinessApplication.Browser.vstemplate" />
+    <None Include="OpenSilverBusinessApplication.Browser\Pages\Index.cs" />
+    <None Include="OpenSilverBusinessApplication.Browser\Program.cs" />
+    <None Include="OpenSilverBusinessApplication.Browser\Properties\launchSettings.json" />
+    <None Include="OpenSilverBusinessApplication.Browser\wwwroot\BlazorLoader.js" />
+    <None Include="OpenSilverBusinessApplication.Browser\wwwroot\favicon.ico" />
+    <None Include="OpenSilverBusinessApplication.Browser\wwwroot\index.html" />
+    <None Include="OpenSilverBusinessApplication.Browser\wwwroot\loading-indicator.css" />
+    <None Include="OpenSilverBusinessApplication.Browser\wwwroot\loading-indicator.js" />
+    <None Include="OpenSilverBusinessApplication.Simulator/**" />
+    <None Include="OpenSilverBusinessApplication.Client/**" />
+    <None Include="OpenSilverBusinessApplication.Server\appsettings.Development.json" />
+    <None Include="OpenSilverBusinessApplication.Server\appsettings.json" />
+    <None Include="OpenSilverBusinessApplication.Server\Data\ApplicationDbContext.cs" />
+    <None Include="OpenSilverBusinessApplication.Server\Models\RegistrationData.cs" />
+    <None Include="OpenSilverBusinessApplication.Server\Models\Shared\User.shared.cs" />
+    <None Include="OpenSilverBusinessApplication.Server\Models\User.cs" />
+    <None Include="OpenSilverBusinessApplication.Server\OpenSilverBusinessApplication.Server.csproj" />
+    <None Include="OpenSilverBusinessApplication.Server\OpenSilverBusinessApplication.Server.vstemplate" />
+    <None Include="OpenSilverBusinessApplication.Server\Program.cs" />
+    <None Include="OpenSilverBusinessApplication.Server\Properties\launchSettings.json" />
+    <None Include="OpenSilverBusinessApplication.Server\Services\AuthenticationService.cs" />
+    <None Include="OpenSilverBusinessApplication.Server\Services\UserRegistrationService.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

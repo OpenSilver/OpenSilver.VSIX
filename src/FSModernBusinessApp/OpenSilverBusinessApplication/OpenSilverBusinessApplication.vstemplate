@@ -1,0 +1,45 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Hidden>true</Hidden>
+    <CreateInPlace>true</CreateInPlace>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="$ext_safeprojectname$.fsproj" File="OpenSilverBusinessApplication.fsproj" ReplaceParameters="true">
+      <Folder Name="Assets" TargetFolderName="Assets">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Styles.xaml">Styles.xaml</ProjectItem>
+      </Folder>
+      <Folder Name="Helpers" TargetFolderName="Helpers">
+        <ProjectItem ReplaceParameters="true" TargetFileName="DataFieldExtensions.fs">DataFieldExtensions.fs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="NotOperatorValueConverter.fs">NotOperatorValueConverter.fs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="TargetNullValueConverter.fs">TargetNullValueConverter.fs</ProjectItem>
+      </Folder>
+      <Folder Name="Models" TargetFolderName="Models">
+        <ProjectItem ReplaceParameters="true" TargetFileName="LoginInfo.fs">LoginInfo.fs</ProjectItem>
+      </Folder>
+      <Folder Name="Views" TargetFolderName="Views">
+        <Folder Name="Login" TargetFolderName="Login">
+          <ProjectItem ReplaceParameters="true" TargetFileName="ParentRegistrationWindow.fs">ParentRegistrationWindow.fs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="LoginForm.xaml">LoginForm.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="LoginForm.xaml.fs">LoginForm.xaml.fs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="LoginRegistrationWindow.xaml">LoginRegistrationWindow.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="LoginRegistrationWindow.xaml.fs">LoginRegistrationWindow.xaml.fs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="LoginStatus.xaml">LoginStatus.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="LoginStatus.xaml.fs">LoginStatus.xaml.fs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="RegistrationForm.xaml">RegistrationForm.xaml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="RegistrationForm.xaml.fs">RegistrationForm.xaml.fs</ProjectItem>
+        </Folder>
+        <ProjectItem ReplaceParameters="true" TargetFileName="About.xaml">About.xaml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="About.xaml.fs">About.xaml.fs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ErrorWindow.xaml">ErrorWindow.xaml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ErrorWindow.xaml.fs">ErrorWindow.xaml.fs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Home.xaml">Home.xaml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Home.xaml.fs">Home.xaml.fs</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml">App.xaml</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml.fs">App.xaml.fs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="MainPage.xaml">MainPage.xaml</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="MainPage.xaml.fs">MainPage.xaml.fs</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="README.md" OpenInEditor="true">README.md</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>
