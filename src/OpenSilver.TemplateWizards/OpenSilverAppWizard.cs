@@ -63,8 +63,14 @@ namespace OpenSilver.TemplateWizards
             {
                 OpenSilverSettings = window.ViewModel;
 
-                // OpenSilver default settings
+                // load default settings
                 WizardSettings = Helpers.LoadEmbeddedResource<WizardSettings>("Settings.WizardSettings.json");
+                // update the framework version with incoming from wizard
+                var netVersion = $"{OpenSilverSettings.FrameworkVersion}.0".ToLower();
+                WizardSettings.TargetFramework = netVersion;
+                WizardSettings.BlazorTargetFramework = netVersion;
+                WizardSettings.BlazorPackagesVersion = $"{(int)OpenSilverSettings.FrameworkVersion}.0.0";
+                // apply default settings
                 ReplacementsDictionary.Populate(WizardSettings);
                 ReplacementsDictionary.Add("$mauiappstartparams$", string.Empty);
 
