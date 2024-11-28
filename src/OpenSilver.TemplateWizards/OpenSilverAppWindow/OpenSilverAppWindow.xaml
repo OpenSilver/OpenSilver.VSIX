@@ -227,8 +227,8 @@
                 <TextBlock Text="Frontend" FontWeight="Bold" Margin="0 15 0 0" />
                 <TextBlock Text="{Binding FrameworkVersion}" />
 
-                <TextBlock Text="Database" FontWeight="Bold" Margin="0 15 0 0" />
-                <TextBlock Text="{Binding Database}" />
+                <TextBlock Text="Database" FontWeight="Bold" Margin="0 15 0 0" Visibility="{Binding IsChecked, ElementName=radBusiness, Converter={StaticResource BoolToHiddenConverter}}" />
+                <TextBlock Text="{Binding Database}" Visibility="{Binding IsChecked, ElementName=radBusiness, Converter={StaticResource BoolToHiddenConverter}}" />
 
                 <TextBlock Text="Licenses" FontWeight="Bold" Margin="0 15 0 0" />
                 <TextBlock>
