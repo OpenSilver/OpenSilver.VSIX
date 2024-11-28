@@ -108,6 +108,14 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="libraries\**">
+        <Visible>false</Visible>
+        <Link>libraries\%(RecursiveDir)\%(Filename)%(Extension)</Link>
+        <TargetPath>%(RecursiveDir)\%(Filename)%(Extension)</TargetPath>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Database\InstallMembership.sql" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />

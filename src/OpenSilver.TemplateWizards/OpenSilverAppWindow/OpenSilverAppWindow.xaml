@@ -204,7 +204,7 @@
                         <RadioButton IsChecked="{Binding FrameworkVersion, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=Net9}">
                             <StackPanel>
                                 <TextBlock Text=".NET 9.0" FontWeight="Bold" />
-                                <TextBlock Text="Preview" />
+                                <TextBlock Text="Standard Term Support" />
                             </StackPanel>
                         </RadioButton>
                     </WrapPanel>
