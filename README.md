@@ -46,7 +46,7 @@ For more information about the command line switches you can run this command to
 
 If you need help for another OpenSilver template, let's say the Class Library template, just change the name of the template as follows:
 
-	dotnet new opensilvercl -h
+	dotnet new opensilverlib -h
 
 If you still encounter any issues, please contact:
 - the OpenSilver team at: https://opensilver.net/contact.aspx
