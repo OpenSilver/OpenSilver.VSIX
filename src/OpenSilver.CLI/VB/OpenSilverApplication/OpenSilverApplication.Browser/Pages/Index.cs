@@ -1,10 +1,7 @@
-﻿using DotNetForHtml5;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
-using Microsoft.JSInterop;
-using OpenSilverApplication.Browser.Interop;
 using System.Threading.Tasks;
-using System;
+using OpenSilver.WebAssembly;
 
 namespace OpenSilverApplication.Browser.Pages
 {
@@ -18,17 +15,7 @@ namespace OpenSilverApplication.Browser.Pages
         protected async override Task OnInitializedAsync()
         {
             await base.OnInitializedAsync();
-
-            if (!await JSRuntime.InvokeAsync<bool>("getOSFilesLoadedPromise"))
-            {
-                throw new InvalidOperationException("Failed to initialize OpenSilver. Check your browser's console for error details.");
-            }
-
-            Cshtml5Initializer.Initialize(new UnmarshalledJavaScriptExecutionHandler(JSRuntime));
-            Program.RunApplication();
+            await Runner.RunApplicationAsync<OpenSilverApplication.App>();
         }
-
-        [Inject]
-        private IJSRuntime JSRuntime { get; set; }
     }
 }

@@ -1,8 +1,7 @@
-﻿using DotNetForHtml5;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
-using Microsoft.JSInterop;
-using OpenSilverApplication.Browser.Interop;
+using System.Threading.Tasks;
+using OpenSilver.WebAssembly;
 
 namespace OpenSilverApplication.Browser.Pages
 {
@@ -13,14 +12,10 @@ namespace OpenSilverApplication.Browser.Pages
         {
         }
 
-        protected override void OnInitialized()
+        protected async override Task OnInitializedAsync()
         {
-            base.OnInitialized();
-            Cshtml5Initializer.Initialize(new UnmarshalledJavaScriptExecutionHandler(JSRuntime));
-            Program.RunApplication();
+            await base.OnInitializedAsync();
+            await Runner.RunApplicationAsync<OpenSilverApplication.App>();
         }
-
-        [Inject]
-        private IJSRuntime JSRuntime { get; set; }
     }
 }

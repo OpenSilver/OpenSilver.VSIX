@@ -9,9 +9,6 @@
             <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml.fs">App.xaml.fs</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="MainPage.xaml">MainPage.xaml</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="MainPage.xaml.fs">MainPage.xaml.fs</ProjectItem>
-            <Folder Name="Properties" TargetFolderName="Properties">
-                <ProjectItem ReplaceParameters="true" TargetFileName="launchSettings.json">launchSettings.json</ProjectItem>
-            </Folder>
         </Project>
     </TemplateContent>
 </VSTemplate>

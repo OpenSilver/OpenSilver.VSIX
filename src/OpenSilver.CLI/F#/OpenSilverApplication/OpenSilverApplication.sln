@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34310.174
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenSilverApplication.Browser", "OpenSilverApplication.Browser\OpenSilverApplication.Browser.csproj", "{41168522-4247-4181-BE6B-CD561E266F1B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverApplication.Browser", "OpenSilverApplication.Browser\OpenSilverApplication.Browser.csproj", "{41168522-4247-4181-BE6B-CD561E266F1B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenSilverApplication.Simulator", "OpenSilverApplication.Simulator\OpenSilverApplication.Simulator.csproj", "{88992088-C7C5-47CF-87AB-FC26135729B8}"
+#if (operatingSystem == 'Windows_NT')
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverApplication.Simulator", "OpenSilverApplication.Simulator\OpenSilverApplication.Simulator.csproj", "{88992088-C7C5-47CF-87AB-FC26135729B8}"
 EndProject
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "OpenSilverApplication", "OpenSilverApplication\OpenSilverApplication.fsproj", "{AE40C775-AAE2-4310-8566-AA1EB3F79F04}"
+#endif
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "OpenSilverApplication", "OpenSilverApplication\OpenSilverApplication.fsproj", "{AE40C775-AAE2-4310-8566-AA1EB3F79F04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +21,12 @@ Global
 		{41168522-4247-4181-BE6B-CD561E266F1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41168522-4247-4181-BE6B-CD561E266F1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41168522-4247-4181-BE6B-CD561E266F1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		#if (operatingSystem == 'Windows_NT')
 		{88992088-C7C5-47CF-87AB-FC26135729B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{88992088-C7C5-47CF-87AB-FC26135729B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88992088-C7C5-47CF-87AB-FC26135729B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88992088-C7C5-47CF-87AB-FC26135729B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		#endif
 		{AE40C775-AAE2-4310-8566-AA1EB3F79F04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AE40C775-AAE2-4310-8566-AA1EB3F79F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE40C775-AAE2-4310-8566-AA1EB3F79F04}.Release|Any CPU.ActiveCfg = Release|Any CPU

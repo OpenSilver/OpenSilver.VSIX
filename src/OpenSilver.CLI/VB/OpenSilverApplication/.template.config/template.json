@@ -4,10 +4,10 @@
   "classifications": [ "Web", "Desktop", "OpenSilver", "Xaml", "VB" ],
   "identity": "OpensilverApplicationVB",
   "groupIdentity": "OpenSilverApplication",
-  "name": "Opensilver web application",
+  "name": "OpenSilver Web Application",
   "shortName": "opensilverapp",
   "sourceName": "OpenSilverApplication",
-
+  "description": "Template for creating a VB OpenSilver Web Application.",
   "tags": {
     "language": "VB",
     "type": "solution"
@@ -17,15 +17,31 @@
       "type": "host",
       "args": [
         {
-          "hostname": "dotnetcli"
+          "hostname": "dotnetcli",
+          "version": "[7.0,)"
         }
       ]
     }
   },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "condition": "(operatingSystem != 'Windows_NT')",
+          "exclude": [
+            "OpenSilverApplication.Simulator/**"
+          ]
+        }
+      ]
+    }
+  ],
   "primaryOutputs": [
     { "path": "./OpenSilverApplication/OpenSilverApplication.vbproj" },
     { "path": "./OpenSilverApplication.Browser/OpenSilverApplication.Browser.csproj" },
-    { "path": "./OpenSilverApplication.Simulator/OpenSilverApplication.Simulator.csproj" }
+    {
+      "path": "./OpenSilverApplication.Simulator/OpenSilverApplication.Simulator.csproj",
+      "condition": "(operatingSystem == 'Windows_NT')"
+    }
   ],
   "symbols": {
     "skipRestore": {
@@ -37,11 +53,82 @@
     "targetFramework": {
       "type": "parameter",
       "datatype": "string",
-      "description": "If specified, sets the target .net framework, valid values are net6.0, net7.0 and net8.0",
-      "defaultValue": "net8.0",
-      "replaces": "net8.0"
+      "description": "Sets the target .NET framework, must be net7.0, net8.0 or net9.0",
+      "defaultValue": "net9.0",
+      "replaces": "net9.0",
+      "choices": [
+        {
+          "choice": "net7.0",
+          "description": "Use .NET 7.0"
+        },
+        {
+          "choice": "net8.0",
+          "description": "Use .NET 8.0"
+        },
+        {
+          "choice": "net9.0",
+          "description": "Use .NET 9.0"
+        }
+      ]
+    },
+    "openSilverPackageVersion": {
+      "type": "generated",
+      "generator": "constant",
+      "replaces": "OpenSilverPackageVersion",
+      "parameters": {
+        "value": "3.1.0"
+      }
+    },
+    "openSilverSimulatorPackageVersion": {
+      "type": "generated",
+      "generator": "constant",
+      "replaces": "OpenSilverSimulatorPackageVersion",
+      "parameters": {
+        "value": "3.1.0"
+      }
+    },
+    "openSilverWebAssemblyPackageVersion": {
+      "type": "generated",
+      "generator": "constant",
+      "replaces": "OpenSilverWebAssemblyPackageVersion",
+      "parameters": {
+        "value": "3.1.0"
+      }
+    },
+    "webAssemblyPackageVersion": {
+      "type": "generated",
+      "generator": "switch",
+      "datatype": "string",
+      "replaces": "WebAssemblyPackageVersion",
+      "parameters": {
+        "evaluator": "C++",
+        "cases": [
+          {
+            "condition": "(targetFramework == 'net7.0')",
+            "value": "7.0.0"
+          },
+          {
+            "condition": "(targetFramework == 'net8.0')",
+            "value": "8.0.0"
+          },
+          {
+            "condition": "(targetFramework == 'net9.0')",
+            "value": "9.0.0"
+          }
+        ]
+      }
+    },
+    "operatingSystem": {
+      "type": "bind",
+      "binding": "env:OS"
     }
   },
+  "guids": [
+    "41168522-4247-4181-BE6B-CD561E266F1B",
+    "F563F170-CE74-449A-86D7-16311BE5D624",
+    "88992088-C7C5-47CF-87AB-FC26135729B8",
+    "B9762355-C28A-465A-91A1-9BE8B02EAC72"
+  ],
   "postActions": [
     {
       "condition": "(!skipRestore)",
@@ -52,13 +139,7 @@
         }
       ],
       "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
-      "continueOnError": true,
-      "args": {
-        "files": [
-          "./OpenSilverApplication/OpenSilverApplication.csproj",
-          "./OpenSilverApplication.Simulator/OpenSilverApplication.Simulator.csproj"
-        ]
-      }
+      "continueOnError": true
     }
   ]
 }

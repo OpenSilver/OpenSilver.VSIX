@@ -4,9 +4,10 @@
   "classifications": [ "Web", "Desktop", "OpenSilver", "Xaml", "C#" ],
   "identity": "OpensilverClassLibraryCS",
   "groupIdentity": "OpenSilverClassLibrary",
-  "name": "Opensilver class library",
+  "name": "OpenSilver Class Library",
   "shortName": "opensilverlib",
   "sourceName": "OpenSilverClassLibrary",
+  "description": "Template for creating a C# OpenSilver Class Library.",
   "tags": {
     "language": "C#",
     "type": "solution"
@@ -16,7 +17,8 @@
       "type": "host",
       "args": [
         {
-          "hostname": "dotnetcli"
+          "hostname": "dotnetcli",
+          "version": "[7.0,)"
         }
       ]
     }
@@ -27,8 +29,19 @@
       "datatype": "bool",
       "description": "If specified, skips the automatic restore of the project on create.",
       "defaultValue": "false"
+    },
+    "openSilverPackageVersion": {
+      "type": "generated",
+      "generator": "constant",
+      "replaces": "OpenSilverPackageVersion",
+      "parameters": {
+        "value": "3.1.0"
+      }
     }
   },
+  "primaryOutputs": [
+    { "path": "./OpenSilverClassLibrary.csproj" }
+  ],
   "postActions": [
     {
       "condition": "(!skipRestore)",
