@@ -23,12 +23,20 @@ namespace OpenSilver.TemplateWizards
         public TemplateType TemplateType
         {
             get => _templateType;
-            set => SetPropertyValue(ref _templateType, value);
+            set
+            {
+                SetPropertyValue(ref _templateType, value);
+                RaisePropertyChanged(nameof(IsModernBusinessAppSelected));
+            }
         }
         public BusinessTemplateType BusinessTemplateType
         {
             get => _businesstemplateType;
-            set => SetPropertyValue(ref _businesstemplateType, value);
+            set
+            {
+                SetPropertyValue(ref _businesstemplateType, value);
+                RaisePropertyChanged(nameof(IsModernBusinessAppSelected));
+            }
         }
 
         public DatabaseType Database
@@ -54,6 +62,8 @@ namespace OpenSilver.TemplateWizards
         }
 
         public bool FSharpIsNotSelected => Language != Language.FSharp;
+
+        public bool IsModernBusinessAppSelected => TemplateType == TemplateType.Business && BusinessTemplateType == BusinessTemplateType.Modern;
 
         public ObservableCollection<PlatformItem> Platforms
         {

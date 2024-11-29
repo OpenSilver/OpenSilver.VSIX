@@ -134,7 +134,7 @@
                                 </RadioButton>
                             </WrapPanel>
                         </StackPanel>
-                        <StackPanel Margin="0 10 0 5" Visibility="{Binding IsChecked, ElementName=radBusiness, Converter={StaticResource BoolToHiddenConverter}}">
+                        <StackPanel Margin="0 10 0 5" Visibility="{Binding IsModernBusinessAppSelected, Converter={StaticResource BoolToHiddenConverter}}">
                             <TextBlock Text="Database" FontWeight="Bold" Margin="0 0 0 5" />
                             <WrapPanel>
                                 <RadioButton IsChecked="{Binding Database, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=Sqlite}">
@@ -227,8 +227,8 @@
                 <TextBlock Text="Frontend" FontWeight="Bold" Margin="0 15 0 0" />
                 <TextBlock Text="{Binding FrameworkVersion}" />
 
-                <TextBlock Text="Database" FontWeight="Bold" Margin="0 15 0 0" Visibility="{Binding IsChecked, ElementName=radBusiness, Converter={StaticResource BoolToHiddenConverter}}" />
-                <TextBlock Text="{Binding Database}" Visibility="{Binding IsChecked, ElementName=radBusiness, Converter={StaticResource BoolToHiddenConverter}}" />
+                <TextBlock Text="Database" FontWeight="Bold" Margin="0 15 0 0" Visibility="{Binding IsModernBusinessAppSelected, Converter={StaticResource BoolToHiddenConverter}}" />
+                <TextBlock Text="{Binding Database}" Visibility="{Binding IsModernBusinessAppSelected, Converter={StaticResource BoolToHiddenConverter}}" />
 
                 <TextBlock Text="Licenses" FontWeight="Bold" Margin="0 15 0 0" />
                 <TextBlock>
