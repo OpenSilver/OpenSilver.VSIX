@@ -43,7 +43,8 @@ namespace OpenSilver.TemplateWizards
             try
             {
                 var directoryKey = IsProjectAndSolutionSameDir(replacementsDictionary) ? "$destinationdirectory$" : "$solutiondirectory$";
-                var solutionDir = replacementsDictionary.ContainsKey(directoryKey) ? replacementsDictionary[directoryKey] : null; var vsixNugetConfig = GetVsixFullPath(NugetConfig);
+                var solutionDir = replacementsDictionary.ContainsKey(directoryKey) ? replacementsDictionary[directoryKey] : null;
+                var vsixNugetConfig = GetVsixFullPath(NugetConfig);
                 if (solutionDir != null && vsixNugetConfig != null)
                 {
                     File.Copy(vsixNugetConfig, Path.Combine(solutionDir, NugetConfig));
@@ -78,17 +79,28 @@ namespace OpenSilver.TemplateWizards
             if (_selectedTheme.Equals("Classic", StringComparison.OrdinalIgnoreCase))
                 return;
 
+
             string projectName = _replacementsDictionary["$safeprojectname$"];
+            string language = GetCurrentProgrammingLanguage();
 
             string appXamlPath = GetFileFullPath("App.xaml", ProjectTemplate.OpenSilver);
-            string OpenSilverCsprojPath = GetFileFullPath($"{projectName}.csproj", ProjectTemplate.OpenSilver);
+
+            string OpenSilverCsprojPath = GetFileFullPath($"{projectName}.{language}proj", ProjectTemplate.OpenSilver);
 
             if (File.Exists(appXamlPath) && File.Exists(OpenSilverCsprojPath))
             {
-       
+
                 AddThemePalette(appXamlPath);
                 AddThemeReferences(OpenSilverCsprojPath);
             }
+        }
+
+        private string GetCurrentProgrammingLanguage()
+        {
+            var openSilverInfo = XElement.Parse(_replacementsDictionary["$wizarddata$"]);
+            XNamespace defaultNamespace = openSilverInfo.GetDefaultNamespace();
+            string Language = openSilverInfo.Element(defaultNamespace + "LanguageCode").Value;
+            return Language;
         }
 
         private void AddThemePalette(string appXamlPath)
@@ -133,6 +145,7 @@ namespace OpenSilver.TemplateWizards
         public void RunStarted(object automationObject, Dictionary<string, string> replacementsDictionary,
             WizardRunKind runKind, object[] customParams)
         {
+
             XElement openSilverInfo = XElement.Parse(replacementsDictionary["$wizarddata$"]);
 
             XNamespace defaultNamespace = openSilverInfo.GetDefaultNamespace();
