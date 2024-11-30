@@ -235,22 +235,22 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="Userware.XamlDesigner.Api.BL.Models.OpenSilver, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\xamldesigner.opensilver.2.0.0-preview-2024-11-26-033247-6a6e8a69\lib\net47\Userware.XamlDesigner.Api.BL.Models.OpenSilver.dll</HintPath>
+      <HintPath>..\packages\XamlDesigner.OpenSilver.2.0.0-preview-2024-11-18-031505-451785db\lib\net47\Userware.XamlDesigner.Api.BL.Models.OpenSilver.dll</HintPath>
     </Reference>
     <Reference Include="Userware.XamlDesigner.Api.Client.OpenSilver, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\xamldesigner.opensilver.2.0.0-preview-2024-11-26-033247-6a6e8a69\lib\net47\Userware.XamlDesigner.Api.Client.OpenSilver.dll</HintPath>
+      <HintPath>..\packages\XamlDesigner.OpenSilver.2.0.0-preview-2024-11-18-031505-451785db\lib\net47\Userware.XamlDesigner.Api.Client.OpenSilver.dll</HintPath>
     </Reference>
     <Reference Include="Userware.XamlDesigner.Communication.OpenSilver, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\xamldesigner.opensilver.2.0.0-preview-2024-11-26-033247-6a6e8a69\lib\net47\Userware.XamlDesigner.Communication.OpenSilver.dll</HintPath>
+      <HintPath>..\packages\XamlDesigner.OpenSilver.2.0.0-preview-2024-11-18-031505-451785db\lib\net47\Userware.XamlDesigner.Communication.OpenSilver.dll</HintPath>
     </Reference>
     <Reference Include="Userware.XamlDesigner.Data.Primitives.OpenSilver, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\xamldesigner.opensilver.2.0.0-preview-2024-11-26-033247-6a6e8a69\lib\net47\Userware.XamlDesigner.Data.Primitives.OpenSilver.dll</HintPath>
+      <HintPath>..\packages\XamlDesigner.OpenSilver.2.0.0-preview-2024-11-18-031505-451785db\lib\net47\Userware.XamlDesigner.Data.Primitives.OpenSilver.dll</HintPath>
     </Reference>
     <Reference Include="Userware.XamlDesigner.OpenSilver, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\xamldesigner.opensilver.2.0.0-preview-2024-11-26-033247-6a6e8a69\lib\net47\Userware.XamlDesigner.OpenSilver.dll</HintPath>
+      <HintPath>..\packages\XamlDesigner.OpenSilver.2.0.0-preview-2024-11-18-031505-451785db\lib\net47\Userware.XamlDesigner.OpenSilver.dll</HintPath>
     </Reference>
     <Reference Include="Userware.XamlDesigner.SplitXamlEditor.OpenSilver, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\xamldesigner.opensilver.2.0.0-preview-2024-11-26-033247-6a6e8a69\lib\net47\Userware.XamlDesigner.SplitXamlEditor.OpenSilver.dll</HintPath>
+      <HintPath>..\packages\XamlDesigner.OpenSilver.2.0.0-preview-2024-11-18-031505-451785db\lib\net47\Userware.XamlDesigner.SplitXamlEditor.OpenSilver.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -296,11 +296,11 @@
     <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Setup.Configuration.Interop.3.7.2175\build\Microsoft.VisualStudio.Setup.Configuration.Interop.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Setup.Configuration.Interop.3.7.2175\build\Microsoft.VisualStudio.Setup.Configuration.Interop.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Threading.Analyzers.17.7.30\build\Microsoft.VisualStudio.Threading.Analyzers.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Threading.Analyzers.17.7.30\build\Microsoft.VisualStudio.Threading.Analyzers.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.Web.WebView2.1.0.2365.46\build\Microsoft.Web.WebView2.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Web.WebView2.1.0.2365.46\build\Microsoft.Web.WebView2.targets'))" />
-    <Error Condition="!Exists('..\packages\xamldesigner.opensilver.2.0.0-preview-2024-11-26-033247-6a6e8a69\build\XamlDesigner.OpenSilver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xamldesigner.opensilver.2.0.0-preview-2024-11-26-033247-6a6e8a69\build\XamlDesigner.OpenSilver.targets'))" />
+    <Error Condition="!Exists('..\packages\XamlDesigner.OpenSilver.2.0.0-preview-2024-11-18-031505-451785db\build\XamlDesigner.OpenSilver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\XamlDesigner.OpenSilver.2.0.0-preview-2024-11-18-031505-451785db\build\XamlDesigner.OpenSilver.targets'))" />
   </Target>
   <Import Project="..\packages\Microsoft.VisualStudio.SDK.Analyzers.16.10.10\build\Microsoft.VisualStudio.SDK.Analyzers.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.SDK.Analyzers.16.10.10\build\Microsoft.VisualStudio.SDK.Analyzers.targets')" />
   <Import Project="..\packages\Microsoft.VisualStudio.Setup.Configuration.Interop.3.7.2175\build\Microsoft.VisualStudio.Setup.Configuration.Interop.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.Setup.Configuration.Interop.3.7.2175\build\Microsoft.VisualStudio.Setup.Configuration.Interop.targets')" />
   <Import Project="..\packages\Microsoft.VisualStudio.Threading.Analyzers.17.7.30\build\Microsoft.VisualStudio.Threading.Analyzers.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.Threading.Analyzers.17.7.30\build\Microsoft.VisualStudio.Threading.Analyzers.targets')" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.2365.46\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.2365.46\build\Microsoft.Web.WebView2.targets')" />
-  <Import Project="..\packages\xamldesigner.opensilver.2.0.0-preview-2024-11-26-033247-6a6e8a69\build\XamlDesigner.OpenSilver.targets" Condition="Exists('..\packages\xamldesigner.opensilver.2.0.0-preview-2024-11-26-033247-6a6e8a69\build\XamlDesigner.OpenSilver.targets')" />
+  <Import Project="..\packages\XamlDesigner.OpenSilver.2.0.0-preview-2024-11-18-031505-451785db\build\XamlDesigner.OpenSilver.targets" Condition="Exists('..\packages\XamlDesigner.OpenSilver.2.0.0-preview-2024-11-18-031505-451785db\build\XamlDesigner.OpenSilver.targets')" />
 </Project>
