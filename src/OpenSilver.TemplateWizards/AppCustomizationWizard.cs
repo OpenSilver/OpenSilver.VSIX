@@ -123,9 +123,10 @@ namespace OpenSilver.TemplateWizards
             if (itemGroupWithPackageReference != null)
             {
                 // Create the new element to insert
+                ;
                 var newElement = new XElement("PackageReference",
                     new XAttribute("Include", "OpenSilver.Themes.Modern"),
-                    new XAttribute("Version", "3.1.0"));
+                    new XAttribute("Version", _replacementsDictionary["$opensilverthememodern$"]));
 
                 itemGroupWithPackageReference.Add(newElement);
 
@@ -190,6 +191,7 @@ namespace OpenSilver.TemplateWizards
             replacementsDictionary.Add("$opensilversimulatorpackageversion$", "3.1.0");
             replacementsDictionary.Add("$opensilverwebassemblypackageversion$", "3.1.0");
             replacementsDictionary.Add("$openria46packageversion$", "3.1.0");
+            replacementsDictionary.Add("$opensilverthememodern$", "3.1.0");
 
             _replacementsDictionary = replacementsDictionary;
             _selectedTheme = window.SelectedTheme;
