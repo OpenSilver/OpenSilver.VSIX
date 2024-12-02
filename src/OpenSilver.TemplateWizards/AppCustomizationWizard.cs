@@ -8,7 +8,6 @@ using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Xml.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace OpenSilver.TemplateWizards
 {
@@ -56,15 +55,10 @@ namespace OpenSilver.TemplateWizards
             }
         }
 
-
-        private string GetFileFullPath(string fileRelativePath, ProjectTemplate template)
+        private string GetFileFullPath(string fileRelativePath)
         {
             var solutionDir = _replacementsDictionary["$destinationdirectory$"];
             string projectName = _replacementsDictionary["$safeprojectname$"];
-            if (template != ProjectTemplate.OpenSilver)
-            {
-                projectName += $".{template.ToString()}";
-            }
             string fullPath = $"{solutionDir}\\{projectName}\\{fileRelativePath}";
             return fullPath;
         }
@@ -83,13 +77,12 @@ namespace OpenSilver.TemplateWizards
             string projectName = _replacementsDictionary["$safeprojectname$"];
             string language = GetCurrentProgrammingLanguage();
 
-            string appXamlPath = GetFileFullPath("App.xaml", ProjectTemplate.OpenSilver);
+            string appXamlPath = GetFileFullPath("App.xaml");
 
-            string OpenSilverCsprojPath = GetFileFullPath($"{projectName}.{language}proj", ProjectTemplate.OpenSilver);
+            string OpenSilverCsprojPath = GetFileFullPath($"{projectName}.{language}proj");
 
             if (File.Exists(appXamlPath) && File.Exists(OpenSilverCsprojPath))
             {
-
                 AddThemePalette(appXamlPath);
                 AddThemeReferences(OpenSilverCsprojPath);
             }
@@ -99,8 +92,7 @@ namespace OpenSilver.TemplateWizards
         {
             var openSilverInfo = XElement.Parse(_replacementsDictionary["$wizarddata$"]);
             XNamespace defaultNamespace = openSilverInfo.GetDefaultNamespace();
-            string Language = openSilverInfo.Element(defaultNamespace + "LanguageCode").Value;
-            return Language;
+            return openSilverInfo.Element(defaultNamespace + "LanguageCode").Value;
         }
 
         private void AddThemePalette(string appXamlPath)
@@ -123,7 +115,6 @@ namespace OpenSilver.TemplateWizards
             if (itemGroupWithPackageReference != null)
             {
                 // Create the new element to insert
-                ;
                 var newElement = new XElement("PackageReference",
                     new XAttribute("Include", "OpenSilver.Themes.Modern"),
                     new XAttribute("Version", _replacementsDictionary["$opensilverthememodern$"]));
