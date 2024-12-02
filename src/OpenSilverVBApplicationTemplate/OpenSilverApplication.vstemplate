@@ -36,6 +36,7 @@
         <OpenSilverInfo>
             <Api>Silverlight</Api>
             <Type>Application</Type>
+            <LanguageCode>vb</LanguageCode>
         </OpenSilverInfo>
     </WizardData>
 </VSTemplate>
