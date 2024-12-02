@@ -50,6 +50,7 @@
     </Compile>
     <Compile Include="AppCustomizationWindow\DotNetVersion.cs" />
     <Compile Include="AppCustomizationWindow\OpenSilverBuildType.cs" />
+    <Compile Include="AppCustomizationWindow\ThemeSelectionEnum.cs" />
     <Compile Include="AppCustomizationWizard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
