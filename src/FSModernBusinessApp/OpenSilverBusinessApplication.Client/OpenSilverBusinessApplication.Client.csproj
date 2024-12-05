@@ -10,11 +10,11 @@
   </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="OpenRiaServices.Client.CodeGen" Version="5.4.3">
+        <PackageReference Include="OpenRiaServices.Client.CodeGen" Version="$ext_openria54packageversion$">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="OpenRiaServices.Client.Core" Version="5.4.3" />
+        <PackageReference Include="OpenRiaServices.Client.Core" Version="$ext_openria54packageversion$" />
     </ItemGroup>
 
 </Project>

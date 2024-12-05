@@ -1,13 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup Label="Globals">
-    <SccProjectName>SAK</SccProjectName>
-    <SccProvider>SAK</SccProvider>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccLocalPath>SAK</SccLocalPath>
-    <Configurations>Debug;Release;</Configurations>
-  </PropertyGroup>
-
   <PropertyGroup>
     <TargetFramework>$ext_blazortargetframework$</TargetFramework>
     <RootNamespace>$ext_safeprojectname$.Web</RootNamespace>
@@ -30,25 +22,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Contexts\**" />
     <Compile Remove="Generated_Code\**" />
-    <EmbeddedResource Remove="Contexts\**" />
     <EmbeddedResource Remove="Generated_Code\**" />
-    <None Remove="Contexts\**" />
     <None Remove="Generated_Code\**" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <None Remove="Assets\Styles.xaml" />
-    <None Remove="EmptyOpenSilverMigrationApplication.csproj.vspscc" />
-    <None Remove="MyTemplate_rename_me_after_export.vstemplate" />
-    <None Remove="Views\About.xaml" />
-    <None Remove="Views\ErrorWindow.xaml" />
-    <None Remove="Views\Home.xaml" />
-    <None Remove="Views\Login\LoginForm.xaml" />
-    <None Remove="Views\Login\LoginRegistrationWindow.xaml" />
-    <None Remove="Views\Login\LoginStatus.xaml" />
-    <None Remove="Views\Login\RegistrationForm.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -99,14 +75,6 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Helpers\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Contexts\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Contexts\WebContext.cs" />
   </ItemGroup>
 
   <PropertyGroup>

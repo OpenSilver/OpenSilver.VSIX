@@ -84,7 +84,6 @@
     <None Include="OpenSilverBusinessApplication\Views\Login\RegistrationForm.xaml" />
     <None Include="OpenSilverBusinessApplication\Views\Login\RegistrationForm.xaml.cs" />
     <None Include="OpenSilverBusinessApplication.Browser\App.cs" />
-    <None Include="OpenSilverBusinessApplication.Browser\Interop\UnmarshalledJavaScriptExecutionHandler.cs" />
     <None Include="OpenSilverBusinessApplication.Browser\OpenSilverBusinessApplication.Browser.csproj" />
     <None Include="OpenSilverBusinessApplication.Browser\OpenSilverBusinessApplication.Browser.vstemplate" />
     <None Include="OpenSilverBusinessApplication.Browser\Pages\Index.cs" />

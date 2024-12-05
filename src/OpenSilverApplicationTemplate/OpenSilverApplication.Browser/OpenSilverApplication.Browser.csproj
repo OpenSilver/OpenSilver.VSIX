@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>$ext_targetframework$</TargetFramework>
-    <OpenSilverType>7</OpenSilverType>
+    <OpenSilverType>$ext_opensilvertype$</OpenSilverType>
     <PublishTrimmed>true</PublishTrimmed>
     <WasmEnableSIMD>false</WasmEnableSIMD>
     <!-- Uncomment to enable AOT compilation when publishing -->

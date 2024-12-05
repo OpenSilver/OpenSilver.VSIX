@@ -1,13 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup Label="Globals">
-        <SccProjectName>SAK</SccProjectName>
-        <SccProvider>SAK</SccProvider>
-        <SccAuxPath>SAK</SccAuxPath>
-        <SccLocalPath>SAK</SccLocalPath>
-        <Configurations>Debug;Release;</Configurations>
-    </PropertyGroup>
-
     <PropertyGroup>
         <TargetFramework>$ext_blazortargetframework$</TargetFramework>
         <RazorLangVersion>3.0</RazorLangVersion>
@@ -25,17 +17,6 @@
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
         <DefineConstants>OPENSILVER</DefineConstants>
     </PropertyGroup>
-
-    <ItemGroup>
-        <None Remove="Assets\Styles.xaml" />
-        <None Remove="Views\About.xaml" />
-        <None Remove="Views\ErrorWindow.xaml" />
-        <None Remove="Views\Home.xaml" />
-        <None Remove="Views\Login\LoginForm.xaml" />
-        <None Remove="Views\Login\LoginRegistrationWindow.xaml" />
-        <None Remove="Views\Login\LoginStatus.xaml" />
-        <None Remove="Views\Login\RegistrationForm.xaml" />
-    </ItemGroup>
 
     <ItemGroup>
         <Content Include="Assets\Styles.xaml">

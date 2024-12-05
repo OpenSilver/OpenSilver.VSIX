@@ -4,7 +4,7 @@
         <TargetFramework>$ext_blazortargetframework$</TargetFramework>
         <RazorLangVersion>3.0</RazorLangVersion>
         <EnableDefaultItems>false</EnableDefaultItems>
-        <DefineSilverlight>true</DefineSilverlight>        
+        <DefineSilverlight>true</DefineSilverlight>
     </PropertyGroup>
 
     <ItemGroup>

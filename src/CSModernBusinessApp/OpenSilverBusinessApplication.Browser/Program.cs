@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.AspNetCore.Components.WebAssembly.Http;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.AspNetCore.Components.WebAssembly.Http;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace $ext_safeprojectname$.Browser
 {
@@ -17,8 +17,6 @@ namespace $ext_safeprojectname$.Browser
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-
             builder.Services.AddTransient<CookieHandler>();
 
             builder.Services
@@ -27,14 +25,6 @@ namespace $ext_safeprojectname$.Browser
 
             var host = builder.Build();
             await host.RunAsync();
-        }
-
-        public static void RunApplication(IServiceProvider serviceProvider, IConfiguration configuration)
-        {
-            Application.RunApplication(() =>
-            {
-                var app = new $ext_safeprojectname$.App(serviceProvider, configuration);
-            });
         }
 
         private class CookieHandler : DelegatingHandler

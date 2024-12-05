@@ -54,7 +54,18 @@
   <ItemGroup>
     <VSTemplate Include="CSMigrationBusinessApp.vstemplate" />
     <None Include="OpenSilverBusinessApplication/**" />
-    <None Include="OpenSilverBusinessApplication.Browser/**" />
+    <None Include="OpenSilverBusinessApplication.Browser\App.cs" />
+    <None Include="OpenSilverBusinessApplication.Browser\OpenSilverBusinessApplication.Browser.csproj" />
+    <None Include="OpenSilverBusinessApplication.Browser\OpenSilverBusinessApplication.Browser.vstemplate" />
+    <None Include="OpenSilverBusinessApplication.Browser\Pages\Index.cs" />
+    <None Include="OpenSilverBusinessApplication.Browser\Program.cs" />
+    <None Include="OpenSilverBusinessApplication.Browser\Properties\launchSettings.json" />
+    <None Include="OpenSilverBusinessApplication.Browser\wwwroot\appsettings.json" />
+    <None Include="OpenSilverBusinessApplication.Browser\wwwroot\BlazorLoader.js" />
+    <None Include="OpenSilverBusinessApplication.Browser\wwwroot\favicon.ico" />
+    <None Include="OpenSilverBusinessApplication.Browser\wwwroot\index.html" />
+    <None Include="OpenSilverBusinessApplication.Browser\wwwroot\loading-indicator.css" />
+    <None Include="OpenSilverBusinessApplication.Browser\wwwroot\loading-indicator.js" />
     <None Include="OpenSilverBusinessApplication.Simulator/**" />
     <None Include="OpenSilverBusinessApplication.Web\Database\Business.db" />
     <None Include="OpenSilverBusinessApplication.Web\Database\InstallMembership.SQLite.sql" />

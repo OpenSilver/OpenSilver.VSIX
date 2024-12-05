@@ -5,9 +5,6 @@
   </TemplateData>
   <TemplateContent>
     <Project TargetFileName="$ext_safeprojectname$.Browser.csproj" File="OpenSilverBusinessApplication.Browser.csproj" ReplaceParameters="true">
-      <Folder Name="Interop" TargetFolderName="Interop">
-        <ProjectItem ReplaceParameters="true" TargetFileName="UnmarshalledJavaScriptExecutionHandler.cs">UnmarshalledJavaScriptExecutionHandler.cs</ProjectItem>
-      </Folder>
       <Folder Name="Pages" TargetFolderName="Pages">
         <ProjectItem ReplaceParameters="true" TargetFileName="Index.cs">Index.cs</ProjectItem>
       </Folder>

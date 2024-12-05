@@ -120,6 +120,7 @@ namespace OpenSilver.TemplateWizards
                 CopyNugetConfig(replacementsDictionary);
             }
 
+            replacementsDictionary.Add("$opensilvertype$", "7");
             replacementsDictionary.Add("$opensilverpackageversion$", "3.1.0");
             replacementsDictionary.Add("$opensilversimulatorpackageversion$", "3.1.0");
             replacementsDictionary.Add("$opensilverwebassemblypackageversion$", "3.1.0");

@@ -1,10 +1,9 @@
-﻿using DotNetForHtml5;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using Microsoft.Extensions.Configuration;
-using Microsoft.JSInterop;
-using $ext_safeprojectname$.Browser.Interop;
+using OpenSilver.WebAssembly;
 using System;
+using System.Threading.Tasks;
 
 namespace $ext_safeprojectname$.Browser.Pages
 {
@@ -15,15 +14,14 @@ namespace $ext_safeprojectname$.Browser.Pages
         {
         }
 
-        protected override void OnInitialized()
+        protected override async Task OnInitializedAsync()
         {
-            base.OnInitialized();
-            Cshtml5Initializer.Initialize(new UnmarshalledJavaScriptExecutionHandler(JSRuntime));
-            Program.RunApplication(ServiceProvider, Configuration);
-        }
+            await base.OnInitializedAsync();
 
-        [Inject]
-        private IJSRuntime JSRuntime { get; set; }
+            await Runner.RunApplicationAsync(() =>
+                new $ext_safeprojectname$.App(ServiceProvider, Configuration)
+            );
+        }
 
         [Inject]
         private IConfiguration Configuration { get; set; }
