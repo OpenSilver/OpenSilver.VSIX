@@ -9,6 +9,7 @@ namespace OpenSilver.TemplateWizards
         private BusinessTemplateType _businesstemplateType = BusinessTemplateType.Modern;
         private DatabaseType _database = DatabaseType.Sqlite;
         private FrameworkVersion _frameworkVersion = FrameworkVersion.Net8;
+        private Theme _theme = Theme.Classic;
 
         private ObservableCollection<PlatformItem> _platforms = new ObservableCollection<PlatformItem>(new[]
         {
@@ -29,6 +30,7 @@ namespace OpenSilver.TemplateWizards
                 RaisePropertyChanged(nameof(IsModernBusinessAppSelected));
             }
         }
+
         public BusinessTemplateType BusinessTemplateType
         {
             get => _businesstemplateType;
@@ -37,6 +39,12 @@ namespace OpenSilver.TemplateWizards
                 SetPropertyValue(ref _businesstemplateType, value);
                 RaisePropertyChanged(nameof(IsModernBusinessAppSelected));
             }
+        }
+
+        public Theme Theme
+        {
+            get => _theme;
+            set => SetPropertyValue(ref _theme, value);
         }
 
         public DatabaseType Database

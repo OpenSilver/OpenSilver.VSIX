@@ -12,6 +12,13 @@
         Migration
     }
 
+    public enum Theme
+    {
+        Classic,
+        Dark,
+        Light
+    }
+
     public enum PlatformType
     {
         Web,
@@ -42,6 +49,7 @@
         VisualBasic,
         FSharp
     }
+
     public enum LanguageCode
     {
         CS,

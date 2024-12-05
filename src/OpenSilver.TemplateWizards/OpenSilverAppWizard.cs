@@ -215,7 +215,12 @@ namespace OpenSilver.TemplateWizards
                     catch { }
                 }
 
-                // 6. refresh the solution
+                // 6. apply theme
+                var languageCode = ReplacementsDictionary["$languagecode$"];
+                AddThemeReferences(Path.Combine(destinationDirectory, projectName, $"{projectName}.{languageCode}proj"));
+                AddThemePalette(Path.Combine(destinationDirectory, projectName, "App.xaml"), OpenSilverSettings.Theme.ToString());
+
+                // 7. refresh the solution
                 solution.Close();
                 solution.Open(slnPath);
             }
@@ -232,6 +237,36 @@ namespace OpenSilver.TemplateWizards
                 }
 
                 throw new WizardCancelledException("OpenSilver project creation failed", ex);
+            }
+        }
+
+        private void AddThemePalette(string appXamlPath, string theme)
+        {
+            var appXamlContent = File.ReadAllText(appXamlPath);
+            appXamlContent = appXamlContent.Replace(
+            "</Application.Resources>",
+                $"</Application.Resources>\n<Application.Theme>\n<mt:ModernTheme CurrentPalette=\"{theme}\" xmlns:mt=\"http://opensilver.net/themes/modern\"/>\n</Application.Theme>"
+            );
+            XDocument xdoc = XDocument.Parse(appXamlContent);
+            xdoc.Save(appXamlPath, SaveOptions.None);
+        }
+
+        private void AddThemeReferences(string path)
+        {
+            var csprojDocument = XDocument.Load(path);
+            var itemGroupWithPackageReference = csprojDocument.Descendants("ItemGroup")
+                            .FirstOrDefault(ig => ig.Elements("PackageReference").Any());
+
+            if (itemGroupWithPackageReference != null)
+            {
+                // Create the new element to insert
+                var newElement = new XElement("PackageReference",
+                    new XAttribute("Include", "OpenSilver.Themes.Modern"),
+                    new XAttribute("Version", WizardSettings.OpenSilverThemeModern));
+
+                itemGroupWithPackageReference.Add(newElement);
+
+                csprojDocument.Save(path);
             }
         }
 

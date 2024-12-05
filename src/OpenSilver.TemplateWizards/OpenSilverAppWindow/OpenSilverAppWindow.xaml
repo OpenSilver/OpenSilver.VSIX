@@ -96,23 +96,20 @@
                     <StackPanel>
                         <StackPanel Margin="0 0 0 5">
                             <TextBlock Text="Default Style" FontWeight="Bold" Margin="0 0 0 5" />
-                            <WrapPanel IsEnabled="False">
-                                <RadioButton>
+                            <WrapPanel>
+                                <RadioButton IsChecked="{Binding Theme, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=Light}">
                                     <StackPanel>
-                                        <TextBlock Text="Modern" />
-                                        <TextBlock Text="Light and Dark" />
+                                        <TextBlock Text="Modern Theme - Light" />
                                     </StackPanel>
                                 </RadioButton>
-                                <RadioButton IsChecked="True">
+                                <RadioButton IsChecked="{Binding Theme, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=Dark}">
                                     <StackPanel>
-                                        <TextBlock Text="Silverlight" />
-                                        <TextBlock Text="Classic Web Style" />
+                                        <TextBlock Text="Modern Theme - Dark" />
                                     </StackPanel>
                                 </RadioButton>
-                                <RadioButton>
+                                <RadioButton IsChecked="{Binding Theme, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=Classic}">
                                     <StackPanel>
-                                        <TextBlock Text="WPF" />
-                                        <TextBlock Text="Classic Desktop Style" />
+                                        <TextBlock Text="Classic Silverlight Theme" />
                                     </StackPanel>
                                 </RadioButton>
                             </WrapPanel>

@@ -70,9 +70,11 @@ namespace OpenSilver.TemplateWizards
 
         public void ProjectFinishedGenerating(Project project)
         {
-            if (_selectedTheme.Equals("Classic", StringComparison.OrdinalIgnoreCase))
+            if (OpenSilverAppWizard.IsAppWizardRunning)
                 return;
 
+            if (_selectedTheme.Equals("Classic", StringComparison.OrdinalIgnoreCase))
+                return;
 
             string projectName = _replacementsDictionary["$safeprojectname$"];
             string language = GetCurrentProgrammingLanguage();

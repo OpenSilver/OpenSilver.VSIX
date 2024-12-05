@@ -8,6 +8,7 @@
         public string OpenSilverPackageName { get; set; }
         public string OpenSilverType { get; set; }
         public string OpenSilverPackageVersion { get; set; }
+        public string OpenSilverThemeModern { get; set; }
         public string OpenSilverWebAssemblyPackageVersion { get; set; }
         public string OpenSilverSimulatorPackageVersion { get; set; }
         public string OpenRia46PackageVersion { get; set; }
