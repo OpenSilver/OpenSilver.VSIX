@@ -216,9 +216,12 @@ namespace OpenSilver.TemplateWizards
                 }
 
                 // 6. apply theme
-                var languageCode = ReplacementsDictionary["$languagecode$"];
-                AddThemeReferences(Path.Combine(destinationDirectory, projectName, $"{projectName}.{languageCode}proj"));
-                AddThemePalette(Path.Combine(destinationDirectory, projectName, "App.xaml"), OpenSilverSettings.Theme.ToString());
+                if (OpenSilverSettings.Theme != Theme.Classic)
+                {
+                    var languageCode = ReplacementsDictionary["$languagecode$"];
+                    AddThemeReferences(Path.Combine(destinationDirectory, projectName, $"{projectName}.{languageCode}proj"));
+                    AddThemePalette(Path.Combine(destinationDirectory, projectName, "App.xaml"), OpenSilverSettings.Theme.ToString());
+                }
 
                 // 7. refresh the solution
                 solution.Close();
