@@ -10,6 +10,7 @@
         Title="OpenSilver Configuration" Height="300" Width="350" Icon="Icon.ico">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -26,7 +27,13 @@
             </StackPanel>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Margin="10,0">
+        <WrapPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <RadioButton  Content="Modern Theme - Light" Margin="10,2"  Tag="{x:Static local:ThemeSelectionEnum.Light}" GroupName="Theme" Checked="OnThemSelected" IsChecked="True" />
+            <RadioButton  Content="Modern Theme - Dark"  Margin="10,2" Tag="{x:Static local:ThemeSelectionEnum.Dark}" GroupName="Theme" Checked="OnThemSelected" />
+            <RadioButton  Content="Classic Silverlight Theme" Tag="{x:Static local:ThemeSelectionEnum.Classic}" Margin="10,2" GroupName="Theme" Checked="OnThemSelected" />
+        </WrapPanel>
+
+        <StackPanel Grid.Row="2" Margin="10,0">
             <TextBlock Text="Notes:"
                        TextWrapping="Wrap" Foreground="Gray"/>
             <TextBlock Text="* .NET 8 requires Visual Studio 2022 v17.8 or newer"
@@ -36,7 +43,7 @@
         </StackPanel>
         
 
-        <Grid Margin="20" Grid.Row="2">
+        <Grid Margin="20" Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />

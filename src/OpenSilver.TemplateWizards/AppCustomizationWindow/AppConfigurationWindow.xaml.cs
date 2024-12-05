@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace OpenSilver.TemplateWizards.AppCustomizationWindow
 {
@@ -8,6 +10,8 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
     /// </summary>
     public partial class AppConfigurationWindow : Window
     {
+        public IDictionary<ThemeSelectionEnum, string> Themes { get; set; } = new Dictionary<ThemeSelectionEnum, string>();
+        public string SelectedTheme { get; set; }
         public OpenSilverBuildType OpenSilverBuildType
         {
             get
@@ -34,20 +38,45 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
             }
         }
 
+
         public AppConfigurationWindow(string openSilverType)
         {
+            InitilizeThemes();
             InitializeComponent();
-
             if (openSilverType == "Library")
             {
                 DotNetVersionStackPanel.Visibility = Visibility.Collapsed;
             }
         }
 
+        private void InitilizeThemes()
+        {
+            Themes.Add(ThemeSelectionEnum.Dark, "Dark");
+            Themes.Add(ThemeSelectionEnum.Light, "Light");
+            Themes.Add(ThemeSelectionEnum.Classic, "Classic");
+        }
+
         private void ButtonContinue_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
             Close();
+        }
+
+        private void OnThemSelected(object sender, RoutedEventArgs e)
+        {
+
+            if (sender is RadioButton selectedRadio)
+            {
+                try
+                {
+                    SelectedTheme = Themes[(ThemeSelectionEnum)selectedRadio.Tag];
+                }
+                catch
+                {
+                    throw new InvalidOperationException("Error retrieving selected theme option");
+                }
+            }
+
         }
     }
 }

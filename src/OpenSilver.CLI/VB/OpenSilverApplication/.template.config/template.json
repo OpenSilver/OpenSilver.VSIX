@@ -71,6 +71,26 @@
         }
       ]
     },
+    "theme": {
+      "type": "parameter",
+      "datatype": "string",
+      "description": "Specifies the theme for the generated OpenSilver application.",
+      "defaultValue": "classic",
+      "choices": [
+        {
+          "choice": "classic",
+          "description": "Classic theme"
+        },
+        {
+          "choice": "modern-light",
+          "description": "Modern theme with light mode"
+        },
+        {
+          "choice": "modern-dark",
+          "description": "Modern theme with dark mode"
+        }
+      ]
+    },
     "openSilverPackageVersion": {
       "type": "generated",
       "generator": "constant",
@@ -91,6 +111,14 @@
       "type": "generated",
       "generator": "constant",
       "replaces": "OpenSilverWebAssemblyPackageVersion",
+      "parameters": {
+        "value": "3.1.0"
+      }
+    },
+    "modernThemePackageVersion": {
+      "type": "generated",
+      "generator": "constant",
+      "replaces": "ModernThemePackageVersion",
       "parameters": {
         "value": "3.1.0"
       }
