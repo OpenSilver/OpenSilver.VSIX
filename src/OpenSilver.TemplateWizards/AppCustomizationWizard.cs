@@ -167,7 +167,7 @@ namespace OpenSilver.TemplateWizards
                         break;
                     case DotNetVersion.Net8:
                         replacementsDictionary.Add("$targetframework$", "net8.0");
-                        replacementsDictionary.Add("$blazorpackagesversion$", "8.0.0");
+                        replacementsDictionary.Add("$blazorpackagesversion$", "8.0.11");
                         break;
                     case DotNetVersion.Net9:
                         replacementsDictionary.Add("$targetframework$", "net9.0");
