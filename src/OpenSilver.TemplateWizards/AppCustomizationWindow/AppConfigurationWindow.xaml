@@ -7,49 +7,77 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         mc:Ignorable="d"
-        Title="OpenSilver Configuration" Height="300" Width="350" Icon="Icon.ico">
+        Title="OpenSilver Configuration" Height="600" Width="660" Icon="Icon.ico">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-        <StackPanel Width="200" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <StackPanel Margin="10" x:Name="DotNetVersionStackPanel">
-                <TextBlock Margin="5" Text=".NET Version:"/>
-                <ComboBox x:Name="DotNetVersionComboBox">
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock  Text="Choose a theme:"  FontSize="20" FontFamily="Inria Sans" FontWeight="DemiBold" Margin="-20" />
+            <local:ThemeCollectionView   SelectionChanged="ThemeCollectionView_SelectionChanged" Grid.Row="1"   />
+        </Grid>
+
+        <Grid  Grid.Row="2" Grid.Column="1"  x:Name="DotNetVersionPanel">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock  Text="Choose a version of .NET:" Grid.ColumnSpan="2" FontSize="20" FontFamily="Inria Sans" FontWeight="DemiBold" Margin="-20,0,0,32" />
+            <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" >
+                <ComboBox x:Name="DotNetVersionComboBox" >
                     <ComboBoxItem>.NET 7</ComboBoxItem>
                     <ComboBoxItem>.NET 8</ComboBoxItem>
                     <ComboBoxItem IsSelected="True">.NET 9</ComboBoxItem>
                 </ComboBox>
             </StackPanel>
-        </StackPanel>
 
-        <WrapPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <RadioButton  Content="Modern Theme - Light" Margin="10,2"  Tag="{x:Static local:ThemeSelectionEnum.Light}" GroupName="Theme" Checked="OnThemSelected" IsChecked="True" />
-            <RadioButton  Content="Modern Theme - Dark"  Margin="10,2" Tag="{x:Static local:ThemeSelectionEnum.Dark}" GroupName="Theme" Checked="OnThemSelected" />
-            <RadioButton  Content="Classic Silverlight Theme" Tag="{x:Static local:ThemeSelectionEnum.Classic}" Margin="10,2" GroupName="Theme" Checked="OnThemSelected" />
-        </WrapPanel>
+            <Border Background="#EEEEEE" Grid.Row="1" Grid.Column="1" Margin="10,-4,0,0" Padding="10" CornerRadius="10">
+                <StackPanel >
+                    <TextBlock Text="Notes:"
+                       TextWrapping="Wrap" Foreground="Gray"/>
+                    <TextBlock Text="* .NET 8 requires Visual Studio 2022 v17.8 or newer"
+                       TextWrapping="Wrap" Foreground="Gray"/>
+                    <TextBlock Text="* .NET 9 requires Visual Studio 2022 v17.12 or newer"
+                       TextWrapping="Wrap" Foreground="Gray"/>
+                </StackPanel>
+            </Border>
 
-        <StackPanel Grid.Row="2" Margin="10,0">
-            <TextBlock Text="Notes:"
-                       TextWrapping="Wrap" Foreground="Gray"/>
-            <TextBlock Text="* .NET 8 requires Visual Studio 2022 v17.8 or newer"
-                       TextWrapping="Wrap" Foreground="Gray"/>
-            <TextBlock Text="* .NET 9 requires Visual Studio 2022 v17.12 or newer"
-                       TextWrapping="Wrap" Foreground="Gray"/>
-        </StackPanel>
-        
+        </Grid>
 
-        <Grid Margin="20" Grid.Row="3">
+
+        <Grid Margin="20" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
+                <ColumnDefinition Width="24" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" IsCancel="True">
+            <Button Grid.Column="0" 
+                    Background="#FFFFFF"
+                    Foreground="#5A5A5A"
+                    FontWeight="SemiBold"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    IsCancel="True">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="3"/>
@@ -58,14 +86,30 @@
                 <TextBlock Margin="5" Text="Back"/>
             </Button>
 
-            <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonContinue_Click">
+            <Button
+                   x:Name="continueBtn"
+                    Grid.Column="2" 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center" 
+                    Click="ButtonContinue_Click" 
+                    Background="#1157FA"
+                    Foreground="#FFFFFF"
+                    FontWeight="SemiBold"
+                    IsEnabled="False"
+                    >
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="3"/>
                     </Style>
                 </Button.Resources>
+
                 <TextBlock Margin="5" Text="Continue"/>
             </Button>
         </Grid>
+
+
+
+
+
     </Grid>
 </Window>
