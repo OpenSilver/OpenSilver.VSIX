@@ -8,6 +8,7 @@ using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace OpenSilver.TemplateWizards
 {
@@ -55,10 +56,15 @@ namespace OpenSilver.TemplateWizards
             }
         }
 
-        private string GetFileFullPath(string fileRelativePath)
+
+        private string GetFileFullPath(string fileRelativePath, ProjectTemplate template)
         {
             var solutionDir = _replacementsDictionary["$destinationdirectory$"];
             string projectName = _replacementsDictionary["$safeprojectname$"];
+            if (template != ProjectTemplate.OpenSilver)
+            {
+                projectName += $".{template.ToString()}";
+            }
             string fullPath = $"{solutionDir}\\{projectName}\\{fileRelativePath}";
             return fullPath;
         }
@@ -74,15 +80,17 @@ namespace OpenSilver.TemplateWizards
                 return;
 
 
+            ReplaceContent(_selectedTheme);
             string projectName = _replacementsDictionary["$safeprojectname$"];
             string language = GetCurrentProgrammingLanguage();
 
-            string appXamlPath = GetFileFullPath("App.xaml");
+            string appXamlPath = GetFileFullPath("App.xaml", ProjectTemplate.OpenSilver);
 
-            string OpenSilverCsprojPath = GetFileFullPath($"{projectName}.{language}proj");
+            string OpenSilverCsprojPath = GetFileFullPath($"{projectName}.{language}proj", ProjectTemplate.OpenSilver);
 
             if (File.Exists(appXamlPath) && File.Exists(OpenSilverCsprojPath))
             {
+
                 AddThemePalette(appXamlPath);
                 AddThemeReferences(OpenSilverCsprojPath);
             }
@@ -115,6 +123,7 @@ namespace OpenSilver.TemplateWizards
             if (itemGroupWithPackageReference != null)
             {
                 // Create the new element to insert
+                ;
                 var newElement = new XElement("PackageReference",
                     new XAttribute("Include", "OpenSilver.Themes.Modern"),
                     new XAttribute("Version", _replacementsDictionary["$opensilverthememodern$"]));
@@ -191,6 +200,52 @@ namespace OpenSilver.TemplateWizards
         public bool ShouldAddProjectItem(string filePath)
         {
             return true;
+        }
+
+        private void ReplaceContent(string theme)
+        {
+
+
+            string indexHtmlFile = GetFileFullPath("wwwroot\\index.html", ProjectTemplate.Browser);
+            string styleCssFile = GetFileFullPath("wwwroot\\loading-indicator.css", ProjectTemplate.Browser);
+            string jsFile = GetFileFullPath("wwwroot\\loading-animation.js", ProjectTemplate.Browser);
+
+            string indexHtmlResource = $"OpenSilver.TemplateWizards.Assets.Themes.Common.index.html";
+            string jsResource = $"OpenSilver.TemplateWizards.Assets.Themes.Common.loading-animation.js";
+            string styleCssResource = $"OpenSilver.TemplateWizards.Assets.Themes.{theme}.loading-indicator.css";
+
+            string indexHtmlContent = GetEmbeddedResource(indexHtmlResource);
+            string styleCssContent = GetEmbeddedResource(styleCssResource);
+            string jsContent = GetEmbeddedResource(jsResource);
+
+            string projectName = _replacementsDictionary["$safeprojectname$"];
+            indexHtmlContent = indexHtmlContent.Replace("$safeprojectname$", projectName);
+
+            File.WriteAllText(indexHtmlFile, indexHtmlContent);
+            File.WriteAllText(styleCssFile, styleCssContent);
+            File.WriteAllText(jsFile, jsContent);
+
+
+        }
+
+        private string GetEmbeddedResource(string resourceName)
+        {
+            // Get the current assembly (the wizard project)
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            var xname = assembly.GetManifestResourceNames();
+            // Open the embedded resource as a stream
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                if (stream == null)
+                {
+                    throw new FileNotFoundException($"Embedded resource '{resourceName}' not found.");
+                }
+
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    return reader.ReadToEnd();
+                }
+            }
         }
     }
 }

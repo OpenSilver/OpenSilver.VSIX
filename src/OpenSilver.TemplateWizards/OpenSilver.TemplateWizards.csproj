@@ -54,6 +54,7 @@
     <Compile Include="AppCustomizationWindow\ThemeCollectionView.xaml.cs">
       <DependentUpon>ThemeCollectionView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AppCustomizationWindow\ProjectTemplate.cs" />
     <Compile Include="AppCustomizationWindow\ThemeSelectionEnum.cs" />
     <Compile Include="AppCustomizationWizard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,5 +82,16 @@
     <Resource Include="Assets\Images\dark_theme.png" />
     <Resource Include="Assets\Images\light_theme.png" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Themes\Common\loading-animation.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Themes\Common\index.html" />
+    <EmbeddedResource Include="Assets\Themes\Dark\loading-indicator.css" />
+    <EmbeddedResource Include="Assets\Themes\Light\loading-indicator.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
