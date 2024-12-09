@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenSilver.TemplateWizards.AppCustomizationWindow.Models;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -45,7 +46,7 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
             InitializeComponent();
             if (openSilverType == "Library")
             {
-                DotNetVersionStackPanel.Visibility = Visibility.Collapsed;
+                DotNetVersionPanel.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -77,6 +78,12 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
                 }
             }
 
+        }
+
+        private void ThemeCollectionView_SelectionChanged(object sender, EventArgs e)
+        {
+            SelectedTheme= (sender as ThemeOptions).Name;
+            continueBtn.IsEnabled = true;
         }
     }
 }
