@@ -28,7 +28,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <TextBlock  Text="Choose a theme:"  FontSize="20" FontFamily="Inria Sans" FontWeight="DemiBold" Margin="-20" />
+            <TextBlock  Text="Choose a theme:"  FontSize="20" FontFamily="Inria Sans" FontWeight="DemiBold" Margin="-20,0,0,20" />
             <local:ThemeCollectionView   SelectionChanged="ThemeCollectionView_SelectionChanged" Grid.Row="1"   />
         </Grid>
 
