@@ -6,7 +6,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using System.Windows;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace OpenSilver.TemplateWizards
@@ -78,6 +80,7 @@ namespace OpenSilver.TemplateWizards
             string language = GetCurrentProgrammingLanguage();
 
             string appXamlPath = GetFileFullPath("App.xaml");
+            string mainPagePath = GetFileFullPath("MainPage.xaml");
 
             string OpenSilverCsprojPath = GetFileFullPath($"{projectName}.{language}proj");
 
@@ -85,6 +88,32 @@ namespace OpenSilver.TemplateWizards
             {
                 AddThemePalette(appXamlPath);
                 AddThemeReferences(OpenSilverCsprojPath);
+            }
+
+            if (File.Exists(mainPagePath))
+            {
+                AddDynamicResourceToMainPage(mainPagePath);
+            }
+        }
+
+        private void AddDynamicResourceToMainPage(string mainPagePath)
+        {
+            var mainPageDocument = XDocument.Load(mainPagePath);
+            var xElement = mainPageDocument.Root;
+            if (xElement != null)
+            {
+                xElement.SetAttributeValue("Foreground", "{DynamicResource Theme_TextBrush}");
+                var mainContainer = xElement.Descendants().FirstOrDefault();
+                mainContainer.SetAttributeValue("Background", "{DynamicResource Theme_BackgroundBrush}");
+                var result = xElement.ToString();
+
+                result = Regex.Replace(result, @"(\s+xmlns[^=]+)", "\t\t\n$1");
+                result = Regex.Replace(result, @"(\s+x:Class[^=]+)", "\t\t\n$1");
+                result = Regex.Replace(result, @"(\s+mc[^=]+)", "\t\t\n$1");
+                result = Regex.Replace(result, @"(\s+Foreground)", "\t\t\n$1");
+                result = Regex.Replace(result, @"(<Grid)", "\n$1");
+
+                File.WriteAllText(mainPagePath, result);
             }
         }
 
