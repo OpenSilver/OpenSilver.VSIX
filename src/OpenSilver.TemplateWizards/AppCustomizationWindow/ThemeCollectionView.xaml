@@ -24,44 +24,7 @@
                     </ItemsPanelTemplate>
                 </Setter.Value>
             </Setter>
-            <Setter Property="ItemTemplate">
-                <Setter.Value>
-                    <DataTemplate>
-                        <Grid >
-                            <Grid.RowDefinitions>
-                                <RowDefinition />
-                                <RowDefinition Height="8"/>
-                                <RowDefinition Height="auto"/>
-                            </Grid.RowDefinitions>
-                            <Border x:Name="FocusVisualElement" Visibility="Visible" Background="{Binding BackgroundColor}"  Width="134" Height="134" IsHitTestVisible="False" BorderThickness="1" CornerRadius="10" BorderBrush="#D1D1D1"/>
 
-                            <Image Source="{Binding ThumbnailUri}" Width="134" Height="134"
-                                   Stretch="Uniform"
-                                 Margin="0"
-                                       />
-
-                            <Border x:Name="selectedBorder"  Visibility="Collapsed"  BorderThickness="0" CornerRadius="14" Grid.Row="2"  Background="#1157FA"
-                                 HorizontalAlignment="Stretch"
-                                 VerticalAlignment="Stretch" >
-                                <VisualStateManager.VisualStateGroups>
-
-                                </VisualStateManager.VisualStateGroups>
-
-                            </Border>
-
-                            <TextBlock Text="{Binding Title}"
-                              HorizontalAlignment="Center"
-                              Grid.Row="2"
-                          Margin="8"
-                           VerticalAlignment="Bottom" 
-                           TextWrapping="Wrap"
-                           FontSize="16"
-                           FontFamily="Fantasy"/>
-
-                        </Grid>
-                    </DataTemplate>
-                </Setter.Value>
-            </Setter>
             <Setter Property="ItemContainerStyle">
                 <Setter.Value>
                     <Style TargetType="ListBoxItem">
@@ -153,6 +116,7 @@
 
                                             <TextBlock x:Name="themeTitle" Text="{Binding Title}"
                                                        Foreground="#FF626262"
+                                                       FontWeight="SemiBold"
                                                        HorizontalAlignment="Center"
                                                        Grid.Row="2"
                                                        Margin="8"
