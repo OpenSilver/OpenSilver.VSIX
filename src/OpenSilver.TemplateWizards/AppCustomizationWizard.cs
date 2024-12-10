@@ -143,9 +143,10 @@ namespace OpenSilver.TemplateWizards
             XNamespace defaultNamespace = openSilverInfo.GetDefaultNamespace();
 
             string openSilverType = openSilverInfo.Element(defaultNamespace + "Type").Value;
+            bool isBusiness = openSilverInfo.Element(defaultNamespace + "IsBusiness")?.Value.Equals("true", StringComparison.OrdinalIgnoreCase) ?? false;
 
 
-            AppConfigurationWindow window = new AppConfigurationWindow(openSilverType);
+            AppConfigurationWindow window = new AppConfigurationWindow(openSilverType, isBusiness);
 
             // In the case of a class Library, the user has no other choices to make so we do not show the app configuration window.
             if (openSilverType != "Library")

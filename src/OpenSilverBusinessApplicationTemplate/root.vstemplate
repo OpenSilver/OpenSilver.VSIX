@@ -32,6 +32,7 @@
       <Api>Silverlight</Api>
       <Type>Application</Type>
       <LanguageCode>cs</LanguageCode>
+      <IsBusiness>true</IsBusiness>
     </OpenSilverInfo>
   </WizardData>
 </VSTemplate>

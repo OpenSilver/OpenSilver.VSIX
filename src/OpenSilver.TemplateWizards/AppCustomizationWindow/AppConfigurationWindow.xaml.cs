@@ -40,13 +40,23 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
         }
 
 
-        public AppConfigurationWindow(string openSilverType)
+        public AppConfigurationWindow(string openSilverType, bool isBusiness = false)
         {
+
             InitilizeThemes();
             InitializeComponent();
             if (openSilverType == "Library")
             {
                 DotNetVersionPanel.Visibility = Visibility.Collapsed;
+            }
+
+            //Modern theme is deactivated for now, for Business Application projects
+            if (isBusiness)
+            {
+                chooseThemesCollection.Visibility = Visibility.Collapsed;
+                SelectedTheme = Themes[ThemeSelectionEnum.Classic];
+                continueBtn.IsEnabled = true;
+                this.Height = 300;
             }
         }
 
@@ -82,7 +92,7 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
 
         private void ThemeCollectionView_SelectionChanged(object sender, EventArgs e)
         {
-            SelectedTheme= (sender as ThemeOptions).Name;
+            SelectedTheme = (sender as ThemeOptions).Name;
             continueBtn.IsEnabled = true;
         }
     }
