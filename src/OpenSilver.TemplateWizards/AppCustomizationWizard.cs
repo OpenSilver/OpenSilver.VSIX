@@ -8,7 +8,6 @@ using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Xml.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace OpenSilver.TemplateWizards
 {
@@ -71,14 +70,12 @@ namespace OpenSilver.TemplateWizards
 
         public void BeforeOpeningFile(ProjectItem projectItem)
         {
-
         }
 
         public void ProjectFinishedGenerating(Project project)
         {
             if (_selectedTheme.Equals("Classic", StringComparison.OrdinalIgnoreCase))
                 return;
-
 
             ReplaceContent(_selectedTheme);
             string projectName = _replacementsDictionary["$safeprojectname$"];
@@ -123,7 +120,6 @@ namespace OpenSilver.TemplateWizards
             if (itemGroupWithPackageReference != null)
             {
                 // Create the new element to insert
-                ;
                 var newElement = new XElement("PackageReference",
                     new XAttribute("Include", "OpenSilver.Themes.Modern"),
                     new XAttribute("Version", _replacementsDictionary["$opensilverthememodern$"]));
@@ -136,7 +132,6 @@ namespace OpenSilver.TemplateWizards
 
         public void ProjectItemFinishedGenerating(ProjectItem projectItem)
         {
-
         }
 
         public void RunFinished()
@@ -146,7 +141,6 @@ namespace OpenSilver.TemplateWizards
         public void RunStarted(object automationObject, Dictionary<string, string> replacementsDictionary,
             WizardRunKind runKind, object[] customParams)
         {
-
             XElement openSilverInfo = XElement.Parse(replacementsDictionary["$wizarddata$"]);
 
             XNamespace defaultNamespace = openSilverInfo.GetDefaultNamespace();
@@ -204,8 +198,6 @@ namespace OpenSilver.TemplateWizards
 
         private void ReplaceContent(string theme)
         {
-
-
             string indexHtmlFile = GetFileFullPath("wwwroot\\index.html", ProjectTemplate.Browser);
             string styleCssFile = GetFileFullPath("wwwroot\\loading-indicator.css", ProjectTemplate.Browser);
             string jsFile = GetFileFullPath("wwwroot\\loading-animation.js", ProjectTemplate.Browser);
@@ -224,15 +216,12 @@ namespace OpenSilver.TemplateWizards
             File.WriteAllText(indexHtmlFile, indexHtmlContent);
             File.WriteAllText(styleCssFile, styleCssContent);
             File.WriteAllText(jsFile, jsContent);
-
-
         }
 
         private string GetEmbeddedResource(string resourceName)
         {
             // Get the current assembly (the wizard project)
             Assembly assembly = Assembly.GetExecutingAssembly();
-            var xname = assembly.GetManifestResourceNames();
             // Open the embedded resource as a stream
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
