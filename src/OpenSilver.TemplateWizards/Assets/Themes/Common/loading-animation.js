@@ -20,9 +20,13 @@
 
         if (currentValue === 100) {
             observer.disconnect();
-            setTimeout(() => {
-                loaderContainer.remove();
-            }, 300);
+            window.onload = () => {
+                gsap.to(loaderContainer, {
+                    opacity: 0,
+                    duration: 0.3,
+                    onComplete: () => loaderContainer.remove(),
+                });
+            };
             return;
         }
     }
