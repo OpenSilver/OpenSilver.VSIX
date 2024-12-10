@@ -94,7 +94,7 @@
     "openSilverPackageVersion": {
       "type": "generated",
       "generator": "constant",
-      "replaces": "OpenSilverPackageVersion",
+      "replaces": "$OpenSilverPackageVersion$",
       "parameters": {
         "value": "3.1.0"
       }
@@ -102,7 +102,7 @@
     "openSilverSimulatorPackageVersion": {
       "type": "generated",
       "generator": "constant",
-      "replaces": "OpenSilverSimulatorPackageVersion",
+      "replaces": "$OpenSilverSimulatorPackageVersion$",
       "parameters": {
         "value": "3.1.0"
       }
@@ -110,7 +110,7 @@
     "openSilverWebAssemblyPackageVersion": {
       "type": "generated",
       "generator": "constant",
-      "replaces": "OpenSilverWebAssemblyPackageVersion",
+      "replaces": "$OpenSilverWebAssemblyPackageVersion$",
       "parameters": {
         "value": "3.1.0"
       }
@@ -118,7 +118,7 @@
     "modernThemePackageVersion": {
       "type": "generated",
       "generator": "constant",
-      "replaces": "ModernThemePackageVersion",
+      "replaces": "$ModernThemePackageVersion$",
       "parameters": {
         "value": "3.1.*"
       }
@@ -127,7 +127,7 @@
       "type": "generated",
       "generator": "switch",
       "datatype": "string",
-      "replaces": "WebAssemblyPackageVersion",
+      "replaces": "$WebAssemblyPackageVersion$",
       "parameters": {
         "evaluator": "C++",
         "cases": [
@@ -142,6 +142,44 @@
           {
             "condition": "(targetFramework == 'net9.0')",
             "value": "9.0.0"
+          }
+        ]
+      }
+    },
+    "pageForeground": {
+      "type": "generated",
+      "generator": "switch",
+      "datatype": "string",
+      "replaces": "$PageForeground$",
+      "parameters": {
+        "evaluator": "C++",
+        "cases": [
+          {
+            "condition": "(theme == 'classic')",
+            "value": "Black"
+          },
+          {
+            "condition": "(theme != 'classic')",
+            "value": "{DynamicResource Theme_TextBrush}"
+          }
+        ]
+      }
+    },
+    "gridBackground": {
+      "type": "generated",
+      "generator": "switch",
+      "datatype": "string",
+      "replaces": "$GridBackground$",
+      "parameters": {
+        "evaluator": "C++",
+        "cases": [
+          {
+            "condition": "(theme == 'classic')",
+            "value": "White"
+          },
+          {
+            "condition": "(theme != 'classic')",
+            "value": "{DynamicResource Theme_BackgroundBrush}"
           }
         ]
       }

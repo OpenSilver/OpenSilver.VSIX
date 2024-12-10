@@ -60,7 +60,7 @@
     "openSilverPackageVersion": {
       "type": "generated",
       "generator": "constant",
-      "replaces": "OpenSilverPackageVersion",
+      "replaces": "$OpenSilverPackageVersion$",
       "parameters": {
         "value": "3.1.0"
       }
@@ -68,7 +68,7 @@
     "openSilverSimulatorPackageVersion": {
       "type": "generated",
       "generator": "constant",
-      "replaces": "OpenSilverSimulatorPackageVersion",
+      "replaces": "$OpenSilverSimulatorPackageVersion$",
       "parameters": {
         "value": "3.1.0"
       }
@@ -76,7 +76,7 @@
     "openSilverWebAssemblyPackageVersion": {
       "type": "generated",
       "generator": "constant",
-      "replaces": "OpenSilverWebAssemblyPackageVersion",
+      "replaces": "$OpenSilverWebAssemblyPackageVersion$",
       "parameters": {
         "value": "3.1.0"
       }
@@ -84,7 +84,7 @@
     "openSilverOpenRiaPackageVersion": {
       "type": "generated",
       "generator": "constant",
-      "replaces": "OpenSilverOpenRiaPackageVersion",
+      "replaces": "$OpenSilverOpenRiaPackageVersion$",
       "parameters": {
         "value": "3.1.0"
       }
@@ -93,7 +93,7 @@
       "type": "generated",
       "generator": "switch",
       "datatype": "string",
-      "replaces": "WebAssemblyPackageVersion",
+      "replaces": "$WebAssemblyPackageVersion$",
       "parameters": {
         "evaluator": "C++",
         "cases": [
