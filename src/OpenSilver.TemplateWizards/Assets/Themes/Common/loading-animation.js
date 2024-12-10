@@ -1,6 +1,7 @@
 ﻿function startLoader() {
     const count = document.querySelector(".odometer");
     const loader = document.querySelector(".loader-progress-bar");
+    const loaderContainer = document.querySelector('.loading-indicator');
 
     if (!count || !loader) return;
 
@@ -19,6 +20,9 @@
 
         if (currentValue === 100) {
             observer.disconnect();
+            setTimeout(() => {
+                loaderContainer.remove();
+            }, 300);
             return;
         }
     }
