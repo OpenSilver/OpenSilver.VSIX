@@ -184,6 +184,8 @@ namespace OpenSilver.TemplateWizards
             replacementsDictionary.Add("$opensilverwebassemblypackageversion$", "3.1.0");
             replacementsDictionary.Add("$openria46packageversion$", "3.1.0");
             replacementsDictionary.Add("$opensilverthememodern$", "3.1.*");
+            replacementsDictionary.Add("$pageforeground$", window.SelectedTheme == "Classic" ? "Black" : "{DynamicResource Theme_TextBrush}");
+            replacementsDictionary.Add("$gridbackground$", window.SelectedTheme == "Classic" ? "White" : "{DynamicResource Theme_BackgroundBrush}");
 
             _replacementsDictionary = replacementsDictionary;
             _selectedTheme = window.SelectedTheme;
