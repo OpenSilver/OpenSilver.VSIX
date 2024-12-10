@@ -33,7 +33,7 @@
     "openSilverPackageVersion": {
       "type": "generated",
       "generator": "constant",
-      "replaces": "OpenSilverPackageVersion",
+      "replaces": "$OpenSilverPackageVersion$",
       "parameters": {
         "value": "3.1.0"
       }

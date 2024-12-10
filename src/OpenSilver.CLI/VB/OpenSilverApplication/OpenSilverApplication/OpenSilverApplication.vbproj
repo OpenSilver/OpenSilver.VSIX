@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenSilver" Version="OpenSilverPackageVersion" />
+    <PackageReference Include="OpenSilver" Version="$OpenSilverPackageVersion$" />
     <!--#if(theme == 'modern-light' || theme == 'modern-dark')-->
-    <PackageReference Include="OpenSilver.Themes.Modern" Version="ModernThemePackageVersion" />
+    <PackageReference Include="OpenSilver.Themes.Modern" Version="$ModernThemePackageVersion$" />
     <!--#endif-->
   </ItemGroup>
 
