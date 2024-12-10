@@ -77,13 +77,10 @@ namespace OpenSilver.TemplateWizards
             string projectName = _replacementsDictionary["$safeprojectname$"];
             string language = GetCurrentProgrammingLanguage();
 
-            string appXamlPath = GetFileFullPath("App.xaml");
-
             string OpenSilverCsprojPath = GetFileFullPath($"{projectName}.{language}proj");
 
-            if (File.Exists(appXamlPath) && File.Exists(OpenSilverCsprojPath))
+            if (File.Exists(OpenSilverCsprojPath))
             {
-                AddThemePalette(appXamlPath);
                 AddThemeReferences(OpenSilverCsprojPath);
             }
         }
@@ -95,15 +92,14 @@ namespace OpenSilver.TemplateWizards
             return openSilverInfo.Element(defaultNamespace + "LanguageCode").Value;
         }
 
-        private void AddThemePalette(string appXamlPath)
+        private string GetAppXamlTheme(string selectedTheme)
         {
-            var appXamlContent = File.ReadAllText(appXamlPath);
-            appXamlContent = appXamlContent.Replace(
-            "</Application.Resources>",
-                $"</Application.Resources>\n<Application.Theme>\n<mt:ModernTheme CurrentPalette=\"{_selectedTheme}\" xmlns:mt=\"http://opensilver.net/themes/modern\"/>\n</Application.Theme>"
-            );
-            XDocument xdoc = XDocument.Parse(appXamlContent);
-            xdoc.Save(appXamlPath, SaveOptions.None);
+            if (selectedTheme == "Classic")
+            {
+                return "";
+            }
+
+            return $"    <Application.Theme>{Environment.NewLine}        <mt:ModernTheme CurrentPalette=\"{selectedTheme}\" xmlns:mt=\"http://opensilver.net/themes/modern\"/>{Environment.NewLine}    </Application.Theme>";
         }
 
         private void AddThemeReferences(string path)
@@ -186,6 +182,7 @@ namespace OpenSilver.TemplateWizards
             replacementsDictionary.Add("$opensilverthememodern$", "3.1.*");
             replacementsDictionary.Add("$pageforeground$", window.SelectedTheme == "Classic" ? "Black" : "{DynamicResource Theme_TextBrush}");
             replacementsDictionary.Add("$gridbackground$", window.SelectedTheme == "Classic" ? "White" : "{DynamicResource Theme_BackgroundBrush}");
+            replacementsDictionary.Add("$appxamltheme$", GetAppXamlTheme(window.SelectedTheme));
 
             _replacementsDictionary = replacementsDictionary;
             _selectedTheme = window.SelectedTheme;
