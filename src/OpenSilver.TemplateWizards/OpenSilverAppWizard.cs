@@ -70,6 +70,11 @@ namespace OpenSilver.TemplateWizards
                 WizardSettings.TargetFramework = netVersion;
                 WizardSettings.BlazorTargetFramework = netVersion;
                 WizardSettings.BlazorPackagesVersion = $"{(int)OpenSilverSettings.FrameworkVersion}.0.0";
+                if (OpenSilverSettings.FrameworkVersion == FrameworkVersion.Net7)
+                {
+                    WizardSettings.OpenRia54PackageVersion = "5.4.3";
+                    WizardSettings.OpenRia54AspNetCorePackageVersion = "1.1.0";
+                }
                 // apply default settings
                 ReplacementsDictionary.Populate(WizardSettings);
                 ReplacementsDictionary.Add("$mauiappstartparams$", string.Empty);
@@ -83,6 +88,10 @@ namespace OpenSilver.TemplateWizards
                     var database = OpenSilverSettings.Database.ToString().ToLower();
                     var databaseSettings = Helpers.LoadEmbeddedResource<DatabaseSettings>($"Settings.{database}.json");
                     databaseSettings.DatabaseConnectionString = string.Format(databaseSettings.DatabaseConnectionString, projectName);
+                    if (OpenSilverSettings.FrameworkVersion == FrameworkVersion.Net7)
+                    {
+                        databaseSettings.DatabasePackageVersion = "7.0.*";
+                    }
                     ReplacementsDictionary.Populate(databaseSettings);
 
                     SslPorts = new SslPorts

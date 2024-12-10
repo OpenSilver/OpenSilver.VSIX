@@ -11,7 +11,7 @@ public partial class User : IdentityUser, IUser
     public string Name { get; set; }
 
     [NotMapped]
-    public IEnumerable<string> Roles { get; set; } = [];
+    public IEnumerable<string> Roles { get; set; } = Enumerable.Empty<string>();
 
     public string FriendlyName { get; set; }
 

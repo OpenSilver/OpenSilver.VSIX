@@ -12,6 +12,10 @@
         <PackageReference Include="Microsoft.Extensions.Http" Version="$ext_blazorpackagesversion$" />
     </ItemGroup>
 
+    <ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+    </ItemGroup>
+
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
         <DefineConstants>DEBUG;OPENSILVER;OPENRIA;SILVERLIGHT</DefineConstants>
     </PropertyGroup>

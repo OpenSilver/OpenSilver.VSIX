@@ -36,6 +36,6 @@ public class UserRegistrationService : DomainService
             return result.Errors.Select(x => x.Description);
         }
 
-        return [];
+        return Enumerable.Empty<string>();
     }
 }

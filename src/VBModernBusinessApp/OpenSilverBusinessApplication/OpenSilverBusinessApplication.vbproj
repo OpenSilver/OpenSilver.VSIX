@@ -1,13 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup Label="Globals">
-        <SccProjectName>SAK</SccProjectName>
-        <SccProvider>SAK</SccProvider>
-        <SccAuxPath>SAK</SccAuxPath>
-        <SccLocalPath>SAK</SccLocalPath>
-        <Configurations>Debug;Release;</Configurations>
-    </PropertyGroup>
-
     <PropertyGroup>
         <TargetFramework>$ext_blazortargetframework$</TargetFramework>
         <RazorLangVersion>3.0</RazorLangVersion>
@@ -16,6 +8,10 @@
     <ItemGroup>
         <PackageReference Include="$ext_opensilverpackagename$" Version="$ext_opensilverpackageversion$" />
         <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

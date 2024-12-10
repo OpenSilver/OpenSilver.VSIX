@@ -32,7 +32,7 @@ public class AuthenticationService : DomainService, IAuthentication<User>
         return null;
     }
 
-    private User GetAnonymousUser() => new() { Name = string.Empty, Roles = [] };
+    private User GetAnonymousUser() => new() { Name = string.Empty, Roles = Enumerable.Empty<string>() };
 
     private User GetAuthenticatedUser(string userName)
     {
