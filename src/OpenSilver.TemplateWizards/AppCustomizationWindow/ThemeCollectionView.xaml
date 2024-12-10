@@ -94,11 +94,16 @@
                                                 <RowDefinition Height="8"/>
                                                 <RowDefinition Height="auto"/>
                                             </Grid.RowDefinitions>
-                                            <Border x:Name="FocusVisualElement" Visibility="Visible" Background="{Binding BackgroundColor}"  Width="134" Height="134" IsHitTestVisible="False" BorderThickness="1" CornerRadius="10" BorderBrush="#D1D1D1"/>
+                                            <Border x:Name="FocusVisualElement" Visibility="Visible" Background="{Binding BackgroundColor}"  Width="134" Height="134" IsHitTestVisible="False" BorderThickness="1" CornerRadius="10" BorderBrush="#D1D1D1">
+                                                <Border.Effect>
+                                                    <DropShadowEffect Color="#000000" Opacity="0.15" Direction="270" BlurRadius="20" ShadowDepth="4"/>
+                                                </Border.Effect>
+                                            </Border>
 
                                             <Image Source="{Binding ThumbnailUri}"
-                                                   Width="134"
+                                                   Width="132"
                                                    Height="134"
+                                                   SnapsToDevicePixels="True"
                                                    Stretch="Uniform"
                                                    Margin="0"
                                                    ToolTip="{Binding Description}"
