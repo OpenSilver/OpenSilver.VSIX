@@ -9,6 +9,8 @@
                 <ProjectItem ReplaceParameters="true" TargetFileName="launchSettings.json">launchSettings.json</ProjectItem>
             </Folder>
             <Folder Name="wwwroot" TargetFolderName="wwwroot">
+                <ProjectItem ReplaceParameters="false" TargetFileName="loading-indicator.css">modern/loading-indicator.css</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="loading-animation.js">modern/loading-animation.js</ProjectItem>
                 <ProjectItem ReplaceParameters="false" TargetFileName="favicon.ico">favicon.ico</ProjectItem>
                 <ProjectItem ReplaceParameters="true" TargetFileName="index.html">index.html</ProjectItem>
                 <ProjectItem ReplaceParameters="false" TargetFileName="loading-indicator.css">loading-indicator.css</ProjectItem>

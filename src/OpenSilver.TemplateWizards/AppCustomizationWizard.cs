@@ -13,6 +13,67 @@ namespace OpenSilver.TemplateWizards
     class AppCustomizationWizard : IWizard
     {
         private const string NugetConfig = "NuGet.Config";
+        private const string ClassicLoadingAnimation = @"
+        <div class=""loading-indicator-wrapper"">
+            <div class=""loading-indicator"">
+                <div class=""loading-indicator-ball""></div>
+                <div class=""loading-indicator-ball""></div>
+                <div class=""loading-indicator-ball""></div>
+                <div class=""loading-indicator-ball""></div>
+                <div class=""loading-indicator-ball""></div>
+                <div class=""loading-indicator-ball""></div>
+                <div class=""loading-indicator-ball""></div>
+                <div class=""loading-indicator-ball""></div>
+                <div class=""loading-indicator-ball""></div>
+                <div class=""loading-indicator-ball""></div>
+                <div class=""loading-indicator-ball""></div>
+                <div class=""loading-indicator-ball""></div>
+                <div class=""loading-indicator-ball""></div>
+                <div class=""loading-indicator-ball""></div>
+                <div class=""loading-indicator-ball""></div>
+                <div class=""loading-indicator-ball""></div>
+                <div class=""loading-indicator-text""></div>
+            </div>
+        </div>";
+        private const string ModernLoadingAnimation = @"
+        <div class=""opensilver-loading-indicator"">
+            <div class=""opensilver-loader-container"">
+                <div class=""opensilver-loader"">
+                    <div class=""opensilver-loader-progress"">
+                        <div class=""opensilver-loader-progress-bar""></div>
+                    </div>
+                </div>
+                <div class=""opensilver-counter-container"">
+                    <span class=""opensilver-odometer""></span>
+                    <span class=""opensilver-odometer""></span>
+                    <span class=""opensilver-odometer""></span>
+                </div>
+            </div>
+        </div>";
+        private const string ModernLightStyles = @"
+    <style>
+        :root {
+            --opensilver-loading-background-color: #f9f9f9;
+            --opensilver-loading-progress-bg: #c8c8c8;
+            --opensilver-loading-progress-bar-color: #000;
+            --opensilver-loading-counter-color: #323232;
+        }
+    </style>";
+        private const string ModernDarkStyles = @"
+    <style>
+        :root {
+            --opensilver-loading-background-color: #201f1f;
+            --opensilver-loading-progress-bg: #505050;
+            --opensilver-loading-progress-bar-color: #fff;
+            --opensilver-loading-counter-color: #848181;
+        }
+    </style>";
+        private const string ModernLoadingJs = @"
+            const script = document.createElement('script');
+            script.setAttribute('type', 'application/javascript');
+            script.setAttribute('src', 'modern/loading-animation.js?date=' + new Date().toISOString());
+            document.head.appendChild(script);";
+
         private static string GetVsixFullPath(string filename)
         {
             var vsixDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -70,9 +131,55 @@ namespace OpenSilver.TemplateWizards
 
             return $"    <Application.Theme>{Environment.NewLine}        <mt:ModernTheme CurrentPalette=\"{selectedTheme}\" xmlns:mt=\"http://opensilver.net/themes/modern\"/>{Environment.NewLine}    </Application.Theme>";
         }
+
         private string GetThemesNugetPackageLine(string version)
         {
             return $"{Environment.NewLine}    <PackageReference Include=\"OpenSilver.Themes.Modern\" Version=\"{version}\" />";
+        }
+
+        private string GetLoadingColors(string selectedTheme)
+        {
+            if (selectedTheme == "Light")
+            {
+                return ModernLightStyles;
+            }
+
+            if (selectedTheme == "Dark")
+            {
+                return ModernDarkStyles;
+            }
+
+            return "";
+        }
+
+        private string GetLoadingIndicatorCss(string selectedTheme)
+        {
+            if (selectedTheme == "Classic")
+            {
+                return "loading-indicator.css";
+            }
+
+            return "modern/loading-indicator.css";
+        }
+
+        private string GetLoadingIndicatorJs(string selectedTheme)
+        {
+            if (selectedTheme == "Classic")
+            {
+                return "";
+            }
+
+            return ModernLoadingJs;
+        }
+
+        private string GetLoadingIndicatorHtml(string selectedTheme)
+        {
+            if (selectedTheme == "Classic")
+            {
+                return ClassicLoadingAnimation;
+            }
+
+            return ModernLoadingAnimation;
         }
 
         public void ProjectItemFinishedGenerating(ProjectItem projectItem)
@@ -134,10 +241,20 @@ namespace OpenSilver.TemplateWizards
             replacementsDictionary.Add("$openria46packageversion$", "3.1.0");
             replacementsDictionary.Add("$opensilverthememodern$", "3.1.*");
 
-            replacementsDictionary.Add("$pageforeground$", window.SelectedTheme == "Classic" ? "Black" : "{DynamicResource Theme_TextBrush}");
-            replacementsDictionary.Add("$gridbackground$", window.SelectedTheme == "Classic" ? "White" : "{DynamicResource Theme_BackgroundBrush}");
+            replacementsDictionary.Add("$pageforeground$", IsClassic(window) ? "Black" : "{DynamicResource Theme_TextBrush}");
+            replacementsDictionary.Add("$gridbackground$", IsClassic(window) ? "White" : "{DynamicResource Theme_BackgroundBrush}");
             replacementsDictionary.Add("$appxamltheme$", GetAppXamlTheme(window.SelectedTheme));
-            replacementsDictionary.Add("$themesnugetpackage$", window.SelectedTheme == "Classic" ? "" : GetThemesNugetPackageLine(replacementsDictionary["$opensilverthememodern$"]));
+            replacementsDictionary.Add("$themesnugetpackage$", IsClassic(window) ? "" : GetThemesNugetPackageLine(replacementsDictionary["$opensilverthememodern$"]));
+
+            replacementsDictionary.Add("$modernloadingcolors$", GetLoadingColors(window.SelectedTheme));
+            replacementsDictionary.Add("$loadingindicatorcss$", GetLoadingIndicatorCss(window.SelectedTheme));
+            replacementsDictionary.Add("$loadingindicatorjs$", GetLoadingIndicatorJs(window.SelectedTheme));
+            replacementsDictionary.Add("$loadingindicatorhtml$", GetLoadingIndicatorHtml(window.SelectedTheme));
+        }
+
+        private bool IsClassic(AppConfigurationWindow window)
+        {
+            return window.SelectedTheme == "Classic";
         }
 
         public bool ShouldAddProjectItem(string filePath)
