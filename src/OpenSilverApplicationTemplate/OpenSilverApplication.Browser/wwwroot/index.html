@@ -4,40 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>$ext_safeprojectname$</title>
-    <base href="/" />
+    <base href="/" />$ext_modernloadingcolors$
     <script>
         (function () {
             const style = document.createElement('link');
             style.setAttribute('rel', 'stylesheet');
             style.setAttribute('type', 'text/css');
-            style.setAttribute('href', 'loading-indicator.css?date=' + new Date().toISOString());
+            style.setAttribute('href', '$ext_loadingindicatorcss$?date=' + new Date().toISOString());
             document.head.appendChild(style);
+$ext_loadingindicatorjs$
         })();
     </script>
 </head>
 <body>
-    <div id="app">
-        <div class="loading-indicator-wrapper">
-            <div class="loading-indicator">
-                <div class="loading-indicator-ball"></div>
-                <div class="loading-indicator-ball"></div>
-                <div class="loading-indicator-ball"></div>
-                <div class="loading-indicator-ball"></div>
-                <div class="loading-indicator-ball"></div>
-                <div class="loading-indicator-ball"></div>
-                <div class="loading-indicator-ball"></div>
-                <div class="loading-indicator-ball"></div>
-                <div class="loading-indicator-ball"></div>
-                <div class="loading-indicator-ball"></div>
-                <div class="loading-indicator-ball"></div>
-                <div class="loading-indicator-ball"></div>
-                <div class="loading-indicator-ball"></div>
-                <div class="loading-indicator-ball"></div>
-                <div class="loading-indicator-ball"></div>
-                <div class="loading-indicator-ball"></div>
-                <div class="loading-indicator-text"></div>
-            </div>
-        </div>
+    <div id="app">$ext_loadingindicatorhtml$
     </div>
     <div id="opensilver-root" style="position: relative; width: 100%; height: 100%; overflow-x: hidden; overflow-y: hidden"></div>
 
