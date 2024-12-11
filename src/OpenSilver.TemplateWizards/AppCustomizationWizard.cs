@@ -4,7 +4,6 @@ using OpenSilver.TemplateWizards.AppCustomizationWindow;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Xml.Linq;
@@ -14,8 +13,6 @@ namespace OpenSilver.TemplateWizards
     class AppCustomizationWizard : IWizard
     {
         private const string NugetConfig = "NuGet.Config";
-        private Dictionary<string, string> _replacementsDictionary;
-        private string _selectedTheme;
         private static string GetVsixFullPath(string filename)
         {
             var vsixDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -55,14 +52,6 @@ namespace OpenSilver.TemplateWizards
             }
         }
 
-        private string GetFileFullPath(string fileRelativePath)
-        {
-            var solutionDir = _replacementsDictionary["$destinationdirectory$"];
-            string projectName = _replacementsDictionary["$safeprojectname$"];
-            string fullPath = $"{solutionDir}\\{projectName}\\{fileRelativePath}";
-            return fullPath;
-        }
-
         public void BeforeOpeningFile(ProjectItem projectItem)
         {
 
@@ -70,26 +59,6 @@ namespace OpenSilver.TemplateWizards
 
         public void ProjectFinishedGenerating(Project project)
         {
-            if (_selectedTheme.Equals("Classic", StringComparison.OrdinalIgnoreCase))
-                return;
-
-
-            string projectName = _replacementsDictionary["$safeprojectname$"];
-            string language = GetCurrentProgrammingLanguage();
-
-            string OpenSilverCsprojPath = GetFileFullPath($"{projectName}.{language}proj");
-
-            if (File.Exists(OpenSilverCsprojPath))
-            {
-                AddThemeReferences(OpenSilverCsprojPath);
-            }
-        }
-
-        private string GetCurrentProgrammingLanguage()
-        {
-            var openSilverInfo = XElement.Parse(_replacementsDictionary["$wizarddata$"]);
-            XNamespace defaultNamespace = openSilverInfo.GetDefaultNamespace();
-            return openSilverInfo.Element(defaultNamespace + "LanguageCode").Value;
         }
 
         private string GetAppXamlTheme(string selectedTheme)
@@ -101,24 +70,9 @@ namespace OpenSilver.TemplateWizards
 
             return $"    <Application.Theme>{Environment.NewLine}        <mt:ModernTheme CurrentPalette=\"{selectedTheme}\" xmlns:mt=\"http://opensilver.net/themes/modern\"/>{Environment.NewLine}    </Application.Theme>";
         }
-
-        private void AddThemeReferences(string path)
+        private string GetThemesNugetPackageLine(string version)
         {
-            var csprojDocument = XDocument.Load(path);
-            var itemGroupWithPackageReference = csprojDocument.Descendants("ItemGroup")
-                            .FirstOrDefault(ig => ig.Elements("PackageReference").Any());
-
-            if (itemGroupWithPackageReference != null)
-            {
-                // Create the new element to insert
-                var newElement = new XElement("PackageReference",
-                    new XAttribute("Include", "OpenSilver.Themes.Modern"),
-                    new XAttribute("Version", _replacementsDictionary["$opensilverthememodern$"]));
-
-                itemGroupWithPackageReference.Add(newElement);
-
-                csprojDocument.Save(path);
-            }
+            return $"{Environment.NewLine}    <PackageReference Include=\"OpenSilver.Themes.Modern\" Version=\"{version}\" />";
         }
 
         public void ProjectItemFinishedGenerating(ProjectItem projectItem)
@@ -133,7 +87,6 @@ namespace OpenSilver.TemplateWizards
         public void RunStarted(object automationObject, Dictionary<string, string> replacementsDictionary,
             WizardRunKind runKind, object[] customParams)
         {
-
             XElement openSilverInfo = XElement.Parse(replacementsDictionary["$wizarddata$"]);
 
             XNamespace defaultNamespace = openSilverInfo.GetDefaultNamespace();
@@ -180,12 +133,11 @@ namespace OpenSilver.TemplateWizards
             replacementsDictionary.Add("$opensilverwebassemblypackageversion$", "3.1.0");
             replacementsDictionary.Add("$openria46packageversion$", "3.1.0");
             replacementsDictionary.Add("$opensilverthememodern$", "3.1.*");
+
             replacementsDictionary.Add("$pageforeground$", window.SelectedTheme == "Classic" ? "Black" : "{DynamicResource Theme_TextBrush}");
             replacementsDictionary.Add("$gridbackground$", window.SelectedTheme == "Classic" ? "White" : "{DynamicResource Theme_BackgroundBrush}");
             replacementsDictionary.Add("$appxamltheme$", GetAppXamlTheme(window.SelectedTheme));
-
-            _replacementsDictionary = replacementsDictionary;
-            _selectedTheme = window.SelectedTheme;
+            replacementsDictionary.Add("$themesnugetpackage$", window.SelectedTheme == "Classic" ? "" : GetThemesNugetPackageLine(replacementsDictionary["$opensilverthememodern$"]));
         }
 
         public bool ShouldAddProjectItem(string filePath)
