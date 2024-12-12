@@ -1,13 +1,18 @@
 ﻿(function () {
-    function startLoader() {
-        const count = document.querySelector(".opensilver-odometer");
-        const loader = document.querySelector(".opensilver-loader-progress-bar");
+    let lastAnimationTime = 0;
+    const ANIMATION_THROTTLE_DELAY = 150; // Minimum time between animations
+    const ANIMATION_DURATION = 150; // Total animation duration
 
+    const odometerClass = "opensilver-odometer";
+
+    function startLoader() {
+        const count = document.querySelectorAll("." + odometerClass);
+        const loader = document.querySelector(".opensilver-loader-progress-bar");
         if (!count || !loader) return;
 
         loader.style.width = "0%";
-
         const observer = new MutationObserver(updateCount);
+
         function updateCount() {
             const loadPercentageText = getComputedStyle(document.documentElement)
                 .getPropertyValue("--blazor-load-percentage-text")
@@ -15,120 +20,94 @@
             const loadPercentage = parseInt(loadPercentageText.replace(/"/g, ""));
             const currentValue = isNaN(loadPercentage) ? 0 : loadPercentage;
 
-            animateCounter(currentValue);
-            loader.style.width = currentValue + "%";
-
+            // Always animate 100 regardless of throttling
             if (currentValue === 100) {
+                animateCounter(currentValue, true);
+                loader.style.width = "100%";
                 observer.disconnect();
                 return;
             }
+
+            // Throttle animations to prevent too frequent updates
+            const now = Date.now();
+            if (now - lastAnimationTime >= ANIMATION_THROTTLE_DELAY) {
+                animateCounter(currentValue);
+                lastAnimationTime = now;
+            }
+
+            loader.style.width = currentValue + "%";
         }
 
         observer.observe(document.documentElement, {
             attributes: true,
             attributeFilter: ["style"],
         });
-
         updateCount();
     }
 
-    function animateCounter(newValue) {
-        newValue = Math.min(newValue, 100);
-
-        const count = Array.from(document.querySelectorAll(".opensilver-odometer"));
-        const currentValue = count.map((span) => span.textContent).join("");
+    function animateCounter(newValue, force = false) {
+        const odometers = Array.from(document.querySelectorAll("." + odometerClass));
         const newValueString = String(newValue).padStart(3, "0");
-        for (let i = 0; i < newValueString.length; i++) {
-            if (newValueString[i] !== currentValue[i]) {
-                gsap.to(count[i], {
-                    y: -4,
-                    opacity: 0.5,
-                    duration: 0.075,
-                    ease: "none",
-                    onComplete: () => {
-                        count[i].textContent = newValueString[i];
-                        gsap.fromTo(
-                            count[i],
-                            { y: 4, opacity: 0.5 },
-                            { y: 0, opacity: 1, duration: 0.075, ease: "none" }
-                        );
-                    },
-                });
+
+        for (let index = odometers.length - 1; index > -1; index--) {
+            const element = odometers[index];
+
+            if (force) {
+                const finalOdometer = document.createElement("div");
+                finalOdometer.textContent = newValueString[index];
+                finalOdometer.classList.add(odometerClass);
+                element.replaceWith(finalOdometer);
+                continue;
             }
-        }
 
-        if (newValue === 100 && currentValue !== "100") {
-            gsap.to(count[1], {
-                y: -4,
-                opacity: 0.5,
-                duration: 0.075,
-                ease: "none",
-                onComplete: () => {
-                    count[1].textContent = "0";
-                    gsap.fromTo(
-                        count[1],
-                        { y: 4, opacity: 0.5 },
-                        { y: 0, opacity: 1, duration: 0.075, ease: "none" }
-                    );
-                },
-            });
+            if (element.textContent === "") {
+                element.textContent = "0";
+            }
+            const currentValue = element.textContent || "0";
 
-            gsap.to(count[2], {
-                y: -4,
-                opacity: 0.5,
-                duration: 0.075,
-                ease: "none",
-                onComplete: () => {
-                    count[2].textContent = "0";
-                    gsap.fromTo(
-                        count[2],
-                        { y: 4, opacity: 0.5 },
-                        { y: 0, opacity: 1, duration: 0.075, ease: "none" }
-                    );
-                },
-            });
-        }
+            if (newValueString[index] !== currentValue) {
+                element.style.transition = `transform ${ANIMATION_DURATION}ms, opacity ${ANIMATION_DURATION}ms`;
+                element.style.transform = "translateY(-4px)";
+                element.style.opacity = "0.5";
+
+                setTimeout(() => {
+                    element.textContent = newValueString[index];
+                    element.style.transform = "translateY(4px)";
+                    element.style.opacity = "0.5";
+
+                    setTimeout(() => {
+                        element.style.transform = "translateY(0)";
+                        element.style.opacity = "1";
+                    }, ANIMATION_DURATION / 2);
+                }, ANIMATION_DURATION / 2);
+            }
+        };
     }
 
     function onDomReady() {
         startLoader();
-
-        function startAnimations() {
-            gsap.to(".opensilver-loader-progress", {
-                width: "60vw",
-                opacity: 1,
-                duration: 1.25,
-                ease: "power1.out",
-                delay: 0.4,
-            });
-
-            gsap.to(".opensilver-counter-container", {
-                opacity: 1,
-                duration: 0.3,
-                ease: "none",
-                delay: 1.1,
-            });
-
-            gsap.to(".opensilver-counter-container > .opensilver-odometer", {
-                transform: "translateY(0)",
-                duration: 0.3,
-                ease: "none",
-                delay: 1.1,
-            });
-        }
-
         startAnimations();
     }
 
-    const script = document.createElement('script');
-    script.setAttribute('type', 'application/javascript');
-    script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js');
-    script.addEventListener('load', function () {
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', onDomReady);
-        } else {
-            onDomReady();
+    function startAnimations() {
+        const loaderProgress = document.querySelector(".opensilver-loader-progress");
+        const counterContainer = document.querySelector(".opensilver-counter-container");
+
+        if (loaderProgress) {
+            loaderProgress.style.transition = "width 1.25s, opacity 1.25s";
+            loaderProgress.style.width = "60vw";
+            loaderProgress.style.opacity = "1";
         }
-    });
-    document.head.appendChild(script);
+
+        if (counterContainer) {
+            counterContainer.style.transition = "opacity 0.3s";
+            counterContainer.style.opacity = "1";
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', onDomReady);
+    } else {
+        onDomReady();
+    }
 })();

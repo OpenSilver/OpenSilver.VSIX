@@ -5,18 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>OpenSilverApplication</title>
     <base href="/" />
+    <!--#if(theme == 'modern-light')-->
+    <style>
+        :root {
+            --opensilver-loading-background-color: #f9f9f9;
+            --opensilver-loading-progress-bg: #c8c8c8;
+            --opensilver-loading-progress-bar-color: #000;
+            --opensilver-loading-counter-color: #323232;
+        }
+    </style>
+    <!--#endif-->
+    <!--#if(theme == 'modern-dark')-->
+    <style>
+        :root {
+            --opensilver-loading-background-color: #201f1f;
+            --opensilver-loading-progress-bg: #505050;
+            --opensilver-loading-progress-bar-color: #fff;
+            --opensilver-loading-counter-color: #848181;
+        }
+    </style>
+    <!--#endif-->
     <script>
         (function () {
             const style = document.createElement('link');
             style.setAttribute('rel', 'stylesheet');
             style.setAttribute('type', 'text/css');
+            <!--#if(theme == 'classic')-->
             style.setAttribute('href', 'loading-indicator.css?date=' + new Date().toISOString());
+            <!--#else-->
+            style.setAttribute('href', 'modern/loading-indicator.css?date=' + new Date().toISOString());
+            <!--#endif-->
             document.head.appendChild(style);
+            <!--#if(theme == 'modern-light' || theme == 'modern-dark')-->
+
+            const script = document.createElement('script');
+            script.setAttribute('type', 'application/javascript');
+            script.setAttribute('src', 'modern/loading-animation.js?date=' + new Date().toISOString());
+            document.head.appendChild(script);
+            <!--#endif-->
         })();
     </script>
 </head>
 <body>
     <div id="app">
+        <!--#if(theme == 'classic')-->
         <div class="loading-indicator-wrapper">
             <div class="loading-indicator">
                 <div class="loading-indicator-ball"></div>
@@ -38,6 +70,22 @@
                 <div class="loading-indicator-text"></div>
             </div>
         </div>
+        <!--#else-->
+        <div class="opensilver-loading-indicator">
+            <div class="opensilver-loader-container">
+                <div class="opensilver-loader">
+                    <div class="opensilver-loader-progress">
+                        <div class="opensilver-loader-progress-bar"></div>
+                    </div>
+                </div>
+                <div class="opensilver-counter-container">
+                    <span class="opensilver-odometer"></span>
+                    <span class="opensilver-odometer"></span>
+                    <span class="opensilver-odometer"></span>
+                </div>
+            </div>
+        </div>
+        <!--#endif-->
     </div>
     <div id="opensilver-root" style="position: relative; width: 100%; height: 100%; overflow-x: hidden; overflow-y: hidden"></div>
 

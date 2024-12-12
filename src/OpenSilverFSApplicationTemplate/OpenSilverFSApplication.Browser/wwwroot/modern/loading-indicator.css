@@ -1,4 +1,3 @@
-
 html body {
     background: var(--opensilver-loading-background-color);
 }
@@ -51,7 +50,6 @@ html body {
     height: 5px;
     border-radius: 12px;
     background-color: var(--opensilver-loading-progress-bar-color);
-    transition: width 0.75s ease;
 }
 
 .opensilver-loading-indicator .opensilver-counter-container {
@@ -67,8 +65,4 @@ html body {
     line-height: 1;
     gap: 1px;
     color: var(--opensilver-loading-counter-color);
-}
-
-.opensilver-loading-indicator .opensilver-counter-container > .opensilver-odometer {
-    transform: translateY(4px);
 }
