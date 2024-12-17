@@ -53,10 +53,11 @@ namespace OpenSilver.TemplateWizards
         private const string ModernLightStyles = @"
     <style>
         :root {
-            --opensilver-loading-background-color: #f9f9f9;
-            --opensilver-loading-progress-bg: #c8c8c8;
-            --opensilver-loading-progress-bar-color: #000;
-            --opensilver-loading-counter-color: #323232;
+            --opensilver-loading-background-color: #fff;
+            --opensilver-loading-progress-bg: #f0f0f0;
+            --opensilver-loading-progress-bar-color: #696969;
+            --opensilver-loading-counter-color: #555;
+            --opensilver-loading-progress-border-color: #c0c0c0;
         }
     </style>";
         private const string ModernDarkStyles = @"
@@ -66,6 +67,7 @@ namespace OpenSilver.TemplateWizards
             --opensilver-loading-progress-bg: #505050;
             --opensilver-loading-progress-bar-color: #fff;
             --opensilver-loading-counter-color: #848181;
+            --opensilver-loading-progress-border-color: #505050;
         }
     </style>";
         private const string ModernLoadingJs = @"

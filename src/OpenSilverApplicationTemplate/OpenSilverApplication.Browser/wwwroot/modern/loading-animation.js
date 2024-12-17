@@ -8,6 +8,7 @@
     function startLoader() {
         const count = document.querySelectorAll("." + odometerClass);
         const loader = document.querySelector(".opensilver-loader-progress-bar");
+        const loaderProgress = document.querySelector(".opensilver-loader-progress");
         if (!count || !loader) return;
 
         loader.style.width = "0%";
@@ -24,6 +25,7 @@
             if (currentValue === 100) {
                 animateCounter(currentValue, true);
                 loader.style.width = "100%";
+                loaderProgress.style["border-right"] = "none";
                 observer.disconnect();
                 return;
             }
