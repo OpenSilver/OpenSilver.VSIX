@@ -237,9 +237,9 @@ namespace OpenSilver.TemplateWizards
                 CopyNugetConfig(replacementsDictionary);
             }
 
-            replacementsDictionary.Add("$opensilverpackageversion$", "3.1.1");
-            replacementsDictionary.Add("$opensilversimulatorpackageversion$", "3.1.1");
-            replacementsDictionary.Add("$opensilverwebassemblypackageversion$", "3.1.1");
+            replacementsDictionary.Add("$opensilverpackageversion$", "3.1.2");
+            replacementsDictionary.Add("$opensilversimulatorpackageversion$", "3.1.2");
+            replacementsDictionary.Add("$opensilverwebassemblypackageversion$", "3.1.2");
             replacementsDictionary.Add("$openria46packageversion$", "3.1.0");
             replacementsDictionary.Add("$opensilverthememodern$", "3.1.*");
 
