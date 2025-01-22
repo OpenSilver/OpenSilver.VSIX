@@ -36,4 +36,12 @@
     <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
+  <Target Name="CopyCommonBeforePack" BeforeTargets="Pack">
+  <!--
+      Calls our TemplateTweaker console app
+      so that the shared folders are copied
+      into each template before packaging.
+    -->
+    <Exec Command="dotnet run --project Tools/TemplateTweaker/TemplateTweaker.csproj" />
+  </Target>
 </Project>
