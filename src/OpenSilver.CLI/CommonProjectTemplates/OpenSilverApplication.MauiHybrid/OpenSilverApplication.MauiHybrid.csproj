@@ -84,7 +84,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\OpenSilverApplication\OpenSilverApplication.csproj" />
+      <ProjectReference Include="..\OpenSilverApplication\OpenSilverApplication.$LangShortCode$proj" />
     </ItemGroup>
 
 </Project>

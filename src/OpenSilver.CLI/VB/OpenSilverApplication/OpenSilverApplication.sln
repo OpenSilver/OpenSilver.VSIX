@@ -3,12 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34310.174
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenSilverApplication.Browser", "OpenSilverApplication.Browser\OpenSilverApplication.Browser.csproj", "{41168522-4247-4181-BE6B-CD561E266F1B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverApplication.Browser", "OpenSilverApplication.Browser\OpenSilverApplication.Browser.csproj", "{79254849-EE14-42B2-82CB-07A7D4FA3205}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OpenSilverApplication", "OpenSilverApplication\OpenSilverApplication.vbproj", "{F563F170-CE74-449A-86D7-16311BE5D624}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OpenSilverApplication", "OpenSilverApplication\OpenSilverApplication.vbproj", "{052AA0E1-BF65-4EE4-B6D3-112AE3350154}"
 EndProject
 #if (operatingSystem == 'Windows_NT')
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenSilverApplication.Simulator", "OpenSilverApplication.Simulator\OpenSilverApplication.Simulator.csproj", "{88992088-C7C5-47CF-87AB-FC26135729B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverApplication.Simulator", "OpenSilverApplication.Simulator\OpenSilverApplication.Simulator.csproj", "{E5006009-F128-4902-AD10-D55E7942946A}"
+EndProject
+#endif
+#if (mauiPlatformsBasic != '' || windowsTarget != '')
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverApplication.MauiHybrid", "OpenSilverApplication.MauiHybrid\OpenSilverApplication.MauiHybrid.csproj", "{E98BBAFF-DE97-48FB-B99E-019727405EFE}"
 EndProject
 #endif
 Global
@@ -17,25 +21,32 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{41168522-4247-4181-BE6B-CD561E266F1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{41168522-4247-4181-BE6B-CD561E266F1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{41168522-4247-4181-BE6B-CD561E266F1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{41168522-4247-4181-BE6B-CD561E266F1B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F563F170-CE74-449A-86D7-16311BE5D624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F563F170-CE74-449A-86D7-16311BE5D624}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F563F170-CE74-449A-86D7-16311BE5D624}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F563F170-CE74-449A-86D7-16311BE5D624}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79254849-EE14-42B2-82CB-07A7D4FA3205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79254849-EE14-42B2-82CB-07A7D4FA3205}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79254849-EE14-42B2-82CB-07A7D4FA3205}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79254849-EE14-42B2-82CB-07A7D4FA3205}.Release|Any CPU.Build.0 = Release|Any CPU
+		{052AA0E1-BF65-4EE4-B6D3-112AE3350154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{052AA0E1-BF65-4EE4-B6D3-112AE3350154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{052AA0E1-BF65-4EE4-B6D3-112AE3350154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{052AA0E1-BF65-4EE4-B6D3-112AE3350154}.Release|Any CPU.Build.0 = Release|Any CPU
 		#if (operatingSystem == 'Windows_NT')
-		{88992088-C7C5-47CF-87AB-FC26135729B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{88992088-C7C5-47CF-87AB-FC26135729B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{88992088-C7C5-47CF-87AB-FC26135729B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{88992088-C7C5-47CF-87AB-FC26135729B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5006009-F128-4902-AD10-D55E7942946A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5006009-F128-4902-AD10-D55E7942946A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5006009-F128-4902-AD10-D55E7942946A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5006009-F128-4902-AD10-D55E7942946A}.Release|Any CPU.Build.0 = Release|Any CPU
+		#endif
+		#if (mauiPlatformsBasic != '' || windowsTarget != '')
+		{E98BBAFF-DE97-48FB-B99E-019727405EFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E98BBAFF-DE97-48FB-B99E-019727405EFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E98BBAFF-DE97-48FB-B99E-019727405EFE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E98BBAFF-DE97-48FB-B99E-019727405EFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E98BBAFF-DE97-48FB-B99E-019727405EFE}.Release|Any CPU.Build.0 = Release|Any CPU
 		#endif
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B9762355-C28A-465A-91A1-9BE8B02EAC72}
+		SolutionGuid = {D59E1426-E892-4863-9C68-E437124A32F5}
 	EndGlobalSection
 EndGlobal

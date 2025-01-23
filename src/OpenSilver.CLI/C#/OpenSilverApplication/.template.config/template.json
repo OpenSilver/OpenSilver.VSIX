@@ -131,6 +131,14 @@
       ]
     },
 
+    "langShortCode": {
+      "type": "generated",
+      "generator": "constant",
+      "replaces": "$LangShortCode$",
+      "parameters": {
+        "value": "cs"
+      }
+    },
     "openSilverPackageVersion": {
       "type": "generated",
       "generator": "constant",
