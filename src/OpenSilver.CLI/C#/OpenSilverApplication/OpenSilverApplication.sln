@@ -12,7 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverApplication.Simul
 EndProject
 #endif
 #if (mauiPlatformsBasic != '' || windowsTarget != '')
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverMauiHybridApp.MauiHybrid", "OpenSilverMauiHybridApp.MauiHybrid\OpenSilverMauiHybridApp.MauiHybrid.csproj", "{E98BBAFF-DE97-48FB-B99E-019727405EFE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverApplication.MauiHybrid", "OpenSilverApplication.MauiHybrid\OpenSilverApplication.MauiHybrid.csproj", "{E98BBAFF-DE97-48FB-B99E-019727405EFE}"
 EndProject
 #endif
 Global
