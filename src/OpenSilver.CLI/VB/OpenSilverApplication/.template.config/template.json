@@ -31,6 +31,12 @@
           "exclude": [
             "OpenSilverApplication.Simulator/**"
           ]
+        },
+        {
+          "condition": "(mauiPlatformsBasic == '' && windowsTarget == '')",
+          "exclude": [
+            "OpenSilverApplication.MauiHybrid/**"
+          ]
         }
       ]
     }
@@ -41,6 +47,10 @@
     {
       "path": "./OpenSilverApplication.Simulator/OpenSilverApplication.Simulator.csproj",
       "condition": "(operatingSystem == 'Windows_NT')"
+    },
+    {
+      "path": "./OpenSilverApplication.MauiHybrid/OpenSilverApplication.MauiHybrid.csproj",
+      "condition": "(mauiPlatformsBasic != '' || windowsTarget != '')"
     }
   ],
   "symbols": {
@@ -91,6 +101,44 @@
         }
       ]
     },
+    "mauiPlatforms": {
+      "type": "parameter",
+      "datatype": "choice",
+      "description": "Specifies which MAUI platforms to include.",
+      "allowMultipleValues": true,
+      "replaces": "$maui-platforms$",
+      "choices": [
+        {
+          "choice": "android",
+          "description": "Android"
+        },
+        {
+          "choice": "ios",
+          "description": "iOS"
+        },
+        {
+          "choice": "macos",
+          "description": "macOS"
+        },
+        {
+          "choice": "windows",
+          "description": "Windows"
+        },
+        {
+          "choice": "all",
+          "description": "All supported platforms"
+        }
+      ]
+    },
+
+    "langShortCode": {
+      "type": "generated",
+      "generator": "constant",
+      "replaces": "$LangShortCode$",
+      "parameters": {
+        "value": "vb"
+      }
+    },
     "openSilverPackageVersion": {
       "type": "generated",
       "generator": "constant",
@@ -121,6 +169,14 @@
       "replaces": "$ModernThemePackageVersion$",
       "parameters": {
         "value": "3.1.*"
+      }
+    },
+    "openSilverMauiHybridPackageVersion": {
+      "type": "generated",
+      "generator": "constant",
+      "replaces": "$OpenSilverMauiHybridPackageVersion$",
+      "parameters": {
+        "value": "3.1.2"
       }
     },
     "webAssemblyPackageVersion": {
@@ -186,14 +242,113 @@
     },
     "operatingSystem": {
       "type": "bind",
-      "binding": "env:OS"
+      "binding": "env:OS",
+      "defaultValue": ""
+    },
+    "androidTarget": {
+      "type": "generated",
+      "generator": "switch",
+      "datatype": "string",
+      "parameters": {
+        "evaluator": "C++",
+        "cases": [
+          {
+            "condition": "((mauiPlatforms == 'android' || mauiPlatforms == 'all') && targetFramework == 'net8.0')",
+            "value": "net8.0-android"
+          },
+          {
+            "condition": "((mauiPlatforms == 'android' || mauiPlatforms == 'all') && targetFramework == 'net9.0')",
+            "value": "net9.0-android"
+          }
+        ]
+      }
+    },
+    "iosTarget": {
+      "type": "generated",
+      "generator": "switch",
+      "datatype": "string",
+      "parameters": {
+        "evaluator": "C++",
+        "cases": [
+          {
+            "condition": "((mauiPlatforms == 'ios' || mauiPlatforms == 'all') && targetFramework == 'net8.0')",
+            "value": "net8.0-ios"
+          },
+          {
+            "condition": "((mauiPlatforms == 'ios' || mauiPlatforms == 'all') && targetFramework == 'net9.0')",
+            "value": "net9.0-ios"
+          }
+        ]
+      }
+    },
+    "macosTarget": {
+      "type": "generated",
+      "generator": "switch",
+      "datatype": "string",
+      "parameters": {
+        "evaluator": "C++",
+        "cases": [
+          {
+            "condition": "((mauiPlatforms == 'macos' || mauiPlatforms == 'all') && targetFramework == 'net8.0')",
+            "value": "net8.0-maccatalyst"
+          },
+          {
+            "condition": "((mauiPlatforms == 'macos' || mauiPlatforms == 'all') && targetFramework == 'net9.0')",
+            "value": "net9.0-maccatalyst"
+          }
+        ]
+      }
+    },
+    "windowsTarget": {
+      "type": "generated",
+      "generator": "switch",
+      "datatype": "string",
+      "replaces": "$WindowsTarget$",
+      "parameters": {
+        "evaluator": "C++",
+        "cases": [
+          {
+            "condition": "((mauiPlatforms == 'windows' || mauiPlatforms == 'all') && targetFramework == 'net8.0')",
+            "value": "net8.0-windows10.0.19041.0"
+          },
+          {
+            "condition": "((mauiPlatforms == 'windows' || mauiPlatforms == 'all') && targetFramework == 'net9.0')",
+            "value": "net9.0-windows10.0.19041.0"
+          }
+        ]
+      }
+    },
+    "mauiPlatformsBasic": {
+      "type": "generated",
+      "generator": "join",
+      "replaces": "$MauiPlatformsBasic$",
+      "parameters": {
+        "symbols": [
+          {
+            "type": "ref",
+            "value": "androidTarget"
+          },
+          {
+            "type": "ref",
+            "value": "iosTarget"
+          },
+          {
+            "type": "ref",
+            "value": "macosTarget"
+          }
+        ],
+        "removeEmptyValues": true,
+        "separator": ";"
+      }
     }
+
   },
   "guids": [
-    "41168522-4247-4181-BE6B-CD561E266F1B",
-    "F563F170-CE74-449A-86D7-16311BE5D624",
-    "88992088-C7C5-47CF-87AB-FC26135729B8",
-    "B9762355-C28A-465A-91A1-9BE8B02EAC72"
+    "79254849-EE14-42B2-82CB-07A7D4FA3205",
+    "052AA0E1-BF65-4EE4-B6D3-112AE3350154",
+    "E5006009-F128-4902-AD10-D55E7942946A",
+    "D59E1426-E892-4863-9C68-E437124A32F5",
+    "E98BBAFF-DE97-48FB-B99E-019727405EFE"
   ],
   "postActions": [
     {

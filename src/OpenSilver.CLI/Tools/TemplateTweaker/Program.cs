@@ -17,7 +17,9 @@ namespace TemplateTweaker
             // List all the template folders that should receive the "common" content:
             var destinationFolders = new[]
             {
-                "C#/OpenSilverApplication"
+                "C#/OpenSilverApplication",
+                "F#/OpenSilverApplication",
+                "VB/OpenSilverApplication"
                 // Add more destinations if needed...
             };
 

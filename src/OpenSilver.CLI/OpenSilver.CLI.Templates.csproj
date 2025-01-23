@@ -36,6 +36,10 @@
     <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="CommonProjectTemplates\**\*" />
+  </ItemGroup>
+
   <Target Name="CopyCommonBeforePack" BeforeTargets="Pack">
   <!--
       Calls our TemplateTweaker console app
