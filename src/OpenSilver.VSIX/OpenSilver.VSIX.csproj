@@ -206,6 +206,13 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
+    <ProjectReference Include="..\OpenSilverMauiHybridTemplate\OpenSilverMauiHybridTemplate.csproj">
+      <Project>{F7380B38-5D00-4527-B0D2-4DF1826881F9}</Project>
+      <Name>OpenSilverMauiHybridTemplate</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
     <ProjectReference Include="..\OpenSilverVBApplicationTemplate\OpenSilverVBApplicationTemplate.csproj">
       <Project>{229629ac-c4e0-4848-9cfa-31064c9d83a3}</Project>
       <Name>OpenSilverVBApplicationTemplate</Name>

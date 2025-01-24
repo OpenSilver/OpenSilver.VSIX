@@ -1,8 +1,7 @@
 ﻿using OpenSilver.TemplateWizards.AppCustomizationWindow.Models;
+using OpenSilver.TemplateWizards.Shared;
 using System;
-using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace OpenSilver.TemplateWizards.AppCustomizationWindow
 {
@@ -11,15 +10,7 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
     /// </summary>
     public partial class AppConfigurationWindow : Window
     {
-        public IDictionary<ThemeSelectionEnum, string> Themes { get; set; } = new Dictionary<ThemeSelectionEnum, string>();
-        public string SelectedTheme { get; set; }
-        public OpenSilverBuildType OpenSilverBuildType
-        {
-            get
-            {
-                return OpenSilverBuildType.Stable;
-            }
-        }
+        public string SelectedTheme { get; private set; }
 
         public DotNetVersion DotNetVersion
         {
@@ -39,55 +30,50 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
             }
         }
 
-
-        public AppConfigurationWindow(string openSilverType, bool isBusiness = false)
+        public MauiHybridPlatform MauiHybridPlatform
         {
-
-            InitilizeThemes();
-            InitializeComponent();
-            if (openSilverType == "Library")
+            get
             {
-                DotNetVersionPanel.Visibility = Visibility.Collapsed;
+                MauiHybridPlatform platforms = MauiHybridPlatform.None;
+
+                if (IosCheckbox.IsChecked == true)
+                {
+                    platforms |= MauiHybridPlatform.iOS;
+                }
+                if (AndroidCheckbox.IsChecked == true)
+                {
+                    platforms |= MauiHybridPlatform.Android;
+                }
+                if (WindowsCheckbox.IsChecked == true)
+                {
+                    platforms |= MauiHybridPlatform.Windows;
+                }
+                if (MacCheckbox.IsChecked == true)
+                {
+                    platforms |= MauiHybridPlatform.Mac;
+                }
+
+                return platforms;
             }
+        }
+
+        public AppConfigurationWindow(bool isBusiness = false)
+        {
+            InitializeComponent();
 
             //Modern theme is deactivated for now, for Business Application projects
             if (isBusiness)
             {
                 chooseThemesCollection.Visibility = Visibility.Collapsed;
-                SelectedTheme = Themes[ThemeSelectionEnum.Classic];
+                SelectedTheme = ThemeOptions.Classic;
                 continueBtn.IsEnabled = true;
-                this.Height = 300;
             }
-        }
-
-        private void InitilizeThemes()
-        {
-            Themes.Add(ThemeSelectionEnum.Dark, "Dark");
-            Themes.Add(ThemeSelectionEnum.Light, "Light");
-            Themes.Add(ThemeSelectionEnum.Classic, "Classic");
         }
 
         private void ButtonContinue_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
             Close();
-        }
-
-        private void OnThemSelected(object sender, RoutedEventArgs e)
-        {
-
-            if (sender is RadioButton selectedRadio)
-            {
-                try
-                {
-                    SelectedTheme = Themes[(ThemeSelectionEnum)selectedRadio.Tag];
-                }
-                catch
-                {
-                    throw new InvalidOperationException("Error retrieving selected theme option");
-                }
-            }
-
         }
 
         private void ThemeCollectionView_SelectionChanged(object sender, EventArgs e)

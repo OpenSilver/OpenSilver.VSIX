@@ -9,12 +9,11 @@
 
     <UserControl.Resources>
         <Style x:Key="ListBox_Style" TargetType="ListBox">
-            <Setter Property="Width" Value="330" />
             <Setter Property="BorderBrush" Value="Transparent" />
             <Setter Property="Background" Value="{x:Null}" />
-            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
-            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="VerticalAlignment" Value="Stretch" />
             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
             <Setter Property="ItemsPanel">
@@ -34,7 +33,7 @@
                         <Setter Property="Background" Value="#55FFFFFF" />
                         <Setter Property="BorderThickness" Value="2"/>
                         <Setter Property="KeyboardNavigation.TabNavigation" Value="Local" />
-                        <Setter Property="Margin" Value="10,0,10,60" />
+                        <Setter Property="Margin" Value="10,0,10,0" />
                         <Setter Property="Cursor" Value="Hand" />
                         <Setter Property="Template">
                             <Setter.Value>
@@ -60,8 +59,8 @@
                                                     <Storyboard>
                                                         <DoubleAnimation Storyboard.TargetName="selectionIndicator" Storyboard.TargetProperty="Opacity" Duration="0" To=".75"/>
                                                         <ObjectAnimationUsingKeyFrames
-                                                        Storyboard.TargetName="themeTitle" 
-                                                        Storyboard.TargetProperty="Foreground">
+                                                            Storyboard.TargetName="themeTitle"
+                                                            Storyboard.TargetProperty="Foreground">
                                                             <DiscreteObjectKeyFrame KeyTime="0" >
                                                                 <DiscreteObjectKeyFrame.Value>
                                                                     <SolidColorBrush Color="#FFFFFF" />
@@ -106,14 +105,13 @@
                                                    SnapsToDevicePixels="True"
                                                    Stretch="Uniform"
                                                    Margin="0"
-                                                   ToolTip="{Binding Description}"
-                                               />
+                                                   ToolTip="{Binding Description}"/>
 
-                                            <Border x:Name="selectedBorder" 
-                                                    Visibility="Collapsed" 
-                                                    BorderThickness="0" 
-                                                    CornerRadius="14" 
-                                                    Grid.Row="2"  
+                                            <Border x:Name="selectedBorder"
+                                                    Visibility="Collapsed"
+                                                    BorderThickness="0"
+                                                    CornerRadius="14"
+                                                    Grid.Row="2"
                                                     Background="#1157FA"
                                                     HorizontalAlignment="Stretch"
                                                     VerticalAlignment="Stretch" >
@@ -125,14 +123,12 @@
                                                        HorizontalAlignment="Center"
                                                        Grid.Row="2"
                                                        Margin="8"
-                                                       VerticalAlignment="Bottom" 
+                                                       VerticalAlignment="Bottom"
                                                        TextWrapping="Wrap"
                                                        FontSize="16"
                                                        FontFamily="Fantasy"/>
                                             <Border x:Name="selectionIndicator" Width="146" Height="146" Opacity="0" IsHitTestVisible="False" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10" BorderBrush="#FF1F7FD9" />
-
                                         </Grid>
-
                                     </Grid>
                                 </ControlTemplate>
                             </Setter.Value>
@@ -144,7 +140,7 @@
     </UserControl.Resources>
 
     <Grid x:Name="mainGrid">
-        <ListBox x:Name="themeList" Style="{StaticResource ListBox_Style}"  HorizontalAlignment="Center"  HorizontalContentAlignment="Center"  Width="{Binding ElementName=mainGrid,Path=ActualWidth}"  Background="Transparent">
+        <ListBox x:Name="themeList" Style="{StaticResource ListBox_Style}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Background="Transparent">
         </ListBox>
     </Grid>
 </UserControl>

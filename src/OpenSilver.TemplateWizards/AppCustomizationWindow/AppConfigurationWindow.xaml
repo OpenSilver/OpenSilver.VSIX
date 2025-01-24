@@ -5,45 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OpenSilver.TemplateWizards.AppCustomizationWindow"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize"
         mc:Ignorable="d"
-        Title="OpenSilver Configuration" Height="600" Width="660" Icon="Icon.ico">
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize"
+        Title="OpenSilver Configuration" Icon="Icon.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="1" Grid.Row="1" x:Name="chooseThemesCollection" >
+        <Grid Grid.Row="1" Grid.Column="1" x:Name="chooseThemesCollection">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <TextBlock  Text="Choose a theme:"  FontSize="20" FontFamily="Inria Sans" FontWeight="DemiBold" Margin="-20,0,0,20" />
-            <local:ThemeCollectionView   SelectionChanged="ThemeCollectionView_SelectionChanged" Grid.Row="1"   />
+            <TextBlock Text="Choose a theme:" FontSize="20" FontFamily="Inria Sans" FontWeight="DemiBold" Margin="-20,0,0,20" />
+            <local:ThemeCollectionView SelectionChanged="ThemeCollectionView_SelectionChanged" Grid.Row="1" />
         </Grid>
 
-        <Grid  Grid.Row="2" Grid.Column="1"  x:Name="DotNetVersionPanel">
+        <Grid Grid.Row="2" Grid.Column="1" x:Name="DotNetVersionPanel">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock  Text="Choose a version of .NET:" Grid.ColumnSpan="2" FontSize="20" FontFamily="Inria Sans" FontWeight="DemiBold" Margin="-20,0,0,32" />
-            <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" >
-                <ComboBox x:Name="DotNetVersionComboBox" >
+            <TextBlock Text="Choose a version of .NET:" Grid.ColumnSpan="2" FontSize="20" FontFamily="Inria Sans" FontWeight="DemiBold" Margin="-20,20,0,32" />
+            <StackPanel Grid.Row="1" HorizontalAlignment="Stretch">
+                <ComboBox x:Name="DotNetVersionComboBox">
                     <ComboBoxItem>.NET 7</ComboBoxItem>
                     <ComboBoxItem>.NET 8</ComboBoxItem>
                     <ComboBoxItem IsSelected="True">.NET 9</ComboBoxItem>
@@ -52,32 +54,46 @@
 
             <Border Background="#EEEEEE" Grid.Row="1" Grid.Column="1" Margin="10,-4,0,0" Padding="10" CornerRadius="10">
                 <StackPanel >
-                    <TextBlock Text="Notes:"
-                       TextWrapping="Wrap" Foreground="Gray"/>
-                    <TextBlock Text="* .NET 8 requires Visual Studio 2022 v17.8 or newer"
-                       TextWrapping="Wrap" Foreground="Gray"/>
-                    <TextBlock Text="* .NET 9 requires Visual Studio 2022 v17.12 or newer"
-                       TextWrapping="Wrap" Foreground="Gray"/>
+                    <TextBlock Text="Notes:" TextWrapping="Wrap" Foreground="Gray"/>
+                    <TextBlock Text="* .NET 8 requires Visual Studio 2022 v17.8 or newer" TextWrapping="Wrap" Foreground="Gray"/>
+                    <TextBlock Text="* .NET 9 requires Visual Studio 2022 v17.12 or newer" TextWrapping="Wrap" Foreground="Gray"/>
                 </StackPanel>
             </Border>
-
         </Grid>
 
+        <Grid Grid.Row="3" Grid.Column="1" x:Name="MauiHybridLauncherPanel">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="MAUI Hybrid:" Grid.ColumnSpan="2" FontSize="20" FontFamily="Inria Sans" FontWeight="DemiBold" Margin="-20,20,0,10" />
+            <StackPanel Grid.Row="1" HorizontalAlignment="Stretch">
+                <TextBlock Text="By default, the OpenSilver application runs in the browser." TextWrapping="Wrap" />
+                <TextBlock Text="However, you can also choose to run it on additional platforms:" TextWrapping="Wrap" Margin="0,0,0,10" />
+                <TextBlock Text="Select platforms:" FontWeight="DemiBold" Margin="0,0,0,10"/>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox x:Name="MacCheckbox" Content="Mac" Margin="0,0,10,0"/>
+                    <CheckBox x:Name="WindowsCheckbox" Content="Windows" Margin="0,0,10,0"/>
+                    <CheckBox x:Name="IosCheckbox" Content="iOS" Margin="0,0,10,0"/>
+                    <CheckBox x:Name="AndroidCheckbox" Content="Android" Margin="0,0,10,0"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
 
-        <Grid Margin="20" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+        <Grid Grid.Row="4" Grid.Column="1" Margin="20,20,20,0" HorizontalAlignment="Right">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition Width="24" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" 
-                    Background="#FFFFFF"
-                    Foreground="#5A5A5A"
-                    FontWeight="SemiBold"
-                    HorizontalAlignment="Center" 
-                    VerticalAlignment="Center"
-                    IsCancel="True">
+            <Button Grid.Column="0"
+                Background="#FFFFFF"
+                Foreground="#5A5A5A"
+                FontWeight="SemiBold"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                IsCancel="True">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="3"/>
@@ -86,17 +102,15 @@
                 <TextBlock Margin="5" Text="Back"/>
             </Button>
 
-            <Button
-                   x:Name="continueBtn"
-                    Grid.Column="2" 
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center" 
-                    Click="ButtonContinue_Click" 
-                    Background="#1157FA"
-                    Foreground="#FFFFFF"
-                    FontWeight="SemiBold"
-                    IsEnabled="False"
-                    >
+            <Button Grid.Column="2"
+                x:Name="continueBtn"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="ButtonContinue_Click"
+                Background="#1157FA"
+                Foreground="#FFFFFF"
+                FontWeight="SemiBold"
+                IsEnabled="False">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="3"/>
@@ -106,10 +120,5 @@
                 <TextBlock Margin="5" Text="Continue"/>
             </Button>
         </Grid>
-
-
-
-
-
     </Grid>
 </Window>
