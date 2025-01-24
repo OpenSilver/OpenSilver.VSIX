@@ -3,7 +3,8 @@
   "symbolInfo": {
     "mauiPlatforms": {
       "longName": "mauiPlatforms",
-      "shortName": "mp"
+      "shortName": "mp",
+      "isHidden": true
     }
   }
 }
