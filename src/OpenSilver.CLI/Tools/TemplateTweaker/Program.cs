@@ -10,6 +10,8 @@ namespace TemplateTweaker
             // If you have multiple "common" folders, list them all here:
             var sourceFolders = new[] 
             {
+                "CommonProjectTemplates/OpenSilverApplication.Browser",
+                "CommonProjectTemplates/OpenSilverApplication.Simulator",
                 "CommonProjectTemplates/OpenSilverApplication.MauiHybrid"
                 // Add more sources if needed...
             };

@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OpenSilverApplication\OpenSilverApplication.vbproj" />
+    <ProjectReference Include="..\OpenSilverApplication\OpenSilverApplication.$LangShortCode$proj" />
   </ItemGroup>
 
 </Project>
