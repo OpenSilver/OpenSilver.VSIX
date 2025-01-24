@@ -1,4 +1,4 @@
-﻿namespace OpenSilver.TemplateWizards.AppCustomizationWindow
+﻿namespace OpenSilver.TemplateWizards.Shared
 {
     public enum DotNetVersion
     {

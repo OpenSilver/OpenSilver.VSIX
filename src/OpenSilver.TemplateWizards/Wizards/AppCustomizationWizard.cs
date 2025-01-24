@@ -1,6 +1,9 @@
 ﻿using EnvDTE;
+using EnvDTE80;
 using Microsoft.VisualStudio.TemplateWizard;
 using OpenSilver.TemplateWizards.AppCustomizationWindow;
+using OpenSilver.TemplateWizards.AppCustomizationWindow.Models;
+using OpenSilver.TemplateWizards.Shared;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +11,7 @@ using System.Reflection;
 using System.Windows;
 using System.Xml.Linq;
 
-namespace OpenSilver.TemplateWizards
+namespace OpenSilver.TemplateWizards.Wizards
 {
     class AppCustomizationWizard : IWizard
     {
@@ -76,6 +79,12 @@ namespace OpenSilver.TemplateWizards
             script.setAttribute('src', 'modern/loading-animation.js?date=' + new Date().toISOString());
             document.head.appendChild(script);";
 
+        private Dictionary<string, string> _replacementsDictionary;
+        private DTE _dte;
+
+        private MauiHybridPlatform _mauiHybridPlatform;
+        private DotNetVersion _dotNetVersion;
+
         private static string GetVsixFullPath(string filename)
         {
             var vsixDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -126,7 +135,7 @@ namespace OpenSilver.TemplateWizards
 
         private string GetAppXamlTheme(string selectedTheme)
         {
-            if (selectedTheme == "Classic")
+            if (selectedTheme == ThemeOptions.Classic)
             {
                 return "";
             }
@@ -141,12 +150,12 @@ namespace OpenSilver.TemplateWizards
 
         private string GetLoadingColors(string selectedTheme)
         {
-            if (selectedTheme == "Light")
+            if (selectedTheme == ThemeOptions.Light)
             {
                 return ModernLightStyles;
             }
 
-            if (selectedTheme == "Dark")
+            if (selectedTheme == ThemeOptions.Dark)
             {
                 return ModernDarkStyles;
             }
@@ -156,7 +165,7 @@ namespace OpenSilver.TemplateWizards
 
         private string GetLoadingIndicatorCss(string selectedTheme)
         {
-            if (selectedTheme == "Classic")
+            if (selectedTheme == ThemeOptions.Classic)
             {
                 return "loading-indicator.css";
             }
@@ -166,7 +175,7 @@ namespace OpenSilver.TemplateWizards
 
         private string GetLoadingIndicatorJs(string selectedTheme)
         {
-            if (selectedTheme == "Classic")
+            if (selectedTheme == ThemeOptions.Classic)
             {
                 return "";
             }
@@ -176,7 +185,7 @@ namespace OpenSilver.TemplateWizards
 
         private string GetLoadingIndicatorHtml(string selectedTheme)
         {
-            if (selectedTheme == "Classic")
+            if (selectedTheme == ThemeOptions.Classic)
             {
                 return ClassicLoadingAnimation;
             }
@@ -191,57 +200,88 @@ namespace OpenSilver.TemplateWizards
 
         public void RunFinished()
         {
+            Microsoft.VisualStudio.Shell.ThreadHelper.ThrowIfNotOnUIThread();
+
+            if (_mauiHybridPlatform == MauiHybridPlatform.None)
+            {
+                return;
+            }
+
+            try
+            {
+                var projectName = _replacementsDictionary["$safeprojectname$"];
+                var destinationDirectory = _replacementsDictionary["$destinationdirectory$"];
+
+                var templateName = "OpenSilverMauiHybridTemplate";
+                var solution = (Solution2)_dte.Solution;
+
+                var mauiHybridProjectName = projectName + ".MauiHybrid";
+                var mauiHybridDestinationDirectory = Path.Combine(destinationDirectory, mauiHybridProjectName);
+
+                var sharedDataStore = GlobalWizardDataStore.GetSharedData(mauiHybridDestinationDirectory);
+                sharedDataStore[WizardKeys.MauiTargets] = _mauiHybridPlatform;
+                sharedDataStore[WizardKeys.NetTarget] = _dotNetVersion;
+
+                var prjTemplate = solution.GetProjectTemplate(templateName, "CSharp");
+                solution.AddFromTemplate(prjTemplate, mauiHybridDestinationDirectory, mauiHybridProjectName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex}");
+            }
         }
 
         public void RunStarted(object automationObject, Dictionary<string, string> replacementsDictionary,
             WizardRunKind runKind, object[] customParams)
         {
-            XElement openSilverInfo = XElement.Parse(replacementsDictionary["$wizarddata$"]);
+            Microsoft.VisualStudio.Shell.ThreadHelper.ThrowIfNotOnUIThread();
 
-            XNamespace defaultNamespace = openSilverInfo.GetDefaultNamespace();
+            _replacementsDictionary = replacementsDictionary;
+            _dte = automationObject as DTE;
 
-            string openSilverType = openSilverInfo.Element(defaultNamespace + "Type").Value;
-            bool isBusiness = openSilverInfo.Element(defaultNamespace + "IsBusiness")?.Value.Equals("true", StringComparison.OrdinalIgnoreCase) ?? false;
-
-
-            AppConfigurationWindow window = new AppConfigurationWindow(openSilverType, isBusiness);
-
-            // In the case of a class Library, the user has no other choices to make so we do not show the app configuration window.
-            if (openSilverType != "Library")
+            var isBusiness = false;
+            var wizardData = replacementsDictionary["$wizarddata$"];
+            if (!string.IsNullOrWhiteSpace(wizardData))
             {
-                bool? result = window.ShowDialog();
-                if (!result.HasValue || !result.Value)
-                {
-                    throw new WizardBackoutException("OpenSilver project creation was cancelled by user");
-                }
+                XElement openSilverInfo = XElement.Parse(wizardData);
+                XNamespace defaultNamespace = openSilverInfo.GetDefaultNamespace();
+                isBusiness = openSilverInfo.Element(defaultNamespace + "IsBusiness")?.Value.Equals("true", StringComparison.OrdinalIgnoreCase) ?? false;
             }
 
-            if (openSilverType == "Application")
-            {
-                switch (window.DotNetVersion)
-                {
-                    case DotNetVersion.Net7:
-                        replacementsDictionary.Add("$targetframework$", "net7.0");
-                        replacementsDictionary.Add("$blazorpackagesversion$", "7.0.0");
-                        break;
-                    case DotNetVersion.Net8:
-                        replacementsDictionary.Add("$targetframework$", "net8.0");
-                        replacementsDictionary.Add("$blazorpackagesversion$", "8.0.11");
-                        break;
-                    case DotNetVersion.Net9:
-                        replacementsDictionary.Add("$targetframework$", "net9.0");
-                        replacementsDictionary.Add("$blazorpackagesversion$", "9.0.0");
-                        break;
-                }
+            AppConfigurationWindow window = new AppConfigurationWindow(isBusiness);
 
-                CopyNugetConfig(replacementsDictionary);
+            bool? result = window.ShowDialog();
+            if (!result.HasValue || !result.Value)
+            {
+                throw new WizardBackoutException("OpenSilver project creation was cancelled by user");
             }
 
-            replacementsDictionary.Add("$opensilverpackageversion$", "3.1.2");
-            replacementsDictionary.Add("$opensilversimulatorpackageversion$", "3.1.2");
-            replacementsDictionary.Add("$opensilverwebassemblypackageversion$", "3.1.2");
-            replacementsDictionary.Add("$openria46packageversion$", "3.1.0");
-            replacementsDictionary.Add("$opensilverthememodern$", "3.1.*");
+            switch (window.DotNetVersion)
+            {
+                case DotNetVersion.Net7:
+                    replacementsDictionary.Add("$targetframework$", "net7.0");
+                    replacementsDictionary.Add("$blazorpackagesversion$", "7.0.0");
+                    break;
+                case DotNetVersion.Net8:
+                    replacementsDictionary.Add("$targetframework$", "net8.0");
+                    replacementsDictionary.Add("$blazorpackagesversion$", "8.0.11");
+                    break;
+                case DotNetVersion.Net9:
+                    replacementsDictionary.Add("$targetframework$", "net9.0");
+                    replacementsDictionary.Add("$blazorpackagesversion$", "9.0.0");
+                    break;
+            }
+
+            CopyNugetConfig(replacementsDictionary);
+
+            _mauiHybridPlatform = window.MauiHybridPlatform;
+            _dotNetVersion = window.DotNetVersion;
+
+            replacementsDictionary.Add("$opensilverpackageversion$", GlobalConstants.OpenSilverPackageVersion);
+            replacementsDictionary.Add("$opensilversimulatorpackageversion$", GlobalConstants.OpenSilverSimulatorPackageVersion);
+            replacementsDictionary.Add("$opensilverwebassemblypackageversion$", GlobalConstants.OpenSilverWebAssemblyPackageVersion);
+            replacementsDictionary.Add("$openria46packageversion$", GlobalConstants.OpenRia46PackageVersion);
+            replacementsDictionary.Add("$opensilverthememodern$", GlobalConstants.OpenSilverThemeModernPackageVersion);
 
             replacementsDictionary.Add("$pageforeground$", IsClassic(window) ? "Black" : "{DynamicResource Theme_TextBrush}");
             replacementsDictionary.Add("$gridbackground$", IsClassic(window) ? "White" : "{DynamicResource Theme_BackgroundBrush}");
@@ -256,7 +296,7 @@ namespace OpenSilver.TemplateWizards
 
         private bool IsClassic(AppConfigurationWindow window)
         {
-            return window.SelectedTheme == "Classic";
+            return window.SelectedTheme == ThemeOptions.Classic;
         }
 
         public bool ShouldAddProjectItem(string filePath)

@@ -48,15 +48,19 @@
     <Compile Include="AppCustomizationWindow\AppConfigurationWindow.xaml.cs">
       <DependentUpon>AppConfigurationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AppCustomizationWindow\DotNetVersion.cs" />
+    <Compile Include="Shared\DotNetVersion.cs" />
     <Compile Include="AppCustomizationWindow\Models\ThemeOption.cs" />
-    <Compile Include="AppCustomizationWindow\OpenSilverBuildType.cs" />
     <Compile Include="AppCustomizationWindow\ThemeCollectionView.xaml.cs">
       <DependentUpon>ThemeCollectionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AppCustomizationWindow\ThemeSelectionEnum.cs" />
-    <Compile Include="AppCustomizationWizard.cs" />
+    <Compile Include="Wizards\AppCustomizationWizard.cs" />
+    <Compile Include="Wizards\ClassLibraryProjectTemplateWizard.cs" />
+    <Compile Include="Shared\GlobalWizardDataStore.cs" />
+    <Compile Include="Wizards\MauiHybridProjectTemplateWizard.cs" />
+    <Compile Include="Shared\GlobalConstants.cs" />
+    <Compile Include="Shared\MauiHybridPlatform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shared\WizardKeys.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="AppCustomizationWindow\AppConfigurationWindow.xaml">
