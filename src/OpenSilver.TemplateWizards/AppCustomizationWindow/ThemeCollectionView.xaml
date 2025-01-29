@@ -67,12 +67,6 @@
                                                                 </DiscreteObjectKeyFrame.Value>
                                                             </DiscreteObjectKeyFrame>
                                                         </ObjectAnimationUsingKeyFrames>
-                                                    </Storyboard>
-                                                </VisualState>
-                                            </VisualStateGroup>
-                                            <VisualStateGroup x:Name="FocusStates">
-                                                <VisualState x:Name="Focused">
-                                                    <Storyboard>
                                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="selectedBorder" Storyboard.TargetProperty="Visibility" Duration="0">
                                                             <DiscreteObjectKeyFrame KeyTime="0">
                                                                 <DiscreteObjectKeyFrame.Value>
@@ -82,7 +76,10 @@
                                                         </ObjectAnimationUsingKeyFrames>
                                                     </Storyboard>
                                                 </VisualState>
-                                                <VisualState x:Name="Unfocused"/>
+                                            </VisualStateGroup>
+                                            <VisualStateGroup x:Name="FocusStates">
+                                                <VisualState x:Name="Focused" />
+                                                <VisualState x:Name="Unfocused" />
                                             </VisualStateGroup>
                                         </VisualStateManager.VisualStateGroups>
 
