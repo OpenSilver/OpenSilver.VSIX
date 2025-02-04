@@ -6,7 +6,7 @@ namespace OpenSilver.TemplateWizards.Shared
     /// </summary>
     public static class GlobalConstants
     {
-        public const string OpenSilverMauiHybridPackageVersion = "3.2.0-preview-2025-01-28-100430-ff7f80db";
+        public const string OpenSilverMauiHybridPackageVersion = "3.2.0-preview-2025-01-31-144842-4edde0a3";
 
         public const string OpenSilverPackageVersion = "3.1.2";
 

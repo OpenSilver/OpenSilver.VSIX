@@ -176,7 +176,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverMauiHybridPackageVersion$",
       "parameters": {
-        "value": "3.2.0-preview-2025-01-23-143554-64fb2e70"
+        "value": "3.2.0-preview-2025-01-31-144842-4edde0a3"
       }
     },
     "webAssemblyPackageVersion": {
