@@ -1,5 +1,4 @@
-﻿using OpenSilver.TemplateWizards.AppCustomizationWindow.Models;
-using System;
+﻿using System;
 using System.Windows.Controls;
 
 namespace OpenSilver.TemplateWizards.AppCustomizationWindow
@@ -12,7 +11,6 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
         public ThemeCollectionView()
         {
             InitializeComponent();
-            themeList.ItemsSource = ThemeOptions.GetThemes();
             themeList.SelectionChanged += ThemeList_SelectionChanged;
         }
 
