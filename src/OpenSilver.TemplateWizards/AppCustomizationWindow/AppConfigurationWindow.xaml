@@ -53,37 +53,48 @@
         </Grid>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,60,0,0" HorizontalAlignment="Right">
-            <Button BorderThickness="0"
-                    FontSize="18"
-                    Margin="0,0,37,0"
-                Background="Transparent"
-                Foreground="#5A5A5A"
-                FontWeight="SemiBold"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                IsCancel="True">
-                <TextBlock Margin="5" Text="Back"/>
-            </Button>
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="FontSize" Value="18"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                    <Setter Property="Padding" Value="20,10"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="5" Padding="{TemplateBinding Padding}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.8"/>
+                                    </Trigger>
 
-            <Button BorderThickness="0"
-                    FontSize="18"
-                    Padding="20,10"
-                x:Name="continueBtn"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Click="ButtonContinue_Click"
-                Background="#1157FA"
-                Foreground="#FFFFFF"
-                FontWeight="SemiBold"
-                IsEnabled="False"
-                d:IsEnabled="True">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-                <TextBlock Text="Continue"/>
-            </Button>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.4"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </StackPanel.Resources>
+
+            <Button Content="Back"
+                    Margin="0,0,17,0"
+                    Background="Transparent"
+                    Foreground="#5A5A5A"
+                    IsCancel="True"/>
+
+            <Button Content="Continue"
+                    x:Name="continueBtn"
+                    Click="ButtonContinue_Click"
+                    Background="#1157FA"
+                    Foreground="#FFFFFF"
+                    IsEnabled="False"
+                    d:IsEnabled="True"/>
         </StackPanel>
     </Grid>
 </Window>
