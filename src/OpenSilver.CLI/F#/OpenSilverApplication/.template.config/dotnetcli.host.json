@@ -4,7 +4,7 @@
     "mauiPlatforms": {
       "longName": "mauiPlatforms",
       "shortName": "mp",
-      "isHidden": true
+      "isHidden": false
     }
   }
 }
