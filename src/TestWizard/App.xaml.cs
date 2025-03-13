@@ -15,6 +15,10 @@ public partial class App : Application
         var configurationWindow = new AppConfigurationWindow();
         _ = configurationWindow.ShowDialog();
 
+        var theme = configurationWindow.SelectedTheme;
+        var dotNetVersion = configurationWindow.DotNetVersion;
+        var mauiHybridPlatform = configurationWindow.MauiHybridPlatform;
+
         MainWindow.Close();
     }
 }

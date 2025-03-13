@@ -48,6 +48,7 @@
     <Compile Include="AppCustomizationWindow\AppConfigurationWindow.xaml.cs">
       <DependentUpon>AppConfigurationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AppCustomizationWindow\Models\DotNetOption.cs" />
     <Compile Include="AppCustomizationWindow\Models\TargetPlatform.cs" />
     <Compile Include="AppCustomizationWindow\PlatformsView.xaml.cs">
       <DependentUpon>PlatformsView.xaml</DependentUpon>

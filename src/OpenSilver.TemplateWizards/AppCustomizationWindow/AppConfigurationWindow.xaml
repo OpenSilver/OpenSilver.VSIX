@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OpenSilver.TemplateWizards.AppCustomizationWindow"
+        xmlns:models="clr-namespace:OpenSilver.TemplateWizards.AppCustomizationWindow.Models"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Background="#F1F1F1"
@@ -35,17 +36,13 @@
             <TextBlock Grid.Row="1" Text="Choose Version of .NET:" FontSize="18" FontFamily="Inria Sans" FontWeight="DemiBold" VerticalAlignment="Center" Margin="0,0,0,60"/>
             <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="0,0,0,60">
                 <ComboBox x:Name="DotNetVersionComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Margin="20,0"
-                          FontSize="22" Foreground="#1157FA" FontWeight="SemiBold">
-                    <ComboBoxItem>.NET 7 (Out of support)</ComboBoxItem>
-                    <ComboBoxItem>.NET 8 (Long Term Support)</ComboBoxItem>
-                    <ComboBoxItem IsSelected="True">.NET 9 (Standard Term Support)</ComboBoxItem>
+                          FontSize="22" Foreground="#1157FA" FontWeight="SemiBold" SelectedIndex="2" DisplayMemberPath="Title" SelectedValuePath="Version">
+                    <models:DotNetOption Title=".NET 7 (Out of support)" Version="Net7"/>
+                    <models:DotNetOption Title=".NET 8 (Long Term Support)" Version="Net8" Notes="* .NET 8 requires Visual Studio 2022 v17.8 or newer"/>
+                    <models:DotNetOption Title=".NET 9 (Standard Term Support)" Version="Net9" Notes="* .NET 9 requires Visual Studio 2022 v17.12 or newer"/>
                 </ComboBox>
-                <Border Grid.Row="1" Padding="10" CornerRadius="10">
-                    <StackPanel>
-                        <TextBlock Text="* .NET 8 requires Visual Studio 2022 v17.8 or newer" TextWrapping="Wrap" Foreground="Gray"/>
-                        <TextBlock Text="* .NET 9 requires Visual Studio 2022 v17.12 or newer" TextWrapping="Wrap" Foreground="Gray"/>
-                    </StackPanel>
-                </Border>
+                <TextBlock Grid.Row="1" Text="{Binding SelectedItem.Notes, ElementName=DotNetVersionComboBox}" 
+                           TextWrapping="Wrap" Foreground="Gray" VerticalAlignment="Center"/>
             </StackPanel>
 
             <TextBlock Grid.Row="2" Text="Choose Target Platforms:" FontSize="18" FontFamily="Inria Sans" FontWeight="DemiBold" Margin="0,25,20,0"/>

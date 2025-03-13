@@ -108,7 +108,7 @@
                                                     Visibility="Collapsed"
                                                     BorderThickness="0"
                                                     CornerRadius="10"
-                                                    Margin="10,0"
+                                                    Margin="10,3"
                                                     Grid.Row="2"
                                                     Background="#1157FA"
                                                     HorizontalAlignment="Stretch"

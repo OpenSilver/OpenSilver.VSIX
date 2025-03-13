@@ -14,23 +14,7 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
     {
         public ThemeOptions SelectedTheme { get; private set; }
 
-        public DotNetVersion DotNetVersion
-        {
-            get
-            {
-                switch (DotNetVersionComboBox.SelectedIndex)
-                {
-                    case 0:
-                        return DotNetVersion.Net7;
-                    case 1:
-                        return DotNetVersion.Net8;
-                    case 2:
-                        return DotNetVersion.Net9;
-                    default:
-                        throw new InvalidOperationException("Error retrieving selected .NET version");
-                }
-            }
-        }
+        public DotNetVersion DotNetVersion => (DotNetVersion)DotNetVersionComboBox.SelectedValue;
 
         public MauiHybridPlatform MauiHybridPlatform
         {
