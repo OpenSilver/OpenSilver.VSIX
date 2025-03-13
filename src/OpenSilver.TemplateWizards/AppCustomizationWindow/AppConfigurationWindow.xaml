@@ -31,7 +31,7 @@
             </Grid.RowDefinitions>
 
             <TextBlock Text="Choose a theme:" FontSize="20" FontFamily="Inria Sans" FontWeight="DemiBold" Margin="-20,0,0,20" />
-            <local:ThemeCollectionView SelectionChanged="ThemeCollectionView_SelectionChanged" Grid.Row="1" />
+            <local:ThemeCollectionView x:Name="themeList" SelectionChanged="ThemeCollectionView_SelectionChanged" Grid.Row="1" />
         </Grid>
 
         <Grid Grid.Row="2" Grid.Column="1" x:Name="DotNetVersionPanel">
@@ -46,9 +46,9 @@
             <TextBlock Text="Choose a version of .NET:" Grid.ColumnSpan="2" FontSize="20" FontFamily="Inria Sans" FontWeight="DemiBold" Margin="-20,20,0,32" />
             <StackPanel Grid.Row="1" HorizontalAlignment="Stretch">
                 <ComboBox x:Name="DotNetVersionComboBox">
-                    <ComboBoxItem>.NET 7</ComboBoxItem>
-                    <ComboBoxItem>.NET 8</ComboBoxItem>
-                    <ComboBoxItem IsSelected="True">.NET 9</ComboBoxItem>
+                    <ComboBoxItem>.NET 7 (Out of support)</ComboBoxItem>
+                    <ComboBoxItem>.NET 8 (Long Term Support)</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">.NET 9 (Standard Term Support)</ComboBoxItem>
                 </ComboBox>
             </StackPanel>
 
@@ -71,6 +71,7 @@
                 <TextBlock Text="By default, the OpenSilver application runs in the browser." TextWrapping="Wrap" />
                 <TextBlock Text="However, you can also choose to run it on additional platforms:" TextWrapping="Wrap" Margin="0,0,0,10" />
                 <TextBlock Text="Select platforms:" FontWeight="DemiBold" Margin="0,0,0,10"/>
+                <CheckBox Content="Browser (Required)" IsChecked="True" IsEnabled="False" />
                 <StackPanel Orientation="Horizontal">
                     <CheckBox x:Name="MacCheckbox" Content="Mac" Margin="0,0,10,0"/>
                     <CheckBox x:Name="WindowsCheckbox" Content="Windows" Margin="0,0,10,0"/>

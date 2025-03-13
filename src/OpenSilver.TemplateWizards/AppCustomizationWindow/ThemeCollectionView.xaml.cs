@@ -9,18 +9,23 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
     /// </summary>
     public partial class ThemeCollectionView : UserControl
     {
-        public event EventHandler SelectionChanged;
         public ThemeCollectionView()
         {
             InitializeComponent();
-            themeList.ItemsSource = ThemeOptions.GeThemes();
+            themeList.ItemsSource = ThemeOptions.GetThemes();
             themeList.SelectionChanged += ThemeList_SelectionChanged;
+        }
+
+        public event EventHandler<ThemeOptions> SelectionChanged;
+
+        public void Select(ThemeOptions theme)
+        {
+            themeList.SelectedItem = theme;
         }
 
         private void ThemeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-            SelectionChanged?.Invoke(themeList.SelectedItem, e);
+            SelectionChanged?.Invoke(this, (ThemeOptions)themeList.SelectedItem);
         }
     }
 }

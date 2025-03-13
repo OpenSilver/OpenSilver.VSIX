@@ -133,14 +133,14 @@ namespace OpenSilver.TemplateWizards.Wizards
         {
         }
 
-        private string GetAppXamlTheme(string selectedTheme)
+        private string GetAppXamlTheme(ThemeOptions selectedTheme)
         {
-            if (selectedTheme == ThemeOptions.Classic)
+            if (IsClassic(selectedTheme))
             {
                 return "";
             }
 
-            return $"    <Application.Theme>{Environment.NewLine}        <mt:ModernTheme CurrentPalette=\"{selectedTheme}\" xmlns:mt=\"http://opensilver.net/themes/modern\"/>{Environment.NewLine}    </Application.Theme>";
+            return $"    <Application.Theme>{Environment.NewLine}        <mt:ModernTheme CurrentPalette=\"{selectedTheme.Name}\" xmlns:mt=\"http://opensilver.net/themes/modern\"/>{Environment.NewLine}    </Application.Theme>";
         }
 
         private string GetThemesNugetPackageLine(string version)
@@ -148,7 +148,7 @@ namespace OpenSilver.TemplateWizards.Wizards
             return $"{Environment.NewLine}    <PackageReference Include=\"OpenSilver.Themes.Modern\" Version=\"{version}\" />";
         }
 
-        private string GetLoadingColors(string selectedTheme)
+        private string GetLoadingColors(ThemeOptions selectedTheme)
         {
             if (selectedTheme == ThemeOptions.Light)
             {
@@ -163,9 +163,9 @@ namespace OpenSilver.TemplateWizards.Wizards
             return "";
         }
 
-        private string GetLoadingIndicatorCss(string selectedTheme)
+        private string GetLoadingIndicatorCss(ThemeOptions selectedTheme)
         {
-            if (selectedTheme == ThemeOptions.Classic)
+            if (IsClassic(selectedTheme))
             {
                 return "loading-indicator.css";
             }
@@ -173,9 +173,9 @@ namespace OpenSilver.TemplateWizards.Wizards
             return "modern/loading-indicator.css";
         }
 
-        private string GetLoadingIndicatorJs(string selectedTheme)
+        private string GetLoadingIndicatorJs(ThemeOptions selectedTheme)
         {
-            if (selectedTheme == ThemeOptions.Classic)
+            if (IsClassic(selectedTheme))
             {
                 return "";
             }
@@ -183,9 +183,9 @@ namespace OpenSilver.TemplateWizards.Wizards
             return ModernLoadingJs;
         }
 
-        private string GetLoadingIndicatorHtml(string selectedTheme)
+        private string GetLoadingIndicatorHtml(ThemeOptions selectedTheme)
         {
-            if (selectedTheme == ThemeOptions.Classic)
+            if (IsClassic(selectedTheme))
             {
                 return ClassicLoadingAnimation;
             }
@@ -283,10 +283,10 @@ namespace OpenSilver.TemplateWizards.Wizards
             replacementsDictionary.Add("$openria46packageversion$", GlobalConstants.OpenRia46PackageVersion);
             replacementsDictionary.Add("$opensilverthememodern$", GlobalConstants.OpenSilverThemeModernPackageVersion);
 
-            replacementsDictionary.Add("$pageforeground$", IsClassic(window) ? "Black" : "{DynamicResource Theme_TextBrush}");
-            replacementsDictionary.Add("$gridbackground$", IsClassic(window) ? "White" : "{DynamicResource Theme_BackgroundBrush}");
+            replacementsDictionary.Add("$pageforeground$", IsClassic(window.SelectedTheme) ? "Black" : "{DynamicResource Theme_TextBrush}");
+            replacementsDictionary.Add("$gridbackground$", IsClassic(window.SelectedTheme) ? "White" : "{DynamicResource Theme_BackgroundBrush}");
             replacementsDictionary.Add("$appxamltheme$", GetAppXamlTheme(window.SelectedTheme));
-            replacementsDictionary.Add("$themesnugetpackage$", IsClassic(window) ? "" : GetThemesNugetPackageLine(replacementsDictionary["$opensilverthememodern$"]));
+            replacementsDictionary.Add("$themesnugetpackage$", IsClassic(window.SelectedTheme) ? "" : GetThemesNugetPackageLine(replacementsDictionary["$opensilverthememodern$"]));
 
             replacementsDictionary.Add("$modernloadingcolors$", GetLoadingColors(window.SelectedTheme));
             replacementsDictionary.Add("$loadingindicatorcss$", GetLoadingIndicatorCss(window.SelectedTheme));
@@ -294,9 +294,9 @@ namespace OpenSilver.TemplateWizards.Wizards
             replacementsDictionary.Add("$loadingindicatorhtml$", GetLoadingIndicatorHtml(window.SelectedTheme));
         }
 
-        private bool IsClassic(AppConfigurationWindow window)
+        private bool IsClassic(ThemeOptions theme)
         {
-            return window.SelectedTheme == ThemeOptions.Classic;
+            return theme == ThemeOptions.Classic;
         }
 
         public bool ShouldAddProjectItem(string filePath)

@@ -1,4 +1,5 @@
-﻿using OpenSilver.TemplateWizards.AppCustomizationWindow.Models;
+﻿using Microsoft.Win32;
+using OpenSilver.TemplateWizards.AppCustomizationWindow.Models;
 using OpenSilver.TemplateWizards.Shared;
 using System;
 using System.Windows;
@@ -10,7 +11,7 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
     /// </summary>
     public partial class AppConfigurationWindow : Window
     {
-        public string SelectedTheme { get; private set; }
+        public ThemeOptions SelectedTheme { get; private set; }
 
         public DotNetVersion DotNetVersion
         {
@@ -61,12 +62,16 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
         {
             InitializeComponent();
 
-            //Modern theme is deactivated for now, for Business Application projects
             if (isBusiness)
             {
+                //Modern theme is deactivated for now, for Business Application projects
                 chooseThemesCollection.Visibility = Visibility.Collapsed;
-                SelectedTheme = ThemeOptions.Classic;
-                continueBtn.IsEnabled = true;
+                themeList.Select(ThemeOptions.Classic);
+            }
+            else
+            {
+                //Select default theme based on operating system settings
+                themeList.Select(IsSystemThemeLight() ? ThemeOptions.Light : ThemeOptions.Dark);
             }
         }
 
@@ -76,10 +81,25 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
             Close();
         }
 
-        private void ThemeCollectionView_SelectionChanged(object sender, EventArgs e)
+        private void ThemeCollectionView_SelectionChanged(object sender, ThemeOptions theme)
         {
-            SelectedTheme = (sender as ThemeOptions).Name;
-            continueBtn.IsEnabled = true;
+            SelectedTheme = theme;
+            continueBtn.IsEnabled = SelectedTheme != null;
         }
+
+        // https://github.com/dotnet/wpf/blob/090a5230cf6186fe576dbc1729c943b36cb5db71/src/Microsoft.DotNet.Wpf/src/PresentationFramework/System/Windows/ThemeManager.cs
+        private static bool IsSystemThemeLight()
+        {
+            var useLightTheme = Registry.GetValue(RegPersonalizeKeyPath, "AppsUseLightTheme", null) as int?;
+
+            if (useLightTheme == null)
+            {
+                useLightTheme = Registry.GetValue(RegPersonalizeKeyPath, "SystemUsesLightTheme", null) as int?;
+            }
+
+            return useLightTheme != null && useLightTheme != 0;
+        }
+
+        private const string RegPersonalizeKeyPath = "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize";
     }
 }
