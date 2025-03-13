@@ -48,6 +48,10 @@
     <Compile Include="AppCustomizationWindow\AppConfigurationWindow.xaml.cs">
       <DependentUpon>AppConfigurationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AppCustomizationWindow\Models\TargetPlatform.cs" />
+    <Compile Include="AppCustomizationWindow\PlatformsView.xaml.cs">
+      <DependentUpon>PlatformsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Shared\DotNetVersion.cs" />
     <Compile Include="AppCustomizationWindow\Models\ThemeOption.cs" />
     <Compile Include="AppCustomizationWindow\ThemeCollectionView.xaml.cs">
@@ -67,6 +71,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="AppCustomizationWindow\PlatformsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AppCustomizationWindow\ThemeCollectionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -79,11 +87,15 @@
     <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.7.37357" />
     <PackageReference Include="Microsoft.VisualStudio.TemplateWizardInterface" Version="17.5.33428.366" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Assets\Images\classic_theme.png" />
     <Resource Include="Assets\Images\dark_theme.png" />
     <Resource Include="Assets\Images\light_theme.png" />
+    <Resource Include="Assets\Images\platform_android.png" />
+    <Resource Include="Assets\Images\platform_apple.png" />
+    <Resource Include="Assets\Images\platform_linux.png" />
+    <Resource Include="Assets\Images\platform_web.png" />
+    <Resource Include="Assets\Images\platform_windows.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2,6 +2,7 @@
 using OpenSilver.TemplateWizards.AppCustomizationWindow.Models;
 using OpenSilver.TemplateWizards.Shared;
 using System;
+using System.Linq;
 using System.Windows;
 
 namespace OpenSilver.TemplateWizards.AppCustomizationWindow
@@ -37,21 +38,25 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
             {
                 MauiHybridPlatform platforms = MauiHybridPlatform.None;
 
-                if (IosCheckbox.IsChecked == true)
+                foreach (var platform in platformList.SelectedItems.OfType<TargetPlatform>())
                 {
-                    platforms |= MauiHybridPlatform.iOS;
-                }
-                if (AndroidCheckbox.IsChecked == true)
-                {
-                    platforms |= MauiHybridPlatform.Android;
-                }
-                if (WindowsCheckbox.IsChecked == true)
-                {
-                    platforms |= MauiHybridPlatform.Windows;
-                }
-                if (MacCheckbox.IsChecked == true)
-                {
-                    platforms |= MauiHybridPlatform.Mac;
+                    switch (platform.Title.ToLower())
+                    {
+                        case "ios":
+                            platforms |= MauiHybridPlatform.iOS;
+                            break;
+                        case "android":
+                            platforms |= MauiHybridPlatform.Android;
+                            break;
+                        case "windows":
+                            platforms |= MauiHybridPlatform.Windows;
+                            break;
+                        case "macos":
+                            platforms |= MauiHybridPlatform.Mac;
+                            break;
+                        default:
+                            break;
+                    }
                 }
 
                 return platforms;

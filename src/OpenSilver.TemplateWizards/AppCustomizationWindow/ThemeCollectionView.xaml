@@ -33,7 +33,7 @@
                         <Setter Property="Background" Value="#55FFFFFF" />
                         <Setter Property="BorderThickness" Value="3"/>
                         <Setter Property="KeyboardNavigation.TabNavigation" Value="Local" />
-                        <Setter Property="Margin" Value="10,0,10,0" />
+                        <Setter Property="Margin" Value="18,0" />
                         <Setter Property="Cursor" Value="Hand" />
                         <Setter Property="Template">
                             <Setter.Value>
@@ -87,7 +87,7 @@
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition />
-                                                <RowDefinition Height="8"/>
+                                                <RowDefinition Height="15"/>
                                                 <RowDefinition Height="auto"/>
                                             </Grid.RowDefinitions>
                                             <Border x:Name="FocusVisualElement" Visibility="Visible" Background="{Binding BackgroundColor}"  Width="134" Height="134" IsHitTestVisible="False" BorderThickness="1" CornerRadius="10" BorderBrush="#D1D1D1">
@@ -107,7 +107,8 @@
                                             <Border x:Name="selectedBorder"
                                                     Visibility="Collapsed"
                                                     BorderThickness="0"
-                                                    CornerRadius="14"
+                                                    CornerRadius="10"
+                                                    Margin="10,0"
                                                     Grid.Row="2"
                                                     Background="#1157FA"
                                                     HorizontalAlignment="Stretch"
