@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenSilver.TemplateWizards.AppCustomizationWindow.Models;
+using System;
 using System.Windows.Controls;
 
 namespace OpenSilver.TemplateWizards.AppCustomizationWindow

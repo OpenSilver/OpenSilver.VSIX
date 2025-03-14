@@ -55,7 +55,7 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
             {
                 //Modern theme is deactivated for now, for Business Application projects
                 chooseThemeLabel.Visibility = Visibility.Collapsed;
-                chooseThemesCollection.Visibility = Visibility.Collapsed;
+                themeList.Visibility = Visibility.Collapsed;
                 themeList.Select(ThemeOptions.Classic);
             }
             else
