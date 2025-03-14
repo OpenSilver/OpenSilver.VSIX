@@ -1,0 +1,194 @@
+﻿<ListBox x:Class="OpenSilver.TemplateWizards.AppCustomizationWindow.PlatformsView"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:models="clr-namespace:OpenSilver.TemplateWizards.AppCustomizationWindow.Models"
+         d:DesignHeight="150"
+         d:DesignWidth="700"
+         d:SelectedIndex="1"
+         Background="Transparent"
+         BorderThickness="0"
+         SelectionMode="Multiple"
+         mc:Ignorable="d">
+
+    <ListBox.ItemsPanel>
+        <ItemsPanelTemplate>
+            <WrapPanel Orientation="Horizontal"/>
+        </ItemsPanelTemplate>
+    </ListBox.ItemsPanel>
+
+    <ListBox.ItemContainerStyle>
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Padding" Value="2"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="Background" Value="#55FFFFFF"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="Local"/>
+            <Setter Property="Margin" Value="10,0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Grid>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="mouseOverIndicator"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To=".35"
+                                                             Duration="0"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled"/>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="SelectionStates">
+                                    <VisualState x:Name="Unselected"/>
+                                    <VisualState x:Name="Selected">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="selectionIndicator"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To=".75"
+                                                             Duration="0"/>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="title" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <SolidColorBrush Color="#FFFFFF"/>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="selectedBorder"
+                                                                           Storyboard.TargetProperty="Visibility"
+                                                                           Duration="0">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Visible</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused"/>
+                                    <VisualState x:Name="Unfocused"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Border x:Name="mouseOverIndicator"
+                                    Background="White"
+                                    BorderBrush="Transparent"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="10"
+                                    IsHitTestVisible="False"
+                                    Opacity="0"/>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="15"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Border x:Name="FocusVisualElement"
+                                        Width="70"
+                                        Height="70"
+                                        Background="White"
+                                        BorderBrush="#D1D1D1"
+                                        BorderThickness="1"
+                                        CornerRadius="10"
+                                        IsHitTestVisible="False"
+                                        Visibility="Visible">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="20"
+                                                          Direction="270"
+                                                          Opacity="0.15"
+                                                          ShadowDepth="4"
+                                                          Color="#000000"/>
+                                    </Border.Effect>
+                                </Border>
+
+                                <Image Width="60"
+                                       Height="60"
+                                       Margin="0"
+                                       Opacity="{Binding Opacity}"
+                                       SnapsToDevicePixels="True"
+                                       Source="{Binding ThumbnailUri}"
+                                       Stretch="Uniform"/>
+
+                                <Border x:Name="selectedBorder"
+                                        Grid.Row="2"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        Background="#1157FA"
+                                        BorderThickness="0"
+                                        CornerRadius="14"
+                                        Visibility="Collapsed"/>
+
+                                <TextBlock x:Name="title"
+                                           Grid.Row="2"
+                                           Margin="0,5"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Bottom"
+                                           FontFamily="Fantasy"
+                                           FontSize="13"
+                                           FontWeight="DemiBold"
+                                           Foreground="#535353"
+                                           Text="{Binding Title}"
+                                           TextAlignment="Center"
+                                           TextWrapping="Wrap"/>
+                                <Border x:Name="selectionIndicator"
+                                        Width="70"
+                                        Height="70"
+                                        BorderBrush="#1157FA"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="10"
+                                        IsHitTestVisible="False"
+                                        Opacity="0"/>
+
+                                <TextBlock Grid.Row="3"
+                                           Margin="0,5,0,0"
+                                           HorizontalAlignment="Center"
+                                           FontSize="11"
+                                           Foreground="#858585"
+                                           Text="{Binding Framework}"/>
+                            </Grid>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <DataTrigger Binding="{Binding IsAlwaysSelected}" Value="True">
+                                <Setter Property="IsSelected" Value="True"/>
+                                <Setter Property="IsEnabled" Value="False"/>
+                                <Setter Property="Cursor" Value="Arrow"/>
+                                <Setter TargetName="selectedBorder" Property="Background" Value="#535353"/>
+                                <Setter TargetName="selectionIndicator" Property="BorderBrush" Value="#535353"/>
+                            </DataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ListBox.ItemContainerStyle>
+
+    <models:TargetPlatform Title="Web"
+                           Framework="WebAssembly"
+                           IsAlwaysSelected="True"
+                           Opacity="1"
+                           ThumbnailUri="/OpenSilver.TemplateWizards;component/Assets/Images/platform_web.png"/>
+    <models:TargetPlatform Title="iOS"
+                           Framework="MAUI Hybrid"
+                           ThumbnailUri="/OpenSilver.TemplateWizards;component/Assets/Images/platform_apple.png"/>
+    <models:TargetPlatform Title="Android"
+                           Framework="MAUI Hybrid"
+                           ThumbnailUri="/OpenSilver.TemplateWizards;component/Assets/Images/platform_android.png"/>
+    <models:TargetPlatform Title="Windows"
+                           Framework="MAUI Hybrid"
+                           ThumbnailUri="/OpenSilver.TemplateWizards;component/Assets/Images/platform_windows.png"/>
+    <models:TargetPlatform Title="macOS"
+                           Framework="MAUI Hybrid"
+                           ThumbnailUri="/OpenSilver.TemplateWizards;component/Assets/Images/platform_apple.png"/>
+    <!--<models:TargetPlatform Title="Linux"
+                           Framework="Photino"
+                           ThumbnailUri="/OpenSilver.TemplateWizards;component/Assets/Images/platform_linux.png"/>-->
+</ListBox>

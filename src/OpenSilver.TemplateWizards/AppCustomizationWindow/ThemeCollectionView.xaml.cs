@@ -12,7 +12,6 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
         public ThemeCollectionView()
         {
             InitializeComponent();
-            themeList.ItemsSource = ThemeOptions.GetThemes();
             themeList.SelectionChanged += ThemeList_SelectionChanged;
         }
 
