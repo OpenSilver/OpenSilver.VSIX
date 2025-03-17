@@ -64,6 +64,9 @@
 
         <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
         <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+
+        <!-- Static web assets for BlazorWebView -->
+        <MauiAsset Include="wwwroot\**\*" />
     </ItemGroup>
 
     <ItemGroup>
