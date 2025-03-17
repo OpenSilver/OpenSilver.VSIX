@@ -4,122 +4,110 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OpenSilver.TemplateWizards.AppCustomizationWindow"
+        xmlns:models="clr-namespace:OpenSilver.TemplateWizards.AppCustomizationWindow.Models"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
+        Background="#F1F1F1"
         SizeToContent="WidthAndHeight"
         ResizeMode="NoResize"
-        Title="OpenSilver Configuration" Icon="Icon.ico">
-    <Grid>
+        Title="OpenSilver Configuration"
+        Icon="Icon.ico">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/OpenSilver.TemplateWizards;component/AppCustomizationWindow/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Margin="50,30,20,20">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="50"/>
-        </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="1" Grid.Column="1" x:Name="chooseThemesCollection">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-
-            <TextBlock Text="Choose a theme:" FontSize="20" FontFamily="Inria Sans" FontWeight="DemiBold" Margin="-20,0,0,20" />
-            <local:ThemeCollectionView x:Name="themeList" SelectionChanged="ThemeCollectionView_SelectionChanged" Grid.Row="1" />
-        </Grid>
-
-        <Grid Grid.Row="2" Grid.Column="1" x:Name="DotNetVersionPanel">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+        <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Choose a version of .NET:" Grid.ColumnSpan="2" FontSize="20" FontFamily="Inria Sans" FontWeight="DemiBold" Margin="-20,20,0,32" />
-            <StackPanel Grid.Row="1" HorizontalAlignment="Stretch">
-                <ComboBox x:Name="DotNetVersionComboBox">
-                    <ComboBoxItem>.NET 7 (Out of support)</ComboBoxItem>
-                    <ComboBoxItem>.NET 8 (Long Term Support)</ComboBoxItem>
-                    <ComboBoxItem IsSelected="True">.NET 9 (Standard Term Support)</ComboBoxItem>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="chooseThemeLabel" Text="Choose Theme:" FontSize="18" FontFamily="Inria Sans" FontWeight="DemiBold" VerticalAlignment="Center"/>
+            <local:ThemeCollectionView x:Name="themeList" SelectionChanged="ThemeCollectionView_SelectionChanged" Grid.Column="1" Margin="0,0,0,60"/>
+
+            <TextBlock Grid.Row="1" Text="Choose Version of .NET:" FontSize="18" FontFamily="Inria Sans" FontWeight="DemiBold" VerticalAlignment="Center" Margin="0,0,0,60"/>
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="0,0,0,60">
+                <ComboBox x:Name="DotNetVersionComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Margin="20,0"
+                          FontSize="22" Foreground="#1157FA" FontWeight="SemiBold" SelectedIndex="2" SelectedValuePath="Version" Cursor="Hand">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate DataType="models:DotNetOption">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Title}"/>
+                                <TextBlock Text="{Binding SupportDescription}" FontSize="11" Foreground="Gray"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                    <models:DotNetOption Title=".NET 7" SupportDescription="Out of support" Version="Net7"/>
+                    <models:DotNetOption Title=".NET 8" SupportDescription="Long Term Support" Version="Net8" Notes="* .NET 8 requires Visual Studio 2022 v17.8 or newer"/>
+                    <models:DotNetOption Title=".NET 9" SupportDescription="Standard Term Support" Version="Net9" Notes="* .NET 9 requires Visual Studio 2022 v17.12 or newer"/>
                 </ComboBox>
+                <TextBlock Grid.Row="1" Text="{Binding SelectedItem.Notes, ElementName=DotNetVersionComboBox}" 
+                           TextWrapping="Wrap" Foreground="Gray" VerticalAlignment="Center"/>
             </StackPanel>
 
-            <Border Background="#EEEEEE" Grid.Row="1" Grid.Column="1" Margin="10,-4,0,0" Padding="10" CornerRadius="10">
-                <StackPanel >
-                    <TextBlock Text="Notes:" TextWrapping="Wrap" Foreground="Gray"/>
-                    <TextBlock Text="* .NET 8 requires Visual Studio 2022 v17.8 or newer" TextWrapping="Wrap" Foreground="Gray"/>
-                    <TextBlock Text="* .NET 9 requires Visual Studio 2022 v17.12 or newer" TextWrapping="Wrap" Foreground="Gray"/>
-                </StackPanel>
-            </Border>
+            <TextBlock Grid.Row="2" Text="Choose Target Platforms:" FontSize="18" FontFamily="Inria Sans" FontWeight="DemiBold" Margin="0,25,20,0"/>
+            <local:PlatformsView x:Name="platformList" Grid.Row="2" Grid.Column="1" d:SelectedIndex="1"/>
         </Grid>
 
-        <Grid Grid.Row="3" Grid.Column="1" x:Name="MauiHybridLauncherPanel">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <TextBlock Text="MAUI Hybrid:" Grid.ColumnSpan="2" FontSize="20" FontFamily="Inria Sans" FontWeight="DemiBold" Margin="-20,20,0,10" />
-            <StackPanel Grid.Row="1" HorizontalAlignment="Stretch">
-                <TextBlock Text="By default, the OpenSilver application runs in the browser." TextWrapping="Wrap" />
-                <TextBlock Text="However, you can also choose to run it on additional platforms:" TextWrapping="Wrap" Margin="0,0,0,10" />
-                <TextBlock Text="Select platforms:" FontWeight="DemiBold" Margin="0,0,0,10"/>
-                <CheckBox Content="Browser (Required)" IsChecked="True" IsEnabled="False" />
-                <StackPanel Orientation="Horizontal">
-                    <CheckBox x:Name="MacCheckbox" Content="Mac" Margin="0,0,10,0"/>
-                    <CheckBox x:Name="WindowsCheckbox" Content="Windows" Margin="0,0,10,0"/>
-                    <CheckBox x:Name="IosCheckbox" Content="iOS" Margin="0,0,10,0"/>
-                    <CheckBox x:Name="AndroidCheckbox" Content="Android" Margin="0,0,10,0"/>
-                </StackPanel>
-            </StackPanel>
-        </Grid>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,60,0,0" HorizontalAlignment="Right">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="FontSize" Value="18"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                    <Setter Property="Padding" Value="20,10"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="5" Padding="{TemplateBinding Padding}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.8"/>
+                                    </Trigger>
 
-        <Grid Grid.Row="4" Grid.Column="1" Margin="20,20,20,0" HorizontalAlignment="Right">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition Width="24" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.4"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </StackPanel.Resources>
 
-            <Button Grid.Column="0"
-                Background="#FFFFFF"
-                Foreground="#5A5A5A"
-                FontWeight="SemiBold"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                IsCancel="True">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="3"/>
-                    </Style>
-                </Button.Resources>
-                <TextBlock Margin="5" Text="Back"/>
-            </Button>
+            <Button Content="Back"
+                    Margin="0,0,17,0"
+                    Background="Transparent"
+                    Foreground="#5A5A5A"
+                    IsCancel="True"/>
 
-            <Button Grid.Column="2"
-                x:Name="continueBtn"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Click="ButtonContinue_Click"
-                Background="#1157FA"
-                Foreground="#FFFFFF"
-                FontWeight="SemiBold"
-                IsEnabled="False">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="3"/>
-                    </Style>
-                </Button.Resources>
-
-                <TextBlock Margin="5" Text="Continue"/>
-            </Button>
-        </Grid>
+            <Button Content="Continue"
+                    x:Name="continueBtn"
+                    Click="ButtonContinue_Click"
+                    Background="#1157FA"
+                    Foreground="#FFFFFF"
+                    IsEnabled="False"
+                    d:IsEnabled="True"/>
+        </StackPanel>
     </Grid>
 </Window>

@@ -2,6 +2,7 @@
 using OpenSilver.TemplateWizards.AppCustomizationWindow.Models;
 using OpenSilver.TemplateWizards.Shared;
 using System;
+using System.Linq;
 using System.Windows;
 
 namespace OpenSilver.TemplateWizards.AppCustomizationWindow
@@ -13,23 +14,7 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
     {
         public ThemeOptions SelectedTheme { get; private set; }
 
-        public DotNetVersion DotNetVersion
-        {
-            get
-            {
-                switch (DotNetVersionComboBox.SelectedIndex)
-                {
-                    case 0:
-                        return DotNetVersion.Net7;
-                    case 1:
-                        return DotNetVersion.Net8;
-                    case 2:
-                        return DotNetVersion.Net9;
-                    default:
-                        throw new InvalidOperationException("Error retrieving selected .NET version");
-                }
-            }
-        }
+        public DotNetVersion DotNetVersion => (DotNetVersion)DotNetVersionComboBox.SelectedValue;
 
         public MauiHybridPlatform MauiHybridPlatform
         {
@@ -37,21 +22,25 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
             {
                 MauiHybridPlatform platforms = MauiHybridPlatform.None;
 
-                if (IosCheckbox.IsChecked == true)
+                foreach (var platform in platformList.SelectedItems.OfType<TargetPlatform>())
                 {
-                    platforms |= MauiHybridPlatform.iOS;
-                }
-                if (AndroidCheckbox.IsChecked == true)
-                {
-                    platforms |= MauiHybridPlatform.Android;
-                }
-                if (WindowsCheckbox.IsChecked == true)
-                {
-                    platforms |= MauiHybridPlatform.Windows;
-                }
-                if (MacCheckbox.IsChecked == true)
-                {
-                    platforms |= MauiHybridPlatform.Mac;
+                    switch (platform.Title.ToLower())
+                    {
+                        case "ios":
+                            platforms |= MauiHybridPlatform.iOS;
+                            break;
+                        case "android":
+                            platforms |= MauiHybridPlatform.Android;
+                            break;
+                        case "windows":
+                            platforms |= MauiHybridPlatform.Windows;
+                            break;
+                        case "macos":
+                            platforms |= MauiHybridPlatform.Mac;
+                            break;
+                        default:
+                            break;
+                    }
                 }
 
                 return platforms;
@@ -65,7 +54,8 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
             if (isBusiness)
             {
                 //Modern theme is deactivated for now, for Business Application projects
-                chooseThemesCollection.Visibility = Visibility.Collapsed;
+                chooseThemeLabel.Visibility = Visibility.Collapsed;
+                themeList.Visibility = Visibility.Collapsed;
                 themeList.Select(ThemeOptions.Classic);
             }
             else
