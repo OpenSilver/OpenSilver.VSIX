@@ -84,7 +84,7 @@
                                         </VisualStateManager.VisualStateGroups>
 
                                         <Border x:Name="mouseOverIndicator" Opacity="0" Background="White" IsHitTestVisible="False" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10" BorderBrush="Transparent"/>
-                                        <Grid>
+                                        <Grid Background="Transparent">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition />
                                                 <RowDefinition Height="15"/>
