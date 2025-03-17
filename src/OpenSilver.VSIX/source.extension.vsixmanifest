@@ -3,12 +3,12 @@
     <Metadata>
         <Identity Id="OpenSilverSDK.f8d7e167-8c6f-45d1-823a-5724c26edac8" Version="3.2.0" Language="en-US" Publisher="Userware" />
         <DisplayName>OpenSilver SDK</DisplayName>
-        <Description xml:space="preserve">Project templates and XAML Designer for creating OpenSilver applications. OpenSilver is an open-source reimplementation of Silverlight that runs on current browsers via WebAssembly.</Description>
+        <Description xml:space="preserve">Project templates and XAML Designer for creating OpenSilver applications. OpenSilver is a modern cross-platform reimplementation of WPF and Silverlight that enables .NET developers to build apps for web (WebAssembly), mobile and desktop (MAUI Hybrid) using C# and XAML.</Description>
         <Icon>Logo_32x32.png</Icon>
         <PreviewImage>Logo_200x200.png</PreviewImage>
     </Metadata>
     <Installation>
-        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[16.8,17.0)">
+        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,18.0)">
             <ProductArchitecture>x86</ProductArchitecture>
         </InstallationTarget>
         <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,18.0)">
@@ -17,7 +17,7 @@
         <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,18.0)">
             <ProductArchitecture>arm64</ProductArchitecture>
         </InstallationTarget>
-        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.8,17.0)">
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">
             <ProductArchitecture>x86</ProductArchitecture>
         </InstallationTarget>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">
@@ -26,7 +26,7 @@
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">
             <ProductArchitecture>arm64</ProductArchitecture>
         </InstallationTarget>
-        <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[16.8,17.0)">
+        <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.0,18.0)">
             <ProductArchitecture>x86</ProductArchitecture>
         </InstallationTarget>
         <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.0,18.0)">
@@ -35,7 +35,7 @@
         <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.0,18.0)">
             <ProductArchitecture>arm64</ProductArchitecture>
         </InstallationTarget>
-        <InstallationTarget Id="Microsoft.VisualStudio.IntegratedShell" Version="[16.8,17.0)">
+        <InstallationTarget Id="Microsoft.VisualStudio.IntegratedShell" Version="[17.0,18.0)">
             <ProductArchitecture>x86</ProductArchitecture>
         </InstallationTarget>
         <InstallationTarget Id="Microsoft.VisualStudio.IntegratedShell" Version="[17.0,18.0)">
