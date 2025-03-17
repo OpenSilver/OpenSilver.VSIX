@@ -85,7 +85,7 @@
                                     CornerRadius="10"
                                     IsHitTestVisible="False"
                                     Opacity="0"/>
-                            <Grid>
+                            <Grid Background="Transparent">
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
                                     <RowDefinition Height="15"/>
