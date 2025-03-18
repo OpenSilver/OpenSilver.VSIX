@@ -3,6 +3,7 @@ using Microsoft.Win32;
 using OpenSilver.TemplateWizards.AppCustomizationWindow.Models;
 using OpenSilver.TemplateWizards.Shared;
 using OpenSilver.TemplateWizards.Utils;
+using System;
 using System.Linq;
 using System.Windows;
 
@@ -14,6 +15,32 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
     public partial class AppConfigurationWindow : Window
     {
         private EnvDTE.DTE _dte;
+
+        private bool? _isMauiInstalled;
+
+        public bool IsMauiInstalled
+        {
+            get
+            {
+                if (_isMauiInstalled == null)
+                {
+                    if (_dte != null)
+                    {
+                        ThreadHelper.ThrowIfNotOnUIThread();
+                        var serviceProvider = new ServiceProvider((Microsoft.VisualStudio.OLE.Interop.IServiceProvider)_dte);
+
+                        var checker = new MauiInstallationChecker(serviceProvider);
+                        _isMauiInstalled = checker.IsMauiInstalled();
+                    }
+                    else
+                    {
+                        // for local debug
+                        _isMauiInstalled = false;
+                    }
+                }
+                return _isMauiInstalled.Value;
+            }
+        }
 
         public ThemeOptions SelectedTheme { get; private set; }
 
@@ -108,16 +135,6 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
 
         private void ButtonContinue_Click(object sender, RoutedEventArgs e)
         {
-            if (_dte != null)
-            {
-                ThreadHelper.ThrowIfNotOnUIThread();
-            }
-
-            if (!ValidateMaui())
-            {
-                return;
-            }
-
             DialogResult = true;
             Close();
         }
@@ -126,6 +143,22 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
         {
             SelectedTheme = theme;
             continueBtn.IsEnabled = SelectedTheme != null;
+        }
+
+        private void PlatformList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (MauiHybridPlatform != MauiHybridPlatform.None && e.AddedItems.Count != 0 && !IsMauiInstalled)
+            {
+                if (new InstallMauiWindow().ShowDialog() != true)
+                {
+                    foreach (var item in e.AddedItems)
+                    {
+                        platformList.SelectedItems.Remove(item);
+                    }
+                }
+            }
+
+            mauiTip.Visibility = MauiHybridPlatform == MauiHybridPlatform.None ? Visibility.Hidden : Visibility.Visible;
         }
 
         // https://github.com/dotnet/wpf/blob/090a5230cf6186fe576dbc1729c943b36cb5db71/src/Microsoft.DotNet.Wpf/src/PresentationFramework/System/Windows/ThemeManager.cs

@@ -62,7 +62,7 @@
             </StackPanel>
 
             <TextBlock Grid.Row="2" Text="Choose Target Platforms:" FontSize="18" FontFamily="Inria Sans" FontWeight="DemiBold" Margin="0,25,20,0"/>
-            <local:PlatformsView x:Name="platformList" Grid.Row="2" Grid.Column="1" d:SelectedIndex="1"/>
+            <local:PlatformsView x:Name="platformList" Grid.Row="2" Grid.Column="1" d:SelectedIndex="1" SelectionChanged="PlatformList_SelectionChanged"/>
         </Grid>
 
         <Grid Grid.Row="1" Margin="0,60,0,0">
@@ -70,7 +70,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock HorizontalAlignment="Left" Margin="-20,0,0,0" Foreground="#5A5A5A"
+            <TextBlock x:Name="mauiTip" Visibility="Hidden" HorizontalAlignment="Left" Margin="-20,0,0,0" Foreground="#5A5A5A"
                 Text="Tip: MAUI Hybrid projects may fail to compile if the file path is too long. To avoid this, use a short solution/project name and place your solution folder near the drive root (e.g., C:\MyApp\)."
                 TextWrapping="Wrap" MaxWidth="520" />
             <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">

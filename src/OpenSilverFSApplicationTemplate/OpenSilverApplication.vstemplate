@@ -1,7 +1,7 @@
 <VSTemplate Version="3.0.0" Type="ProjectGroup" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
   <TemplateData>
     <Name>OpenSilver Application (F#)</Name>
-    <Description>A project for creating an OpenSilver app. OpenSilver is a modern cross-platform reimplementation of WPF and Silverlight that enables .NET developers to build apps for web (WebAssembly), mobile and desktop (MAUI Hybrid) using C# and XAML.</Description>
+    <Description>A project for creating an OpenSilver app. OpenSilver is a modern cross-platform reimplementation of WPF and Silverlight that enables .NET developers to build apps for web (WebAssembly), mobile and desktop (MAUI Hybrid) using F# and XAML.</Description>
     <Icon>Icon.ico</Icon>
     <ProjectType>fsharp</ProjectType>
     <LanguageTag>fsharp</LanguageTag>
