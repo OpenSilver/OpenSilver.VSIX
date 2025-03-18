@@ -10,7 +10,7 @@ using System.Diagnostics;
 namespace OpenSilver.VSIX
 {
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-    [InstalledProductRegistration("OpenSilver SDK", "OpenSilver SDK for Visual Studio", "3.0")]
+    [InstalledProductRegistration("OpenSilver SDK", "OpenSilver SDK for Visual Studio", "3.2")]
     [ProvideAutoLoad(UIContextGuids80.NoSolution, PackageAutoLoadFlags.BackgroundLoad)]
     public sealed class OpenSilverPackage : AsyncPackage
     {

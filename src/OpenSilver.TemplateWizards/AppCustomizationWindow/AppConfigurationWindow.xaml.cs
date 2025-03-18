@@ -1,7 +1,8 @@
-﻿using Microsoft.Win32;
+﻿using Microsoft.VisualStudio.Shell;
+using Microsoft.Win32;
 using OpenSilver.TemplateWizards.AppCustomizationWindow.Models;
 using OpenSilver.TemplateWizards.Shared;
-using System;
+using OpenSilver.TemplateWizards.Utils;
 using System.Linq;
 using System.Windows;
 
@@ -12,6 +13,8 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
     /// </summary>
     public partial class AppConfigurationWindow : Window
     {
+        private EnvDTE.DTE _dte;
+
         public ThemeOptions SelectedTheme { get; private set; }
 
         public DotNetVersion DotNetVersion => (DotNetVersion)DotNetVersionComboBox.SelectedValue;
@@ -47,9 +50,11 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
             }
         }
 
-        public AppConfigurationWindow(bool isBusiness = false)
+        public AppConfigurationWindow(EnvDTE.DTE dte = null, bool isBusiness = false)
         {
             InitializeComponent();
+
+            _dte = dte;
 
             if (isBusiness)
             {
@@ -65,8 +70,54 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
             }
         }
 
+        private bool ValidateMaui()
+        {
+            if (MauiHybridPlatform == MauiHybridPlatform.None)
+            {
+                return true;
+            }
+
+            if (_dte != null)
+            {
+                ThreadHelper.ThrowIfNotOnUIThread();
+            }
+
+            try
+            {
+                if (_dte != null)
+                {
+                    var serviceProvider = new ServiceProvider((Microsoft.VisualStudio.OLE.Interop.IServiceProvider)_dte);
+
+                    var checker = new MauiInstallationChecker(serviceProvider);
+                    bool mauiInstalled = checker.IsMauiInstalled();
+
+                    if (mauiInstalled)
+                    {
+                        return true;
+                    }
+                }
+
+                return new InstallMauiWindow().ShowDialog() == true;
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show($"Exception: {ex.Message}");
+                return true;
+            }
+        }
+
         private void ButtonContinue_Click(object sender, RoutedEventArgs e)
         {
+            if (_dte != null)
+            {
+                ThreadHelper.ThrowIfNotOnUIThread();
+            }
+
+            if (!ValidateMaui())
+            {
+                return;
+            }
+
             DialogResult = true;
             Close();
         }

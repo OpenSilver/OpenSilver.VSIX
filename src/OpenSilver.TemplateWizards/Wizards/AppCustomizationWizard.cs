@@ -248,7 +248,7 @@ namespace OpenSilver.TemplateWizards.Wizards
                 isBusiness = openSilverInfo.Element(defaultNamespace + "IsBusiness")?.Value.Equals("true", StringComparison.OrdinalIgnoreCase) ?? false;
             }
 
-            AppConfigurationWindow window = new AppConfigurationWindow(isBusiness);
+            AppConfigurationWindow window = new AppConfigurationWindow(_dte, isBusiness);
 
             bool? result = window.ShowDialog();
             if (!result.HasValue || !result.Value)

@@ -1,0 +1,117 @@
+﻿<Window x:Class="OpenSilver.TemplateWizards.AppCustomizationWindow.InstallMauiWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           WindowStartupLocation="CenterScreen"
+           SizeToContent="WidthAndHeight"
+           ResizeMode="NoResize"
+           Title="{Binding WindowTitle}"
+           Background="#F1F1F1"
+           Icon="Icon.ico"
+           xmlns:models="clr-namespace:OpenSilver.TemplateWizards.AppCustomizationWindow.Models">
+    <Window.DataContext>
+        <models:InstallMauiViewModel />
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Grid.Row="1" Text="{Binding HeaderText}"
+                   FontSize="18" FontWeight="SemiBold" HorizontalAlignment="Center"
+                   Margin="20,30,20,15"/>
+
+        <!-- Main Content -->
+        <Grid Grid.Row="2" Margin="20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Instruction Text -->
+            <TextBlock Grid.Row="0" Text="{Binding InstructionText}" MaxWidth="530" Foreground="#616161" FontSize="14" FontWeight="SemiBold" TextWrapping="Wrap" TextAlignment="Center" Margin="0,0,0,15"/>
+
+            <!-- Screenshot Image -->
+            <Border Grid.Row="1" BorderBrush="#CCCCCC" BorderThickness="1">
+                <Image Source="{Binding InstallerScreenshotPath}"
+                       Width="550"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Margin="5"/>
+            </Border>
+        </Grid>
+
+        <!-- Footer -->
+        <Grid Grid.Row="3" Margin="0,40,20,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="FontSize" Value="18"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                    <Setter Property="Padding" Value="20,10"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="5" Padding="{TemplateBinding Padding}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.8"/>
+                                    </Trigger>
+
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.4"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Grid.Resources>
+
+            <Button Grid.Column="0" Content="{Binding UseTargetPlatformAnywayText}"
+                    Background="Transparent"
+                    Foreground="#5A5A5A"
+                    HorizontalAlignment="Left"
+                    IsDefault="True"
+                    Click="OKButton_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="5" Padding="{TemplateBinding Padding}">
+                            <TextBlock Text="{TemplateBinding Content}"
+                                TextDecorations="Underline"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.8"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.4"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Grid.Column="1" Content="{Binding CloseButtonText}"
+                    Background="#1157FA"
+                    Foreground="#FFFFFF"
+                    IsCancel="True" />
+        </Grid>
+    </Grid>
+</Window>

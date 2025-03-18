@@ -3,7 +3,7 @@
     <Name>OpenSilver Business Application (RIA Services)</Name>
     <Description>OpenSilver line-of-business application using Open RIA Services (client/server)</Description>
     <Icon>__TemplateIcon.ico</Icon>
-    <DefaultName>OpenSilverBusinessApplication</DefaultName>
+    <DefaultName>BusinessApp</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
     <CreateInPlace>true</CreateInPlace>
     <ProjectType>csharp</ProjectType>
