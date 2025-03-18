@@ -4,10 +4,10 @@
   "classifications": [ "Web", "Desktop", "OpenSilver", "Xaml", "C#", "OpenRia" ],
   "identity": "OpensilverBusinessApplicationCS",
   "groupIdentity": "OpenSilverBusinessApplication",
-  "name": "OpenSilver Business (Ria Services) Web Application",
+  "name": "OpenSilver Business (Ria Services) Application",
   "shortName": "opensilverbusinessapp",
   "sourceName": "OpenSilverBusinessApplication",
-  "description": "Template for creating a C# OpenSilver Business Web Application.",
+  "description": "A template for creating a C# OpenSilver business application. OpenSilver is a modern cross-platform reimplementation of WPF and Silverlight that enables .NET developers to build apps for web (WebAssembly), mobile and desktop (MAUI Hybrid) using C# and XAML.",
   "tags": {
     "language": "C#",
     "type": "solution"

@@ -12,7 +12,7 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>3.2.0</PackageVersion>
+    <PackageVersion>3.2.0.1</PackageVersion>
     <PackageId>OpenSilver.Templates</PackageId>
     <Title>Opensilver CLI templates</Title>
     <Authors>Userware</Authors>

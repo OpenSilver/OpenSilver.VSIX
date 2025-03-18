@@ -7,7 +7,7 @@
   "name": "OpenSilver Class Library",
   "shortName": "opensilverlib",
   "sourceName": "OpenSilverClassLibrary",
-  "description": "Template for creating an F# OpenSilver Class Library.",
+  "description": "A template for creating an F# OpenSilver class library. OpenSilver is a modern cross-platform reimplementation of WPF and Silverlight that enables .NET developers to build apps for web (WebAssembly), mobile and desktop (MAUI Hybrid) using F# and XAML.",
   "tags": {
     "language": "F#",
     "type": "solution"

@@ -4,10 +4,10 @@
   "classifications": [ "Web", "Desktop", "OpenSilver", "Xaml", "VB" ],
   "identity": "OpensilverApplicationVB",
   "groupIdentity": "OpenSilverApplication",
-  "name": "OpenSilver Web Application",
+  "name": "OpenSilver Application",
   "shortName": "opensilverapp",
   "sourceName": "OpenSilverApplication",
-  "description": "Template for creating a VB OpenSilver Web Application.",
+  "description": "A template for creating a VB OpenSilver application. OpenSilver is a modern cross-platform reimplementation of WPF and Silverlight that enables .NET developers to build apps for web (WebAssembly), mobile and desktop (MAUI Hybrid) using VB and XAML.",
   "tags": {
     "language": "VB",
     "type": "solution"
