@@ -215,6 +215,13 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
+    <ProjectReference Include="..\OpenSilverPhotinoTemplate\OpenSilverPhotinoTemplate.csproj">
+      <Project>{61E9303A-70BB-47DF-BB47-38507FA2EF06}</Project>
+      <Name>OpenSilverPhotinoTemplate</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
     <ProjectReference Include="..\OpenSilverVBApplicationTemplate\OpenSilverVBApplicationTemplate.csproj">
       <Project>{229629ac-c4e0-4848-9cfa-31064c9d83a3}</Project>
       <Name>OpenSilverVBApplicationTemplate</Name>

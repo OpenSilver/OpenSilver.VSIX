@@ -83,6 +83,7 @@ namespace OpenSilver.TemplateWizards.Wizards
         private DTE _dte;
 
         private MauiHybridPlatform _mauiHybridPlatform;
+        private bool _isPhotinoSelected;
         private DotNetVersion _dotNetVersion;
 
         private static string GetVsixFullPath(string filename)
@@ -193,20 +194,8 @@ namespace OpenSilver.TemplateWizards.Wizards
             return ModernLoadingAnimation;
         }
 
-        public void ProjectItemFinishedGenerating(ProjectItem projectItem)
+        private void AddMauiHybrid()
         {
-
-        }
-
-        public void RunFinished()
-        {
-            Microsoft.VisualStudio.Shell.ThreadHelper.ThrowIfNotOnUIThread();
-
-            if (_mauiHybridPlatform == MauiHybridPlatform.None)
-            {
-                return;
-            }
-
             try
             {
                 var projectName = _replacementsDictionary["$safeprojectname$"];
@@ -228,6 +217,51 @@ namespace OpenSilver.TemplateWizards.Wizards
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex}");
+            }
+        }
+
+        private void AddPhotino()
+        {
+            try
+            {
+                var projectName = _replacementsDictionary["$safeprojectname$"];
+                var destinationDirectory = _replacementsDictionary["$destinationdirectory$"];
+
+                var templateName = "OpenSilverPhotinoTemplate";
+                var solution = (Solution2)_dte.Solution;
+
+                var photinoProjectName = projectName + ".Photino";
+                var photinoDestinationDirectory = Path.Combine(destinationDirectory, photinoProjectName);
+
+                var sharedDataStore = GlobalWizardDataStore.GetSharedData(photinoDestinationDirectory);
+                sharedDataStore[WizardKeys.NetTarget] = _dotNetVersion;
+
+                var prjTemplate = solution.GetProjectTemplate(templateName, "CSharp");
+                solution.AddFromTemplate(prjTemplate, photinoDestinationDirectory, photinoProjectName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex}");
+            }
+        }
+
+        public void ProjectItemFinishedGenerating(ProjectItem projectItem)
+        {
+
+        }
+
+        public void RunFinished()
+        {
+            Microsoft.VisualStudio.Shell.ThreadHelper.ThrowIfNotOnUIThread();
+
+            if (_mauiHybridPlatform != MauiHybridPlatform.None)
+            {
+                AddMauiHybrid();
+            }
+
+            if (_isPhotinoSelected)
+            {
+                AddPhotino();
             }
         }
 
@@ -275,6 +309,7 @@ namespace OpenSilver.TemplateWizards.Wizards
             CopyNugetConfig(replacementsDictionary);
 
             _mauiHybridPlatform = window.MauiHybridPlatform;
+            _isPhotinoSelected = window.IsPhotinoSelected;
             _dotNetVersion = window.DotNetVersion;
 
             replacementsDictionary.Add("$opensilverpackageversion$", GlobalConstants.OpenSilverPackageVersion);
