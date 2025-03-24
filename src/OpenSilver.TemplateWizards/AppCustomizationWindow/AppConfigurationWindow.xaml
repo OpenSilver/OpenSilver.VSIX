@@ -44,7 +44,7 @@
             <TextBlock Grid.Row="1" Text="Choose Version of .NET:" FontSize="18" FontFamily="Inria Sans" FontWeight="DemiBold" VerticalAlignment="Center" Margin="0,0,0,60"/>
             <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="0,0,0,60">
                 <ComboBox x:Name="DotNetVersionComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Margin="20,0"
-                          FontSize="22" Foreground="#1157FA" FontWeight="SemiBold" SelectedIndex="2" SelectedValuePath="Version" Cursor="Hand">
+                          FontSize="22" Foreground="#1157FA" FontWeight="SemiBold" SelectedIndex="2" SelectedValuePath="Version" Cursor="Hand" SelectionChanged="DotNetVersionComboBox_SelectionChanged">
                     <ComboBox.ItemTemplate>
                         <DataTemplate DataType="models:DotNetOption">
                             <StackPanel Orientation="Vertical">
@@ -63,6 +63,12 @@
 
             <TextBlock Grid.Row="2" Text="Choose Target Platforms:" FontSize="18" FontFamily="Inria Sans" FontWeight="DemiBold" Margin="0,25,20,0"/>
             <local:PlatformsView x:Name="platformList" Grid.Row="2" Grid.Column="1" d:SelectedIndex="1" SelectionChanged="PlatformList_SelectionChanged"/>
+            <!-- Overlay Rectangle for grayed-out effect -->
+            <Rectangle x:Name="PlatformListDisabledOverlay"
+                       Grid.Row="2" Grid.Column="1"
+                       Fill="#80FFFFFF"
+                       Visibility="Collapsed"
+                       IsHitTestVisible="True"/>
         </Grid>
 
         <Grid Grid.Row="1" Margin="0,60,0,0">

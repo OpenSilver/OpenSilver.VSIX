@@ -127,6 +127,27 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
             mauiTip.Visibility = MauiHybridPlatform == MauiHybridPlatform.None ? Visibility.Hidden : Visibility.Visible;
         }
 
+        private void DotNetVersionComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            var isDotNet7 = DotNetVersion == DotNetVersion.Net7;
+            if (isDotNet7 && platformList != null)
+            {
+                var itemsToDeselect = platformList.SelectedItems
+                    .Cast<TargetPlatform>()
+                    .Where(item => !Equals(item.Tag, "web")).ToList();
+
+                foreach (var item in itemsToDeselect)
+                {
+                    platformList.SelectedItems.Remove(item);
+                }
+            }
+
+            if (PlatformListDisabledOverlay != null)
+            {
+                PlatformListDisabledOverlay.Visibility = isDotNet7 ? Visibility.Visible : Visibility.Collapsed;
+            }
+        }
+
         // https://github.com/dotnet/wpf/blob/090a5230cf6186fe576dbc1729c943b36cb5db71/src/Microsoft.DotNet.Wpf/src/PresentationFramework/System/Windows/ThemeManager.cs
         private static bool IsSystemThemeLight()
         {
