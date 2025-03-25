@@ -7,5 +7,6 @@
         public string ThumbnailUri { get; set; }
         public double Opacity { get; set; } = 0.6;
         public bool IsAlwaysSelected { get; set; }
+        public object Tag { get; set; }
     }
 }

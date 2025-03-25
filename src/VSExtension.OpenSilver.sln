@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverMauiHybridTemplat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWizard", "TestWizard\TestWizard.csproj", "{DAC7670D-DD11-43CE-A120-231D896EB506}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverPhotinoTemplate", "OpenSilverPhotinoTemplate\OpenSilverPhotinoTemplate.csproj", "{61E9303A-70BB-47DF-BB47-38507FA2EF06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -195,6 +197,18 @@ Global
 		{DAC7670D-DD11-43CE-A120-231D896EB506}.Release|arm64.Build.0 = Release|Any CPU
 		{DAC7670D-DD11-43CE-A120-231D896EB506}.Release|x86.ActiveCfg = Release|Any CPU
 		{DAC7670D-DD11-43CE-A120-231D896EB506}.Release|x86.Build.0 = Release|Any CPU
+		{61E9303A-70BB-47DF-BB47-38507FA2EF06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61E9303A-70BB-47DF-BB47-38507FA2EF06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61E9303A-70BB-47DF-BB47-38507FA2EF06}.Debug|arm64.ActiveCfg = Debug|arm64
+		{61E9303A-70BB-47DF-BB47-38507FA2EF06}.Debug|arm64.Build.0 = Debug|arm64
+		{61E9303A-70BB-47DF-BB47-38507FA2EF06}.Debug|x86.ActiveCfg = Debug|x86
+		{61E9303A-70BB-47DF-BB47-38507FA2EF06}.Debug|x86.Build.0 = Debug|x86
+		{61E9303A-70BB-47DF-BB47-38507FA2EF06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61E9303A-70BB-47DF-BB47-38507FA2EF06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61E9303A-70BB-47DF-BB47-38507FA2EF06}.Release|arm64.ActiveCfg = Release|arm64
+		{61E9303A-70BB-47DF-BB47-38507FA2EF06}.Release|arm64.Build.0 = Release|arm64
+		{61E9303A-70BB-47DF-BB47-38507FA2EF06}.Release|x86.ActiveCfg = Release|x86
+		{61E9303A-70BB-47DF-BB47-38507FA2EF06}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

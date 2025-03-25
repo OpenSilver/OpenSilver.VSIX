@@ -3,7 +3,7 @@ using Microsoft.Win32;
 using OpenSilver.TemplateWizards.AppCustomizationWindow.Models;
 using OpenSilver.TemplateWizards.Shared;
 using OpenSilver.TemplateWizards.Utils;
-using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 
@@ -50,30 +50,15 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
         {
             get
             {
-                MauiHybridPlatform platforms = MauiHybridPlatform.None;
+                return GetMauiHybridPlatforms(platformList.SelectedItems.OfType<TargetPlatform>());
+            }
+        }
 
-                foreach (var platform in platformList.SelectedItems.OfType<TargetPlatform>())
-                {
-                    switch (platform.Title.ToLower())
-                    {
-                        case "ios":
-                            platforms |= MauiHybridPlatform.iOS;
-                            break;
-                        case "android":
-                            platforms |= MauiHybridPlatform.Android;
-                            break;
-                        case "windows":
-                            platforms |= MauiHybridPlatform.Windows;
-                            break;
-                        case "macos":
-                            platforms |= MauiHybridPlatform.Mac;
-                            break;
-                        default:
-                            break;
-                    }
-                }
-
-                return platforms;
+        public bool IsPhotinoSelected
+        {
+            get
+            {
+                return platformList.SelectedItems.OfType<TargetPlatform>().Any(p => p.Tag?.ToString() == "linux");
             }
         }
 
@@ -97,40 +82,21 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
             }
         }
 
-        private bool ValidateMaui()
+        private MauiHybridPlatform GetMauiHybridPlatforms(IEnumerable<TargetPlatform> targetPlatforms)
         {
-            if (MauiHybridPlatform == MauiHybridPlatform.None)
-            {
-                return true;
-            }
+            MauiHybridPlatform platforms = MauiHybridPlatform.None;
 
-            if (_dte != null)
+            foreach (var tp in targetPlatforms)
             {
-                ThreadHelper.ThrowIfNotOnUIThread();
-            }
+                object tagValue = tp.Tag;
 
-            try
-            {
-                if (_dte != null)
+                if (tagValue is MauiHybridPlatform platform)
                 {
-                    var serviceProvider = new ServiceProvider((Microsoft.VisualStudio.OLE.Interop.IServiceProvider)_dte);
-
-                    var checker = new MauiInstallationChecker(serviceProvider);
-                    bool mauiInstalled = checker.IsMauiInstalled();
-
-                    if (mauiInstalled)
-                    {
-                        return true;
-                    }
+                    platforms |= platform;
                 }
+            }
 
-                return new InstallMauiWindow().ShowDialog() == true;
-            }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show($"Exception: {ex.Message}");
-                return true;
-            }
+            return platforms;
         }
 
         private void ButtonContinue_Click(object sender, RoutedEventArgs e)
@@ -147,7 +113,7 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
 
         private void PlatformList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            if (MauiHybridPlatform != MauiHybridPlatform.None && e.AddedItems.Count != 0 && !IsMauiInstalled)
+            if (GetMauiHybridPlatforms(e.AddedItems.OfType<TargetPlatform>()) != MauiHybridPlatform.None && !IsMauiInstalled)
             {
                 if (new InstallMauiWindow().ShowDialog() != true)
                 {
@@ -159,6 +125,27 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
             }
 
             mauiTip.Visibility = MauiHybridPlatform == MauiHybridPlatform.None ? Visibility.Hidden : Visibility.Visible;
+        }
+
+        private void DotNetVersionComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            var isDotNet7 = DotNetVersion == DotNetVersion.Net7;
+            if (isDotNet7 && platformList != null)
+            {
+                var itemsToDeselect = platformList.SelectedItems
+                    .Cast<TargetPlatform>()
+                    .Where(item => !Equals(item.Tag, "web")).ToList();
+
+                foreach (var item in itemsToDeselect)
+                {
+                    platformList.SelectedItems.Remove(item);
+                }
+            }
+
+            if (PlatformListDisabledOverlay != null)
+            {
+                PlatformListDisabledOverlay.Visibility = isDotNet7 ? Visibility.Visible : Visibility.Collapsed;
+            }
         }
 
         // https://github.com/dotnet/wpf/blob/090a5230cf6186fe576dbc1729c943b36cb5db71/src/Microsoft.DotNet.Wpf/src/PresentationFramework/System/Windows/ThemeManager.cs

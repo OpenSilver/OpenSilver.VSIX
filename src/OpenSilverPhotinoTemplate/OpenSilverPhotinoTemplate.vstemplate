@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>OpenSilverPhotinoTemplate</Name>
+    <Description>OpenSilverPhotinoTemplate</Description>
+    <Icon>OpenSilverPhotinoTemplate.ico</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <LanguageTag>csharp</LanguageTag>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>6d3a50ec-857d-45e7-aa95-fac7c1823e92</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>OpenSilverPhotinoTemplate</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <CreateInPlace>true</CreateInPlace>
+    <Hidden>true</Hidden>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+        <Folder Name="Properties" TargetFolderName="Properties">
+            <ProjectItem ReplaceParameters="true" TargetFileName="launchSettings.json">launchSettings.json</ProjectItem>
+        </Folder>
+        <Folder Name="wwwroot" TargetFolderName="wwwroot">
+            <ProjectItem ReplaceParameters="true" TargetFileName="index.html">index.html</ProjectItem>
+        </Folder>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="app.ico">app.ico</ProjectItem>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>OpenSilver.TemplateWizards, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Assembly>
+    <FullClassName>OpenSilver.TemplateWizards.Wizards.PhotinoProjectTemplateWizard</FullClassName>
+  </WizardExtension>
+  <WizardData>
+  </WizardData>
+</VSTemplate>

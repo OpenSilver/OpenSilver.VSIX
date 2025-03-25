@@ -63,7 +63,7 @@
       <DependentUpon>ThemeCollectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\MauiInstallationChecker.cs" />
-    <Compile Include="Utils\VisualStudioInstallationChecker.cs" />
+    <Compile Include="Utils\WizardUtilities.cs" />
     <Compile Include="Wizards\AppCustomizationWizard.cs" />
     <Compile Include="Wizards\ClassLibraryProjectTemplateWizard.cs" />
     <Compile Include="Shared\GlobalWizardDataStore.cs" />
@@ -72,6 +72,7 @@
     <Compile Include="Shared\MauiHybridPlatform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\WizardKeys.cs" />
+    <Compile Include="Wizards\PhotinoProjectTemplateWizard.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="AppCustomizationWindow\AppConfigurationWindow.xaml">

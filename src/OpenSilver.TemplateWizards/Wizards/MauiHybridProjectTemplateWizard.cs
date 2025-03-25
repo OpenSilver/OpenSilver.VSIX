@@ -6,49 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using EnvDTE80;
 using OpenSilver.TemplateWizards.Shared;
-using OpenSilver.TemplateWizards.AppCustomizationWindow;
+using OpenSilver.TemplateWizards.Utils;
 
 namespace OpenSilver.TemplateWizards.Wizards
 {
     class MauiHybridProjectTemplateWizard : IWizard
     {
-        private static IEnumerable<Project> GetProjects(Project project)
-        {
-            ThreadHelper.ThrowIfNotOnUIThread();
-
-            // If this is a solution folder, it can contain other projects
-            if (project.Kind == ProjectKinds.vsProjectKindSolutionFolder)
-            {
-                foreach (ProjectItem projectItem in project.ProjectItems)
-                {
-                    var subProject = projectItem.SubProject;
-                    if (subProject != null)
-                    {
-                        foreach (var nested in GetProjects(subProject))
-                        {
-                            yield return nested;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                yield return project;
-            }
-        }
-
-        private static IEnumerable<Project> GetAllProjects(Solution2 solution)
-        {
-            ThreadHelper.ThrowIfNotOnUIThread();
-
-            foreach (Project topLevelProject in solution.Projects)
-            {
-                foreach (Project p in GetProjects(topLevelProject))
-                {
-                    yield return p;
-                }
-            }
-        }
 
         public void BeforeOpeningFile(ProjectItem projectItem)
         {
@@ -74,7 +37,7 @@ namespace OpenSilver.TemplateWizards.Wizards
 
             var _dte = automationObject as DTE;
             var solution = (Solution2)_dte.Solution;
-            var allProjects = GetAllProjects(solution);
+            var allProjects = WizardUtilities.GetAllProjects(solution);
 
             var rootProject = allProjects.FirstOrDefault(p => p.Name == rootProjectName);
             var rootProjectExtension = System.IO.Path.GetExtension(rootProject?.FullName ?? "stub.csproj");
@@ -104,33 +67,14 @@ namespace OpenSilver.TemplateWizards.Wizards
             {
                 //Only windows
                 //return $"{Environment.NewLine}        <TargetFrameworks Condition=\"$([MSBuild]::IsOSPlatform('windows'))\">{GetNetTarget(netTarget)}-windows10.0.19041.0</TargetFrameworks>";
-                return $"{Environment.NewLine}        <TargetFrameworks>{GetNetTarget(netTarget)}-windows10.0.19041.0</TargetFrameworks>";
+                return $"{Environment.NewLine}        <TargetFrameworks>{WizardUtilities.GetNetTarget(netTarget)}-windows10.0.19041.0</TargetFrameworks>";
             }
             else
             {
-                return $"{Environment.NewLine}        <TargetFrameworks Condition=\"$([MSBuild]::IsOSPlatform('windows'))\">$(TargetFrameworks);{GetNetTarget(netTarget)}-windows10.0.19041.0</TargetFrameworks>";
+                return $"{Environment.NewLine}        <TargetFrameworks Condition=\"$([MSBuild]::IsOSPlatform('windows'))\">$(TargetFrameworks);{WizardUtilities.GetNetTarget(netTarget)}-windows10.0.19041.0</TargetFrameworks>";
             }
         }
 
-        private string GetNetTarget(DotNetVersion netTarget)
-        {
-            if (netTarget == DotNetVersion.Net7)
-            {
-                return "net7.0";
-            }
-
-            if (netTarget == DotNetVersion.Net8)
-            {
-                return "net8.0";
-            }
-
-            if (netTarget == DotNetVersion.Net9)
-            {
-                return "net9.0";
-            }
-
-            return "";
-        }
         private string GetMauiPlatformsBasic(DotNetVersion netTarget, MauiHybridPlatform mhp)
         {
             if (mhp == MauiHybridPlatform.None || mhp == MauiHybridPlatform.Windows)
@@ -138,7 +82,7 @@ namespace OpenSilver.TemplateWizards.Wizards
                 return "";
             }
 
-            var netVersion = GetNetTarget(netTarget);
+            var netVersion = WizardUtilities.GetNetTarget(netTarget);
             var targets = new List<string>();
 
             if ((mhp & MauiHybridPlatform.Android) == MauiHybridPlatform.Android)

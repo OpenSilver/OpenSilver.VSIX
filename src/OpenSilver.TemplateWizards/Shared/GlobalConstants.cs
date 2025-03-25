@@ -17,5 +17,7 @@ namespace OpenSilver.TemplateWizards.Shared
         public const string OpenRia46PackageVersion = "3.2.0";
 
         public const string OpenSilverThemeModernPackageVersion = "3.2.*";
+
+        public const string OpenSilverPhotinoPackageVersion = "3.2.0";
     }
 }

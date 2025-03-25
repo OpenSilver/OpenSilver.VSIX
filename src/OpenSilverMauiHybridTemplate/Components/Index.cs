@@ -14,7 +14,7 @@ namespace $safeprojectname$.Components
             await base.OnInitializedAsync();
 
             ArgumentNullException.ThrowIfNull(Runner);
-            await Runner.RunApplicationAsync<$rootprojectname$.App >();
+            await Runner.RunApplicationAsync<$rootprojectname$.App>();
         }
     }
 }
