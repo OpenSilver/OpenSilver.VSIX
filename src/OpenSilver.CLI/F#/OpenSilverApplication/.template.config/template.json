@@ -37,6 +37,12 @@
           "exclude": [
             "OpenSilverApplication.MauiHybrid/**"
           ]
+        },
+        {
+          "condition": "(!usePhotino)",
+          "exclude": [
+            "OpenSilverApplication.Photino/**"
+          ]
         }
       ]
     }
@@ -51,6 +57,10 @@
     {
       "path": "./OpenSilverApplication.MauiHybrid/OpenSilverApplication.MauiHybrid.csproj",
       "condition": "(mauiPlatformsBasic != '' || windowsTarget != '')"
+    },
+    {
+      "path": "./OpenSilverApplication.Photino/OpenSilverApplication.Photino.csproj",
+      "condition": "(usePhotino)"
     }
   ],
   "symbols": {
@@ -104,7 +114,7 @@
     "mauiPlatforms": {
       "type": "parameter",
       "datatype": "choice",
-      "description": "Specifies which MAUI platforms to include.",
+      "description": "Include a MAUI Launcher project for desktop and mobile support, with specified MAUI platforms.",
       "allowMultipleValues": true,
       "replaces": "$maui-platforms$",
       "choices": [
@@ -129,6 +139,12 @@
           "description": "All supported platforms"
         }
       ]
+    },
+    "usePhotino": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Include a Photino Launcher project for desktop support",
+      "defaultValue": "false"
     },
 
     "langShortCode": {
@@ -175,6 +191,14 @@
       "type": "generated",
       "generator": "constant",
       "replaces": "$OpenSilverMauiHybridPackageVersion$",
+      "parameters": {
+        "value": "3.2.0"
+      }
+    },
+    "openSilverPhotinoPackageVersion": {
+      "type": "generated",
+      "generator": "constant",
+      "replaces": "$OpenSilverPhotinoPackageVersion$",
       "parameters": {
         "value": "3.2.0"
       }
@@ -348,7 +372,8 @@
     "052AA0E1-BF65-4EE4-B6D3-112AE3350154",
     "E5006009-F128-4902-AD10-D55E7942946A",
     "D59E1426-E892-4863-9C68-E437124A32F5",
-    "E98BBAFF-DE97-48FB-B99E-019727405EFE"
+    "E98BBAFF-DE97-48FB-B99E-019727405EFE",
+    "FBE3E543-D0FE-4141-B515-99B8FF2B7901"
   ],
   "postActions": [
     {

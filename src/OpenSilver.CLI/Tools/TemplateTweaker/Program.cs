@@ -7,12 +7,12 @@ namespace TemplateTweaker
     {
         public static void Main()
         {
-            // If you have multiple "common" folders, list them all here:
             var sourceFolders = new[] 
             {
                 "CommonProjectTemplates/OpenSilverApplication.Browser",
                 "CommonProjectTemplates/OpenSilverApplication.Simulator",
-                "CommonProjectTemplates/OpenSilverApplication.MauiHybrid"
+                "CommonProjectTemplates/OpenSilverApplication.MauiHybrid",
+                "CommonProjectTemplates/OpenSilverApplication.Photino"
                 // Add more sources if needed...
             };
 
@@ -34,8 +34,6 @@ namespace TemplateTweaker
                 }
 
                 // We'll copy the entire directory named sourceFolder into each destination.
-                // For example, if sourceFolder = "CommonProjectTemplates",
-                // it ends up as e.g. Template1/CommonProjectTemplates
                 var subfolderName = Path.GetFileName(sourceFolder);
 
                 foreach (var destFolder in destinationFolders)

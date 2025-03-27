@@ -5,6 +5,11 @@
       "longName": "mauiPlatforms",
       "shortName": "mp",
       "isHidden": false
+    },
+    "usePhotino": {
+      "longName": "usePhotino",
+      "shortName": "up",
+      "isHidden": false
     }
   }
 }

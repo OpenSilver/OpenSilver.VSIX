@@ -15,6 +15,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverApplication.MauiHybrid", "OpenSilverApplication.MauiHybrid\OpenSilverApplication.MauiHybrid.csproj", "{E98BBAFF-DE97-48FB-B99E-019727405EFE}"
 EndProject
 #endif
+#if (usePhotino)
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverApplication.Photino", "OpenSilverApplication.Photino\OpenSilverApplication.Photino.csproj", "{FBE3E543-D0FE-4141-B515-99B8FF2B7901}"
+EndProject
+#endif
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,12 @@ Global
 		{E98BBAFF-DE97-48FB-B99E-019727405EFE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{E98BBAFF-DE97-48FB-B99E-019727405EFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E98BBAFF-DE97-48FB-B99E-019727405EFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		#endif
+		#if (usePhotino)
+		{FBE3E543-D0FE-4141-B515-99B8FF2B7901}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBE3E543-D0FE-4141-B515-99B8FF2B7901}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBE3E543-D0FE-4141-B515-99B8FF2B7901}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBE3E543-D0FE-4141-B515-99B8FF2B7901}.Release|Any CPU.Build.0 = Release|Any CPU
 		#endif
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
