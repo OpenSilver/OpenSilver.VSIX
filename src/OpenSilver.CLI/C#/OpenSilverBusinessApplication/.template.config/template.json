@@ -62,7 +62,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverPackageVersion$",
       "parameters": {
-        "value": "3.2.0"
+        "value": "3.2.2"
       }
     },
     "openSilverSimulatorPackageVersion": {
@@ -70,7 +70,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverSimulatorPackageVersion$",
       "parameters": {
-        "value": "3.2.0"
+        "value": "3.2.2"
       }
     },
     "openSilverWebAssemblyPackageVersion": {
@@ -78,7 +78,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverWebAssemblyPackageVersion$",
       "parameters": {
-        "value": "3.2.0"
+        "value": "3.2.2"
       }
     },
     "openSilverOpenRiaPackageVersion": {
