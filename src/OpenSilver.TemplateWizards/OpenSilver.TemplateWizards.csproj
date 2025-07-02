@@ -48,8 +48,14 @@
     <Compile Include="AppCustomizationWindow\AppConfigurationWindow.xaml.cs">
       <DependentUpon>AppConfigurationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AppCustomizationWindow\DotNetVersionSelector.xaml.cs">
+      <DependentUpon>DotNetVersionSelector.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AppCustomizationWindow\InstallMauiWindow.xaml.cs">
       <DependentUpon>InstallMauiWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppCustomizationWindow\LibraryCustomizationWindow.xaml.cs">
+      <DependentUpon>LibraryCustomizationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppCustomizationWindow\Models\DotNetOption.cs" />
     <Compile Include="AppCustomizationWindow\Models\InstallMauiViewModel.cs" />
@@ -62,6 +68,7 @@
     <Compile Include="AppCustomizationWindow\ThemeCollectionView.xaml.cs">
       <DependentUpon>ThemeCollectionView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\EnumUtilities.cs" />
     <Compile Include="Utils\MauiInstallationChecker.cs" />
     <Compile Include="Utils\WizardUtilities.cs" />
     <Compile Include="Wizards\AppCustomizationWizard.cs" />
@@ -79,8 +86,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="AppCustomizationWindow\DotNetVersionSelector.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AppCustomizationWindow\InstallMauiWindow.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppCustomizationWindow\LibraryCustomizationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AppCustomizationWindow\PlatformsView.xaml">

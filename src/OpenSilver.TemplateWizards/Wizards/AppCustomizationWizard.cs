@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TemplateWizard;
 using OpenSilver.TemplateWizards.AppCustomizationWindow;
 using OpenSilver.TemplateWizards.AppCustomizationWindow.Models;
 using OpenSilver.TemplateWizards.Shared;
+using OpenSilver.TemplateWizards.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -293,15 +294,12 @@ namespace OpenSilver.TemplateWizards.Wizards
             switch (window.DotNetVersion)
             {
                 case DotNetVersion.Net7:
-                    replacementsDictionary.Add("$targetframework$", "net7.0");
                     replacementsDictionary.Add("$blazorpackagesversion$", "7.0.0");
                     break;
                 case DotNetVersion.Net8:
-                    replacementsDictionary.Add("$targetframework$", "net8.0");
                     replacementsDictionary.Add("$blazorpackagesversion$", "8.0.11");
                     break;
                 case DotNetVersion.Net9:
-                    replacementsDictionary.Add("$targetframework$", "net9.0");
                     replacementsDictionary.Add("$blazorpackagesversion$", "9.0.0");
                     break;
             }
@@ -312,6 +310,7 @@ namespace OpenSilver.TemplateWizards.Wizards
             _isPhotinoSelected = window.IsPhotinoSelected;
             _dotNetVersion = window.DotNetVersion;
 
+            replacementsDictionary.Add("$targetframework$", EnumUtilities.GetEnumDescription(window.DotNetVersion));
             replacementsDictionary.Add("$opensilverpackageversion$", GlobalConstants.OpenSilverPackageVersion);
             replacementsDictionary.Add("$opensilversimulatorpackageversion$", GlobalConstants.OpenSilverSimulatorPackageVersion);
             replacementsDictionary.Add("$opensilverwebassemblypackageversion$", GlobalConstants.OpenSilverWebAssemblyPackageVersion);

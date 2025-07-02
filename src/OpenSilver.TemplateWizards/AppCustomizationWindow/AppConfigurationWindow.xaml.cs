@@ -44,7 +44,7 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
 
         public ThemeOptions SelectedTheme { get; private set; }
 
-        public DotNetVersion DotNetVersion => (DotNetVersion)DotNetVersionComboBox.SelectedValue;
+        public DotNetVersion DotNetVersion => DotNetVersionComboBox.DotNetVersion;
 
         public MauiHybridPlatform MauiHybridPlatform
         {

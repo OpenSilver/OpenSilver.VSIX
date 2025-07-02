@@ -24,6 +24,27 @@
     }
   },
   "symbols": {
+    "targetFramework": {
+      "type": "parameter",
+      "datatype": "string",
+      "description": "Sets the target .NET framework, must be net7.0, net8.0 or net9.0",
+      "defaultValue": "net9.0",
+      "replaces": "net9.0",
+      "choices": [
+        {
+          "choice": "net7.0",
+          "description": "Use .NET 7.0"
+        },
+        {
+          "choice": "net8.0",
+          "description": "Use .NET 8.0"
+        },
+        {
+          "choice": "net9.0",
+          "description": "Use .NET 9.0"
+        }
+      ]
+    },
     "skipRestore": {
       "type": "parameter",
       "datatype": "bool",
