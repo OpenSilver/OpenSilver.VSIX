@@ -40,6 +40,7 @@ namespace OpenSilver.XamlDesigner
         BaseEditorFactory.Xaml,
         LogicalViewID.Designer,
         0x70,
+        CodeLogicalViewEditor = typeof(EditorFactoryOpenSilver),
         DesignerLogicalViewEditor = typeof(EditorFactoryOpenSilver))]
 
     [Guid(GuidList.guidEditorPkgString)]
