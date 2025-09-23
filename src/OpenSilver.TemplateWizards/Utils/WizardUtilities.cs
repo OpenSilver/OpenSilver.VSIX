@@ -66,22 +66,7 @@ namespace OpenSilver.TemplateWizards.Utils
         /// <returns>The target framework moniker as a string (e.g., "net8.0")</returns>
         public static string GetNetTarget(DotNetVersion netTarget)
         {
-            if (netTarget == DotNetVersion.Net7)
-            {
-                return "net7.0";
-            }
-
-            if (netTarget == DotNetVersion.Net8)
-            {
-                return "net8.0";
-            }
-
-            if (netTarget == DotNetVersion.Net9)
-            {
-                return "net9.0";
-            }
-
-            return "";
+            return EnumUtilities.GetEnumDescription(netTarget);
         }
     }
 }

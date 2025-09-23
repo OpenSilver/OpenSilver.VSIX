@@ -302,6 +302,9 @@ namespace OpenSilver.TemplateWizards.Wizards
                 case DotNetVersion.Net9:
                     replacementsDictionary.Add("$blazorpackagesversion$", "9.0.0");
                     break;
+                case DotNetVersion.Net10:
+                    replacementsDictionary.Add("$blazorpackagesversion$", "10.0.0-rc.1.25451.107");
+                    break;
             }
 
             CopyNugetConfig(replacementsDictionary);
