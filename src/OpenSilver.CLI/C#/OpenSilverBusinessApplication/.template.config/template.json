@@ -39,7 +39,7 @@
     "targetFramework": {
       "type": "parameter",
       "datatype": "string",
-      "description": "Sets the target .NET framework, must be net7.0, net8.0 or net9.0",
+      "description": "Sets the target .NET framework, must be net7.0, net8.0, net9.0 or net10.0",
       "defaultValue": "net9.0",
       "replaces": "net9.0",
       "choices": [
@@ -54,6 +54,10 @@
         {
           "choice": "net9.0",
           "description": "Use .NET 9.0"
+        },
+        {
+          "choice": "net10.0",
+          "description": "Use .NET 10.0"
         }
       ]
     },
@@ -108,6 +112,10 @@
           {
             "condition": "(targetFramework == 'net9.0')",
             "value": "9.0.0"
+          },
+          {
+            "condition": "(targetFramework == 'net10.0')",
+            "value": "10.0.0-rc.1.25451.107"
           }
         ]
       }
