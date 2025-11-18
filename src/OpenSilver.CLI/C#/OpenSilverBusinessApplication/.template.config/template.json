@@ -39,14 +39,10 @@
     "targetFramework": {
       "type": "parameter",
       "datatype": "string",
-      "description": "Sets the target .NET framework, must be net7.0, net8.0, net9.0 or net10.0",
-      "defaultValue": "net9.0",
-      "replaces": "net9.0",
+      "description": "Sets the target .NET framework, must be net8.0, net9.0 or net10.0",
+      "defaultValue": "net10.0",
+      "replaces": "net10.0",
       "choices": [
-        {
-          "choice": "net7.0",
-          "description": "Use .NET 7.0"
-        },
         {
           "choice": "net8.0",
           "description": "Use .NET 8.0"
@@ -102,10 +98,6 @@
         "evaluator": "C++",
         "cases": [
           {
-            "condition": "(targetFramework == 'net7.0')",
-            "value": "7.0.0"
-          },
-          {
             "condition": "(targetFramework == 'net8.0')",
             "value": "8.0.11"
           },
@@ -115,7 +107,7 @@
           },
           {
             "condition": "(targetFramework == 'net10.0')",
-            "value": "10.0.0-rc.1.25451.107"
+            "value": "10.0.0"
           }
         ]
       }

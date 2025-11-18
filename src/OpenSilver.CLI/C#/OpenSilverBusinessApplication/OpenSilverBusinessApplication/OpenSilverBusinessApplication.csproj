@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <EnableDefaultItems>false</EnableDefaultItems>
     <DefineSilverlight>true</DefineSilverlight>
     <LinkedOpenRiaServerProject>..\OpenSilverBusinessApplication.Web\OpenSilverBusinessApplication.Web.csproj</LinkedOpenRiaServerProject>

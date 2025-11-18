@@ -293,9 +293,6 @@ namespace OpenSilver.TemplateWizards.Wizards
 
             switch (window.DotNetVersion)
             {
-                case DotNetVersion.Net7:
-                    replacementsDictionary.Add("$blazorpackagesversion$", "7.0.0");
-                    break;
                 case DotNetVersion.Net8:
                     replacementsDictionary.Add("$blazorpackagesversion$", "8.0.11");
                     break;

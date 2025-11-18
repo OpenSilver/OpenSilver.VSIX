@@ -18,10 +18,9 @@
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
-            <models:DotNetOption Title=".NET 7" SupportDescription="Out of support" Version="Net7"/>
             <models:DotNetOption Title=".NET 8" SupportDescription="Long Term Support" Version="Net8" Notes="* .NET 8 requires Visual Studio 2022 v17.8 or newer"/>
             <models:DotNetOption Title=".NET 9" SupportDescription="Standard Term Support" Version="Net9" Notes="* .NET 9 requires Visual Studio 2022 v17.12 or newer"/>
-            <models:DotNetOption Title=".NET 10 RC" SupportDescription="Long Term Support" Version="Net10" Notes="* .NET 10 requires Visual Studio 2026 (v18.0 Preview 1) or newer"/>
+            <models:DotNetOption Title=".NET 10" SupportDescription="Long Term Support" Version="Net10" Notes="* .NET 10 requires Visual Studio 2026 (v18.0 Preview 1) or newer"/>
         </ComboBox>
         <TextBlock Grid.Row="1" Text="{Binding SelectedItem.Notes, ElementName=DotNetVersionComboBox}"
                TextWrapping="Wrap" Foreground="Gray" VerticalAlignment="Center"/>
