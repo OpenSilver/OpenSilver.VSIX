@@ -56,7 +56,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverPackageVersion$",
       "parameters": {
-        "value": "3.3.0"
+        "value": "3.3.1"
       }
     }
   },

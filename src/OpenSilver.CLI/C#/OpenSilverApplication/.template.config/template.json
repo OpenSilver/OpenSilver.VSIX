@@ -160,7 +160,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverPackageVersion$",
       "parameters": {
-        "value": "3.3.0"
+        "value": "3.3.1"
       }
     },
     "openSilverSimulatorPackageVersion": {
@@ -168,7 +168,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverSimulatorPackageVersion$",
       "parameters": {
-        "value": "3.3.0"
+        "value": "3.3.1"
       }
     },
     "openSilverWebAssemblyPackageVersion": {
@@ -176,7 +176,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverWebAssemblyPackageVersion$",
       "parameters": {
-        "value": "3.3.0"
+        "value": "3.3.1"
       }
     },
     "modernThemePackageVersion": {
@@ -192,7 +192,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverMauiHybridPackageVersion$",
       "parameters": {
-        "value": "3.3.0"
+        "value": "3.3.1"
       }
     },
     "openSilverPhotinoPackageVersion": {
@@ -200,7 +200,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverPhotinoPackageVersion$",
       "parameters": {
-        "value": "3.3.0"
+        "value": "3.3.1"
       }
     },
     "webAssemblyPackageVersion": {
