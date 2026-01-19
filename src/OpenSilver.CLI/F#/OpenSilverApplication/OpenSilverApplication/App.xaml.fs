@@ -14,6 +14,6 @@ type App = class
         // Enter construction logic here...
 
         let mainPage = new MainPage()
-        Window.Current.Content <- mainPage;
+        this.RootVisual <- mainPage;
 
 end

@@ -13,6 +13,6 @@ Partial Public Class App
         ' Enter construction logic here...
 
         Dim mainPage = New MainPage()
-        Window.Current.Content = mainPage
+        Me.RootVisual = mainPage
     End Sub
 End Class
