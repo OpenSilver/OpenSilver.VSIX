@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="OpenSilverSDK.f8d7e167-8c6f-45d1-823a-5724c26edac8" Version="3.3.1.0" Language="en-US" Publisher="Userware" />
+        <Identity Id="OpenSilverSDK.f8d7e167-8c6f-45d1-823a-5724c26edac8" Version="3.3.3.0" Language="en-US" Publisher="Userware" />
         <DisplayName>OpenSilver SDK</DisplayName>
         <Description xml:space="preserve">Project templates and XAML Designer for creating OpenSilver applications. OpenSilver is a modern cross-platform reimplementation of WPF and Silverlight that enables .NET developers to build apps for web (WebAssembly), mobile and desktop (MAUI Hybrid) using C# and XAML.</Description>
         <Icon>Logo_32x32.png</Icon>
