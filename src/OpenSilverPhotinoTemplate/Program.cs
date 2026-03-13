@@ -18,7 +18,7 @@ namespace $safeprojectname$
                 .SetTitle(windowTitle)
                 .SetUseOsDefaultSize(true)
                 .Center() // Center window in the middle of the screen
-                .SetResizable(false) // Users can resize windows by default. Let's make this one fixed instead.
+                .SetResizable(true)
                 .SetLogVerbosity(0)
                 .ConfigureOpenSilver<App>() // Configure OpenSilver App
                 .Load("wwwroot/index.html"); // Can be used with relative path strings or "new URI()" instance to load a website.
