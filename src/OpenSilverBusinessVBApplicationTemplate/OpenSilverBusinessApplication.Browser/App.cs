@@ -13,9 +13,6 @@ namespace $ext_safeprojectname$.Browser
             builder.AddAttribute(1, "AppAssembly", RuntimeHelpers.TypeCheck(
                 typeof(Program).Assembly
             ));
-            builder.AddAttribute(2, "PreferExactMatches", RuntimeHelpers.TypeCheck(
-                true
-            ));
             builder.AddAttribute(3, "Found", (RenderFragment<RouteData>)(routeData => builder2 =>
             {
                 builder2.OpenComponent<RouteView>(4);
