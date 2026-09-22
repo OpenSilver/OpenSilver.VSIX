@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
-    <TargetFramework>$ext_targetframework$</TargetFramework>
+    <TargetFramework>$ext_targetframework$-browser</TargetFramework>
     <OpenSilverType>7</OpenSilverType>
     <PublishTrimmed>true</PublishTrimmed>
     <WasmEnableSIMD>false</WasmEnableSIMD>
