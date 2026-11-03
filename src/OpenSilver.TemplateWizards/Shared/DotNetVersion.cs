@@ -10,5 +10,7 @@ namespace OpenSilver.TemplateWizards.Shared
         Net9,
         [Description("net10.0")]
         Net10,
+        [Description("net11.0")]
+        Net11,
     }
 }

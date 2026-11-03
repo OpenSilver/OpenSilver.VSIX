@@ -307,6 +307,9 @@ namespace OpenSilver.TemplateWizards.Wizards
                 case DotNetVersion.Net10:
                     replacementsDictionary.Add("$blazorpackagesversion$", GlobalConstants.BlazorPackagesVersionNet10);
                     break;
+                case DotNetVersion.Net11:
+                    replacementsDictionary.Add("$blazorpackagesversion$", GlobalConstants.BlazorPackagesVersionNet11);
+                    break;
             }
 
             CopyNugetConfig(replacementsDictionary);

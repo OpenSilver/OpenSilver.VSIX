@@ -27,8 +27,8 @@
     "targetFramework": {
       "type": "parameter",
       "datatype": "string",
-      "description": "Sets the target .NET framework, must be net8.0, net9.0 or net10.0",
-      "defaultValue": "net10.0",
+      "description": "Sets the target .NET framework, must be net8.0, net9.0, net10.0 or net11.0",
+      "defaultValue": "net11.0",
       "replaces": "net10.0",
       "choices": [
         {
@@ -42,6 +42,10 @@
         {
           "choice": "net10.0",
           "description": "Use .NET 10.0"
+        },
+        {
+          "choice": "net11.0",
+          "description": "Use .NET 11.0"
         }
       ]
     },

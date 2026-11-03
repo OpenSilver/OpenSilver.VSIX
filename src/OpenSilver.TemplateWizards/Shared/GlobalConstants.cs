@@ -25,5 +25,7 @@ namespace OpenSilver.TemplateWizards.Shared
         public const string BlazorPackagesVersionNet9 = "9.0.0";
 
         public const string BlazorPackagesVersionNet10 = "10.0.0";
+
+        public const string BlazorPackagesVersionNet11 = "11.0.0";
     }
 }
