@@ -10,6 +10,13 @@
     <PackageReference Include="OpenSilver" Version="$ext_opensilverpackageversion$" />$ext_themesnugetpackage$
   </ItemGroup>
 
+  <!-- Declared here (and not only by OpenSilver.targets) so that Visual Studio knows these item types before the
+       NuGet restore. Otherwise the F# project tree fails to refresh after the restore (ProjectTreeCorruptionException). -->
+  <ItemGroup>
+    <AvailableItemName Include="ApplicationDefinition" />
+    <AvailableItemName Include="Page" />
+  </ItemGroup>
+
   <ItemGroup>
     <Page Include="$ext_mainviewname$.xaml">
       <Generator>MSBuild:Compile</Generator>
