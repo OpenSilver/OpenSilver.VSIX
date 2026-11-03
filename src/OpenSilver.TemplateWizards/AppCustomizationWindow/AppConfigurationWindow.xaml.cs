@@ -42,6 +42,8 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
             }
         }
 
+        public TemplateKind SelectedTemplateKind => silverlightStyleRadioButton.IsChecked == true ? TemplateKind.Silverlight : TemplateKind.Wpf;
+
         public ThemeOptions SelectedTheme { get; private set; }
 
         public DotNetVersion DotNetVersion => DotNetVersionComboBox.DotNetVersion;

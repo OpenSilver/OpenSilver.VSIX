@@ -1,65 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
-    <Metadata>
-        <Identity Id="OpenSilverSDK.f8d7e167-8c6f-45d1-823a-5724c26edac8" Version="3.3.3.1" Language="en-US" Publisher="Userware" />
-        <DisplayName>OpenSilver SDK</DisplayName>
-        <Description xml:space="preserve">Project templates and XAML Designer for creating OpenSilver applications. OpenSilver is a modern cross-platform reimplementation of WPF and Silverlight that enables .NET developers to build apps for web (WebAssembly), mobile and desktop (MAUI Hybrid) using C# and XAML.</Description>
-        <Icon>Logo_32x32.png</Icon>
-        <PreviewImage>Logo_200x200.png</PreviewImage>
-    </Metadata>
-    <Installation>
-        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,19.0)">
-            <ProductArchitecture>amd64</ProductArchitecture>
-        </InstallationTarget>
-        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,19.0)">
-            <ProductArchitecture>arm64</ProductArchitecture>
-        </InstallationTarget>
-        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,19.0)">
-            <ProductArchitecture>amd64</ProductArchitecture>
-        </InstallationTarget>
-        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,19.0)">
-            <ProductArchitecture>arm64</ProductArchitecture>
-        </InstallationTarget>
-        <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.0,19.0)">
-            <ProductArchitecture>amd64</ProductArchitecture>
-        </InstallationTarget>
-        <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.0,19.0)">
-            <ProductArchitecture>arm64</ProductArchitecture>
-        </InstallationTarget>
-        <InstallationTarget Id="Microsoft.VisualStudio.IntegratedShell" Version="[17.0,19.0)">
-            <ProductArchitecture>amd64</ProductArchitecture>
-        </InstallationTarget>
-        <InstallationTarget Id="Microsoft.VisualStudio.IntegratedShell" Version="[17.0,19.0)">
-            <ProductArchitecture>arm64</ProductArchitecture>
-        </InstallationTarget>
-    </Installation>
-    <Dependencies>
-        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
-    </Dependencies>
-    <Prerequisites>
-        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[16.0,19.0)" DisplayName="Visual Studio core editor" />
-        <Prerequisite Id="Microsoft.VisualStudio.ComponentGroup.WebToolsExtensions" Version="[16.0,19.0)" DisplayName="ASP.NET and web development" />
-        <Prerequisite Id="Microsoft.VisualStudio.Component.ManagedDesktop.Prerequisites" Version="[16.0,19.0)" DisplayName=".NET desktop development tools" />
-    </Prerequisites>
-    <Assets>
-        <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="File" Path="ItemTemplates" d:TargetPath="ItemTemplates\CSharp" />
-        <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="File" Path="ItemTemplates" d:TargetPath="ItemTemplates\VisualBasic" />
-        <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="File" Path="ItemTemplates" d:TargetPath="ItemTemplates\FSharp" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="OpenSilverApplicationTemplate" d:TargetPath="|OpenSilverApplicationTemplate;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="OpenSilverClassLibraryTemplate" d:TargetPath="|OpenSilverClassLibraryTemplate;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="OpenSilver.TemplateWizards" Path="|OpenSilver.TemplateWizards|" AssemblyName="|OpenSilver.TemplateWizards;AssemblyName|" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="OpenSilverVBApplicationTemplate" d:TargetPath="|OpenSilverVBApplicationTemplate;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="OpenSilverVBClassLibraryTemplate" d:TargetPath="|OpenSilverVBClassLibraryTemplate;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="OpenSilverFSApplicationTemplate" d:TargetPath="|OpenSilverFSApplicationTemplate;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="OpenSilverFSClassLibraryTemplate" d:TargetPath="|OpenSilverFSClassLibraryTemplate;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="OpenSilver.XamlDesigner" Path="|OpenSilver.XamlDesigner;PkgdefProjectOutputGroup|" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="OpenSilverBusinessApplicationTemplate" d:TargetPath="|OpenSilverBusinessApplicationTemplate;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="OpenSilverBusinessVBApplicationTemplate" d:TargetPath="|OpenSilverBusinessVBApplicationTemplate;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-        <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="File" Path="ItemTemplates" d:TargetPath="ItemTemplates\CSharp\Open Ria Services\DomainServiceClass.zip" />
-        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="ItemTemplates\Assemblies\OpenRiaServices.VisualStudio.DomainServices.Tools.14.0.dll" AssemblyName="OpenRiaServices.VisualStudio.DomainServices.Tools.14.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2e0b7ccb1ae5b4c8" />
-        <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="File" Path="ItemTemplates" d:TargetPath="ItemTemplates\VisualBasic\Web\1033\DomainServiceClass.zip" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="OpenSilverMauiHybridTemplate" d:TargetPath="|OpenSilverMauiHybridTemplate;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="OpenSilverPhotinoTemplate" d:TargetPath="|OpenSilverPhotinoTemplate;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-    </Assets>
+  <Metadata>
+    <Identity Id="OpenSilverSDK.f8d7e167-8c6f-45d1-823a-5724c26edac8" Version="3.3.3.3" Language="en-US" Publisher="Userware" />
+    <DisplayName>OpenSilver SDK</DisplayName>
+    <Description xml:space="preserve">Project templates and XAML Designer for creating OpenSilver applications. OpenSilver is a modern cross-platform reimplementation of WPF and Silverlight that enables .NET developers to build apps for web (WebAssembly), mobile and desktop (MAUI Hybrid) using C# and XAML.</Description>
+    <Icon>Logo_32x32.png</Icon>
+    <PreviewImage>Logo_200x200.png</PreviewImage>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,19.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,19.0)">
+      <ProductArchitecture>arm64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,19.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,19.0)">
+      <ProductArchitecture>arm64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.0,19.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.0,19.0)">
+      <ProductArchitecture>arm64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.IntegratedShell" Version="[17.0,19.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.IntegratedShell" Version="[17.0,19.0)">
+      <ProductArchitecture>arm64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.5,)" d:Source="Manual" />
+  </Dependencies>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" DisplayName="Visual Studio core editor" Version="[16.0,19.0)" />
+    <Prerequisite Id="Microsoft.VisualStudio.ComponentGroup.WebToolsExtensions" DisplayName="ASP.NET and web development" Version="[16.0,19.0)" />
+    <Prerequisite Id="Microsoft.VisualStudio.Component.ManagedDesktop.Prerequisites" DisplayName=".NET desktop development tools" Version="[16.0,19.0)" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.ItemTemplate" Path="ItemTemplates" d:Source="File" d:TargetPath="ItemTemplates\CSharp" />
+    <Asset Type="Microsoft.VisualStudio.ItemTemplate" Path="ItemTemplates" d:Source="File" d:TargetPath="ItemTemplates\VisualBasic" />
+    <Asset Type="Microsoft.VisualStudio.ItemTemplate" Path="ItemTemplates" d:Source="File" d:TargetPath="ItemTemplates\FSharp" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" Path="ProjectTemplates" d:Source="Project" d:ProjectName="OpenSilverApplicationTemplate" d:VsixSubPath="ProjectTemplates" d:TargetPath="|OpenSilverApplicationTemplate;TemplateProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" Path="ProjectTemplates" d:Source="Project" d:ProjectName="OpenSilverClassLibraryTemplate" d:VsixSubPath="ProjectTemplates" d:TargetPath="|OpenSilverClassLibraryTemplate;TemplateProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="|OpenSilver.TemplateWizards|" AssemblyName="|OpenSilver.TemplateWizards;AssemblyName|" d:Source="Project" d:ProjectName="OpenSilver.TemplateWizards" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" Path="ProjectTemplates" d:Source="Project" d:ProjectName="OpenSilverVBApplicationTemplate" d:VsixSubPath="ProjectTemplates" d:TargetPath="|OpenSilverVBApplicationTemplate;TemplateProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" Path="ProjectTemplates" d:Source="Project" d:ProjectName="OpenSilverVBClassLibraryTemplate" d:VsixSubPath="ProjectTemplates" d:TargetPath="|OpenSilverVBClassLibraryTemplate;TemplateProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" Path="ProjectTemplates" d:Source="Project" d:ProjectName="OpenSilverFSApplicationTemplate" d:VsixSubPath="ProjectTemplates" d:TargetPath="|OpenSilverFSApplicationTemplate;TemplateProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" Path="ProjectTemplates" d:Source="Project" d:ProjectName="OpenSilverFSClassLibraryTemplate" d:VsixSubPath="ProjectTemplates" d:TargetPath="|OpenSilverFSClassLibraryTemplate;TemplateProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="|OpenSilver.XamlDesigner;PkgdefProjectOutputGroup|" d:Source="Project" d:ProjectName="OpenSilver.XamlDesigner" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" Path="ProjectTemplates" d:Source="Project" d:ProjectName="OpenSilverBusinessApplicationTemplate" d:VsixSubPath="ProjectTemplates" d:TargetPath="|OpenSilverBusinessApplicationTemplate;TemplateProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" Path="ProjectTemplates" d:Source="Project" d:ProjectName="OpenSilverBusinessVBApplicationTemplate" d:VsixSubPath="ProjectTemplates" d:TargetPath="|OpenSilverBusinessVBApplicationTemplate;TemplateProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.ItemTemplate" Path="ItemTemplates" d:Source="File" d:TargetPath="ItemTemplates\CSharp\Open Ria Services\DomainServiceClass.zip" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="ItemTemplates\Assemblies\OpenRiaServices.VisualStudio.DomainServices.Tools.14.0.dll" AssemblyName="OpenRiaServices.VisualStudio.DomainServices.Tools.14.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2e0b7ccb1ae5b4c8" d:Source="File" />
+    <Asset Type="Microsoft.VisualStudio.ItemTemplate" Path="ItemTemplates" d:Source="File" d:TargetPath="ItemTemplates\VisualBasic\Web\1033\DomainServiceClass.zip" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" Path="ProjectTemplates" d:Source="Project" d:ProjectName="OpenSilverMauiHybridTemplate" d:VsixSubPath="ProjectTemplates" d:TargetPath="|OpenSilverMauiHybridTemplate;TemplateProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" d:Source="Project" d:ProjectName="%CurrentProject%" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" Path="ProjectTemplates" d:Source="Project" d:ProjectName="OpenSilverPhotinoTemplate" d:VsixSubPath="ProjectTemplates" d:TargetPath="|OpenSilverPhotinoTemplate;TemplateProjectOutputGroup|" />
+  </Assets>
 </PackageManifest>

@@ -7,8 +7,21 @@
         <Project File="OpenSilverApplication.csproj" ReplaceParameters="true">
             <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml">App.xaml</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml.cs">App.xaml.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml.cs">App.Wpf.xaml.cs</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="MainPage.xaml">MainPage.xaml</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="MainPage.xaml.cs">MainPage.xaml.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="MainWindow.xaml">MainWindow.xaml</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="MainWindow.xaml.cs">MainWindow.xaml.cs</ProjectItem>
         </Project>
     </TemplateContent>
+    <WizardExtension>
+        <Assembly>OpenSilver.TemplateWizards, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Assembly>
+        <FullClassName>OpenSilver.TemplateWizards.Wizards.TemplateKindWizard</FullClassName>
+    </WizardExtension>
+    <WizardData>
+        <TemplateKindFiles>
+            <Wpf>App.Wpf.xaml.cs;MainWindow.xaml;MainWindow.xaml.cs</Wpf>
+            <Silverlight>App.xaml.cs;MainPage.xaml;MainPage.xaml.cs</Silverlight>
+        </TemplateKindFiles>
+    </WizardData>
 </VSTemplate>

@@ -41,8 +41,21 @@
       </Folder>
       <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml">App.xaml</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml.vb">App.xaml.vb</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml.vb">App.Wpf.xaml.vb</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="MainPage.xaml">MainPage.xaml</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="MainPage.xaml.vb">MainPage.xaml.vb</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="MainWindow.xaml">MainWindow.xaml</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="MainWindow.xaml.vb">MainWindow.xaml.vb</ProjectItem>
     </Project>
   </TemplateContent>
+  <WizardExtension>
+    <Assembly>OpenSilver.TemplateWizards, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Assembly>
+    <FullClassName>OpenSilver.TemplateWizards.Wizards.TemplateKindWizard</FullClassName>
+  </WizardExtension>
+  <WizardData>
+    <TemplateKindFiles>
+      <Wpf>App.Wpf.xaml.vb;MainWindow.xaml;MainWindow.xaml.vb</Wpf>
+      <Silverlight>App.xaml.vb;MainPage.xaml;MainPage.xaml.vb</Silverlight>
+    </TemplateKindFiles>
+  </WizardData>
 </VSTemplate>

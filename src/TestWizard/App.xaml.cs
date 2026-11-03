@@ -23,6 +23,7 @@ public partial class App : Application
         if (res == true)
         {
             MessageBox.Show(
+                $"Template Kind: {configurationWindow.SelectedTemplateKind}\n" +
                 $"Theme: {configurationWindow.SelectedTheme}\n" +
                 $".NET Version: {configurationWindow.DotNetVersion}\n" +
                 $"MAUI Hybrid Platform: {configurationWindow.MauiHybridPlatform}\n" +

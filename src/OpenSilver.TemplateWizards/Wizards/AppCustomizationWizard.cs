@@ -80,6 +80,11 @@ namespace OpenSilver.TemplateWizards.Wizards
             script.setAttribute('src', 'modern/loading-animation.js?date=' + new Date().toISOString());
             document.head.appendChild(script);";
 
+        /// <summary>
+        /// Fallback for <see cref="TemplateKindWizard"/> in case "$ext_templatekind$" is not passed to child templates.
+        /// </summary>
+        internal static TemplateKind LastSelectedTemplateKind { get; private set; }
+
         private Dictionary<string, string> _replacementsDictionary;
         private DTE _dte;
 
@@ -326,6 +331,12 @@ namespace OpenSilver.TemplateWizards.Wizards
             replacementsDictionary.Add("$loadingindicatorcss$", GetLoadingIndicatorCss(window.SelectedTheme));
             replacementsDictionary.Add("$loadingindicatorjs$", GetLoadingIndicatorJs(window.SelectedTheme));
             replacementsDictionary.Add("$loadingindicatorhtml$", GetLoadingIndicatorHtml(window.SelectedTheme));
+
+            LastSelectedTemplateKind = window.SelectedTemplateKind;
+            var isWpf = window.SelectedTemplateKind == TemplateKind.Wpf;
+            replacementsDictionary.Add("$templatekind$", window.SelectedTemplateKind.ToString());
+            replacementsDictionary.Add("$mainviewname$", isWpf ? "MainWindow" : "MainPage");
+            replacementsDictionary.Add("$startupuri$", isWpf ? $"{Environment.NewLine}             StartupUri=\"MainWindow.xaml\"" : "");
         }
 
         private bool IsClassic(ThemeOptions theme)

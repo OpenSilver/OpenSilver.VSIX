@@ -1,8 +1,7 @@
-﻿<Application
-    x:Class="$ext_safeprojectname$.App"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:$ext_safeprojectname$">
+﻿<Application x:Class="$ext_safeprojectname$.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:$ext_safeprojectname$"$ext_startupuri$>
     <Application.Resources>
         <ResourceDictionary>
 
