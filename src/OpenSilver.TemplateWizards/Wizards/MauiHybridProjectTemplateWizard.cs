@@ -3,7 +3,6 @@ using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.TemplateWizard;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using EnvDTE80;
 using OpenSilver.TemplateWizards.Shared;
 using OpenSilver.TemplateWizards.Utils;
@@ -37,9 +36,7 @@ namespace OpenSilver.TemplateWizards.Wizards
 
             var _dte = automationObject as DTE;
             var solution = (Solution2)_dte.Solution;
-            var allProjects = WizardUtilities.GetAllProjects(solution);
-
-            var rootProject = allProjects.FirstOrDefault(p => p.Name == rootProjectName);
+            var rootProject = WizardUtilities.FindProject(solution, rootProjectName);
             var rootProjectExtension = System.IO.Path.GetExtension(rootProject?.FullName ?? "stub.csproj");
 
             replacementsDictionary.Add("$opensilvermauihybridpackageversion$", GlobalConstants.OpenSilverMauiHybridPackageVersion);

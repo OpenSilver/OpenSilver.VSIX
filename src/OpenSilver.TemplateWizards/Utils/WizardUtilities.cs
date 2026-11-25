@@ -61,6 +61,27 @@ namespace OpenSilver.TemplateWizards.Utils
         }
 
         /// <summary>
+        /// Finds a project by name within a solution, including projects in solution folders
+        /// </summary>
+        /// <param name="solution">The solution to search</param>
+        /// <param name="projectName">The name of the project to find</param>
+        /// <returns>The matching project, or null if not found</returns>
+        public static Project FindProject(Solution2 solution, string projectName)
+        {
+            ThreadHelper.ThrowIfNotOnUIThread();
+
+            foreach (Project p in GetAllProjects(solution))
+            {
+                if (p.Name == projectName)
+                {
+                    return p;
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>
         /// Converts a DotNetVersion enum value to its corresponding target framework moniker string
         /// </summary>
         /// <param name="netTarget">The .NET version to convert</param>

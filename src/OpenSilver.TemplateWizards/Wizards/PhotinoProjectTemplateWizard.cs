@@ -5,8 +5,6 @@ using Microsoft.VisualStudio.TemplateWizard;
 using OpenSilver.TemplateWizards.Shared;
 using OpenSilver.TemplateWizards.Utils;
 using System.Collections.Generic;
-using System.Linq;
-
 namespace OpenSilver.TemplateWizards.Wizards
 {
     class PhotinoProjectTemplateWizard : IWizard
@@ -35,9 +33,7 @@ namespace OpenSilver.TemplateWizards.Wizards
 
             var _dte = automationObject as DTE;
             var solution = (Solution2)_dte.Solution;
-            var allProjects = WizardUtilities.GetAllProjects(solution);
-
-            var rootProject = allProjects.FirstOrDefault(p => p.Name == rootProjectName);
+            var rootProject = WizardUtilities.FindProject(solution, rootProjectName);
             var rootProjectExtension = System.IO.Path.GetExtension(rootProject?.FullName ?? "stub.csproj");
 
             replacementsDictionary.Add("$opensilverphotinopackageversion$", GlobalConstants.OpenSilverPhotinoPackageVersion);

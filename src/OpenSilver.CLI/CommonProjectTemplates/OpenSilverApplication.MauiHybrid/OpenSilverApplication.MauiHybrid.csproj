@@ -36,6 +36,7 @@
 
         <!-- Versions -->
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+        <Version>$(ApplicationDisplayVersion)</Version>
         <ApplicationVersion>1</ApplicationVersion>
 
         <!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
@@ -70,12 +71,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <AndroidResource Remove="Components\Pages\**" />
-      <Compile Remove="Components\Pages\**" />
-      <Content Remove="Components\Pages\**" />
-      <EmbeddedResource Remove="Components\Pages\**" />
-      <MauiXaml Remove="Components\Pages\**" />
-      <None Remove="Components\Pages\**" />
+        <AndroidResource Remove="Components\Pages\**" />
+        <Compile Remove="Components\Pages\**" />
+        <Content Remove="Components\Pages\**" />
+        <EmbeddedResource Remove="Components\Pages\**" />
+        <MauiXaml Remove="Components\Pages\**" />
+        <None Remove="Components\Pages\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -86,7 +87,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\OpenSilverApplication\OpenSilverApplication.$LangShortCode$proj" />
+        <ProjectReference Include="..\OpenSilverApplication\OpenSilverApplication.$LangShortCode$proj" />
     </ItemGroup>
 
 </Project>

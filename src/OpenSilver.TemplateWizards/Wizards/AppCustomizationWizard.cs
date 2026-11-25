@@ -202,6 +202,8 @@ namespace OpenSilver.TemplateWizards.Wizards
 
         private void AddMauiHybrid()
         {
+            Microsoft.VisualStudio.Shell.ThreadHelper.ThrowIfNotOnUIThread();
+
             try
             {
                 var projectName = _replacementsDictionary["$safeprojectname$"];
@@ -228,6 +230,8 @@ namespace OpenSilver.TemplateWizards.Wizards
 
         private void AddPhotino()
         {
+            Microsoft.VisualStudio.Shell.ThreadHelper.ThrowIfNotOnUIThread();
+
             try
             {
                 var projectName = _replacementsDictionary["$safeprojectname$"];

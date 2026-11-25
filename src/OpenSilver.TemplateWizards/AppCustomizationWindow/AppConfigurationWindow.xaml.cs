@@ -26,7 +26,10 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
                 {
                     if (_dte != null)
                     {
+                        // Conditional on purpose: the window is also shown outside VS (TestWizard), where ThreadHelper is unavailable.
+#pragma warning disable VSTHRD108
                         ThreadHelper.ThrowIfNotOnUIThread();
+#pragma warning restore VSTHRD108
                         var serviceProvider = new ServiceProvider((Microsoft.VisualStudio.OLE.Interop.IServiceProvider)_dte);
 
                         var checker = new MauiInstallationChecker(serviceProvider);
@@ -115,7 +118,9 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
 
         private void PlatformList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+#pragma warning disable VSTHRD010 // WPF event handler, always on the UI thread
             if (GetMauiHybridPlatforms(e.AddedItems.OfType<TargetPlatform>()) != MauiHybridPlatform.None && !IsMauiInstalled)
+#pragma warning restore VSTHRD010
             {
                 if (new InstallMauiWindow().ShowDialog() != true)
                 {
