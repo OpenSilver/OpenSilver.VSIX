@@ -24,6 +24,10 @@ namespace OpenSilver.XamlDesigner
         EditorFactoryNotify = true,
         ProjectGuid = VSConstants.UICONTEXT.CSharpProject_string)]
 
+    // Open immediately instead of waiting for IntelliSense, so VS can fall back to the next .xaml editor
+    // when CreateEditorInstance returns VS_E_UNSUPPORTEDFORMAT (non-OpenSilver projects):
+    [ProvideEditorNoDefer(typeof(EditorFactoryOpenSilver))]
+
     // Key binding table:
     [ProvideKeyBindingTable(GuidList.guidEditorFactoryString, 113)]
 

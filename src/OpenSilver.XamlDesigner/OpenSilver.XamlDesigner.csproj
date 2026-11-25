@@ -305,6 +305,7 @@
     <Compile Include="EditorFactoryOpenSilver.cs" />
     <Compile Include="GuidList.cs" />
     <Compile Include="ProductConfig.cs" />
+    <Compile Include="ProvideEditorNoDeferAttribute.cs" />
     <Compile Include="XamlDesignerPackageOpenSilver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
