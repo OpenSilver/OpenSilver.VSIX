@@ -54,6 +54,8 @@ namespace OpenSilver.TemplateWizards.Wizards
             replacementsDictionary.Add("$mauiplatformsbasic$", GetMauiPlatformsBasic(netTarget, mhp));
             replacementsDictionary.Add("$windowsTarget$", GetWindowsTarget(netTarget, mhp));
             replacementsDictionary.Add("$mauitargets$", mhp.ToString());
+            replacementsDictionary.Add("$targetframework$", WizardUtilities.GetNetTarget(netTarget));
+            replacementsDictionary.Add("$blazorpackagesversion$", WizardUtilities.GetBlazorPackagesVersion(netTarget));
         }
 
         private string GetWindowsTarget(DotNetVersion netTarget, MauiHybridPlatform mhp)

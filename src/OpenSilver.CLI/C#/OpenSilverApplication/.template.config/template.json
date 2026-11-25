@@ -73,18 +73,10 @@
     "targetFramework": {
       "type": "parameter",
       "datatype": "string",
-      "description": "Sets the target .NET framework, must be net8.0, net9.0, net10.0 or net11.0",
+      "description": "Sets the target .NET framework, must be net10.0 or net11.0",
       "defaultValue": "net11.0",
       "replaces": "net10.0",
       "choices": [
-        {
-          "choice": "net8.0",
-          "description": "Use .NET 8.0"
-        },
-        {
-          "choice": "net9.0",
-          "description": "Use .NET 9.0"
-        },
         {
           "choice": "net10.0",
           "description": "Use .NET 10.0"
@@ -216,14 +208,6 @@
         "evaluator": "C++",
         "cases": [
           {
-            "condition": "(targetFramework == 'net8.0')",
-            "value": "8.0.11"
-          },
-          {
-            "condition": "(targetFramework == 'net9.0')",
-            "value": "9.0.0"
-          },
-          {
             "condition": "(targetFramework == 'net10.0')",
             "value": "10.0.0"
           },
@@ -285,14 +269,6 @@
         "evaluator": "C++",
         "cases": [
           {
-            "condition": "((mauiPlatforms == 'android' || mauiPlatforms == 'all') && targetFramework == 'net8.0')",
-            "value": "net8.0-android"
-          },
-          {
-            "condition": "((mauiPlatforms == 'android' || mauiPlatforms == 'all') && targetFramework == 'net9.0')",
-            "value": "net9.0-android"
-          },
-          {
             "condition": "((mauiPlatforms == 'android' || mauiPlatforms == 'all') && targetFramework == 'net10.0')",
             "value": "net10.0-android"
           },
@@ -310,14 +286,6 @@
       "parameters": {
         "evaluator": "C++",
         "cases": [
-          {
-            "condition": "((mauiPlatforms == 'ios' || mauiPlatforms == 'all') && targetFramework == 'net8.0')",
-            "value": "net8.0-ios"
-          },
-          {
-            "condition": "((mauiPlatforms == 'ios' || mauiPlatforms == 'all') && targetFramework == 'net9.0')",
-            "value": "net9.0-ios"
-          },
           {
             "condition": "((mauiPlatforms == 'ios' || mauiPlatforms == 'all') && targetFramework == 'net10.0')",
             "value": "net10.0-ios"
@@ -337,14 +305,6 @@
         "evaluator": "C++",
         "cases": [
           {
-            "condition": "((mauiPlatforms == 'macos' || mauiPlatforms == 'all') && targetFramework == 'net8.0')",
-            "value": "net8.0-maccatalyst"
-          },
-          {
-            "condition": "((mauiPlatforms == 'macos' || mauiPlatforms == 'all') && targetFramework == 'net9.0')",
-            "value": "net9.0-maccatalyst"
-          },
-          {
             "condition": "((mauiPlatforms == 'macos' || mauiPlatforms == 'all') && targetFramework == 'net10.0')",
             "value": "net10.0-maccatalyst"
           },
@@ -363,14 +323,6 @@
       "parameters": {
         "evaluator": "C++",
         "cases": [
-          {
-            "condition": "((mauiPlatforms == 'windows' || mauiPlatforms == 'all') && targetFramework == 'net8.0')",
-            "value": "net8.0-windows10.0.19041.0"
-          },
-          {
-            "condition": "((mauiPlatforms == 'windows' || mauiPlatforms == 'all') && targetFramework == 'net9.0')",
-            "value": "net9.0-windows10.0.19041.0"
-          },
           {
             "condition": "((mauiPlatforms == 'windows' || mauiPlatforms == 'all') && targetFramework == 'net10.0')",
             "value": "net10.0-windows10.0.19041.0"

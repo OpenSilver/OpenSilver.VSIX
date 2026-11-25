@@ -3,7 +3,7 @@
 Building the VSIX is only useful if you wish to test your changes to the Project Templates, the Item Templates, or the XAML editor. For all the other scenarios, building the Runtime or the NuGet package is sufficient to test your changes.
 
 1. If needed, change the version number in "source.extension.vsixmanifest" (located in the project "OpenSilver.VSIX")
-2. With Visual Studio 2022, open the solution "VSExtension.OpenSilver.sln" to build the VSIX of OpenSilver
+2. With Visual Studio 2026, open the solution "VSExtension.OpenSilver.sln" to build the VSIX of OpenSilver
 3. Visual Studio may prompt you to install additional necessary components. If prompted, proceed with the installation.
 4. Rebuild the solution
 5. The VSIX will be generated in a subfolder of the "bin" folder of the .VSIX project
@@ -36,9 +36,9 @@ This command will display the pre-installed .NET Core project templates. The lis
 
 In order to create your first OpenSilver app you have to choose the available template you want to use (WebApp, Business app, etc.) and then issue the command:
 
-	dotnet new opensilverapp -n MyProject -ta net7.0
+	dotnet new opensilverapp -n MyProject -ta net10.0
 
-This will create in the current directory an new Opensilver web project called "MyProject" targeting .net 7.0 (the default). Remember that you must use the short name of the template and **not** the full template name. Our templates will also take care of restoring the necessary nuget packages from the default repositories.
+This will create in the current directory an new Opensilver web project called "MyProject" targeting .net 10.0 (the default is .net 11.0). Remember that you must use the short name of the template and **not** the full template name. Our templates will also take care of restoring the necessary nuget packages from the default repositories.
 
 For more information about the command line switches you can run this command to get all the information you need for each template.
 

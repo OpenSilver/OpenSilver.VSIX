@@ -41,6 +41,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -115,8 +116,11 @@
     <Resource Include="AppCustomizationWindow\Icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.7.37357" />
-    <PackageReference Include="Microsoft.VisualStudio.TemplateWizardInterface" Version="17.5.33428.366" />
+    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.7.37357" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.VisualStudio.TemplateWizardInterface" Version="17.5.33428.366" ExcludeAssets="runtime" />
+    <PackageReference Include="MessagePack" Version="2.5.307" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.IO.Redist" Version="6.0.1" ExcludeAssets="runtime" />
+    <PackageReference Include="System.Text.Json" Version="8.0.6" ExcludeAssets="runtime" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\classic_theme.png" />

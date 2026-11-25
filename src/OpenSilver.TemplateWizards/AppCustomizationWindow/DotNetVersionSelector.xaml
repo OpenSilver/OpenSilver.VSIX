@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Orientation="Horizontal" Margin="0,0,0,60">
         <ComboBox x:Name="DotNetVersionComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Margin="20,0"
-              FontSize="22" Foreground="#1157FA" FontWeight="SemiBold" SelectedIndex="3" SelectedValuePath="Version" Cursor="Hand" SelectionChanged="DotNetVersionComboBox_SelectionChanged">
+              FontSize="22" Foreground="#1157FA" FontWeight="SemiBold" SelectedIndex="1" SelectedValuePath="Version" Cursor="Hand" SelectionChanged="DotNetVersionComboBox_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate DataType="models:DotNetOption">
                     <StackPanel Orientation="Vertical">
@@ -18,9 +18,7 @@
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
-            <models:DotNetOption Title=".NET 8" SupportDescription="Long Term Support" Version="Net8" Notes="* .NET 8 requires Visual Studio 2022 v17.8 or newer"/>
-            <models:DotNetOption Title=".NET 9" SupportDescription="Standard Term Support" Version="Net9" Notes="* .NET 9 requires Visual Studio 2022 v17.12 or newer"/>
-            <models:DotNetOption Title=".NET 10" SupportDescription="Long Term Support" Version="Net10" Notes="* .NET 10 requires Visual Studio 2026 (v18.0 Preview 1) or newer"/>
+            <models:DotNetOption Title=".NET 10" SupportDescription="Long Term Support" Version="Net10" Notes="* .NET 10 requires Visual Studio 2026 v18.0 or newer"/>
             <models:DotNetOption Title=".NET 11" SupportDescription="Standard Term Support" Version="Net11" Notes="* .NET 11 requires Visual Studio 2026 v18.12 or newer"/>
         </ComboBox>
         <TextBlock Grid.Row="1" Text="{Binding SelectedItem.Notes, ElementName=DotNetVersionComboBox}"

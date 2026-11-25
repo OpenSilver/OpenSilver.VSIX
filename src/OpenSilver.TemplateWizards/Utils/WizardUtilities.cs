@@ -2,6 +2,7 @@
 using EnvDTE80;
 using Microsoft.VisualStudio.Shell;
 using OpenSilver.TemplateWizards.Shared;
+using System;
 using System.Collections.Generic;
 
 namespace OpenSilver.TemplateWizards.Utils
@@ -63,10 +64,28 @@ namespace OpenSilver.TemplateWizards.Utils
         /// Converts a DotNetVersion enum value to its corresponding target framework moniker string
         /// </summary>
         /// <param name="netTarget">The .NET version to convert</param>
-        /// <returns>The target framework moniker as a string (e.g., "net8.0")</returns>
+        /// <returns>The target framework moniker as a string (e.g., "net10.0")</returns>
         public static string GetNetTarget(DotNetVersion netTarget)
         {
             return EnumUtilities.GetEnumDescription(netTarget);
+        }
+
+        /// <summary>
+        /// Gets the version of the Blazor and Microsoft.Extensions.* packages matching the given .NET version
+        /// </summary>
+        /// <param name="netTarget">The target .NET version</param>
+        /// <returns>The package version as a string (e.g., "10.0.0")</returns>
+        public static string GetBlazorPackagesVersion(DotNetVersion netTarget)
+        {
+            switch (netTarget)
+            {
+                case DotNetVersion.Net10:
+                    return GlobalConstants.BlazorPackagesVersionNet10;
+                case DotNetVersion.Net11:
+                    return GlobalConstants.BlazorPackagesVersionNet11;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(netTarget), netTarget, null);
+            }
         }
     }
 }
