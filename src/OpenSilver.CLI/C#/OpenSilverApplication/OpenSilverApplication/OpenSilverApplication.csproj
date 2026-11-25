@@ -17,14 +17,14 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
+    <Page Include="$MainViewName$.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
 
   <ItemGroup>
     <Compile Include="App.xaml.cs" />
-    <Compile Include="MainPage.xaml.cs" />
+    <Compile Include="$MainViewName$.xaml.cs" />
   </ItemGroup>
 
 </Project>

@@ -12,8 +12,10 @@ type App = class
     new () as this = {} then
         this.InitializeComponent()
         // Enter construction logic here...
+//#if (!isWpf)
 
         let mainPage = new MainPage()
         this.RootVisual <- mainPage;
+//#endif
 
 end

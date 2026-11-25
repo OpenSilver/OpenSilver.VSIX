@@ -52,7 +52,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverPackageVersion$",
       "parameters": {
-        "value": "3.3.3"
+        "value": "3.4.0-preview-2026-11-20-102406-941451b4"
       }
     }
   },

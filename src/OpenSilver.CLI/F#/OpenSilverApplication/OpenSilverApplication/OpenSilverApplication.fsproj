@@ -21,11 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Include="MainPage.xaml">
+    <Page Include="$MainViewName$.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Compile Include="MainPage.xaml.fs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="$MainViewName$.xaml.fs">
+      <DependentUpon>$MainViewName$.xaml</DependentUpon>
     </Compile>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>

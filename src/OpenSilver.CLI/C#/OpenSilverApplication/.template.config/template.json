@@ -43,6 +43,20 @@
           "exclude": [
             "OpenSilverApplication.Photino/**"
           ]
+        },
+        {
+          "condition": "(isWpf)",
+          "exclude": [
+            "OpenSilverApplication/MainPage.xaml",
+            "OpenSilverApplication/MainPage.xaml.*"
+          ]
+        },
+        {
+          "condition": "(!isWpf)",
+          "exclude": [
+            "OpenSilverApplication/MainWindow.xaml",
+            "OpenSilverApplication/MainWindow.xaml.*"
+          ]
         }
       ]
     }
@@ -84,6 +98,22 @@
         {
           "choice": "net11.0",
           "description": "Use .NET 11.0"
+        }
+      ]
+    },
+    "templateKind": {
+      "type": "parameter",
+      "datatype": "choice",
+      "description": "Specifies the style of the initial files generated for the application project.",
+      "defaultValue": "wpf",
+      "choices": [
+        {
+          "choice": "wpf",
+          "description": "WPF-Style: MainWindow with Application.StartupUri"
+        },
+        {
+          "choice": "silverlight",
+          "description": "Silverlight-Style: MainPage with Application.RootVisual"
         }
       ]
     },
@@ -156,7 +186,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverPackageVersion$",
       "parameters": {
-        "value": "3.3.3"
+        "value": "3.4.0-preview-2026-11-20-102406-941451b4"
       }
     },
     "openSilverSimulatorPackageVersion": {
@@ -164,7 +194,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverSimulatorPackageVersion$",
       "parameters": {
-        "value": "3.3.3"
+        "value": "3.4.0-preview-2026-11-20-102406-941451b4"
       }
     },
     "openSilverWebAssemblyPackageVersion": {
@@ -172,7 +202,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverWebAssemblyPackageVersion$",
       "parameters": {
-        "value": "3.3.3"
+        "value": "3.4.0-preview-2026-11-20-102406-941451b4"
       }
     },
     "modernThemePackageVersion": {
@@ -180,7 +210,7 @@
       "generator": "constant",
       "replaces": "$ModernThemePackageVersion$",
       "parameters": {
-        "value": "3.3.*"
+        "value": "3.4.0-preview-2026-11-18-093018-cf37a7c9"
       }
     },
     "openSilverMauiHybridPackageVersion": {
@@ -188,7 +218,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverMauiHybridPackageVersion$",
       "parameters": {
-        "value": "3.3.3"
+        "value": "3.4.0-preview-2026-11-20-102406-941451b4"
       }
     },
     "openSilverPhotinoPackageVersion": {
@@ -196,7 +226,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverPhotinoPackageVersion$",
       "parameters": {
-        "value": "3.3.3"
+        "value": "3.4.0-preview-2026-11-20-102406-941451b4"
       }
     },
     "webAssemblyPackageVersion": {
@@ -252,6 +282,48 @@
           {
             "condition": "(theme != 'classic')",
             "value": "{DynamicResource Theme_BackgroundBrush}"
+          }
+        ]
+      }
+    },
+    "isWpf": {
+      "type": "computed",
+      "value": "(templateKind == \"wpf\")"
+    },
+    "mainViewName": {
+      "type": "generated",
+      "generator": "switch",
+      "datatype": "string",
+      "replaces": "$MainViewName$",
+      "parameters": {
+        "evaluator": "C++",
+        "cases": [
+          {
+            "condition": "(isWpf)",
+            "value": "MainWindow"
+          },
+          {
+            "condition": "(!isWpf)",
+            "value": "MainPage"
+          }
+        ]
+      }
+    },
+    "startupUri": {
+      "type": "generated",
+      "generator": "switch",
+      "datatype": "string",
+      "replaces": "$StartupUri$",
+      "parameters": {
+        "evaluator": "C++",
+        "cases": [
+          {
+            "condition": "(isWpf)",
+            "value": "\r\n    StartupUri=\"MainWindow.xaml\""
+          },
+          {
+            "condition": "(!isWpf)",
+            "value": ""
           }
         ]
       }

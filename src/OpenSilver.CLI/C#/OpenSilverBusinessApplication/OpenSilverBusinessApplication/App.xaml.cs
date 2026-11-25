@@ -31,8 +31,10 @@ namespace OpenSilverBusinessApplication
 
             // This will automatically authenticate a user when using Windows authentication or when the user chose "Keep me signed in" on a previous login attempt.
             WebContext.Current.Authentication.LoadUser(this.Application_UserLoaded, null);
+#if (!isWpf)
 
             this.RootVisual = new MainPage();
+#endif
         }
 
         /// <summary>

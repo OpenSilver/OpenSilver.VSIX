@@ -52,6 +52,17 @@ Alternatively, for VB or F#, replace `C#` with `VB` or `F#` in the `-lang` param
 
 These commands will generate a new project folder with the specified name, template structure, and language.
 
+### Choosing the Template Kind
+
+Application and Business Application templates accept the `--templateKind` option, which defines the style of the initial files:
+
+- `wpf` (default): WPF-Style, `MainWindow` with `Application.StartupUri`.
+- `silverlight`: Silverlight-Style, `MainPage` with `Application.RootVisual`.
+
+```shell
+dotnet new opensilverapp -n MyOpenSilverApp --templateKind silverlight
+```
+
 ## Template Overview
 
 | Template                   | Short Name              | Language(s) Supported | Default Language |

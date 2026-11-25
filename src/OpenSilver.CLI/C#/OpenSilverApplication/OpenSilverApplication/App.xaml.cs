@@ -14,9 +14,11 @@ namespace OpenSilverApplication
             this.InitializeComponent();
 
             // Enter construction logic here...
+#if (!isWpf)
 
             var mainPage = new MainPage();
             this.RootVisual = mainPage;
+#endif
         }
     }
 }

@@ -23,6 +23,26 @@
       ]
     }
   },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "condition": "(isWpf)",
+          "exclude": [
+            "OpenSilverBusinessApplication/MainPage.xaml",
+            "OpenSilverBusinessApplication/MainPage.xaml.*"
+          ]
+        },
+        {
+          "condition": "(!isWpf)",
+          "exclude": [
+            "OpenSilverBusinessApplication/MainWindow.xaml",
+            "OpenSilverBusinessApplication/MainWindow.xaml.*"
+          ]
+        }
+      ]
+    }
+  ],
   "primaryOutputs": [
     { "path": "./OpenSilverBusinessApplication/OpenSilverBusinessApplication.csproj" },
     { "path": "./OpenSilverBusinessApplication.Browser/OpenSilverBusinessApplication.Browser.csproj" },
@@ -53,12 +73,70 @@
         }
       ]
     },
+    "templateKind": {
+      "type": "parameter",
+      "datatype": "choice",
+      "description": "Specifies the style of the initial files generated for the application project.",
+      "defaultValue": "wpf",
+      "choices": [
+        {
+          "choice": "wpf",
+          "description": "WPF-Style: MainWindow with Application.StartupUri"
+        },
+        {
+          "choice": "silverlight",
+          "description": "Silverlight-Style: MainPage with Application.RootVisual"
+        }
+      ]
+    },
+    "isWpf": {
+      "type": "computed",
+      "value": "(templateKind == \"wpf\")"
+    },
+    "mainViewName": {
+      "type": "generated",
+      "generator": "switch",
+      "datatype": "string",
+      "replaces": "$MainViewName$",
+      "parameters": {
+        "evaluator": "C++",
+        "cases": [
+          {
+            "condition": "(isWpf)",
+            "value": "MainWindow"
+          },
+          {
+            "condition": "(!isWpf)",
+            "value": "MainPage"
+          }
+        ]
+      }
+    },
+    "startupUri": {
+      "type": "generated",
+      "generator": "switch",
+      "datatype": "string",
+      "replaces": "$StartupUri$",
+      "parameters": {
+        "evaluator": "C++",
+        "cases": [
+          {
+            "condition": "(isWpf)",
+            "value": "\r\n             StartupUri=\"MainWindow.xaml\""
+          },
+          {
+            "condition": "(!isWpf)",
+            "value": ""
+          }
+        ]
+      }
+    },
     "openSilverPackageVersion": {
       "type": "generated",
       "generator": "constant",
       "replaces": "$OpenSilverPackageVersion$",
       "parameters": {
-        "value": "3.3.3"
+        "value": "3.4.0-preview-2026-11-20-102406-941451b4"
       }
     },
     "openSilverSimulatorPackageVersion": {
@@ -66,7 +144,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverSimulatorPackageVersion$",
       "parameters": {
-        "value": "3.3.3"
+        "value": "3.4.0-preview-2026-11-20-102406-941451b4"
       }
     },
     "openSilverWebAssemblyPackageVersion": {
@@ -74,7 +152,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverWebAssemblyPackageVersion$",
       "parameters": {
-        "value": "3.3.3"
+        "value": "3.4.0-preview-2026-11-20-102406-941451b4"
       }
     },
     "openSilverOpenRiaPackageVersion": {
@@ -82,7 +160,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverOpenRiaPackageVersion$",
       "parameters": {
-        "value": "3.3.0"
+        "value": "3.4.0-preview-2026-11-24-183109-fd3c1ae"
       }
     },
     "webAssemblyPackageVersion": {

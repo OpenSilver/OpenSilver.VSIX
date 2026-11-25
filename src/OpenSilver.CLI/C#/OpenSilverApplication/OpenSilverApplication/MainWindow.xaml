@@ -1,0 +1,13 @@
+<Window x:Class="OpenSilverApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:OpenSilverApplication"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Foreground="$PageForeground$">
+
+    <Grid Background="$GridBackground$">
+        <TextBlock Text="Hello, World!" FontSize="23" Margin="32,32,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

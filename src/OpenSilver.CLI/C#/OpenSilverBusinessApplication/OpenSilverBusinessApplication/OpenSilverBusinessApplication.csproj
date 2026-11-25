@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <Compile Include="App.xaml.cs" />
-    <Compile Include="MainPage.xaml.cs" />
+    <Compile Include="$MainViewName$.xaml.cs" />
     <Compile Include="Contexts\WebContext.cs" />
     <Compile Include="Helpers\DataFieldExtensions.cs" />
     <Compile Include="Helpers\NotOperatorValueConverter.cs" />
@@ -41,7 +41,7 @@
     <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainPage.xaml">
+    <Page Include="$MainViewName$.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Assets\Styles.xaml">
