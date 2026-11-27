@@ -169,6 +169,15 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <Style.Triggers>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsAlwaysSelected}" Value="False"/>
+                        <Condition Binding="{Binding ShowAllPlatforms, RelativeSource={RelativeSource AncestorType=ListBox}}" Value="False"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </MultiDataTrigger>
+            </Style.Triggers>
         </Style>
     </ListBox.ItemContainerStyle>
 

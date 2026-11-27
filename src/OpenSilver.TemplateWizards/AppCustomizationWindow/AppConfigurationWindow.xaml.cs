@@ -110,6 +110,12 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow
             Close();
         }
 
+        private void MorePlatformsButton_Click(object sender, RoutedEventArgs e)
+        {
+            platformList.ShowAllPlatforms = true;
+            morePlatformsBtn.Visibility = Visibility.Collapsed;
+        }
+
         private void ThemeCollectionView_SelectionChanged(object sender, ThemeOptions theme)
         {
             SelectedTheme = theme;
