@@ -30,6 +30,7 @@
                         <Setter Property="Padding" Value="2" />
                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                         <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                        <Setter Property="VerticalAlignment" Value="Top" />
                         <Setter Property="Background" Value="#55FFFFFF" />
                         <Setter Property="BorderThickness" Value="3"/>
                         <Setter Property="KeyboardNavigation.TabNavigation" Value="Local" />
@@ -100,6 +101,7 @@
                                                    Width="132"
                                                    Height="134"
                                                    SnapsToDevicePixels="True"
+                                                   RenderOptions.BitmapScalingMode="HighQuality"
                                                    Stretch="Uniform"
                                                    Margin="0"
                                                    ToolTip="{Binding Description}"/>

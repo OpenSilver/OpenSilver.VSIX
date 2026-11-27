@@ -10,10 +10,13 @@ namespace OpenSilver.TemplateWizards.AppCustomizationWindow.Models
         public static ThemeOptions Dark { get; } =
             new ThemeOptions(nameof(Dark), "Modern Dark Theme", "/OpenSilver.TemplateWizards;component/Assets/Images/dark_theme.png", "#111111");
 
+        public static ThemeOptions Wpf { get; } =
+            new ThemeOptions(nameof(Wpf), "WPF Theme", "/OpenSilver.TemplateWizards;component/Assets/Images/wpf_theme.png", "#FFFFFF");
+
         public static ThemeOptions Classic { get; } =
             new ThemeOptions(nameof(Classic), "Classic Silverlight Theme", "/OpenSilver.TemplateWizards;component/Assets/Images/classic_theme.png", "#FFFFFF");
 
-        public static IEnumerable<ThemeOptions> Themes { get; } = new ThemeOptions[] { Light, Dark, Classic };
+        public static IEnumerable<ThemeOptions> Themes { get; } = new ThemeOptions[] { Light, Dark, Wpf, Classic };
 
         private ThemeOptions(string name, string title, string thumbnailUri, string backgroundColor)
         {

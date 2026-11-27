@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>OpenSilverApplication</title>
     <base href="/" />
-    <!--#if(theme == 'modern-light')-->
+    <!--#if(theme == 'modern-light' || theme == 'wpf')-->
     <style>
         :root {
             --opensilver-loading-background-color: #fff;
@@ -38,7 +38,7 @@
             style.setAttribute('href', 'modern/loading-indicator.css?date=' + new Date().toISOString());
             <!--#endif-->
             document.head.appendChild(style);
-            <!--#if(theme == 'modern-light' || theme == 'modern-dark')-->
+            <!--#if(theme != 'classic')-->
 
             const script = document.createElement('script');
             script.setAttribute('type', 'application/javascript');

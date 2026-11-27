@@ -126,6 +126,7 @@
     <Resource Include="Assets\Images\classic_theme.png" />
     <Resource Include="Assets\Images\dark_theme.png" />
     <Resource Include="Assets\Images\light_theme.png" />
+    <Resource Include="Assets\Images\wpf_theme.png" />
     <Resource Include="Assets\Images\platform_android.png" />
     <Resource Include="Assets\Images\platform_apple.png" />
     <Resource Include="Assets\Images\platform_linux.png" />

@@ -11,6 +11,9 @@
     <!--#if(theme == 'modern-light' || theme == 'modern-dark')-->
     <PackageReference Include="OpenSilver.Themes.Modern" Version="$ModernThemePackageVersion$" />
     <!--#endif-->
+    <!--#if(theme == 'wpf')-->
+    <PackageReference Include="OpenSilver.Themes.Wpf" Version="$WpfThemePackageVersion$" />
+    <!--#endif-->
   </ItemGroup>
 
   <!-- Declared here (and not only by OpenSilver.targets) so that Visual Studio knows these item types before the

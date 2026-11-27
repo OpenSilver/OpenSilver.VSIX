@@ -142,22 +142,37 @@ namespace OpenSilver.TemplateWizards.Wizards
 
         private string GetAppXamlTheme(ThemeOptions selectedTheme)
         {
-            if (IsClassic(selectedTheme))
+            if (IsModern(selectedTheme))
             {
-                return "";
+                return $"    <Application.Theme>{Environment.NewLine}        <mt:ModernTheme CurrentPalette=\"{selectedTheme.Name}\" xmlns:mt=\"http://opensilver.net/themes/modern\"/>{Environment.NewLine}    </Application.Theme>";
             }
 
-            return $"    <Application.Theme>{Environment.NewLine}        <mt:ModernTheme CurrentPalette=\"{selectedTheme.Name}\" xmlns:mt=\"http://opensilver.net/themes/modern\"/>{Environment.NewLine}    </Application.Theme>";
+            if (IsWpf(selectedTheme))
+            {
+                return $"    <Application.Theme>{Environment.NewLine}        <wt:WpfTheme xmlns:wt=\"http://opensilver.net/themes/wpf\"/>{Environment.NewLine}    </Application.Theme>";
+            }
+
+            return "";
         }
 
-        private string GetThemesNugetPackageLine(string version)
+        private string GetThemesNugetPackageLine(ThemeOptions selectedTheme)
         {
-            return $"{Environment.NewLine}    <PackageReference Include=\"OpenSilver.Themes.Modern\" Version=\"{version}\" />";
+            if (IsModern(selectedTheme))
+            {
+                return $"{Environment.NewLine}    <PackageReference Include=\"OpenSilver.Themes.Modern\" Version=\"{GlobalConstants.OpenSilverThemeModernPackageVersion}\" />";
+            }
+
+            if (IsWpf(selectedTheme))
+            {
+                return $"{Environment.NewLine}    <PackageReference Include=\"OpenSilver.Themes.Wpf\" Version=\"{GlobalConstants.OpenSilverThemeWpfPackageVersion}\" />";
+            }
+
+            return "";
         }
 
         private string GetLoadingColors(ThemeOptions selectedTheme)
         {
-            if (selectedTheme == ThemeOptions.Light)
+            if (selectedTheme == ThemeOptions.Light || IsWpf(selectedTheme))
             {
                 return ModernLightStyles;
             }
@@ -315,10 +330,10 @@ namespace OpenSilver.TemplateWizards.Wizards
             replacementsDictionary.Add("$openria46packageversion$", GlobalConstants.OpenRia46PackageVersion);
             replacementsDictionary.Add("$opensilverthememodern$", GlobalConstants.OpenSilverThemeModernPackageVersion);
 
-            replacementsDictionary.Add("$pageforeground$", IsClassic(window.SelectedTheme) ? "Black" : "{DynamicResource Theme_TextBrush}");
-            replacementsDictionary.Add("$gridbackground$", IsClassic(window.SelectedTheme) ? "White" : "{DynamicResource Theme_BackgroundBrush}");
+            replacementsDictionary.Add("$pageforeground$", IsModern(window.SelectedTheme) ? "{DynamicResource Theme_TextBrush}" : "Black");
+            replacementsDictionary.Add("$gridbackground$", IsModern(window.SelectedTheme) ? "{DynamicResource Theme_BackgroundBrush}" : "White");
             replacementsDictionary.Add("$appxamltheme$", GetAppXamlTheme(window.SelectedTheme));
-            replacementsDictionary.Add("$themesnugetpackage$", IsClassic(window.SelectedTheme) ? "" : GetThemesNugetPackageLine(replacementsDictionary["$opensilverthememodern$"]));
+            replacementsDictionary.Add("$themesnugetpackage$", GetThemesNugetPackageLine(window.SelectedTheme));
 
             replacementsDictionary.Add("$modernloadingcolors$", GetLoadingColors(window.SelectedTheme));
             replacementsDictionary.Add("$loadingindicatorcss$", GetLoadingIndicatorCss(window.SelectedTheme));
@@ -335,6 +350,16 @@ namespace OpenSilver.TemplateWizards.Wizards
         private bool IsClassic(ThemeOptions theme)
         {
             return theme == ThemeOptions.Classic;
+        }
+
+        private bool IsModern(ThemeOptions theme)
+        {
+            return theme == ThemeOptions.Light || theme == ThemeOptions.Dark;
+        }
+
+        private bool IsWpf(ThemeOptions theme)
+        {
+            return theme == ThemeOptions.Wpf;
         }
 
         public bool ShouldAddProjectItem(string filePath)

@@ -134,6 +134,10 @@
         {
           "choice": "modern-dark",
           "description": "Modern theme with dark mode"
+        },
+        {
+          "choice": "wpf",
+          "description": "WPF theme"
         }
       ]
     },
@@ -186,7 +190,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverPackageVersion$",
       "parameters": {
-        "value": "3.4.0-preview-2026-11-20-102406-941451b4"
+        "value": "3.4.0-preview-2026-11-26-113522-38977eab"
       }
     },
     "openSilverSimulatorPackageVersion": {
@@ -194,7 +198,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverSimulatorPackageVersion$",
       "parameters": {
-        "value": "3.4.0-preview-2026-11-20-102406-941451b4"
+        "value": "3.4.0-preview-2026-11-26-113522-38977eab"
       }
     },
     "openSilverWebAssemblyPackageVersion": {
@@ -202,7 +206,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverWebAssemblyPackageVersion$",
       "parameters": {
-        "value": "3.4.0-preview-2026-11-20-102406-941451b4"
+        "value": "3.4.0-preview-2026-11-26-113522-38977eab"
       }
     },
     "modernThemePackageVersion": {
@@ -213,12 +217,20 @@
         "value": "3.4.0-preview-2026-11-18-093018-cf37a7c9"
       }
     },
+    "wpfThemePackageVersion": {
+      "type": "generated",
+      "generator": "constant",
+      "replaces": "$WpfThemePackageVersion$",
+      "parameters": {
+        "value": "3.4.0-preview-2026-11-26-134030-d24118e6"
+      }
+    },
     "openSilverMauiHybridPackageVersion": {
       "type": "generated",
       "generator": "constant",
       "replaces": "$OpenSilverMauiHybridPackageVersion$",
       "parameters": {
-        "value": "3.4.0-preview-2026-11-20-102406-941451b4"
+        "value": "3.4.0-preview-2026-11-26-113522-38977eab"
       }
     },
     "openSilverPhotinoPackageVersion": {
@@ -226,7 +238,7 @@
       "generator": "constant",
       "replaces": "$OpenSilverPhotinoPackageVersion$",
       "parameters": {
-        "value": "3.4.0-preview-2026-11-20-102406-941451b4"
+        "value": "3.4.0-preview-2026-11-26-113522-38977eab"
       }
     },
     "webAssemblyPackageVersion": {
@@ -257,11 +269,11 @@
         "evaluator": "C++",
         "cases": [
           {
-            "condition": "(theme == 'classic')",
+            "condition": "(theme != 'modern-light' && theme != 'modern-dark')",
             "value": "Black"
           },
           {
-            "condition": "(theme != 'classic')",
+            "condition": "(theme == 'modern-light' || theme == 'modern-dark')",
             "value": "{DynamicResource Theme_TextBrush}"
           }
         ]
@@ -276,11 +288,11 @@
         "evaluator": "C++",
         "cases": [
           {
-            "condition": "(theme == 'classic')",
+            "condition": "(theme != 'modern-light' && theme != 'modern-dark')",
             "value": "White"
           },
           {
-            "condition": "(theme != 'classic')",
+            "condition": "(theme == 'modern-light' || theme == 'modern-dark')",
             "value": "{DynamicResource Theme_BackgroundBrush}"
           }
         ]

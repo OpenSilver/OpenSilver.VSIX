@@ -18,4 +18,9 @@
         <mt:ModernTheme CurrentPalette="Dark" xmlns:mt="http://opensilver.net/themes/modern" />
     </Application.Theme>
     <!--#endif-->
+    <!--#if(theme == 'wpf')-->
+    <Application.Theme>
+        <wt:WpfTheme xmlns:wt="http://opensilver.net/themes/wpf" />
+    </Application.Theme>
+    <!--#endif-->
 </Application>
